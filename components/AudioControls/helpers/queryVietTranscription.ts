@@ -1,3 +1,5 @@
+import * as fs from "fs"
+
 export const queryVietTranscription = async (
   filename: string
 ): Promise<unknown> => {

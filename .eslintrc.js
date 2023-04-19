@@ -8,6 +8,7 @@ module.exports = {
     "standard-with-typescript",
     "next/core-web-vitals",
     "prettier",
+    "next",
   ],
   overrides: [],
   parserOptions: {
