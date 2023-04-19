@@ -1,18 +1,16 @@
-import * as fs from "fs"
+import * as fs from 'fs'
 
-export const queryVietTranscription = async (
-  filename: string
-): Promise<unknown> => {
+export const queryVietTranscription = async (filename: string): Promise<unknown> => {
   const data = fs.readFileSync(filename)
   const response = await fetch(
-    "https://api-inference.huggingface.co/models/nguyenvulebinh/wav2vec2-base-vietnamese-250h",
+    'https://api-inference.huggingface.co/models/nguyenvulebinh/wav2vec2-base-vietnamese-250h',
     {
       headers: {
-        Authorization: "Bearer",
+        Authorization: 'Bearer',
       },
-      method: "POST",
+      method: 'POST',
       body: data,
-    }
+    },
   )
   const result = await response.json()
   return result

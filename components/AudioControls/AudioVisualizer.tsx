@@ -1,6 +1,6 @@
-import { Fragment, useState, useEffect } from "react"
-import type { ReactElement } from "react"
-import { Flex } from "@chakra-ui/react"
+import { Fragment, useState, useEffect } from 'react'
+import type { ReactElement } from 'react'
+import { Flex } from '@chakra-ui/react'
 
 interface AudioVisualizerProps {
   stream: MediaStream
@@ -22,12 +22,10 @@ const AudioVisualizer = ({ stream }: AudioVisualizerProps): ReactElement => {
   }, [stream])
 
   useEffect(() => {
-    const canvas = document.getElementById(
-      "audio-visualizer"
-    ) as HTMLCanvasElement | null
+    const canvas = document.getElementById('audio-visualizer') as HTMLCanvasElement | null
     // eslint-disable-next-line @typescript-eslint/strict-boolean-expressions
     if (canvas) {
-      const context = canvas.getContext("2d")
+      const context = canvas.getContext('2d')
       // eslint-disable-next-line @typescript-eslint/strict-boolean-expressions
       if (context) {
         const WIDTH = canvas.width
@@ -42,11 +40,11 @@ const AudioVisualizer = ({ stream }: AudioVisualizerProps): ReactElement => {
           const animate = (): void => {
             requestAnimationFrame(animate)
             let x = 0
-            context.fillStyle = "#CBD5E0"
+            context.fillStyle = '#CBD5E0'
             context.fillRect(0, 0, WIDTH, HEIGHT)
             analyzer.getFloatFrequencyData(dataArray)
             context.lineWidth = 2
-            context.strokeStyle = "#2D3748"
+            context.strokeStyle = '#2D3748'
 
             context.beginPath()
 
@@ -72,7 +70,7 @@ const AudioVisualizer = ({ stream }: AudioVisualizerProps): ReactElement => {
   return (
     <>
       <Flex w={300} h={150}>
-        <canvas width="300" height="150" id="audio-visualizer"></canvas>
+        <canvas width='300' height='150' id='audio-visualizer'></canvas>
       </Flex>
     </>
   )

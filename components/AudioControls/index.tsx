@@ -1,12 +1,12 @@
-"use client"
+'use client'
 /* eslint-disable @typescript-eslint/strict-boolean-expressions */
-import { Fragment, useState, useEffect, useCallback, useRef } from "react"
-import type { ReactElement } from "react"
-import { Button, Flex, Heading } from "@chakra-ui/react"
-import { isNull } from "lodash"
-import AudioVisualizer from "./AudioVisualizer"
+import { Fragment, useState, useEffect, useCallback, useRef } from 'react'
+import type { ReactElement } from 'react'
+import { Button, Flex, Heading } from '@chakra-ui/react'
+import { isNull } from 'lodash'
+import AudioVisualizer from './AudioVisualizer'
 
-const mimeType = "audio/webm"
+const mimeType = 'audio/webm'
 
 const AudioControls = (): ReactElement => {
   const [permission, setPermission] = useState<boolean>(false)
@@ -14,12 +14,12 @@ const AudioControls = (): ReactElement => {
 
   const mediaRecorder = useRef<MediaRecorder | null>(null)
   const inProgressData = useRef<Blob[] | null>(null)
-  const [recordingStatus, setRecordingStatus] = useState<string>("inactive")
+  const [recordingStatus, setRecordingStatus] = useState<string>('inactive')
   const [audioChunks, setAudioChunks] = useState<BlobPart[]>([])
   const [audio, setAudio] = useState<string | null>(null)
 
   const getMicrophonePermission = useCallback(async () => {
-    if ("MediaRecorder" in window) {
+    if ('MediaRecorder' in window) {
       try {
         const streamData = await navigator.mediaDevices.getUserMedia({
           audio: true,
@@ -27,17 +27,17 @@ const AudioControls = (): ReactElement => {
         })
         setPermission(true)
         setStream(streamData)
-      } catch (err: any) {
-        alert(err.message)
+      } catch (err) {
+        alert(err)
       }
     } else {
-      alert("The MediaRecorder API is not supported in your browser.")
+      alert('The MediaRecorder API is not supported in your browser.')
     }
   }, [])
 
   const startRecording = (): void => {
     if (stream) {
-      setRecordingStatus("recording")
+      setRecordingStatus('recording')
       // create new Media recorder instance using the stream
       const media = new MediaRecorder(stream, { mimeType })
       // set the MediaRecorder instance to the mediaRecorder ref
@@ -48,7 +48,7 @@ const AudioControls = (): ReactElement => {
       let localAudioChunks: Blob[] = []
       inProgressData.current = localAudioChunks
       mediaRecorder.current.ondataavailable = (event) => {
-        if (typeof event.data === "undefined") return
+        if (typeof event.data === 'undefined') return
         if (event.data.size === 0) return
         localAudioChunks.push(event.data)
       }
@@ -57,7 +57,7 @@ const AudioControls = (): ReactElement => {
   }
 
   const stopRecording = (): void => {
-    setRecordingStatus("inactive")
+    setRecordingStatus('inactive')
     // stops the recording instance
     if (mediaRecorder?.current) {
       mediaRecorder.current.stop()
@@ -80,56 +80,53 @@ const AudioControls = (): ReactElement => {
   return (
     <>
       <Heading>Vietnamese Speech to Text</Heading>
-      <Flex w={"100vw"} justifyContent={"center"} alignItems={"center"}>
-        <Flex
-          w={"100vw"}
-          direction={"column"}
-          justifyContent={"center"}
-          alignItems={"center"}
-        >
+      <Flex w={'100vw'} justifyContent={'center'} alignItems={'center'}>
+        <Flex w={'100vw'} direction={'column'} justifyContent={'center'} alignItems={'center'}>
           <Flex
             margin={10}
-            w={"50vw"}
-            background={"gray.100"}
-            h={"50vh"}
+            w={'50vw'}
+            background={'gray.100'}
+            h={'50vh'}
             rounded={6}
-            alignItems={"center"}
-            justifyContent={"center"}
+            alignItems={'center'}
+            justifyContent={'center'}
           >
-            <Flex direction={"column"} alignItems={"center"}>
-              {permission && recordingStatus === "inactive" ? (
+            <Flex direction={'column'} alignItems={'center'}>
+              {permission && recordingStatus === 'inactive' ? (
                 <Button
-                  colorScheme={"green"}
+                  colorScheme={'green'}
                   margin={16}
                   padding={8}
-                  id="recording-button"
+                  id='recording-button'
                   onClick={startRecording}
                 >
                   Start Recording
                 </Button>
               ) : null}
-              {recordingStatus === "recording" ? (
+              {recordingStatus === 'recording' ? (
                 <Button
-                  colorScheme={"red"}
+                  colorScheme={'red'}
                   margin={16}
                   padding={8}
-                  id="recording-button"
+                  id='recording-button'
                   onClick={stopRecording}
                 >
                   Stop Recording
                 </Button>
               ) : null}
-              {recordingStatus === "recording" && stream ? (
+              {recordingStatus === 'recording' && stream ? (
                 <AudioVisualizer stream={stream} />
               ) : null}
             </Flex>
           </Flex>
           {!isNull(audio) && (
-            <audio src={audio} controls id="playback-sample"></audio>
+            <audio src={audio} controls id='playback-sample'>
+              <track kind='captions' />
+            </audio>
           )}
 
           {!isNull(audio) && (
-            <a download id="download-button" href={audio}>
+            <a download id='download-button' href={audio}>
               Download
             </a>
           )}
