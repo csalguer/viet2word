@@ -1,8 +1,10 @@
 import { Fragment, useEffect } from "react"
 import type { ReactElement } from "react"
 import { Flex } from "@chakra-ui/react"
+import * as fs from "fs"
+import { isNull } from "lodash"
 
-export const viet2wordQuery = async (filename): unknown => {
+export const viet2wordQuery = async (filename: string): Promise<unknown> => {
   const data = fs.readFileSync(filename)
   const response = await fetch(
     "https://api-inference.huggingface.co/models/nguyenvulebinh/wav2vec2-base-vietnamese-250h",
@@ -18,7 +20,7 @@ export const viet2wordQuery = async (filename): unknown => {
   return result
 }
 
-const AudioRecorder: ReactElement = () => {
+const AudioRecorder = (): ReactElement => {
   useEffect(() => {
     const recognize = async (): Promise<void> => {
       // eslint-disable-next-line prefer-const
@@ -35,7 +37,10 @@ const AudioRecorder: ReactElement = () => {
             }))
             // Find the most probable word.
             scores.sort((s1, s2) => s2.score - s1.score)
-            document.querySelector("#console").textContent = scores[0].word
+            const console = document.querySelector("#console")
+            if (!isNull(console)) {
+              console.textContent = scores[0].word
+            }
           },
           { probabilityThreshold: 0.75 }
         )
