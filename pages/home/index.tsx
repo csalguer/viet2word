@@ -1,6 +1,6 @@
 import Head from "next/head"
 import styles from "@/styles/Home.module.css"
-import AudioRecorder from "@/components/AudioRecorder"
+import AudioControls from "@/components/AudioControls"
 import type { ReactElement } from "react"
 
 export default function Home(): ReactElement {
@@ -13,7 +13,7 @@ export default function Home(): ReactElement {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main className={styles.main}>
-        <AudioRecorder />
+        <AudioControls />
       </main>
     </>
   )
