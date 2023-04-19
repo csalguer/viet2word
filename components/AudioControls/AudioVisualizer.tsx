@@ -11,7 +11,6 @@ const AudioVisualizer = ({ stream }: AudioVisualizerProps): ReactElement => {
 
   useEffect(() => {
     const audioContext = new AudioContext()
-    console.log(audioContext)
     const audioSource = audioContext.createMediaStreamSource(stream)
     const analyzer = audioContext.createAnalyser()
     analyzer.minDecibels = -90
@@ -43,11 +42,11 @@ const AudioVisualizer = ({ stream }: AudioVisualizerProps): ReactElement => {
           const animate = (): void => {
             requestAnimationFrame(animate)
             let x = 0
-            context.fillStyle = "rgb(220, 220, 220)"
+            context.fillStyle = "#CBD5E0"
             context.fillRect(0, 0, WIDTH, HEIGHT)
             analyzer.getFloatFrequencyData(dataArray)
             context.lineWidth = 2
-            context.strokeStyle = "rgb(0, 0, 0)"
+            context.strokeStyle = "#2D3748"
 
             context.beginPath()
 
