@@ -1,8 +1,10 @@
+"use client"
 /* eslint-disable @typescript-eslint/strict-boolean-expressions */
 import { Fragment, useState, useEffect, useCallback, useRef } from "react"
 import type { ReactElement } from "react"
 import { Button, Flex, Heading } from "@chakra-ui/react"
 import { isNull } from "lodash"
+import AudioVisualizer from "./AudioVisualizer"
 
 const mimeType = "audio/webm"
 
@@ -11,6 +13,7 @@ const AudioControls = (): ReactElement => {
   const [stream, setStream] = useState<MediaStream | null>(null)
 
   const mediaRecorder = useRef<MediaRecorder | null>(null)
+  const inProgressData = useRef<Blob[] | null>(null)
   const [recordingStatus, setRecordingStatus] = useState<string>("inactive")
   const [audioChunks, setAudioChunks] = useState<BlobPart[]>([])
   const [audio, setAudio] = useState<string | null>(null)
@@ -43,6 +46,7 @@ const AudioControls = (): ReactElement => {
       mediaRecorder.current.start()
       // eslint-disable-next-line prefer-const
       let localAudioChunks: Blob[] = []
+      inProgressData.current = localAudioChunks
       mediaRecorder.current.ondataavailable = (event) => {
         if (typeof event.data === "undefined") return
         if (event.data.size === 0) return
@@ -92,28 +96,37 @@ const AudioControls = (): ReactElement => {
             alignItems={"center"}
             justifyContent={"center"}
           >
-            {permission && recordingStatus === "inactive" ? (
-              <Button
-                colorScheme={"green"}
-                margin={16}
-                padding={8}
-                id="recording-button"
-                onClick={startRecording}
-              >
-                Start Recording
-              </Button>
-            ) : null}
-            {recordingStatus === "recording" ? (
-              <Button
-                colorScheme={"red"}
-                margin={16}
-                padding={8}
-                id="recording-button"
-                onClick={stopRecording}
-              >
-                Stop Recording
-              </Button>
-            ) : null}
+            <Flex direction={"column"} alignItems={"center"}>
+              {permission && recordingStatus === "inactive" ? (
+                <Button
+                  colorScheme={"green"}
+                  margin={16}
+                  padding={8}
+                  id="recording-button"
+                  onClick={startRecording}
+                >
+                  Start Recording
+                </Button>
+              ) : null}
+              {recordingStatus === "recording" ? (
+                <Button
+                  colorScheme={"red"}
+                  margin={16}
+                  padding={8}
+                  id="recording-button"
+                  onClick={stopRecording}
+                >
+                  Stop Recording
+                </Button>
+              ) : null}
+              {recordingStatus === "recording" ? (
+                <AudioVisualizer
+                  stream={stream}
+                  recorder={mediaRecorder}
+                  audio={inProgressData.current}
+                />
+              ) : null}
+            </Flex>
           </Flex>
           {!isNull(audio) && (
             <audio src={audio} controls id="playback-sample"></audio>
