@@ -11,13 +11,13 @@ const AudioVisualizer = ({ stream }: AudioVisualizerProps): ReactElement => {
 
   useEffect(() => {
     const audioContext = new AudioContext()
+    console.log(audioContext)
     const audioSource = audioContext.createMediaStreamSource(stream)
     const analyzer = audioContext.createAnalyser()
     analyzer.minDecibels = -90
     analyzer.maxDecibels = -10
     analyzer.smoothingTimeConstant = 0.85
     audioSource.connect(analyzer)
-    analyzer.connect(audioContext.destination)
     analyzer.fftSize = 128
     setAnalyzer(analyzer)
   }, [stream])
