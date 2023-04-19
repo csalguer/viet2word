@@ -119,12 +119,8 @@ const AudioControls = (): ReactElement => {
                   Stop Recording
                 </Button>
               ) : null}
-              {recordingStatus === "recording" ? (
-                <AudioVisualizer
-                  stream={stream}
-                  recorder={mediaRecorder}
-                  audio={inProgressData.current}
-                />
+              {recordingStatus === "recording" && stream ? (
+                <AudioVisualizer stream={stream} />
               ) : null}
             </Flex>
           </Flex>
