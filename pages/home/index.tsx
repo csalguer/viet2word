@@ -1,6 +1,6 @@
 import Head from 'next/head'
 import styles from '@/styles/Home.module.css'
-import AudioControls from '@/components/AudioControls'
+import AudioControls from '@/features/audio-recorder'
 import type { ReactElement } from 'react'
 
 export default function Home(): ReactElement {
