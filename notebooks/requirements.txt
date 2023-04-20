@@ -1,0 +1,13 @@
+ipykernel
+ipython
+huggingface-hub==0.0.12
+jupyter
+jupyterlab
+kenlm @ https://github.com/kpu/kenlm/archive/master.zip
+datasets==1.11.0
+transformers==4.9.2
+librosa
+jiwer
+torch
+soundfile
+pyctcdecode==v0.1.0
