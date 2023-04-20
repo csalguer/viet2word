@@ -1,10 +1,13 @@
 import { Fragment, useState, useEffect, useCallback, useRef } from 'react'
 import type { ReactElement } from 'react'
-import { Button, Flex, Heading } from '@chakra-ui/react'
+import { Box, Button, CircularProgress, Flex, Heading, Text } from '@chakra-ui/react'
 import { isNull } from 'lodash'
 import { queryVietTranscription } from './helpers/queryVietTranscription'
 import AudioVisualizer from './AudioVisualizer'
 const mimeType = 'audio/webm'
+
+const PENDING_PLACEHOLDER = 'Transcribing ...'
+const isPending = (text) => text == PENDING_PLACEHOLDER
 
 const AudioControls = (): ReactElement => {
   const [permission, setPermission] = useState<boolean>(false)
@@ -15,6 +18,7 @@ const AudioControls = (): ReactElement => {
   const [recordingStatus, setRecordingStatus] = useState<string>('inactive')
   const [audioChunks, setAudioChunks] = useState<BlobPart[]>([])
   const [audio, setAudio] = useState<string | null>(null)
+  const [transcription, setTranscription] = useState<string>('Transcription will appear here.')
 
   const getMicrophonePermission = useCallback(async () => {
     if ('MediaRecorder' in window) {
@@ -76,10 +80,11 @@ const AudioControls = (): ReactElement => {
 
   const handleSTTQueryRequest = async (): Promise<void> => {
     if (audio) {
+      setTranscription(PENDING_PLACEHOLDER)
       const blob: Blob = await fetch(audio).then((r) => r.blob())
       const binaryData = await blob.arrayBuffer()
       const response = await queryVietTranscription(binaryData)
-      response
+      setTranscription(response.text)
     }
   }
 
@@ -89,26 +94,37 @@ const AudioControls = (): ReactElement => {
       <Flex w={'100vw'} justifyContent={'center'} alignItems={'center'}>
         <Flex w={'100vw'} direction={'column'} justifyContent={'center'} alignItems={'center'}>
           <Flex
-            margin={10}
+            margin={8}
             w={'50vw'}
             background={'gray.100'}
-            h={'50vh'}
+            // h={'50vh'}
+            padding={8}
             rounded={6}
             alignItems={'center'}
             justifyContent={'center'}
           >
             <Flex direction={'column'} alignItems={'center'}>
-              {permission && recordingStatus === 'inactive' ? (
-                <Button
-                  colorScheme={'green'}
-                  margin={16}
-                  padding={8}
-                  id='recording-button'
-                  onClick={startRecording}
-                >
-                  Start Recording
-                </Button>
-              ) : null}
+              <>
+                {permission && recordingStatus === 'inactive' ? (
+                  <Button
+                    colorScheme={'green'}
+                    margin={16}
+                    padding={8}
+                    id='recording-button'
+                    onClick={startRecording}
+                  >
+                    Start Recording
+                  </Button>
+                ) : null}
+                {!isNull(audio) && recordingStatus === 'inactive' ? (
+                  <>
+                    <Text>Recorded Audio</Text>
+                    <audio src={audio} controls id='playback-sample'>
+                      <track kind='captions' />
+                    </audio>
+                  </>
+                ) : null}
+              </>
               {recordingStatus === 'recording' ? (
                 <Button
                   colorScheme={'red'}
@@ -126,14 +142,32 @@ const AudioControls = (): ReactElement => {
             </Flex>
           </Flex>
           {!isNull(audio) && (
-            <audio src={audio} controls id='playback-sample'>
-              <track kind='captions' />
-            </audio>
+            <Button
+              id='query-button'
+              margin={8}
+              padding={8}
+              onClick={handleSTTQueryRequest}
+              disabled={isPending(transcription)}
+            >
+              {isPending(transcription) ? (
+                <CircularProgress isIndeterminate color='green.300' />
+              ) : (
+                'Query Inference API'
+              )}
+            </Button>
           )}
           {!isNull(audio) && (
-            <Button id='query-button' margin={16} padding={8} onClick={handleSTTQueryRequest}>
-              Query Inference API
-            </Button>
+            <Box
+              id='transcription'
+              placeholder='Transcription'
+              w={500}
+              background='gray.100'
+              rounded={6}
+              padding={4}
+              margin={8}
+            >
+              {transcription}
+            </Box>
           )}
           {!isNull(audio) && (
             <a download id='download-button' href={audio}>

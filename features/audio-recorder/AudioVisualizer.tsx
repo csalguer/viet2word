@@ -66,8 +66,8 @@ const AudioVisualizer = ({ stream }: AudioVisualizerProps): ReactElement => {
   }, [analyzer])
   return (
     <>
-      <Flex w={300} h={150}>
-        <canvas width='300' height='150' id='audio-visualizer'></canvas>
+      <Flex w={300} h={100}>
+        <canvas width='300' height='100' id='audio-visualizer'></canvas>
       </Flex>
     </>
   )
