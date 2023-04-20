@@ -1,11 +1,9 @@
-'use client'
-/* eslint-disable @typescript-eslint/strict-boolean-expressions */
 import { Fragment, useState, useEffect, useCallback, useRef } from 'react'
 import type { ReactElement } from 'react'
 import { Button, Flex, Heading } from '@chakra-ui/react'
 import { isNull } from 'lodash'
+import { queryVietTranscription } from './helpers/queryVietTranscription'
 import AudioVisualizer from './AudioVisualizer'
-
 const mimeType = 'audio/webm'
 
 const AudioControls = (): ReactElement => {
@@ -73,9 +71,17 @@ const AudioControls = (): ReactElement => {
   }
 
   useEffect(() => {
-    // eslint-disable-next-line @typescript-eslint/no-floating-promises
     getMicrophonePermission()
   }, [getMicrophonePermission])
+
+  const handleSTTQueryRequest = async (): Promise<void> => {
+    if (audio) {
+      const blob: Blob = await fetch(audio).then((r) => r.blob())
+      const binaryData = await blob.arrayBuffer()
+      const response = await queryVietTranscription(binaryData)
+      response
+    }
+  }
 
   return (
     <>
@@ -124,7 +130,11 @@ const AudioControls = (): ReactElement => {
               <track kind='captions' />
             </audio>
           )}
-
+          {!isNull(audio) && (
+            <Button id='query-button' margin={16} padding={8} onClick={handleSTTQueryRequest}>
+              Query Inference API
+            </Button>
+          )}
           {!isNull(audio) && (
             <a download id='download-button' href={audio}>
               Download

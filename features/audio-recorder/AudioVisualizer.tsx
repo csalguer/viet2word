@@ -23,14 +23,11 @@ const AudioVisualizer = ({ stream }: AudioVisualizerProps): ReactElement => {
 
   useEffect(() => {
     const canvas = document.getElementById('audio-visualizer') as HTMLCanvasElement | null
-    // eslint-disable-next-line @typescript-eslint/strict-boolean-expressions
     if (canvas) {
       const context = canvas.getContext('2d')
-      // eslint-disable-next-line @typescript-eslint/strict-boolean-expressions
       if (context) {
         const WIDTH = canvas.width
         const HEIGHT = canvas.height
-        // eslint-disable-next-line @typescript-eslint/strict-boolean-expressions
         if (analyzer) {
           context.clearRect(0, 0, WIDTH, HEIGHT)
           const bufferLength = analyzer.frequencyBinCount
