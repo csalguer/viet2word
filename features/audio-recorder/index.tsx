@@ -4,9 +4,11 @@ import { Box, Button, CircularProgress, Flex, Heading, Text } from '@chakra-ui/r
 import { isNull } from 'lodash'
 import { queryVietTranscription } from './helpers/queryVietTranscription'
 import AudioVisualizer from './AudioVisualizer'
-const mimeType = 'audio/webm'
+import convertWebmToWAV from './helpers/convertWebmToWAV'
 
+const mimeType = 'audio/webm'
 const PENDING_PLACEHOLDER = 'Transcribing ...'
+
 const isPending = (text) => text == PENDING_PLACEHOLDER
 
 const AudioControls = (): ReactElement => {
@@ -40,14 +42,12 @@ const AudioControls = (): ReactElement => {
   const startRecording = (): void => {
     if (stream) {
       setRecordingStatus('recording')
-      // create new Media recorder instance using the stream
+      // MediaStream only supports recording in webm
       const media = new MediaRecorder(stream, { mimeType })
       // set the MediaRecorder instance to the mediaRecorder ref
       mediaRecorder.current = media
-      // invokes the start method to start the recording process
       mediaRecorder.current.start()
-      // eslint-disable-next-line prefer-const
-      let localAudioChunks: Blob[] = []
+      const localAudioChunks: Blob[] = []
       inProgressData.current = localAudioChunks
       mediaRecorder.current.ondataavailable = (event) => {
         if (typeof event.data === 'undefined') return
@@ -60,15 +60,14 @@ const AudioControls = (): ReactElement => {
 
   const stopRecording = (): void => {
     setRecordingStatus('inactive')
-    // stops the recording instance
     if (mediaRecorder?.current) {
       mediaRecorder.current.stop()
-      mediaRecorder.current.onstop = () => {
-        // creates a blob file from the audiochunks data
+      mediaRecorder.current.onstop = async () => {
+        // Must convert the webm audioBlob to a WAV blob
         const audioBlob = new Blob(audioChunks, { type: mimeType })
-        // creates a playable URL from the blob file.
-        const audioUrl = URL.createObjectURL(audioBlob)
-        setAudio(audioUrl)
+        const wavBlob = await convertWebmToWAV(audioBlob)
+        const wavURL = URL.createObjectURL(wavBlob)
+        setAudio(wavURL)
         setAudioChunks([])
       }
     }
@@ -81,9 +80,9 @@ const AudioControls = (): ReactElement => {
   const handleSTTQueryRequest = async (): Promise<void> => {
     if (audio) {
       setTranscription(PENDING_PLACEHOLDER)
-      const blob: Blob = await fetch(audio).then((r) => r.blob())
-      const binaryData = await blob.arrayBuffer()
-      const response = await queryVietTranscription(binaryData)
+      const wavBlob: Blob = await fetch(audio).then((r) => r.blob())
+      const wavBytes = await wavBlob.arrayBuffer()
+      const response = await queryVietTranscription(wavBytes)
       setTranscription(response.text)
     }
   }
@@ -97,7 +96,6 @@ const AudioControls = (): ReactElement => {
             margin={8}
             w={'50vw'}
             background={'gray.100'}
-            // h={'50vh'}
             padding={8}
             rounded={6}
             alignItems={'center'}

@@ -18,6 +18,8 @@
     "@chakra-ui/react": "^2.5.5",
     "@emotion/react": "^11.10.6",
     "@emotion/styled": "^11.10.6",
+    "@ffmpeg/core": "^0.11.0",
+    "@ffmpeg/ffmpeg": "^0.11.6",
     "@types/node": "^18.15.11",
     "@types/react": "18.0.37",
     "@types/react-dom": "18.0.11",
