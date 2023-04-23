@@ -1,0 +1,14 @@
+ipykernel
+ipython
+jupyter
+jupyterlab
+datasets[streaming]
+soundfile==0.12.1
+speechbrain==0.5.14
+transformers @ git+https://github.com/huggingface/transformers.git
+accelerate==0.18.0
+aiohttp
+matplotlib
+librosa
+sentencepiece
+tensorboard
