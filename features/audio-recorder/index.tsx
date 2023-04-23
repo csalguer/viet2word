@@ -3,6 +3,7 @@ import type { ReactElement } from 'react'
 import { Box, Button, CircularProgress, Flex, Heading, Text } from '@chakra-ui/react'
 import { isNull } from 'lodash'
 import { queryVietTranscription } from './helpers/queryVietTranscription'
+import { inferVietTranscription } from './helpers/inferVietTranscription'
 import AudioVisualizer from './AudioVisualizer'
 import convertWebmToWAV from './helpers/convertWebmToWAV'
 
@@ -83,6 +84,7 @@ const AudioControls = (): ReactElement => {
       const wavBlob: Blob = await fetch(audio).then((r) => r.blob())
       const wavBytes = await wavBlob.arrayBuffer()
       const response = await queryVietTranscription(wavBytes)
+      const test_response = await inferVietTranscription(wavBytes)
       setTranscription(response.text)
     }
   }
