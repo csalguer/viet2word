@@ -3,14 +3,15 @@ import type { ReactElement } from 'react'
 import { Box, Button, CircularProgress, Flex, Heading, Text } from '@chakra-ui/react'
 import { isNull } from 'lodash'
 import { queryVietTranscription } from './helpers/queryVietTranscription'
+import queryVietGeneration from './helpers/queryVietGeneration'
 import AudioVisualizer from './AudioVisualizer'
 import convertWebmToWAV from './helpers/convertWebmToWAV'
 
 const mimeType = 'audio/webm'
 const PENDING_PLACEHOLDER = 'Transcribing ...'
-
+const STARTING_POINT_PLACEHOLDER = 'Transcription will appear here.'
 const isPending = (text) => text == PENDING_PLACEHOLDER
-
+const hasYetToQueryEndpoint = (text) => text == STARTING_POINT_PLACEHOLDER
 const AudioControls = (): ReactElement => {
   const [permission, setPermission] = useState<boolean>(false)
   const [stream, setStream] = useState<MediaStream | null>(null)
@@ -20,7 +21,8 @@ const AudioControls = (): ReactElement => {
   const [recordingStatus, setRecordingStatus] = useState<string>('inactive')
   const [audioChunks, setAudioChunks] = useState<BlobPart[]>([])
   const [audio, setAudio] = useState<string | null>(null)
-  const [transcription, setTranscription] = useState<string>('Transcription will appear here.')
+  const [readAloudAudio, setReadAloudAudio] = useState<string | null>(null)
+  const [transcription, setTranscription] = useState<string>(STARTING_POINT_PLACEHOLDER)
 
   const getMicrophonePermission = useCallback(async () => {
     if ('MediaRecorder' in window) {
@@ -87,6 +89,16 @@ const AudioControls = (): ReactElement => {
     }
   }
 
+  const handleTTSQueryRequest = async (): Promise<void> => {
+    if (audio) {
+      const buffer = await queryVietGeneration(transcription)
+      const rawAudioBlob = new Blob([buffer], { type: 'audio/wav' })
+      const rawAudioUrl = URL.createObjectURL(rawAudioBlob)
+      console.log(rawAudioUrl)
+      setReadAloudAudio(rawAudioUrl)
+    }
+  }
+
   return (
     <>
       <Heading>Vietnamese Speech to Text</Heading>
@@ -116,7 +128,9 @@ const AudioControls = (): ReactElement => {
                 ) : null}
                 {!isNull(audio) && recordingStatus === 'inactive' ? (
                   <>
-                    <Text>Recorded Audio</Text>
+                    <a download id='download-button' href={audio}>
+                      Recorded Audio
+                    </a>
                     <audio src={audio} controls id='playback-sample'>
                       <track kind='captions' />
                     </audio>
@@ -167,11 +181,16 @@ const AudioControls = (): ReactElement => {
               {transcription}
             </Box>
           )}
-          {!isNull(audio) && (
-            <a download id='download-button' href={audio}>
-              Download
-            </a>
-          )}
+          {!isNull(audio) && !hasYetToQueryEndpoint(transcription) ? (
+            <>
+              <Button margin={8} padding={8} id='tts-button' onClick={handleTTSQueryRequest}>
+                Text To Speech
+              </Button>
+              <audio src={readAloudAudio} controls id='playback-sample'>
+                <track kind='captions' />
+              </audio>
+            </>
+          ) : null}
         </Flex>
       </Flex>
     </>

@@ -37,11 +37,11 @@ const AudioVisualizer = ({ stream }: AudioVisualizerProps): ReactElement => {
           const animate = (): void => {
             requestAnimationFrame(animate)
             let x = 0
-            context.fillStyle = '#CBD5E0'
+            context.fillStyle = '#EDF2F7'
             context.fillRect(0, 0, WIDTH, HEIGHT)
             analyzer.getFloatFrequencyData(dataArray)
             context.lineWidth = 2
-            context.strokeStyle = '#2D3748'
+            context.strokeStyle = '#3182ce'
 
             context.beginPath()
 
