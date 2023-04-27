@@ -1,11 +1,6 @@
 import Head from 'next/head'
-import styles from '@/styles/Home.module.css'
-import AudioControls from '@/features/audio-recorder'
 import type { ReactElement } from 'react'
 import SideNavBar from '@/features/navigation'
-import { Heading } from '@chakra-ui/react'
-import PermissionsProvider from '@/features/permissions'
-import { useRouter } from 'next/router'
 import Widget from '@/features/widget'
 
 export default function Index(): ReactElement {

@@ -92,7 +92,6 @@ const AudioControls = (): ReactElement => {
       const buffer = await queryVietGeneration(transcription)
       const rawAudioBlob = new Blob([buffer], { type: 'audio/wav' })
       const rawAudioUrl = URL.createObjectURL(rawAudioBlob)
-      console.log(rawAudioUrl)
       setReadAloudAudio(rawAudioUrl)
     }
   }
