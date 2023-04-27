@@ -1,19 +1,18 @@
 import { Fragment, useState, useEffect, useCallback, useRef } from 'react'
 import type { ReactElement } from 'react'
-import { Box, Button, CircularProgress, Flex, Heading, Text } from '@chakra-ui/react'
+import { Box, Button, CircularProgress, Flex } from '@chakra-ui/react'
 import { isNull } from 'lodash'
-import { queryVietTranscription } from './helpers/queryVietTranscription'
+import { queryVietTranscription } from '../transcription/helpers/queryVietTranscription'
 import queryVietGeneration from './helpers/queryVietGeneration'
 import AudioVisualizer from './AudioVisualizer'
 import convertWebmToWAV from './helpers/convertWebmToWAV'
-
 const mimeType = 'audio/webm'
 const PENDING_PLACEHOLDER = 'Transcribing ...'
 const STARTING_POINT_PLACEHOLDER = 'Transcription will appear here.'
 const isPending = (text) => text == PENDING_PLACEHOLDER
 const hasYetToQueryEndpoint = (text) => text == STARTING_POINT_PLACEHOLDER
+
 const AudioControls = (): ReactElement => {
-  const [permission, setPermission] = useState<boolean>(false)
   const [stream, setStream] = useState<MediaStream | null>(null)
 
   const mediaRecorder = useRef<MediaRecorder | null>(null)
@@ -24,14 +23,13 @@ const AudioControls = (): ReactElement => {
   const [readAloudAudio, setReadAloudAudio] = useState<string | null>(null)
   const [transcription, setTranscription] = useState<string>(STARTING_POINT_PLACEHOLDER)
 
-  const getMicrophonePermission = useCallback(async () => {
+  const getMediaStream = useCallback(async () => {
     if ('MediaRecorder' in window) {
       try {
         const streamData = await navigator.mediaDevices.getUserMedia({
           audio: true,
           video: false,
         })
-        setPermission(true)
         setStream(streamData)
       } catch (err) {
         alert(err)
@@ -76,8 +74,8 @@ const AudioControls = (): ReactElement => {
   }
 
   useEffect(() => {
-    getMicrophonePermission()
-  }, [getMicrophonePermission])
+    getMediaStream()
+  }, [getMediaStream])
 
   const handleSTTQueryRequest = async (): Promise<void> => {
     if (audio) {
@@ -100,100 +98,95 @@ const AudioControls = (): ReactElement => {
   }
 
   return (
-    <>
-      <Heading>Vietnamese Speech to Text</Heading>
-      <Flex w={'100vw'} justifyContent={'center'} alignItems={'center'}>
-        <Flex w={'100vw'} direction={'column'} justifyContent={'center'} alignItems={'center'}>
-          <Flex
-            margin={8}
-            w={'50vw'}
-            background={'gray.100'}
-            padding={8}
-            rounded={6}
-            alignItems={'center'}
-            justifyContent={'center'}
-          >
-            <Flex direction={'column'} alignItems={'center'}>
-              <>
-                {permission && recordingStatus === 'inactive' ? (
-                  <Button
-                    colorScheme={'green'}
-                    margin={16}
-                    padding={8}
-                    id='recording-button'
-                    onClick={startRecording}
-                  >
-                    Start Recording
-                  </Button>
-                ) : null}
-                {!isNull(audio) && recordingStatus === 'inactive' ? (
-                  <>
-                    <a download id='download-button' href={audio}>
-                      Recorded Audio
-                    </a>
-                    <audio src={audio} controls id='playback-sample'>
-                      <track kind='captions' />
-                    </audio>
-                  </>
-                ) : null}
-              </>
-              {recordingStatus === 'recording' ? (
+    <Flex justifyContent={'center'} alignItems={'center'}>
+      <Flex w={'100vw'} direction={'column'} justifyContent={'center'} alignItems={'center'}>
+        <Flex
+          margin={8}
+          w={'50vw'}
+          background={'gray.100'}
+          padding={8}
+          rounded={6}
+          alignItems={'center'}
+          justifyContent={'center'}
+        >
+          <Flex direction={'column'} alignItems={'center'}>
+            <>
+              {recordingStatus === 'inactive' ? (
                 <Button
-                  colorScheme={'red'}
+                  colorScheme={'green'}
                   margin={16}
                   padding={8}
                   id='recording-button'
-                  onClick={stopRecording}
+                  onClick={startRecording}
                 >
-                  Stop Recording
+                  Start Recording
                 </Button>
               ) : null}
-              {recordingStatus === 'recording' && stream ? (
-                <AudioVisualizer stream={stream} />
+              {!isNull(audio) && recordingStatus === 'inactive' ? (
+                <>
+                  <a download id='download-button' href={audio}>
+                    Recorded Audio
+                  </a>
+                  <audio src={audio} controls id='playback-sample'>
+                    <track kind='captions' />
+                  </audio>
+                </>
               ) : null}
-            </Flex>
-          </Flex>
-          {!isNull(audio) && (
-            <Button
-              id='query-button'
-              margin={8}
-              padding={8}
-              onClick={handleSTTQueryRequest}
-              disabled={isPending(transcription)}
-            >
-              {isPending(transcription) ? (
-                <CircularProgress isIndeterminate color='green.300' />
-              ) : (
-                'Query Inference API'
-              )}
-            </Button>
-          )}
-          {!isNull(audio) && (
-            <Box
-              id='transcription'
-              placeholder='Transcription'
-              w={500}
-              background='gray.100'
-              rounded={6}
-              padding={4}
-              margin={8}
-            >
-              {transcription}
-            </Box>
-          )}
-          {!isNull(audio) && !hasYetToQueryEndpoint(transcription) ? (
-            <>
-              <Button margin={8} padding={8} id='tts-button' onClick={handleTTSQueryRequest}>
-                Text To Speech
-              </Button>
-              <audio src={readAloudAudio} controls id='playback-sample'>
-                <track kind='captions' />
-              </audio>
             </>
-          ) : null}
+            {recordingStatus === 'recording' ? (
+              <Button
+                colorScheme={'red'}
+                margin={16}
+                padding={8}
+                id='recording-button'
+                onClick={stopRecording}
+              >
+                Stop Recording
+              </Button>
+            ) : null}
+            {recordingStatus === 'recording' && stream ? <AudioVisualizer stream={stream} /> : null}
+          </Flex>
         </Flex>
+        {!isNull(audio) && (
+          <Button
+            id='query-button'
+            margin={8}
+            padding={8}
+            onClick={handleSTTQueryRequest}
+            disabled={isPending(transcription)}
+          >
+            {isPending(transcription) ? (
+              <CircularProgress isIndeterminate color='green.300' />
+            ) : (
+              'Query Inference API'
+            )}
+          </Button>
+        )}
+        {!isNull(audio) && (
+          <Box
+            id='transcription'
+            placeholder='Transcription'
+            w={500}
+            background='gray.100'
+            rounded={6}
+            padding={4}
+            margin={8}
+          >
+            {transcription}
+          </Box>
+        )}
+        {!isNull(audio) && !hasYetToQueryEndpoint(transcription) ? (
+          <>
+            <Button margin={8} padding={8} id='tts-button' onClick={handleTTSQueryRequest}>
+              Text To Speech
+            </Button>
+            <audio src={readAloudAudio} controls id='playback-sample'>
+              <track kind='captions' />
+            </audio>
+          </>
+        ) : null}
       </Flex>
-    </>
+    </Flex>
   )
 }
 

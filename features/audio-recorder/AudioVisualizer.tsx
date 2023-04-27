@@ -1,6 +1,7 @@
 import { Fragment, useState, useEffect } from 'react'
 import type { ReactElement } from 'react'
-import { Flex } from '@chakra-ui/react'
+import { Box, Center, Flex } from '@chakra-ui/react'
+import { isNull } from 'lodash'
 
 interface AudioVisualizerProps {
   stream: MediaStream
@@ -10,15 +11,17 @@ const AudioVisualizer = ({ stream }: AudioVisualizerProps): ReactElement => {
   const [analyzer, setAnalyzer] = useState<AnalyserNode | null>(null)
 
   useEffect(() => {
-    const audioContext = new AudioContext()
-    const audioSource = audioContext.createMediaStreamSource(stream)
-    const analyzer = audioContext.createAnalyser()
-    analyzer.minDecibels = -90
-    analyzer.maxDecibels = -10
-    analyzer.smoothingTimeConstant = 0.85
-    audioSource.connect(analyzer)
-    analyzer.fftSize = 128
-    setAnalyzer(analyzer)
+    if (!isNull(stream)) {
+      const audioContext = new AudioContext()
+      const audioSource = audioContext.createMediaStreamSource(stream)
+      const analyzer = audioContext.createAnalyser()
+      analyzer.minDecibels = -90
+      analyzer.maxDecibels = -10
+      analyzer.smoothingTimeConstant = 0.85
+      audioSource.connect(analyzer)
+      analyzer.fftSize = 128
+      setAnalyzer(analyzer)
+    }
   }, [stream])
 
   useEffect(() => {
@@ -64,6 +67,16 @@ const AudioVisualizer = ({ stream }: AudioVisualizerProps): ReactElement => {
       }
     }
   }, [analyzer])
+
+  if (isNull(stream)) {
+    return (
+      // <Flex >
+      <Center w={'60%'} h={100}>
+        <Box width='100%' height='2px' bg={'#3182ce'}></Box>
+      </Center>
+      // </Flex>
+    )
+  }
   return (
     <>
       <Flex w={300} h={100}>
