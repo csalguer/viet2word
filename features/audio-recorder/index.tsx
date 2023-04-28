@@ -3,7 +3,7 @@ import type { ReactElement } from 'react'
 import { Box, Button, CircularProgress, Flex } from '@chakra-ui/react'
 import { isNull } from 'lodash'
 import { queryVietTranscription } from '../transcription/helpers/queryVietTranscription'
-import queryVietGeneration from './helpers/queryVietGeneration'
+import queryVietGeneration from '@/features/dictation/helpers/queryVietGeneration'
 import AudioVisualizer from './AudioVisualizer'
 import convertWebmToWAV from './helpers/convertWebmToWAV'
 const mimeType = 'audio/webm'
@@ -179,7 +179,7 @@ const AudioControls = (): ReactElement => {
             <Button margin={8} padding={8} id='tts-button' onClick={handleTTSQueryRequest}>
               Text To Speech
             </Button>
-            <audio src={readAloudAudio} controls id='playback-sample'>
+            <audio src={readAloudAudio ? readAloudAudio : undefined} controls id='playback-sample'>
               <track kind='captions' />
             </audio>
           </>

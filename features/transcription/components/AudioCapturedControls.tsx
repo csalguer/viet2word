@@ -7,7 +7,7 @@ import { isNull } from 'lodash'
 export const sleep = (ms: number) => new Promise((r) => setTimeout(r, ms))
 
 const AudioCapturedControls = ({ audio, onClick, onFinish }) => {
-  const [startedFetch, setStartedFetch] = useState<boolean>(null)
+  const [startedFetch, setStartedFetch] = useState<boolean | null>(null)
 
   const handleClick = async () => {
     setStartedFetch(true)
@@ -20,7 +20,7 @@ const AudioCapturedControls = ({ audio, onClick, onFinish }) => {
 
   return (
     <Flex w={'100%'} minWidth={'400px'} justifyContent={'space-between'} flexDirection={'row'}>
-      <AudioPlayer audio={audio} controls id='playback-sample' />
+      <AudioPlayer audio={audio} />
       <Center>
         {isNull(startedFetch) && (
           <IconButton
@@ -28,8 +28,8 @@ const AudioCapturedControls = ({ audio, onClick, onFinish }) => {
             height={16}
             width={16}
             bg={'yellow.300'}
-            _hover={'yellow.400'}
-            _pressed={'yellow.500'}
+            _hover={{ bg: 'yellow.400' }}
+            _pressed={{ bg: 'yellow.500' }}
             borderRadius={'50%'}
             icon={<Icon as={FiEdit2} color={'white'} h={6} w={6} />}
             onClick={handleClick}

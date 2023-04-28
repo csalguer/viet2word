@@ -8,7 +8,7 @@ import AudioRecorder from './components/AudioRecorder'
 import DisplayTranscription from './components/DisplayTranscription'
 import AudioCapturedControls from './components/AudioCapturedControls'
 
-const MIMETYPE = 'audio/webm'
+const mimeType = 'audio/webm'
 export const PENDING_PLACEHOLDER = 'Transcribing ...'
 export const STARTING_POINT_PLACEHOLDER = 'Transcription will appear here.'
 
@@ -43,7 +43,7 @@ const Transcriber = (): ReactElement => {
     setFinished(false)
     if (stream) {
       // MediaStream only supports recording in webm
-      const media = new MediaRecorder(stream, { MIMETYPE })
+      const media = new MediaRecorder(stream, { mimeType })
       // set the MediaRecorder instance to the mediaRecorder ref
       mediaRecorder.current = media
       mediaRecorder.current.start()
@@ -63,7 +63,7 @@ const Transcriber = (): ReactElement => {
       mediaRecorder.current.stop()
       mediaRecorder.current.onstop = async () => {
         // Must convert the webm audioBlob to a WAV blob
-        const audioBlob = new Blob(audioChunks, { type: MIMETYPE })
+        const audioBlob = new Blob(audioChunks, { type: mimeType })
         const wavBlob = await convertWebmToWAV(audioBlob)
         const wavURL = URL.createObjectURL(wavBlob)
         setAudio(wavURL)
@@ -76,7 +76,7 @@ const Transcriber = (): ReactElement => {
     getMediaStream()
   }, [getMediaStream])
 
-  const handleSTTQueryRequest = async (): Promise<void> => {
+  const handleSTTQueryRequest = async (): Promise<boolean | void> => {
     if (audio) {
       try {
         setTranscription(PENDING_PLACEHOLDER)
@@ -89,12 +89,12 @@ const Transcriber = (): ReactElement => {
         return false
       }
     }
+    return
   }
 
-  const setupToRerecordAudio = (): Promise<void> => {
+  const setupToRerecordAudio = (): void => {
     setAudio(null)
     setFinished(true)
-    // setAudioChunks([])
   }
   return (
     <>

@@ -18,13 +18,14 @@ import { useRouter } from 'next/router'
 interface LinkItemProps {
   name: string
   icon: IconType
+  route: string
 }
 
 const LinkItems: Array<LinkItemProps> = [
-  { name: 'Home', icon: FiHome },
-  { name: 'Transcription', icon: FiPenTool },
-  { name: 'Reading', icon: FiBookOpen },
-  { name: 'Settings', icon: FiSettings },
+  { name: 'Home', icon: FiHome, route: '/home' },
+  { name: 'Transcription', icon: FiPenTool, route: '/transcribe' },
+  { name: 'Reading', icon: FiBookOpen, route: '/read' },
+  { name: 'Settings', icon: FiSettings, route: '/' },
 ]
 
 interface SideNavBarProps {
@@ -58,7 +59,7 @@ const SideNavBar = ({ children }: SideNavBarProps): ReactElement => {
 
 interface SideBarContentProps extends BoxProps {
   onClose: () => void
-  rest: BoxProps
+  rest?: BoxProps
 }
 
 const SideBarContent = ({ onClose, rest }: SideBarContentProps) => {

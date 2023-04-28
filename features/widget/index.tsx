@@ -1,4 +1,3 @@
-import { ReactElement, useCallback } from 'react'
 import type { ReactElement } from 'react'
 import { Box, Center, Flex, useColorModeValue } from '@chakra-ui/react'
 import Transcriber from '../transcription'
@@ -8,24 +7,24 @@ export const TRANSCRIPTION = 'transcription'
 export const READING = 'reading'
 
 interface WidgetProps {
-  type: string
+  type?: string
 }
 
 const NullContent = (): ReactElement => {
   return <div>No Widget Content Found</div>
 }
 
-const Widget = ({ type }: WidgetProps): ReactElement => {
-  const getWidgetContent = useCallback(() => {
-    if (type == TRANSCRIPTION) {
-      return <Transcriber />
-    }
-    if (type == READING) {
-      return <Reader />
-    }
-    return <NullContent />
-  }, [type])
+export const getWidgetContent = (type) => {
+  if (type == TRANSCRIPTION) {
+    return <Transcriber />
+  }
+  if (type == READING) {
+    return <Reader />
+  }
+  return <NullContent />
+}
 
+const Widget = ({ type }: WidgetProps): ReactElement => {
   return (
     <Center h={'100vh'} w={'100%'}>
       <Box

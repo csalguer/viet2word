@@ -1,6 +1,7 @@
 import Head from 'next/head'
 import type { ReactElement } from 'react'
 import SideNavBar from '@/features/navigation'
+import { Text } from '@chakra-ui/react'
 
 export default function Index(): ReactElement {
   return (
@@ -11,7 +12,9 @@ export default function Index(): ReactElement {
         <meta name='viewport' content='width=device-width, initial-scale=1' />
         <link rel='icon' href='/favicon.ico' />
       </Head>
-      <SideNavBar>HOME</SideNavBar>
+      <SideNavBar>
+        <Text>Home</Text>
+      </SideNavBar>
     </>
   )
 }

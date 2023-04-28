@@ -3,7 +3,7 @@ import type { ReactElement } from 'react'
 import SideNavBar from '@/features/navigation'
 import PermissionsProvider from '@/features/permissions'
 import Widget from '@/features/widget'
-import { READ } from '@/features/widget/index'
+import { READING } from '@/features/widget'
 
 export default function Index(): ReactElement {
   return (
@@ -16,7 +16,7 @@ export default function Index(): ReactElement {
       </Head>
       <SideNavBar>
         <PermissionsProvider>
-          <Widget type={READ} />
+          <Widget type={READING} />
         </PermissionsProvider>
       </SideNavBar>
     </>

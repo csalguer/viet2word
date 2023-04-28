@@ -1,11 +1,12 @@
 import { ReactElement } from 'react'
 import { Flex, Box, FlexProps, Icon, Link, Text } from '@chakra-ui/react'
+import { IconType } from 'react-icons'
 
 interface NavItemProps extends FlexProps {
   icon: IconType
-  children: ReactElement
+  children: ReactElement | string
   onClick: () => void
-  rest: FlexProps
+  rest?: FlexProps
 }
 
 const NavItem = ({ icon, children, onClick, rest }: NavItemProps) => {

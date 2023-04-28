@@ -8,7 +8,7 @@ interface PermissionsProviderProps {
 }
 
 const PermissionsProvider = ({ children }: PermissionsProviderProps): ReactElement => {
-  const [permission, setPermission] = useState<boolean>(null)
+  const [permission, setPermission] = useState<boolean | null>(null)
   const getMicrophonePermission = useCallback(async () => {
     if ('MediaRecorder' in window) {
       try {
