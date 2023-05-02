@@ -7,6 +7,7 @@ import convertWebmToWAV from '@/features/audio-recorder/helpers/convertWebmToWAV
 import AudioRecorder from './components/AudioRecorder'
 import DisplayTranscription from './components/DisplayTranscription'
 import AudioCapturedControls from './components/AudioCapturedControls'
+import { useQuery } from '@tanstack/react-query'
 
 const mimeType = 'audio/webm'
 export const PENDING_PLACEHOLDER = 'Transcribing ...'
@@ -21,8 +22,8 @@ const Transcriber = (): ReactElement => {
   const [audio, setAudio] = useState<string | null>(null)
   const [transcription, setTranscription] = useState<string | null>(null)
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  const [_, setFinished] = useState<boolean>(false)
-
+  const [isFinishedRecording, setFinished] = useState<boolean>(false)
+  const [wavBytes, setWavBytes] = useState<ArrayBuffer | null>(null)
   const getMediaStream = useCallback(async () => {
     if ('MediaRecorder' in window) {
       try {
@@ -58,6 +59,11 @@ const Transcriber = (): ReactElement => {
     }
   }
 
+  const queryState = useQuery({
+    queryKey: ['transcription', wavBytes],
+    queryFn: () => queryVietTranscription(wavBytes),
+    enabled: false,
+  })
   const stopRecording = (): void => {
     if (mediaRecorder?.current) {
       mediaRecorder.current.stop()
@@ -65,10 +71,14 @@ const Transcriber = (): ReactElement => {
         // Must convert the webm audioBlob to a WAV blob
         const audioBlob = new Blob(audioChunks, { type: mimeType })
         const wavBlob = await convertWebmToWAV(audioBlob)
+        const wavBytes = await wavBlob.arrayBuffer()
+
         const wavURL = URL.createObjectURL(wavBlob)
         setAudio(wavURL)
         setAudioChunks([])
+        setWavBytes(wavBytes)
       }
+      setFinished(true)
     }
   }
 
@@ -76,15 +86,13 @@ const Transcriber = (): ReactElement => {
     getMediaStream()
   }, [getMediaStream])
 
-  const handleSTTQueryRequest = async (): Promise<boolean | void> => {
+  const handleSTTQueryRequest = async (): Promise<void> => {
     if (audio) {
       try {
-        const wavBlob: Blob = await fetch(audio).then((r) => r.blob())
-        const wavBytes = await wavBlob.arrayBuffer()
-        const response = await queryVietTranscription(wavBytes)
-        setTranscription(response.text)
+        const result = await queryState.refetch()
+        setTranscription(result.data?.text ? result.data.text : null)
       } catch (e) {
-        return false
+        throw new Error('Error while fetching')
       }
     }
     return
@@ -92,13 +100,13 @@ const Transcriber = (): ReactElement => {
 
   const setupToRerecordAudio = (): void => {
     setAudio(null)
-    setFinished(true)
+    setFinished(false)
     setTranscription(null)
   }
   return (
     <>
       <Flex gap={'12px'} flexDirection={'column'}>
-        {isNull(audio) ? (
+        {isNull(audio) && !isFinishedRecording ? (
           <AudioRecorder
             stream={stream}
             startRecording={startRecording}
