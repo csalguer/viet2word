@@ -19,7 +19,7 @@ const Transcriber = (): ReactElement => {
   const inProgressData = useRef<Blob[] | null>(null)
   const [audioChunks, setAudioChunks] = useState<BlobPart[]>([])
   const [audio, setAudio] = useState<string | null>(null)
-  const [transcription, setTranscription] = useState<string>(STARTING_POINT_PLACEHOLDER)
+  const [transcription, setTranscription] = useState<string | null>(null)
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [isFinishedRecording, setFinished] = useState<boolean>(false)
   const [wavBytes, setWavBytes] = useState<ArrayBuffer | null>(null)
@@ -87,10 +87,12 @@ const Transcriber = (): ReactElement => {
   const handleSTTQueryRequest = async (): Promise<void> => {
     if (audio) {
       try {
-        setTranscription(PENDING_PLACEHOLDER)
-        const result = await queryState.refetch()
-        setTranscription(result.data?.text ? result.data.text : STARTING_POINT_PLACEHOLDER)
-        // return true
+        // setTranscription(PENDING_PLACEHOLDER)
+        const wavBlob: Blob = await fetch(audio).then((r) => r.blob())
+        const wavBytes = await wavBlob.arrayBuffer()
+        const response = await queryVietTranscription(wavBytes)
+        setTranscription(response.text)
+        return true
       } catch (e) {
         throw new Error('Error while fetching')
       }
@@ -100,8 +102,8 @@ const Transcriber = (): ReactElement => {
 
   const setupToRerecordAudio = (): void => {
     setAudio(null)
-    setFinished(false)
-    setTranscription(STARTING_POINT_PLACEHOLDER)
+    setFinished(true)
+    setTranscription(null)
   }
   return (
     <>

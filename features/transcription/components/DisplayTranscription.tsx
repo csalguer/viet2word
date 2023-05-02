@@ -1,17 +1,27 @@
-import { Box, Textarea } from '@chakra-ui/react'
-import { STARTING_POINT_PLACEHOLDER } from '..'
+import { Box, Text } from '@chakra-ui/react'
 
 const DisplayTranscription = ({ transcription }) => {
   return (
-    <Box height={'400px'}>
-      <Textarea
-        value={transcription}
-        placeholder={STARTING_POINT_PLACEHOLDER}
-        isReadOnly
-        width={'100%'}
-        height={'100%'}
-        boxSizing={'border-box'}
-      ></Textarea>
+    <Box
+      height={'auto'}
+      overflow={'scroll'}
+      maxHeight={transcription ? 400 : 20}
+      transition={'max-height 1.75s ease-out'}
+      justifyContent={'center'}
+      alignItems={'center'}
+      h={'100%'}
+      w={'100%'}
+      id={'transcription-container'}
+    >
+      <Text
+        fontSize={24}
+        textAlign={'center'}
+        fontWeight={300}
+        fontFamily={"'Raleway', sans-serif"}
+        overflowWrap={'break-word'}
+      >
+        {transcription}
+      </Text>
     </Box>
   )
 }
