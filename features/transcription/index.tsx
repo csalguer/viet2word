@@ -84,7 +84,6 @@ const Transcriber = (): ReactElement => {
         const wavBytes = await wavBlob.arrayBuffer()
         const response = await queryVietTranscription(wavBytes)
         setTranscription(response.text)
-        return true
       } catch (e) {
         return false
       }
