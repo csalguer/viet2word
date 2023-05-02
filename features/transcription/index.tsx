@@ -93,6 +93,7 @@ const Transcriber = (): ReactElement => {
   const setupToRerecordAudio = (): void => {
     setAudio(null)
     setFinished(true)
+    setTranscription(null)
   }
   return (
     <>
