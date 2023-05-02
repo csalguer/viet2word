@@ -12,13 +12,18 @@ type HuggingFaceAPIResult = {
 
 type HuggingFaceAPIResponse = HuggingFaceAPIError | HuggingFaceAPIResult
 
-export const queryVietTranscription = async (data: ArrayBuffer): Promise<HuggingFaceAPIResult> => {
-  const response = await fetch('http://localhost:8000/recognize', {
-    method: 'POST',
-    body: data,
-  })
-  const result = await response.json()
-  return result as HuggingFaceAPIResult
+export const queryVietTranscription = async (
+  data: ArrayBuffer | null,
+): Promise<HuggingFaceAPIResult> => {
+  if (data) {
+    const response = await fetch('http://localhost:8000/recognize', {
+      method: 'POST',
+      body: data,
+    })
+    const result = await response.json()
+    return result as HuggingFaceAPIResult
+  }
+  return { text: 'Endpoint expected wav byte data' }
 }
 
 // Method to be used with HuggingFaceAPI's that requires a retry until model is up and running
