@@ -16,7 +16,7 @@ export default function Index(): ReactElement {
       </Head>
       <SideNavBar>
         <PermissionsProvider>
-          <Widget type={TRANSCRIPTION} />
+          <Widget type={TRANSCRIPTION} left />
         </PermissionsProvider>
       </SideNavBar>
     </>
