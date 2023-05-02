@@ -1,6 +1,18 @@
 import { Box, Text } from '@chakra-ui/react'
+import { isNull } from 'lodash'
+
+const MAX_BUCKET_SIZE = 85
+const LARGEST_FONT_SIZE = 4
 
 const DisplayTranscription = ({ transcription }) => {
+  const getFontSize = (wordCount) => {
+    const fontSize = Math.min(wordCount / MAX_BUCKET_SIZE, 1) * 1.5
+    return LARGEST_FONT_SIZE - fontSize
+  }
+  if (isNull(transcription)) {
+    return <></>
+  }
+  const numWords = transcription.split(' ').length
   return (
     <Box
       height={'auto'}
@@ -14,7 +26,7 @@ const DisplayTranscription = ({ transcription }) => {
       id={'transcription-container'}
     >
       <Text
-        fontSize={24}
+        fontSize={`${getFontSize(numWords)}vmin`}
         textAlign={'center'}
         fontWeight={300}
         fontFamily={"'Raleway', sans-serif"}

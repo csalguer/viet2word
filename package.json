@@ -39,6 +39,7 @@
   },
   "devDependencies": {
     "@chakra-ui/next-js": "^2.1.2",
+    "@tanstack/react-query": "^4.29.5",
     "@typescript-eslint/eslint-plugin": "^5.43.0",
     "eslint-config-prettier": "^8.8.0",
     "eslint-config-standard-with-typescript": "^34.0.1",
