@@ -37,7 +37,7 @@ const AudioRecorder = ({ stream, startRecording, stopRecording }) => {
             aria-label='Stop Recording'
             height={16}
             width={16}
-            bg={{ bg: 'red.500' }}
+            bg={'red.500'}
             _hover={{ bg: 'red.600' }}
             _pressed={{ bg: 'red.700' }}
             borderRadius={'50%'}
