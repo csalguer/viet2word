@@ -8,6 +8,8 @@ export const READING = 'reading'
 
 interface WidgetProps {
   type?: string
+  left?: boolean
+  right?: boolean
 }
 
 const NullContent = (): ReactElement => {
@@ -24,9 +26,22 @@ export const getWidgetContent = (type) => {
   return <NullContent />
 }
 
-const Widget = ({ type }: WidgetProps): ReactElement => {
+const Widget = ({ type, left, right }: WidgetProps): ReactElement => {
   return (
     <Center h={'100vh'} w={'100%'}>
+      {left && (
+        <div
+          style={{
+            position: 'relative',
+            height: 0,
+            width: 0,
+            zIndex: 5,
+            borderTop: '24px solid transparent',
+            borderBottom: '24px solid transparent',
+            borderRight: '24px solid #EDF2F7',
+          }}
+        ></div>
+      )}
       <Box
         maxW={'50vw'}
         bg={useColorModeValue('gray.100', 'gray.900')}
@@ -43,6 +58,19 @@ const Widget = ({ type }: WidgetProps): ReactElement => {
           </Flex>
         </Center>
       </Box>
+      {right && (
+        <div
+          style={{
+            position: 'relative',
+            height: 0,
+            width: 0,
+            zIndex: 5,
+            borderTop: '24px solid transparent',
+            borderBottom: '24px solid transparent',
+            borderLeft: '24px solid #EDF2F7',
+          }}
+        ></div>
+      )}
     </Center>
   )
 }
