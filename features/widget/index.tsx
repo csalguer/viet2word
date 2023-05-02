@@ -8,6 +8,8 @@ export const READING = 'reading'
 
 interface WidgetProps {
   type?: string
+  left?: boolean
+  right?: boolean
 }
 
 const NullContent = (): ReactElement => {
@@ -24,26 +26,58 @@ export const getWidgetContent = (type) => {
   return <NullContent />
 }
 
-const Widget = ({ type }: WidgetProps): ReactElement => {
+const Widget = ({ type, left, right }: WidgetProps): ReactElement => {
   return (
-    <Center h={'100vh'} w={'100%'}>
-      <Box
-        maxW={'50vw'}
-        bg={useColorModeValue('gray.100', 'gray.900')}
-        border={'1px solid gray.200'}
-        boxShadow={'2xl'}
-        rounded={'md'}
-        overflow={'hidden'}
-        maxWidth={550}
-        maxHeight={600}
-      >
-        <Center w={'100%'} h={'100%'}>
-          <Flex p={4} m={4} direction={'column'} justifyContent={'center'} alignItems={'center'}>
-            {getWidgetContent(type)}
-          </Flex>
-        </Center>
-      </Box>
-    </Center>
+    <>
+      <Center h={'100vh'} w={'100%'}>
+        {left && (
+          <div
+            style={{
+              right: '240px',
+              position: 'relative',
+              height: 0,
+              width: 0,
+              zIndex: 5,
+              borderTop: '24px solid transparent',
+              borderBottom: '24px solid transparent',
+              borderRight: '24px solid #EDF2F7',
+            }}
+          ></div>
+        )}
+        <Box
+          position={'absolute'}
+          maxW={'50vw'}
+          bg={useColorModeValue('gray.100', 'gray.900')}
+          border={'1px solid gray.200'}
+          boxShadow={'2xl'}
+          rounded={'md'}
+          // overflow={'hidden'}
+          maxWidth={550}
+          maxHeight={600}
+          id={'widget'}
+        >
+          <Center w={'100%'} h={'100%'}>
+            <Flex p={4} m={4} direction={'column'} justifyContent={'center'} alignItems={'center'}>
+              {getWidgetContent(type)}
+            </Flex>
+          </Center>
+        </Box>
+        {right && (
+          <div
+            style={{
+              position: 'relative',
+              left: '240px',
+              height: 0,
+              width: 0,
+              zIndex: 5,
+              borderTop: '24px solid transparent',
+              borderBottom: '24px solid transparent',
+              borderLeft: '24px solid #EDF2F7',
+            }}
+          ></div>
+        )}
+      </Center>
+    </>
   )
 }
 
