@@ -19,7 +19,7 @@ const Transcriber = (): ReactElement => {
   const inProgressData = useRef<Blob[] | null>(null)
   const [audioChunks, setAudioChunks] = useState<BlobPart[]>([])
   const [audio, setAudio] = useState<string | null>(null)
-  const [transcription, setTranscription] = useState<string>(STARTING_POINT_PLACEHOLDER)
+  const [transcription, setTranscription] = useState<string | null>(null)
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [_, setFinished] = useState<boolean>(false)
 
@@ -79,7 +79,6 @@ const Transcriber = (): ReactElement => {
   const handleSTTQueryRequest = async (): Promise<boolean | void> => {
     if (audio) {
       try {
-        setTranscription(PENDING_PLACEHOLDER)
         const wavBlob: Blob = await fetch(audio).then((r) => r.blob())
         const wavBytes = await wavBlob.arrayBuffer()
         const response = await queryVietTranscription(wavBytes)
