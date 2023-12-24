@@ -1,0 +1,85 @@
+
+.textRotate p {
+  animation: fade 2s infinite;
+  animation-duration: 2s;
+}
+.textRotate p:nth-child(1) {
+  animation-delay: 4s;
+}
+.textRotate p:nth-child(2) {
+  animation-delay: 6s;
+}
+.textRotate p:nth-child(3) {
+  animation-delay: 8s;
+}
+
+@keyframes fade {
+  0% {
+    opacity: 1;
+  }
+
+  /* 75% {
+    opacity: 0.95;
+  } */
+  100% {
+    /* transform: translateX(100px); */
+    opacity: 0;
+  }
+}
+
+
+.reveal p {
+  color: transparent;
+  background: linear-gradient(white 0 0) no-repeat;
+  background-size: 0% 100%;
+  background-clip: text;
+  animation: t 1.2s 1s infinite;
+  animation-duration: 20s;
+  visibility: hidden;
+}
+
+.reveal p:nth-child(1) {
+  animation-delay: 5s;
+}
+.reveal p:nth-child(2) {
+  animation-delay: 10s;
+}
+.reveal p:nth-child(3) {
+  animation-delay: 15s;
+}
+
+@keyframes t {
+  /* to {background-size: 100% 100%;} */
+  0% {
+    opacity: 0;
+    background-size: 0% 100%;
+
+  }
+  10% {
+    opacity: 1;
+    background-size: 100% 100%;
+
+  }
+  45%{
+    opacity: 0;
+  }
+  50% {
+    visibility: visible;
+    opacity: 0.2;
+    background-size: 100% 100%;
+  }
+  51%{
+    opacity: 0;
+    visibility: hidden;
+  }
+  81% {
+    /* transform: scale(.9); */
+    /* visibility: hidden; */
+    /* opacity: 0.5; */
+  }
+  99%{
+    background-size: 99% 100%;
+
+  }
+
+}

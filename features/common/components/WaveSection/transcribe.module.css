@@ -34,31 +34,3 @@
     transform: translate3d(85px, 0, 0);
   }
 }
-
-.textRotate p {
-  animation: fade 2s infinite;
-  animation-duration: 2s;
-}
-.textRotate p:nth-child(1) {
-  animation-delay: 4s;
-}
-.textRotate p:nth-child(2) {
-  animation-delay: 1s;
-}
-.textRotate p:nth-child(3) {
-  animation-delay: 6s;
-}
-
-@keyframes fade {
-  0% {
-    opacity: 1;
-  }
-
-  75% {
-    opacity: 0.95;
-  }
-  100% {
-    /* transform: translateX(100px); */
-    opacity: 0;
-  }
-}
