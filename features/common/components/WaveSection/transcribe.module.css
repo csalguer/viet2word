@@ -1,3 +1,40 @@
+@font-face {
+  font-family: 'loretta';
+  src: url('../../../../public/Loretta-Regular.woff2');
+  font-style: normal;
+  font-weight: normal;
+  font-display: swap;
+}
+
+@font-face {
+  src: url('../../../../public/Harriet-2v1-Display-Black.woff2') format('woff2');
+  font-family: 'Harriet Black';
+  font-style: normal;
+  font-display: swap;
+  font-weight: normal;
+}
+@font-face {
+  src: url('../../../../public/Harriet-2v1-Display-Black.woff2') format('woff2');
+  font-family: 'Harriet Black';
+  font-style: normal;
+  font-display: swap;
+  font-weight: normal;
+}
+@font-face {
+  src: url('../../../../public/Fragen-Regular.woff2') format('woff2');
+  font-family: 'Fragen';
+  font-style: normal;
+  font-display: swap;
+  font-weight: normal;
+}
+@font-face {
+  src: url('../../../../public/AlbulaPro-ExtraBold.woff2') format('woff2');
+  font-family: 'Albula Pro';
+  font-style: normal;
+  font-display: swap;
+  font-weight: normal;
+}
+
 .waves {
   position: relative;
   width: 100%;

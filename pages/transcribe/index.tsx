@@ -5,6 +5,46 @@ import WaveSection from '@/features/common/components/WaveSection'
 import Widget from '@/features/widget'
 import { TRANSCRIPTION } from '@/features/widget/index'
 import { Flex, Text, Box, Center } from '@chakra-ui/react'
+import styles from './bars.module.css'
+
+type DescriptiveTextBlocksProps = {
+  title: string | null
+  description: string | null
+  content: ReactElement
+}
+const DescriptiveTextBlocks = ({
+  title,
+  description,
+  content,
+}: DescriptiveTextBlocksProps): ReactElement => {
+  return (
+    <Center margin={'1em'} padding={'1em'} flexDirection={'column'} w={'45vw'} bg={'white'}>
+      <Text
+        fontFamily={'Alexandria'}
+        padding={'0.2em'}
+        color={'black'}
+        fontWeight={800}
+        fontSize={'4xl'}
+      >
+        {title ?? title}
+      </Text>
+      {description && (
+        <Text
+          fontFamily={'Didact Gothic'}
+          textAlign={'center'}
+          padding={'0.5em'}
+          minH={'25vh'}
+          color={'black'}
+          fontWeight={400}
+          fontSize={'1.2em'}
+        >
+          {description}
+        </Text>
+      )}
+      {!!content && content}
+    </Center>
+  )
+}
 
 export default function Index(): ReactElement {
   return (
@@ -18,48 +58,59 @@ export default function Index(): ReactElement {
           src='https://cdn.jsdelivr.net/npm/vara@1.4.0/lib/vara.min.js'
           type='text/javascript'
         ></script>
+        <script src='https://cdn.jsdelivr.net/gh/foobar404/wave.js/dist/bundle.js'></script>
         <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Alexandria'></link>
         <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Sriracha'></link>
         <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Sedgwick+Ave'></link>
         <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Oooh+Baby'></link>
         <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Grape+Nuts'></link>
         <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Didact+Gothic'></link>
+        <link
+          rel='stylesheet'
+          href='https://vietnamesetypography.com/type-recommendations/loretta/fonts/Loretta-ExtraBold.woff2'
+        ></link>
+        <link
+          rel='stylesheet'
+          href='https://vietnamesetypography.com/type-recommendations/harriet/fonts/Harriet-2v1-Display-Black.woff2'
+        ></link>
+        <link
+          rel='stylesheet'
+          href='https://vietnamesetypography.com/type-recommendations/fragen/fonts/Fragen-Regular.woff2'
+        ></link>
+        <link
+          rel='stylesheet'
+          href='https://vietnamesetypography.com/type-recommendations/albula-pro/fonts/AlbulaPro-ExtraBold.woff2'
+        ></link>
       </Head>
       {/* <SideNavBar> */}
       <PermissionsProvider>
-        <>
+        <Box gap={'10vh'}>
           <WaveSection />
-          <Flex id={'transcribe-detail'} as={'section'}>
-            <Center padding={'2.8em'} flexDirection={'column'} w={'55vw'} bg='gray'>
-              <Text
-                fontFamily={'Alexandria'}
-                padding={'1em'}
-                color={'black'}
-                fontWeight={800}
-                fontSize={'4xl'}
-              >
-                Speak. Listen. Write.
-              </Text>
-              <Text
-                fontFamily={'Didact Gothic'}
-                padding={'0.5em'}
-                minH={'25vh'}
-                color={'black'}
-                fontWeight={300}
-                fontSize={'1xl'}
-              >
-                Presenting our modest yet efficient Vietnamese Audio Transcription Neural Network –
-                a discreet powerhouse designed to seamlessly transcribe spoken Vietnamese into
-                written text. This unassuming neural net is crafted with precision, employing
-                advanced algorithms to accurately capture the nuances of the Vietnamese language.
-                Its understated design belies its impressive capabilities, offering a reliable
-                solution for transcription needs without unnecessary complexity. Experience the ease
-                of converting spoken words into text with our unpretentious Vietnamese Audio
-                Transcription Neural Network, simplifying language processing for a variety of
-                applications.
-              </Text>
-            </Center>
-            <Center w={'45vw'} flexDirection={'column'}>
+          <Center padding={'3em'}>
+            <DescriptiveTextBlocks
+              title={'Speak. Listen. Write.'}
+              description={
+                'Experience the ease of converting spoken words into text, simplifying language capture for a variety of applications.'
+              }
+            />
+          </Center>
+          <DescriptiveTextBlocks
+            title={'Speak. Listen. Write.'}
+            description={
+              'Experience the ease of converting spoken words into text, simplifying language capture for a variety of applications.'
+            }
+          />
+          <Center id={'transcribe-detail'} as={'section'} marginTop={'15em'} h={'60vh'} w={'100%'}>
+            <DescriptiveTextBlocks
+              title={'Try me out now!'}
+              description={null}
+              content={
+                <Center maxH={'30vh'}>
+                  <Widget type={TRANSCRIPTION} left />{' '}
+                </Center>
+              }
+            />
+            {/* <Center w={'45vw'} flexDirection={'column'}>
               <Text
                 position={'relative'}
                 whiteSpace={'nowrap'}
@@ -71,16 +122,27 @@ export default function Index(): ReactElement {
               >
                 Try me out now!
               </Text>
-              <Widget type={TRANSCRIPTION} left />
-            </Center>
-          </Flex>
-          <Box
+            </Center> */}
+          </Center>
+          {/* <Center
             h={'65vh'}
             bg={
               'linear-gradient(83deg, rgba(56,247,211,1) 0%, rgba(144,193,225,1) 50%, rgba(179,117,180,1) 79%, rgba(247,93,175,1) 100%);'
             }
-          ></Box>
-        </>
+          >
+            <Center id='bars' width={'100%'} className={styles.undulate} gap={'1.6em'}>
+              <Box borderRadius={'.8em'} height={'12em'} width={'2em'} bg={'transparent'}></Box>
+              <Box borderRadius={'.8em'} height={'12em'} width={'2em'} bg={'transparent'}></Box>
+              <Box borderRadius={'.8em'} height={'12em'} width={'2em'} bg={'transparent'}></Box>
+              <Box borderRadius={'.8em'} height={'12em'} width={'2em'} bg={'transparent'}></Box>
+              <Box borderRadius={'.8em'} height={'12em'} width={'2em'} bg={'transparent'}></Box>
+              <Box borderRadius={'.8em'} height={'12em'} width={'2em'} bg={'transparent'}></Box>
+              <Box borderRadius={'.8em'} height={'12em'} width={'2em'} bg={'transparent'}></Box>
+              <Box borderRadius={'.8em'} height={'12em'} width={'2em'} bg={'transparent'}></Box>
+              <Box borderRadius={'.8em'} height={'12em'} width={'2em'} bg={'transparent'}></Box>
+            </Center>
+          </Center> */}
+        </Box>
       </PermissionsProvider>
       {/* </SideNavBar> */}
     </>
