@@ -123,9 +123,8 @@ export const WaveSection = (): ReactElement => {
             fontFamily={'Alexandria'}
             color={'white'}
             fontWeight={900}
-            fontSize={'8xl'}
+            fontSize={'9xl'}
             width={'8em'}
-            // _hover={handleMouseover}
           >
             Transcribe
           </Text>

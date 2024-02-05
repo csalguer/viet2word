@@ -1,7 +1,7 @@
 import { ReactElement } from 'react'
 import { Flex, Text, Link, Center } from '@chakra-ui/react'
 import { GithubLogo, Logo } from '../Logo'
-import LogoVariant from '../Logo/LogoVariant'
+import { LogoRedo, LogoVariant } from '../Logo/LogoVariant'
 import styles from '../WaveSection/transcribe.module.css'
 
 const SelfAttributionTag = (): ReactElement => {
@@ -31,6 +31,8 @@ export const PageHeader = (): ReactElement => {
     <>
       <Flex position={'absolute'} w={'100vw'} top={'2vh'} left={'10vh'}>
         <LogoVariant width={'6em'} height={'6em'} />
+        {/* <LogoRedo width={'6em'} height={'6em'} light/> */}
+
         <Center>
           <Text fontFamily={'Albula Pro'} fontSize={'2xl'} fontWeight={900} color={'white'}>
             SAO LẠI

@@ -1,5 +1,5 @@
 import Head from 'next/head'
-import type { ReactElement } from 'react'
+import { useCallback, type ReactElement } from 'react'
 import PermissionsProvider from '@/features/permissions'
 import WaveSection from '@/features/common/components/WaveSection'
 import Widget from '@/features/widget'
@@ -47,6 +47,14 @@ const DescriptiveTextBlocks = ({
 }
 
 export default function Index(): ReactElement {
+  const handleRevealWidget = useCallback((event) => {
+    console.log(event)
+  }, [])
+
+
+  const descriptionSections = []
+
+
   return (
     <>
       <Head>
@@ -82,10 +90,10 @@ export default function Index(): ReactElement {
           href='https://vietnamesetypography.com/type-recommendations/albula-pro/fonts/AlbulaPro-ExtraBold.woff2'
         ></link>
       </Head>
-      {/* <SideNavBar> */}
       <PermissionsProvider>
         <Box gap={'10vh'}>
           <WaveSection />
+
           <Center padding={'3em'}>
             <DescriptiveTextBlocks
               title={'Speak. Listen. Write.'}
@@ -94,35 +102,30 @@ export default function Index(): ReactElement {
               }
             />
           </Center>
-          <DescriptiveTextBlocks
-            title={'Speak. Listen. Write.'}
-            description={
-              'Experience the ease of converting spoken words into text, simplifying language capture for a variety of applications.'
-            }
-          />
+
+          <Center id={'transcribe-detail'} as={'section'} marginTop={'15em'} h={'60vh'} w={'100%'}>
+            <DescriptiveTextBlocks
+              title={'Bạn nói câu này có đúng không?'}
+              description={'Repeat the sentence below'}
+              content={
+                <Center w={'80vw'} onMouseDown={handleRevealWidget}>
+                  <Text fontSize={'4em'} fontWeight={700} fontFamily={'Fragen'}>
+                    Mặt trời lặn và biển lặng
+                  </Text>
+                </Center>
+              }
+            />
+          </Center>
           <Center id={'transcribe-detail'} as={'section'} marginTop={'15em'} h={'60vh'} w={'100%'}>
             <DescriptiveTextBlocks
               title={'Try me out now!'}
               description={null}
               content={
                 <Center maxH={'30vh'}>
-                  <Widget type={TRANSCRIPTION} left />{' '}
+                  <Widget type={TRANSCRIPTION} left />
                 </Center>
               }
             />
-            {/* <Center w={'45vw'} flexDirection={'column'}>
-              <Text
-                position={'relative'}
-                whiteSpace={'nowrap'}
-                fontFamily={'Alexandria'}
-                color={'black'}
-                fontWeight={800}
-                fontSize={'4xl'}
-                marginTop={'40vh'}
-              >
-                Try me out now!
-              </Text>
-            </Center> */}
           </Center>
           {/* <Center
             h={'65vh'}
