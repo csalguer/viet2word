@@ -1,6 +1,6 @@
 @font-face {
   font-family: 'loretta';
-  src: url('../../../../public/Loretta-Regular.woff2');
+  src: url('../../../../public/Loretta-Regular.woff2') format('woff2');
   font-style: normal;
   font-weight: normal;
   font-display: swap;
@@ -35,6 +35,41 @@
   font-weight: normal;
 }
 
+/* Aurora section */
+
+.heading-container {
+  background-color: #ff6347; /* Dark Salmon */
+  background-image: linear-gradient(
+    to bottom,
+    rgba(255, 181, 86, 1) 0%,
+    rgba(236, 105, 40, 1) 31%,
+    rgba(199, 58, 103, 1) 61%,
+    rgba(149, 41, 171, 1)
+  ); /* Orange -> Dark Goldenrod -> Gold */
+  background-attachment: fixed;
+}
+
+@keyframes aurora {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.container {
+  animation: aurora 20s infinite;
+}
+
+/* 
+  Wave section definition including animation 
+  (total of 4 with one solid white to be use to 
+  transition into a white page section) 
+*/
 .waves {
   position: relative;
   width: 100%;
@@ -42,7 +77,6 @@
   min-height: 100px;
   max-height: 150px;
 }
-
 .motion > use {
   animation: move-forever 25s cubic-bezier(0.55, 0.5, 0.45, 0.5) infinite;
 }
