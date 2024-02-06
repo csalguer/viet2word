@@ -5,34 +5,52 @@ import PageHeader from '../PageHeader'
 import { TextCarousel } from '../TextCarousel'
 import NeuButton from './NeuButton'
 
+const pallete = [
+  'rgba(255, 181, 86, 1)',
+  'rgba(236, 105, 40, 1)',
+  'rgba(199, 58, 103, 1)',
+  'rgba(149, 41, 171, 1)',
+]
+
+
+ // styles 
+const anochecer = [
+  'rgba(19, 4, 64, 1)',
+  'rgba(99, 43, 60, 1)',
+  'rgba(97, 86, 130, 1)',
+  'rgba(135, 120, 126, 1)'
+]
+
+ const x = ['rgba(220,250,240,1)', 'rgba(200,224,180,1)', ' rgba(176,225,210,1)',' rgba(140,215,150,1)']
+
 export const WaveSection = (): ReactElement => {
-  const setHoverStyles = useCallback(() => {
-    const mouseInStyle = {
-      fontFamily: 'Harriet Black',
-    }
-    const mouseOutStyle = {
-      fontFamily: 'Alexandria',
-    }
+  // const setHoverStyles = useCallback(() => {
+  //   const mouseInStyle = {
+  //     fontFamily: 'Harriet Black',
+  //   }
+  //   const mouseOutStyle = {
+  //     fontFamily: 'Alexandria',
+  //   }
 
-    const title = document.getElementById('main-action-tag')
-    title.onmouseover = (event) => {
-      const title = document.getElementById('main-action-tag')
-      console.info(event)
-      title?.setAttribute('font-family', 'Alexandria')
-      title?.setAttribute('word-wrap', 'normal')
-      ;(title.innerText = 'SAO LẠI'), (title.fontFamily = 'Alexandria')
-    }
-    title.onmouseleave = (event) => {
-      console.info(event)
-      const title = document.getElementById('main-action-tag')
-      title?.setAttribute('font-family', 'Fragen')
-      ;(title.innerText = 'Transcribe'), (title.fontFamily = 'Fragen')
-    }
-  }, [])
+  //   const title = document.getElementById('main-action-tag')
+  //   title.onmouseover = (event) => {
+  //     const title = document.getElementById('main-action-tag')
+  //     console.info(event)
+  //     title?.setAttribute('font-family', 'Alexandria')
+  //     title?.setAttribute('word-wrap', 'normal')
+  //     ;(title.innerText = 'SAO LẠI'), (title.fontFamily = 'Alexandria')
+  //   }
+  //   title.onmouseleave = (event) => {
+  //     console.info(event)
+  //     const title = document.getElementById('main-action-tag')
+  //     title?.setAttribute('font-family', 'Fragen')
+  //     ;(title.innerText = 'Transcribe'), (title.fontFamily = 'Fragen')
+  //   }
+  // }, [])
 
-  useLayoutEffect(() => {
-    setHoverStyles()
-  }, [setHoverStyles])
+  // useLayoutEffect(() => {
+  //   setHoverStyles()
+  // }, [setHoverStyles])
 
   return (
     <>
@@ -80,7 +98,7 @@ export const WaveSection = (): ReactElement => {
       bottom={'0px'}
       whiteSpace={'nowrap'}
       >
-      Chép Lại
+      Chép Sao Lại
     </Text> */}
           <Text
             id={'main-action-tag'}
@@ -96,8 +114,8 @@ export const WaveSection = (): ReactElement => {
             Transcribe
           </Text>
         </Center>
-        {/* <TextCarousel /> */}
-        {/* <NeuButton></NeuButton> */}
+        <TextCarousel />
+        <NeuButton></NeuButton>
         <PageHeader />
       </Flex>
     </>
