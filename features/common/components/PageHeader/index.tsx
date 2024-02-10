@@ -6,7 +6,7 @@ import styles from '../WaveSection/transcribe.module.css'
 
 const SelfAttributionTag = (): ReactElement => {
   return (
-    <Flex position={'absolute'} top={'5vh'} right={'15vh'} flexDirection={'row'} gap={'0.8em'}>
+    <Flex position={'absolute'} top={'2vh'} right={'15vh'} flexDirection={'row'} gap={'0.8em'}>
       <Text fontSize={{ sm: '0.8em', lg: '1.6em' }} fontFamily={'monospace'} color={'white'}>
         Made by{' '}
       </Text>

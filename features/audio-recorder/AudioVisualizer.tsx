@@ -1,19 +1,52 @@
-import { Fragment, useState, useEffect } from 'react'
+import { Fragment, useState, useEffect, useCallback } from 'react'
 import type { ReactElement } from 'react'
 import { Box, Center, Flex } from '@chakra-ui/react'
 import { isNull } from 'lodash'
 
 interface AudioVisualizerProps {
   stream: MediaStream
+  widget: boolean
 }
 
-const AudioVisualizer = ({ stream }: AudioVisualizerProps): ReactElement => {
-  const [analyzer, setAnalyzer] = useState<AnalyserNode | null>(null)
+type VisualizerStyleOptions = {
+  fillStyle: string
+  lineWidth: number
+  strokeStyle: string
+}
 
-  useEffect(() => {
+const widgetStyling: VisualizerStyleOptions = {
+  fillStyle: '#EDF2F7',
+  lineWidth: 2,
+  strokeStyle: '#3182ce',
+}
+
+const mainStyling: VisualizerStyleOptions = {
+  fillStyle: '#ffffff00', //Transparent white
+  lineWidth: '4',
+  strokeStyle: '#EDF2F765',
+}
+
+const ColorPalette = {}
+
+// Check for other styling options or CSS type > multiple waveforms?
+
+// Set to StreamInfo and remove all stream + context references here. Focus
+// on the canvas element and always have some sort of animation callback as
+// input so the canvas can be the base generic layer and the animation
+// and the styling/audio data can be input into the visualizer
+// presets for widget above ^, Preset for main In Progress
+
+const AudioVisualizer = ({ stream, widget = true }: AudioVisualizerProps): ReactElement => {
+  // CHANGE VALUE OF WIDGE TO FALSE LATER
+  const [analyzer, setAnalyzer] = useState<AnalyserNode | null>(null)
+  const [audioSource, setAudioSource] = useState<MediaStreamAudioSourceNode | null>(null)
+
+  const setupAnalyzer = useCallback(() => {
     if (!isNull(stream)) {
-      const audioContext = new AudioContext()
-      const audioSource = audioContext.createMediaStreamSource(stream)
+      // const audioContext = new AudioContext()
+      // const audioSource = audioContext.createMediaStreamSource(stream)
+      // setAudioSource(audioSource)
+
       const analyzer = audioContext.createAnalyser()
       analyzer.minDecibels = -90
       analyzer.maxDecibels = -10
@@ -25,56 +58,66 @@ const AudioVisualizer = ({ stream }: AudioVisualizerProps): ReactElement => {
   }, [stream])
 
   useEffect(() => {
+    audioSource ?? setupAnalyzer()
+  }, [setupAnalyzer, audioSource])
+
+  const styleVisuals = useCallback(
+    (context: CanvasRenderingContext2D) => {
+      return Object.entries(widget ? widgetStyling : mainStyling).forEach(({ rule, value }) => {
+        context[rule] = value
+      })
+    },
+    [widget],
+  )
+
+  useEffect(() => {
     const canvas = document.getElementById('audio-visualizer') as HTMLCanvasElement | null
-    if (canvas) {
-      const context = canvas.getContext('2d')
-      if (context) {
-        const WIDTH = canvas.width
-        const HEIGHT = canvas.height
+    if (canvas && stream.getAudioTracks().length > 0) {
+      const context2D = canvas.getContext('2d')
+      if (context2D) {
         if (analyzer) {
-          context.clearRect(0, 0, WIDTH, HEIGHT)
+          context2D.clearRect(0, 0, canvas.height, canvas.height)
           const bufferLength = analyzer.frequencyBinCount
           const dataArray = new Float32Array(bufferLength)
-          const sliceWidth = (WIDTH * 1.0) / bufferLength
+          const sliceWidth = (canvas.height * 1.0) / bufferLength
 
           const animate = (): void => {
             requestAnimationFrame(animate)
             let x = 0
-            context.fillStyle = '#EDF2F7'
-            context.fillRect(1, 1, WIDTH, HEIGHT)
+            context2D.fillRect(1, 1, canvas.height, canvas.height)
+            styleVisuals(context2D)
             analyzer.getFloatFrequencyData(dataArray)
-            context.lineWidth = 2
-            context.strokeStyle = '#3182ce'
-
-            context.beginPath()
+            context2D.beginPath()
 
             for (let i = 0; i < bufferLength; i++) {
               const v = dataArray[i] / 128.0
-              const y = (v * HEIGHT) / -2
+              const y = (v * canvas.height) / -2
               if (i === 0) {
-                context.moveTo(x, y)
+                context2D.moveTo(x, y)
               } else {
-                context.lineTo(x, y)
+                context2D.lineTo(x, y)
               }
-
               x += sliceWidth
             }
-            context.lineTo(canvas.width, canvas.height / 2)
-            context.stroke()
+            context2D.lineTo(canvas.width, canvas.height / 2)
+            context2D.stroke()
           }
           animate()
         }
       }
     }
-  }, [analyzer])
+    dispatchEvent(Signal)
+  }, [analyzer, audioSource, stream, styleVisuals])
 
   if (isNull(stream)) {
     return (
-      // <Flex >
       <Center w={'60%'} h={100}>
-        <Box width='100%' height='2px' bg={'#3182ce'}></Box>
+        <Box //Change HTML tag and handle an animation within the actual canvas elem for a single return, no if/else block
+          width='100%'
+          height='2px'
+          bg={widget ? widgetStyling.strokeStyle : mainStyling.strokeStyle}
+        ></Box>
       </Center>
-      // </Flex>
     )
   }
   return (

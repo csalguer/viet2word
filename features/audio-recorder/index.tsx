@@ -1,4 +1,4 @@
-import { Fragment, useState, useEffect, useCallback, useRef } from 'react'
+import { Fragment, useState, useLayoutEffect, useCallback, useRef } from 'react'
 import type { ReactElement } from 'react'
 import { Box, Button, CircularProgress, Flex } from '@chakra-ui/react'
 import { isNull } from 'lodash'
@@ -12,72 +12,108 @@ const STARTING_POINT_PLACEHOLDER = 'Transcription will appear here.'
 const isPending = (text) => text == PENDING_PLACEHOLDER
 const hasYetToQueryEndpoint = (text) => text == STARTING_POINT_PLACEHOLDER
 
-const AudioControls = (): ReactElement => {
-  const [stream, setStream] = useState<MediaStream | null>(null)
+type StreamInfo = {
+  stream: MediaStream
+  tracks: MediaStreamTrack[] // Audio Input Track only (every has kind=="microphone")
+  context: MediaStreamAudioSourceNode
+}
 
-  const mediaRecorder = useRef<MediaRecorder | null>(null)
+const AudioControls = (): ReactElement => {
+  // const [stream, setStream] = useState<MediaStream | null>(null)
+
   const inProgressData = useRef<Blob[] | null>(null)
+
+  const recorder = useRef<MediaRecorder | null>(null)
   const [recordingStatus, setRecordingStatus] = useState<string>('inactive')
   const [audioChunks, setAudioChunks] = useState<BlobPart[]>([])
   const [audio, setAudio] = useState<string | null>(null)
+
   const [readAloudAudio, setReadAloudAudio] = useState<string | null>(null)
   const [transcription, setTranscription] = useState<string>(STARTING_POINT_PLACEHOLDER)
 
-  const getMediaStream = useCallback(async () => {
-    if ('MediaRecorder' in window) {
-      try {
-        const streamData = await navigator.mediaDevices.getUserMedia({
-          audio: true,
-          video: false,
-        })
-        setStream(streamData)
-      } catch (err) {
-        alert(err)
-      }
-    } else {
-      alert('The MediaRecorder API is not supported in your browser.')
-    }
-  }, [])
+  const [streamInfo, setStreamInfo] = useState<StreamInfo | null>(null)
 
-  const startRecording = (): void => {
-    if (stream) {
-      setRecordingStatus('recording')
-      // MediaStream only supports recording in webm
-      const media = new MediaRecorder(stream, { mimeType })
-      // set the MediaRecorder instance to the mediaRecorder ref
-      mediaRecorder.current = media
-      mediaRecorder.current.start()
+  useLayoutEffect(() => {
+    const getStreamInfo = async () => {
+      if ('MediaRecorder' in window) {
+        try {
+          const stream = await navigator.mediaDevices.getUserMedia({
+            audio: true,
+            video: false,
+          })
+          const audioTracks = stream.getAudioTracks()
+          const audioSource = new AudioContext().createMediaStreamSource(stream)
+          return {
+            stream: stream,
+            tracks: audioTracks,
+            context: audioSource,
+          }
+
+          // setStream(streamData)
+        } catch (err) {
+          console.info(err)
+          console.trace(err)
+          return null
+        }
+      } else {
+        alert('The MediaRecorder API is not supported in your browser.')
+      }
+    }
+
+    const info: StreamInfo = getStreamInfo()
+    setStreamInfo(info)
+  }, [streamInfo])
+
+  useLayoutEffect(() => {
+    const handleConversion = async () => {
+      // Must convert the webm audioBlob to a WAV blob
+      const audioBlob = new Blob(audioChunks, { type: mimeType })
+      const wavBlob = await convertWebmToWAV(audioBlob)
+      const wavURL = URL.createObjectURL(wavBlob)
+      setAudio(wavURL)
+      setAudioChunks([])
+    }
+    recorder?.current.onstop = async () => {
+      await handleConversion()
+    }
+  }, [audioChunks, recorder])
+
+  //Define controller functions for recording
+  const startRecording = useCallback((): void => {
+    if (isNull(streamInfo.stream)) return
+    setRecordingStatus('recording')
+    // MediaStream only supports recording in webm
+    if (recorder) {
+      recorder.current = recorder ? new MediaRecorder(stream, { mimeType }) : null
+      recorder.current.start()
       const localAudioChunks: Blob[] = []
       inProgressData.current = localAudioChunks
-      mediaRecorder.current.ondataavailable = (event) => {
-        if (typeof event.data === 'undefined') return
-        if (event.data.size === 0) return
+      recorder.current.ondataavailable = (event) => {
+        if (typeof event.data === 'undefined' || event.data.size === 0) return
         localAudioChunks.push(event.data)
       }
       setAudioChunks(localAudioChunks)
+    } else {
+      alert('No stream to record yet')
     }
-  }
+  }, [streamInfo])
 
-  const stopRecording = (): void => {
-    setRecordingStatus('inactive')
-    if (mediaRecorder?.current) {
-      mediaRecorder.current.stop()
-      mediaRecorder.current.onstop = async () => {
-        // Must convert the webm audioBlob to a WAV blob
-        const audioBlob = new Blob(audioChunks, { type: mimeType })
-        const wavBlob = await convertWebmToWAV(audioBlob)
-        const wavURL = URL.createObjectURL(wavBlob)
-        setAudio(wavURL)
-        setAudioChunks([])
-      }
+  const stopRecording = useCallback((): void => {
+    if (recorder && streamInfo) {
+      const { context, stream, tracks } = streamInfo
+      setRecordingStatus('inactive')
+      recorder?.current.stop()
+      tracks.forEach((track) => {
+        if (track.readyState == 'live') {
+          track.stop()
+          stream.removeTrack(track)
+        }
+      })
+      context.disconnect()
     }
-  }
+  }, [streamInfo])
 
-  useEffect(() => {
-    getMediaStream()
-  }, [getMediaStream])
-
-  const handleSTTQueryRequest = async (): Promise<void> => {
+  const handleSTTQueryRequest = useCallback(async (): Promise<void> => {
     if (audio) {
       setTranscription(PENDING_PLACEHOLDER)
       const wavBlob: Blob = await fetch(audio).then((r) => r.blob())
@@ -85,16 +121,16 @@ const AudioControls = (): ReactElement => {
       const response = await queryVietTranscription(wavBytes)
       setTranscription(response.text)
     }
-  }
+  }, [audio])
 
-  const handleTTSQueryRequest = async (): Promise<void> => {
+  const handleTTSQueryRequest = useCallback(async (): Promise<void> => {
     if (audio) {
       const buffer = await queryVietGeneration(transcription)
       const rawAudioBlob = new Blob([buffer], { type: 'audio/wav' })
       const rawAudioUrl = URL.createObjectURL(rawAudioBlob)
       setReadAloudAudio(rawAudioUrl)
     }
-  }
+  }, [audio, transcription])
 
   return (
     <Flex justifyContent={'center'} alignItems={'center'}>

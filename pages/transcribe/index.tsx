@@ -55,7 +55,7 @@ interface StyledSectionProps {
 const StyledSection = ({ content }: StyledSectionProps): ReactElement => {
   return (
     <>
-      <Center id={'transcribe-detail'}  as={'section'} marginTop={'15em'} h={'60vh'} w={'100%'}>
+      <Center id={'transcribe-detail'} as={'section'} marginTop={'15em'} h={'60vh'} w={'100%'}>
         {content}
       </Center>
     </>
@@ -103,15 +103,15 @@ export default function Index(): ReactElement {
     />,
     <DescriptiveTextBlocks
       key={nanoid(5)}
-      title={'Bạn nói câu này có đúng không?'}
+      // title={'Bạn nói câu này có đúng không?'}
+      title={'Try me out now!'}
       description={'Repeat the sentence below'}
       content={
-        <Center id={'transcribe-detail'} as={'section'} marginTop={'15em'} h={'60vh'} w= {'100%' }>
+        <Center id={'transcribe-detail'} as={'section'} marginTop={'15em'} h={'60vh'} w={'100%'}>
           <DescriptiveTextBlocks
-            title={'Try me out now!'}
             description={null}
             content={
-              <Center maxH={'30vh' }>
+              <Center maxH={'30vh'}>
                 <Widget type={TRANSCRIPTION} left />
               </Center>
             }
@@ -120,7 +120,11 @@ export default function Index(): ReactElement {
       }
     />,
   ]
-  const contactMeSection = [(<><text>Hey</text></>)]
+  const contactMeSection = [
+    <>
+      <text>Hey</text>
+    </>,
+  ]
 
   return (
     <>

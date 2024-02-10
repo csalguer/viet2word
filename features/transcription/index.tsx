@@ -24,6 +24,7 @@ const Transcriber = (): ReactElement => {
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [isFinishedRecording, setFinished] = useState<boolean>(false)
   const [wavBytes, setWavBytes] = useState<ArrayBuffer | null>(null)
+
   const getMediaStream = useCallback(async () => {
     if ('MediaRecorder' in window) {
       try {
@@ -64,9 +65,9 @@ const Transcriber = (): ReactElement => {
     queryFn: () => queryVietTranscription(wavBytes),
     enabled: false,
   })
+
   const stopRecording = (): void => {
     if (mediaRecorder?.current) {
-      mediaRecorder.current.stop()
       mediaRecorder.current.onstop = async () => {
         // Must convert the webm audioBlob to a WAV blob
         const audioBlob = new Blob(audioChunks, { type: mimeType })
@@ -80,6 +81,7 @@ const Transcriber = (): ReactElement => {
       }
       setFinished(true)
     }
+    mediaRecorder?.current ? mediaRecorder.current.stop() : mediaRecorder.stop()
   }
 
   useEffect(() => {
