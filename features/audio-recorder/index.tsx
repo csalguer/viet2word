@@ -18,99 +18,103 @@ type StreamInfo = {
   context: MediaStreamAudioSourceNode
 }
 
+enum IS {
+  RECORDING,
+  STOPPED,
+}
+
 const AudioControls = (): ReactElement => {
   // const [stream, setStream] = useState<MediaStream | null>(null)
 
-  const inProgressData = useRef<Blob[] | null>(null)
-
+  const recordedData = useRef<Blob[]>([])
   const recorder = useRef<MediaRecorder | null>(null)
+
   const [recordingStatus, setRecordingStatus] = useState<string>('inactive')
+
   const [audioChunks, setAudioChunks] = useState<BlobPart[]>([])
   const [audio, setAudio] = useState<string | null>(null)
+
+  const [streamInfo, setStreamInfo] = useState<StreamInfo | null>(null)
 
   const [readAloudAudio, setReadAloudAudio] = useState<string | null>(null)
   const [transcription, setTranscription] = useState<string>(STARTING_POINT_PLACEHOLDER)
 
-  const [streamInfo, setStreamInfo] = useState<StreamInfo | null>(null)
+  const handleConversion = useCallback(async () => {
+    // Must convert the webm audioBlob to a WAV blob
+    const audioBlob = new Blob(audioChunks, { type: mimeType })
+    const wavBlob = await convertWebmToWAV(audioBlob)
+    const wavURL = URL.createObjectURL(wavBlob)
+    setAudio(wavURL)
+    setAudioChunks([])
+  }, [audioChunks])
 
   useLayoutEffect(() => {
-    const getStreamInfo = async () => {
-      if ('MediaRecorder' in window) {
-        try {
-          const stream = await navigator.mediaDevices.getUserMedia({
-            audio: true,
-            video: false,
-          })
-          const audioTracks = stream.getAudioTracks()
-          const audioSource = new AudioContext().createMediaStreamSource(stream)
-          return {
-            stream: stream,
-            tracks: audioTracks,
-            context: audioSource,
-          }
+    // Move check to permissions provider
+    if (!('MediaRecorder' in window)) {
+      alert('WebAudio API not supported')
+      return
+    }
 
-          // setStream(streamData)
-        } catch (err) {
-          console.info(err)
-          console.trace(err)
-          return null
-        }
-      } else {
-        alert('The MediaRecorder API is not supported in your browser.')
+    const prepareRecorder = (stream: MediaStream) => {
+      recorder.current = new MediaRecorder(stream, { mimeType })
+      recorder.current.onstop = async () => {
+        await handleConversion()
+      }
+      recorder.current.ondataavailable = (event: BlobEvent) => {
+        if (typeof event.data === 'undefined' || event.data.size === 0) return
+        recordedData.current.push(event.data)
       }
     }
 
-    const info: StreamInfo = getStreamInfo()
-    setStreamInfo(info)
-  }, [streamInfo])
+    const setup = async () => {
+      try {
+        const stream = await navigator.mediaDevices.getUserMedia({
+          audio: true,
+          video: false,
+        })
+        const audioTracks = stream.getAudioTracks()
+        const audioSource = new AudioContext().createMediaStreamSource(stream)
 
-  useLayoutEffect(() => {
-    const handleConversion = async () => {
-      // Must convert the webm audioBlob to a WAV blob
-      const audioBlob = new Blob(audioChunks, { type: mimeType })
-      const wavBlob = await convertWebmToWAV(audioBlob)
-      const wavURL = URL.createObjectURL(wavBlob)
-      setAudio(wavURL)
-      setAudioChunks([])
+        prepareRecorder(stream)
+        setStreamInfo({
+          stream: stream,
+          tracks: audioTracks,
+          context: audioSource,
+        })
+      } catch (err) {
+        alert(err)
+        setStreamInfo(null)
+      }
     }
-    recorder?.current.onstop = async () => {
-      await handleConversion()
-    }
-  }, [audioChunks, recorder])
+    setup() // Stream, tracks, context, and recorder
+  }, [handleConversion])
 
   //Define controller functions for recording
   const startRecording = useCallback((): void => {
-    if (isNull(streamInfo.stream)) return
-    setRecordingStatus('recording')
+    if (isNull(streamInfo)) return
+    if (isNull(recorder.current)) return
+    setRecordingStatus('recording') //setRecordingStatus(IS.RECORDING)
     // MediaStream only supports recording in webm
-    if (recorder) {
-      recorder.current = recorder ? new MediaRecorder(stream, { mimeType }) : null
-      recorder.current.start()
-      const localAudioChunks: Blob[] = []
-      inProgressData.current = localAudioChunks
-      recorder.current.ondataavailable = (event) => {
-        if (typeof event.data === 'undefined' || event.data.size === 0) return
-        localAudioChunks.push(event.data)
-      }
-      setAudioChunks(localAudioChunks)
-    } else {
-      alert('No stream to record yet')
-    }
+    recordedData.current = [] as Blob[]
+    setAudioChunks(recordedData.current)
+    recorder.current.start()
   }, [streamInfo])
 
   const stopRecording = useCallback((): void => {
-    if (recorder && streamInfo) {
-      const { context, stream, tracks } = streamInfo
-      setRecordingStatus('inactive')
-      recorder?.current.stop()
-      tracks.forEach((track) => {
-        if (track.readyState == 'live') {
-          track.stop()
-          stream.removeTrack(track)
-        }
-      })
-      context.disconnect()
-    }
+    if (isNull(recorder.current)) return
+    if (isNull(streamInfo)) return //Recorder but no stream, already torn down nothing to stop
+    // Handle teardown without recorder
+
+    const { context, stream, tracks } = streamInfo
+    recorder.current.stop()
+    tracks.forEach((track) => {
+      if (track.readyState == 'live') {
+        track.stop()
+        stream.removeTrack(track)
+      }
+    })
+    context.disconnect()
+    setRecordingStatus('inactive') //setRecordingStatus(IS.STOPPED)
   }, [streamInfo])
 
   const handleSTTQueryRequest = useCallback(async (): Promise<void> => {
@@ -147,13 +151,7 @@ const AudioControls = (): ReactElement => {
           <Flex direction={'column'} alignItems={'center'}>
             <>
               {recordingStatus === 'inactive' ? (
-                <Button
-                  colorScheme={'green'}
-                  margin={16}
-                  padding={8}
-                  id='recording-button'
-                  onClick={startRecording}
-                >
+                <Button colorScheme={'green'} margin={16} padding={8} id='recording-button' onClick={startRecording}>
                   Start Recording
                 </Button>
               ) : null}
@@ -169,17 +167,11 @@ const AudioControls = (): ReactElement => {
               ) : null}
             </>
             {recordingStatus === 'recording' ? (
-              <Button
-                colorScheme={'red'}
-                margin={16}
-                padding={8}
-                id='recording-button'
-                onClick={stopRecording}
-              >
+              <Button colorScheme={'red'} margin={16} padding={8} id='recording-button' onClick={stopRecording}>
                 Stop Recording
               </Button>
             ) : null}
-            {recordingStatus === 'recording' && stream ? <AudioVisualizer stream={stream} /> : null}
+            {recordingStatus === 'recording' && streamInfo ? <AudioVisualizer stream={streamInfo.stream} /> : null}
           </Flex>
         </Flex>
         {!isNull(audio) && (
@@ -190,11 +182,7 @@ const AudioControls = (): ReactElement => {
             onClick={handleSTTQueryRequest}
             disabled={isPending(transcription)}
           >
-            {isPending(transcription) ? (
-              <CircularProgress isIndeterminate color='green.300' />
-            ) : (
-              'Query Inference API'
-            )}
+            {isPending(transcription) ? <CircularProgress isIndeterminate color='green.300' /> : 'Query Inference API'}
           </Button>
         )}
         {!isNull(audio) && (

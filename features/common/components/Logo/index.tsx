@@ -1,3 +1,4 @@
+/* eslint-disable max-len */
 export const GithubLogo = () => {
   return (
     <>
@@ -32,27 +33,13 @@ export const Logo = () => {
         // height='2500'
       >
         <defs>
-          <linearGradient
-            id='a'
-            x1='83.39'
-            y1='304.79'
-            x2='424.88'
-            y2='304.79'
-            gradientUnits='userSpaceOnUse'
-          >
+          <linearGradient id='a' x1='83.39' y1='304.79' x2='424.88' y2='304.79' gradientUnits='userSpaceOnUse'>
             <stop offset='0' stopColor='#8a02e4' />
             <stop offset='.33' stopColor='#7900f4' />
             <stop offset='.68' stopColor='#af00bb' />
             <stop offset='1' stopColor='#e30084' />
           </linearGradient>
-          <linearGradient
-            id='b'
-            x1='60.75'
-            y1='190.78'
-            x2='551.27'
-            y2='136.11'
-            gradientUnits='userSpaceOnUse'
-          >
+          <linearGradient id='b' x1='60.75' y1='190.78' x2='551.27' y2='136.11' gradientUnits='userSpaceOnUse'>
             <stop offset='0' stopColor='#ff8802' />
             <stop offset='.18' stopColor='#ff6a12' />
             <stop offset='.61' stopColor='#ff4029' />

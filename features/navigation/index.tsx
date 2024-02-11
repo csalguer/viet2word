@@ -39,13 +39,7 @@ const SideNavBar = ({ children }: SideNavBarProps): ReactElement => {
   return (
     <Box minH='100vh' bg={'white'}>
       <SideBarContent onClose={() => onClose} display={{ base: 'none', md: 'block' }} />
-      <Drawer
-        isOpen={isOpen}
-        placement='left'
-        onClose={onClose}
-        returnFocusOnClose={false}
-        size={'full'}
-      >
+      <Drawer isOpen={isOpen} placement='left' onClose={onClose} returnFocusOnClose={false} size={'full'}>
         <DrawerContent>
           <SideBarContent onClose={onClose} />
         </DrawerContent>
@@ -75,13 +69,7 @@ const SideBarContent = ({ onClose, rest }: SideBarContentProps) => {
       role='navigation'
       {...rest}
     >
-      <Flex
-        alignItems={'center'}
-        justifyContent={'space-between'}
-        height={75}
-        marginX={8}
-        marginBottom={16}
-      >
+      <Flex alignItems={'center'} justifyContent={'space-between'} height={75} marginX={8} marginBottom={16}>
         <Text textAlign={'center'} fontSize={'md'} fontWeight={'bold'} onClick={onClose}>
           <Link style={{ textDecoration: 'none' }} _focus={{ boxShadow: 'none' }}>
             Vietnamese Language Tools

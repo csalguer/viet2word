@@ -5,27 +5,12 @@ import PageHeader from '../PageHeader'
 import { TextCarousel } from '../TextCarousel'
 import NeuButton from './NeuButton'
 
-const pallete = [
-  'rgba(255, 181, 86, 1)',
-  'rgba(236, 105, 40, 1)',
-  'rgba(199, 58, 103, 1)',
-  'rgba(149, 41, 171, 1)',
-]
+const pallete = ['rgba(255, 181, 86, 1)', 'rgba(236, 105, 40, 1)', 'rgba(199, 58, 103, 1)', 'rgba(149, 41, 171, 1)']
 
 // styles
-const anochecer = [
-  'rgba(19, 4, 64, 1)',
-  'rgba(99, 43, 60, 1)',
-  'rgba(97, 86, 130, 1)',
-  'rgba(135, 120, 126, 1)',
-]
+const anochecer = ['rgba(19, 4, 64, 1)', 'rgba(99, 43, 60, 1)', 'rgba(97, 86, 130, 1)', 'rgba(135, 120, 126, 1)']
 
-const x = [
-  'rgba(220,250,240,1)',
-  'rgba(200,224,180,1)',
-  ' rgba(176,225,210,1)',
-  ' rgba(140,215,150,1)',
-]
+const x = ['rgba(220,250,240,1)', 'rgba(200,224,180,1)', ' rgba(176,225,210,1)', ' rgba(140,215,150,1)']
 
 export const WaveSection = (): ReactElement => {
   // const setHoverStyles = useCallback(() => {
@@ -70,19 +55,16 @@ export const WaveSection = (): ReactElement => {
       >
         <Box>
           <svg
-            className={styles.waves}
+            className='waves'
             xmlns='http://www.w3.org/2000/svg'
             viewBox='0 24 150 28'
             preserveAspectRatio='none'
             shapeRendering='auto'
           >
             <defs>
-              <path
-                id='gentle-wave'
-                d='M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z'
-              />
+              <path id='gentle-wave' d='M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z' />
             </defs>
-            <g className={styles.motion}>
+            <g className='motion'>
               <use xlinkHref='#gentle-wave' x='48' y='0' fill='rgba(255,255,255,0.7)' />
               <use xlinkHref='#gentle-wave' x='48' y='3' fill='rgba(255,255,255,0.5)' />
               <use xlinkHref='#gentle-wave' x='48' y='5' fill='rgba(255,255,255,0.3)' />

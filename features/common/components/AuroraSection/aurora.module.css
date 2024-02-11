@@ -56,12 +56,7 @@
 
 .g1 {
   position: absolute;
-  background: radial-gradient(
-      circle at center,
-      rgba(18, 113, 255, 0.8) 0,
-      rgba(18, 113, 255, 0) 50%
-    )
-    no-repeat;
+  background: radial-gradient(circle at center, rgba(18, 113, 255, 0.8) 0, rgba(18, 113, 255, 0) 50%) no-repeat;
   mix-blend-mode: hard-light;
 
   width: 80%;
@@ -77,12 +72,7 @@
 
 .g2 {
   position: absolute;
-  background: radial-gradient(
-      circle at center,
-      rgba(221, 74, 255, 0.8) 0,
-      rgba(221, 74, 255, 0) 50%
-    )
-    no-repeat;
+  background: radial-gradient(circle at center, rgba(221, 74, 255, 0.8) 0, rgba(221, 74, 255, 0) 50%) no-repeat;
   mix-blend-mode: hard-light;
 
   width: 80%;
@@ -98,12 +88,7 @@
 
 .g3 {
   position: absolute;
-  background: radial-gradient(
-      circle at center,
-      rgba(100, 220, 255, 0.8) 0,
-      rgba(100, 220, 255, 0) 50%
-    )
-    no-repeat;
+  background: radial-gradient(circle at center, rgba(100, 220, 255, 0.8) 0, rgba(100, 220, 255, 0) 50%) no-repeat;
   mix-blend-mode: hard-light;
 
   width: 80%;
@@ -119,8 +104,7 @@
 
 .g4 {
   position: absolute;
-  background: radial-gradient(circle at center, rgba(200, 50, 50, 0.8) 0, rgba(200, 50, 50, 0) 50%)
-    no-repeat;
+  background: radial-gradient(circle at center, rgba(200, 50, 50, 0.8) 0, rgba(200, 50, 50, 0) 50%) no-repeat;
   mix-blend-mode: hard-light;
 
   width: 80%;
@@ -136,12 +120,7 @@
 
 .g5 {
   position: absolute;
-  background: radial-gradient(
-      circle at center,
-      rgba(180, 180, 50, 0.8) 0,
-      rgba(180, 180, 50, 0) 50%
-    )
-    no-repeat;
+  background: radial-gradient(circle at center, rgba(180, 180, 50, 0.8) 0, rgba(180, 180, 50, 0) 50%) no-repeat;
   mix-blend-mode: hard-light;
 
   width: calc(80% * 2);
@@ -157,12 +136,7 @@
 
 .interactive {
   position: absolute;
-  background: radial-gradient(
-      circle at center,
-      rgba(140, 100, 255, 0.8) 0%,
-      rgba(140, 100, 255, 0) 50%
-    )
-    no-repeat;
+  background: radial-gradient(circle at center, rgba(140, 100, 255, 0.8) 0%, rgba(140, 100, 255, 0) 50%) no-repeat;
   mix-blend-mode: hard-light;
 
   width: 100%;

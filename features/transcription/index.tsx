@@ -81,7 +81,10 @@ const Transcriber = (): ReactElement => {
       }
       setFinished(true)
     }
-    mediaRecorder?.current ? mediaRecorder.current.stop() : mediaRecorder.stop()
+    if(mediaRecorder?.current){
+      mediaRecorder.current.stop()
+    }
+    // mediaRecorder?.current ? mediaRecorder.current.stop() : null
   }
 
   useEffect(() => {
@@ -109,17 +112,9 @@ const Transcriber = (): ReactElement => {
     <>
       <Flex gap={'12px'} flexDirection={'column'}>
         {isNull(audio) && !isFinishedRecording ? (
-          <AudioRecorder
-            stream={stream}
-            startRecording={startRecording}
-            stopRecording={stopRecording}
-          />
+          <AudioRecorder stream={stream} startRecording={startRecording} stopRecording={stopRecording} />
         ) : (
-          <AudioCapturedControls
-            onFinish={setupToRerecordAudio}
-            audio={audio}
-            onClick={handleSTTQueryRequest}
-          />
+          <AudioCapturedControls onFinish={setupToRerecordAudio} audio={audio} onClick={handleSTTQueryRequest} />
         )}
         <DisplayTranscription transcription={transcription} />
       </Flex>

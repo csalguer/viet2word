@@ -12,9 +12,7 @@ type HuggingFaceAPIResult = {
 
 type HuggingFaceAPIResponse = HuggingFaceAPIError | HuggingFaceAPIResult
 
-export const queryVietTranscription = async (
-  data: ArrayBuffer | null,
-): Promise<HuggingFaceAPIResult> => {
+export const queryVietTranscription = async (data: ArrayBuffer | null): Promise<HuggingFaceAPIResult> => {
   if (data) {
     const response = await fetch('http://localhost:8000/recognize', {
       method: 'POST',
@@ -27,9 +25,7 @@ export const queryVietTranscription = async (
 }
 
 // Method to be used with HuggingFaceAPI's that requires a retry until model is up and running
-export const queryVietTranscriptionAPI = async (
-  data: ArrayBuffer,
-): Promise<HuggingFaceAPIResult> => {
+export const queryVietTranscriptionAPI = async (data: ArrayBuffer): Promise<HuggingFaceAPIResult> => {
   const performQuery = async (data: ArrayBuffer): Promise<HuggingFaceAPIResponse> => {
     const response = await fetch(
       'https://api-inference.huggingface.co/models/nguyenvulebinh/wav2vec2-base-vietnamese-250h',

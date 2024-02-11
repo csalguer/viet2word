@@ -54,8 +54,7 @@ const PermissionsProvider = ({ children }: PermissionsProviderProps): ReactEleme
           Microphone Permissions
         </AlertTitle>
         <AlertDescription maxWidth='sm'>
-          You have not yet authorized access to the microphone. Please refresh and allow permissions
-          to continue.
+          You have not yet authorized access to the microphone. Please refresh and allow permissions to continue.
         </AlertDescription>
       </Alert>
     </Flex>

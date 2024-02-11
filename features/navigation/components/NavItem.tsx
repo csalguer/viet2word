@@ -11,20 +11,9 @@ interface NavItemProps extends FlexProps {
 
 const NavItem = ({ icon, children, onClick, rest }: NavItemProps) => {
   return (
-    <Link
-      role={'group'}
-      onClick={onClick}
-      style={{ textDecoration: 'none' }}
-      _focus={{ boxShadow: 'none' }}
-    >
+    <Link role={'group'} onClick={onClick} style={{ textDecoration: 'none' }} _focus={{ boxShadow: 'none' }}>
       <Flex flexDirection={'column'} justifyContent={'center'}>
-        <Flex
-          align={'flex-end'}
-          padding={6}
-          cursor='pointer'
-          _hover={{ color: 'gray.500' }}
-          {...rest}
-        >
+        <Flex align={'flex-end'} padding={6} cursor='pointer' _hover={{ color: 'gray.500' }} {...rest}>
           {icon && (
             <>
               <Icon
@@ -37,11 +26,7 @@ const NavItem = ({ icon, children, onClick, rest }: NavItemProps) => {
                   color: 'gray.900',
                 }}
               />
-              <Text
-                _groupHover={{ fontWeight: 'bold', color: 'gray.900' }}
-                fontSize={18}
-                color={'gray.600'}
-              >
+              <Text _groupHover={{ fontWeight: 'bold', color: 'gray.900' }} fontSize={18} color={'gray.600'}>
                 {children}
               </Text>
             </>

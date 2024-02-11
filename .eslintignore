@@ -1,6 +1,7 @@
 .next
 next-env.d.ts
 node_modules
+notebooks
 yarn.lock
 package-lock.json
 public

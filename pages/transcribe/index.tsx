@@ -1,36 +1,27 @@
 import Head from 'next/head'
-import { useCallback, type ReactElement } from 'react'
+import { type ReactElement } from 'react'
 import PermissionsProvider from '@/features/permissions'
 import WaveSection from '@/features/common/components/WaveSection'
 import AuroraSection from '@/features/common/components/AuroraSection'
 import Widget from '@/features/widget'
 import { TRANSCRIPTION } from '@/features/widget/index'
-import { Flex, Text, Box, Center } from '@chakra-ui/react'
-import * as styles from './bars.module.css'
+import { Text, Box, Center } from '@chakra-ui/react'
 import { nanoid } from '@reduxjs/toolkit'
 
 type DescriptiveTextBlocksProps = {
-  title: string | null
-  description: string | null
-  content: ReactElement
+  title?: string
+  description?: string
+  content?: ReactElement
 }
-const DescriptiveTextBlocks = ({
-  title,
-  description,
-  content,
-}: DescriptiveTextBlocksProps): ReactElement => {
+const DescriptiveTextBlocks = ({ title, description, content }: DescriptiveTextBlocksProps): ReactElement => {
   return (
     <Center margin={'1em'} padding={'1em'} flexDirection={'column'} w={'45vw'} bg={'white'}>
-      <Text
-        fontFamily={'Alexandria'}
-        padding={'0.2em'}
-        color={'black'}
-        fontWeight={800}
-        fontSize={'4xl'}
-      >
-        {title ?? title}
-      </Text>
-      {description && (
+      {!!title && (
+        <Text fontFamily={'Alexandria'} padding={'0.2em'} color={'black'} fontWeight={800} fontSize={'4xl'}>
+          {title}
+        </Text>
+      )}
+      {!!description && (
         <Text
           fontFamily={'Didact Gothic'}
           textAlign={'center'}
@@ -49,7 +40,7 @@ const DescriptiveTextBlocks = ({
 }
 
 interface StyledSectionProps {
-  content: ReactElement
+  content: ReactElement | ReactElement[]
 }
 
 const StyledSection = ({ content }: StyledSectionProps): ReactElement => {
@@ -67,7 +58,7 @@ export default function Index(): ReactElement {
   //   console.log(event)
   // }, [])
 
-  const descriptionContent = [
+  const descriptionContent: ReactElement[] = [
     <DescriptiveTextBlocks
       key={nanoid(5)}
       title={'Sao Lai: Language Mastery Through Speech-Focused Practice'}
@@ -88,7 +79,7 @@ export default function Index(): ReactElement {
     />,
   ]
 
-  const demoContent = [
+  const demoContent: ReactElement[] = [
     <DescriptiveTextBlocks
       key={nanoid(5)}
       title={'Bạn nói câu này có đúng không?'}
@@ -109,7 +100,6 @@ export default function Index(): ReactElement {
       content={
         <Center id={'transcribe-detail'} as={'section'} marginTop={'15em'} h={'60vh'} w={'100%'}>
           <DescriptiveTextBlocks
-            description={null}
             content={
               <Center maxH={'30vh'}>
                 <Widget type={TRANSCRIPTION} left />
@@ -120,7 +110,7 @@ export default function Index(): ReactElement {
       }
     />,
   ]
-  const contactMeSection = [
+  const contactMeSection: ReactElement[] = [
     <>
       <text>Hey</text>
     </>,
@@ -140,6 +130,7 @@ export default function Index(): ReactElement {
           <StyledSection content={descriptionContent} />
           <AuroraSection />
           <StyledSection content={demoContent} />
+          {contactMeSection}
         </Box>
       </PermissionsProvider>
     </>
