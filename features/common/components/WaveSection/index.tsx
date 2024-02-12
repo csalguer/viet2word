@@ -13,6 +13,28 @@ import { nanoid } from 'nanoid'
 
 // type MenuItem =
 
+const Title = () => {
+  return (
+    <>
+      <Center position={'absolute'} marginBottom={'200px'} flexDirection={'column'}>
+        <Text
+          id={'main-action-tag'}
+          position={'absolute'}
+          left={'10vw'}
+          bottom={'0vh'}
+          fontFamily={'Alexandria'}
+          color={'white'}
+          fontWeight={900}
+          fontSize={'9xl'}
+          width={'8em'}
+        >
+          Transcribe
+        </Text>
+      </Center>
+    </>
+  )
+}
+
 const itemLabels = ['About', 'Features', 'Demo', 'Documentation', 'Contact']
 type MenuItemProps = { label: string }
 const MenuItem = ({ label }: MenuItemProps): ReactElement => {
@@ -95,28 +117,6 @@ const Wave = ({ children }: WaveProps) => {
   )
 }
 
-const Title = () => {
-  return (
-    <>
-      <Center position={'absolute'} marginBottom={'200px'} flexDirection={'column'}>
-        <Text
-          id={'main-action-tag'}
-          position={'absolute'}
-          left={'10vw'}
-          bottom={'0vh'}
-          fontFamily={'Alexandria'}
-          color={'white'}
-          fontWeight={900}
-          fontSize={'9xl'}
-          width={'8em'}
-        >
-          Transcribe
-        </Text>
-      </Center>
-    </>
-  )
-}
-
 type WaveSectionProps = { chidren: ReactNode }
 export const WaveSection = ({ children }: WaveSectionProps): ReactElement => {
   const setHoverStyles = useCallback(() => {
@@ -163,7 +163,8 @@ export const WaveSection = ({ children }: WaveSectionProps): ReactElement => {
         <Wave>
           <MenuBar />
         </Wave>
-        {children}
+
+        <>{children}</>
         <Title />
         <PageHeader />
       </Flex>

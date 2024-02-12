@@ -40,6 +40,28 @@ const DescriptiveTextBlocks = ({ title, description, content }: DescriptiveTextB
   )
 }
 
+const SplashTitle = () => {
+  return (
+    <>
+      <Center position={'absolute'} marginBottom={'200px'} flexDirection={'column'}>
+        <Text
+          id={'main-action-tag'}
+          position={'absolute'}
+          left={'10vw'}
+          bottom={'0vh'}
+          fontFamily={'Alexandria'}
+          color={'white'}
+          fontWeight={900}
+          fontSize={'9xl'}
+          width={'8em'}
+        >
+          Transcribe
+        </Text>
+      </Center>
+    </>
+  )
+}
+
 interface StyledSectionProps {
   content: ReactElement | ReactElement[]
 }
@@ -121,6 +143,33 @@ export default function Index(): ReactElement {
   //     <text>Hey</text>
   //   </>,
   // ]
+  enum PaneContent {
+    splash,
+    about,
+    demo,
+    features,
+    docs,
+    contact,
+  }
+  interface PaneProps {
+    as: PaneContent
+  }
+  const Pane = ({ as }: PaneProps) => {
+    return (
+      <Box h={'100%'} w={'100%'}>
+        {children}
+      </Box>
+    )
+  }
+
+  const Splash = () => {
+    return (
+      <>
+        <StyledSection content={splashContent} />
+        {/* <SplashTitle /> */}
+      </>
+    )
+  }
 
   return (
     <>
@@ -136,13 +185,14 @@ export default function Index(): ReactElement {
             {/*Content right fade appear */}
             <StyledSection content={splashContent} />
             {/*Wave Down Bar down from top*/}
-            <StyledSection content={descriptionContent} />
           </WaveSection>
-          <AuroraSection />
+          <AuroraSection>
+            <StyledSection content={descriptionContent} />
+          </AuroraSection>
           {/*Quick model description link to snippets + model research for STT & TTS w/ License information */}
 
           {/*Auto right fade for instruction + toggle between viet&english timer*/}
-          <StyledSection content={aboutContent} />
+          {/* <StyledSection content={aboutContent} /> */}
           {/* Form + Resume*/}
           <StyledSection content={demoContent} />
           {/* {contactMeSection} */}

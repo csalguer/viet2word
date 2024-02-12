@@ -1,7 +1,7 @@
 import { ReactElement } from 'react'
 import { Box } from '@chakra-ui/react'
 
-import './aurora.module.css'
+import styles from './aurora.module.css'
 // import * as styles from './aurora.module.css'
 
 interface AuroraSectionProps {
@@ -29,8 +29,8 @@ interface AuroraSectionProps {
 const AuroraSection = ({ content }: AuroraSectionProps): ReactElement => {
   return (
     <>
-      <Box className='container'>
-        <svg className='aurora-sphere' xmlns='http://www.w3.org/2000/svg'>
+      <Box className={styles.container}>
+        <svg className={styles.auroraSphere} xmlns='http://www.w3.org/2000/svg'>
           <defs>
             <filter id='goo'>
               <feGaussianBlur in='SourceGraphic' stdDeviation='10' result='blur' />
@@ -44,13 +44,13 @@ const AuroraSection = ({ content }: AuroraSectionProps): ReactElement => {
             </filter>
           </defs>
         </svg>
-        <div className='gradients'>
-          <div className='g1'></div>
-          <div className='g2'></div>
-          <div className='g3'></div>
-          <div className='g4'></div>
-          <div className='g5'></div>
-          <div className='g6'></div>
+        <div className={styles.gradients}>
+          <div className={styles.g1}></div>
+          <div className={styles.g2}></div>
+          <div className={styles.g3}></div>
+          <div className={styles.g4}></div>
+          <div className={styles.g5}></div>
+          <div className={styles.g6}></div>
         </div>
         {content}
       </Box>
