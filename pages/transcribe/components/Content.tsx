@@ -1,6 +1,7 @@
-import { Center, Fade, Slide, SlideFade, Text, Container, VisuallyHidden, forwardRef } from '@chakra-ui/react'
+import { Center, Fade, Flex, Slide, SlideFade, Text, Container, VisuallyHidden, forwardRef } from '@chakra-ui/react'
 import Widget from '@/features/widget'
 import { nanoid } from 'nanoid'
+import { useCallback, useLayoutEffect } from 'react'
 import { TRANSCRIPTION } from '@/features/widget'
 
 const Title = () => {
@@ -10,7 +11,6 @@ const Title = () => {
     title.onmouseover = (event: Event) => {
       // TODO: Find out what to do with this extra info
       // eslint-disable-next-line no-console
-      console.info(event)
       const title = document.getElementById('main-action-tag')
       title?.setAttribute('font-family', 'Alexandria')
       title?.setAttribute('word-wrap', 'normal')
@@ -21,7 +21,6 @@ const Title = () => {
     title.onmouseleave = (event: Event) => {
       // TODO: Find out what to do with this extra info
       // eslint-disable-next-line no-console
-      console.info(event)
       const title = document.getElementById('main-action-tag')
       title?.setAttribute('font-family', 'Fragen')
       // ;(title.innerText = 'Transcribe'), (title.fontFamily = 'Fragen')
@@ -175,19 +174,20 @@ export enum PanelType {
 }
 
 type PanelContentProps = {
-  type: PanelType
+  panelType: PanelType
   callback?: () => void
 }
 
-export const PanelContent = ({ type }: PanelContentProps): ReactElement => {
+export const PanelContent = ({ panelType }: PanelContentProps): ReactElement => {
   return (
     <>
-      <F>
-        {content[type].map((item: ReactElement, i: number) => {
-          if (isNull(transitions[i])) return item
-          return wrappedWithTransition
+      <Flex border={'2px white solid'} w={'100%ß'} h={'100%'} overflow={'scrolled'}>
+        {content[panelType].map((item: ReactElement) => {
+          // if (isNull(transitions[i])) return item
+          // const wrappedWithTransition = transitions[i].call
+          return item
         })}
-      </F>
+      </Flex>
     </>
   )
 }

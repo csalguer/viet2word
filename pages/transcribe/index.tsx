@@ -3,18 +3,11 @@ import { ReactElement } from 'react'
 import PermissionsProvider from '@/features/permissions'
 import WaveSection from '@/features/common/components/WaveSection'
 import AuroraSection from '@/features/common/components/AuroraSection'
-import Widget from '@/features/widget'
-import { TRANSCRIPTION } from '@/features/widget/index'
-import { Text, Box, Center } from '@chakra-ui/react'
-import { nanoid } from 'nanoid'
+import { Box } from '@chakra-ui/react'
 import ContentScroller from './components/ContentScroller'
 import { content } from './components/Content'
 
 export default function Index(): ReactElement {
-  // const handleRevealWidget = useCallback((event) => {
-  //   console.log(event)
-  // }, [])
-
   return (
     <>
       <Head>
@@ -26,7 +19,7 @@ export default function Index(): ReactElement {
       <PermissionsProvider>
         <Box gap={'10vh'}>
           <WaveSection>
-            <ContentScroller content={content} />
+            <ContentScroller />
 
             {/*Content right fade appear */}
             {/* <StyledSection content={splashContent} /> */}

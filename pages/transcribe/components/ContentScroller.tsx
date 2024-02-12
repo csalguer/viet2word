@@ -1,18 +1,7 @@
 import { ReactElement, useCallback, useLayoutEffect } from 'react'
-import { VisuallyHidden, SlideFade, Slide, Fade, Container, Flex, Stack } from '@chakra-ui/react'
-import { PanelContent, ContentType } from './Content'
+import { VisuallyHidden, SlideFade, Slide, Fade, Box, Container, Flex, Stack } from '@chakra-ui/react'
+import { PanelContent, ContentType, content } from './Content'
 import { nanoid } from '@reduxjs/toolkit'
-
-type ScrollerType = {
-  content: {
-    splash: ReactElement[]
-    about: ReactElement[]
-    features: ReactElement[]
-    demo: ReactElement[]
-    docs: ReactElement[]
-    contact: ReactElement[]
-  }
-}
 
 const isVisible = (elm) => {
   const rect = elm.props.self.getBoundingClientRect()
@@ -20,13 +9,13 @@ const isVisible = (elm) => {
   return !(rect.bottom < 0 || rect.top - viewHeight >= 0)
 }
 
-const ContentScroller = ({ content }: ScrollerType) => {
+const ContentScroller = () => {
   const handleContent = useCallback(() => {
-    const x = Object.entries(content)
-    x.map((panel, i) => {
-      const [panelType, elements] = panel
+    const panelNames = Object.keys(content)
+    const wrappedPanels = panelNames.map((name) => {
       return (
-        <Flex
+        <Box
+          border={'2px white solid'}
           key={nanoid(6)}
           scrollBehavior={'smooth'}
           scrollSnapAlign={'start'}
@@ -35,20 +24,17 @@ const ContentScroller = ({ content }: ScrollerType) => {
           w={'100%'}
           h={'100%'}
         >
-          {elements.map((elem, i) => {
-            return (
-              <SlideFade key={nanoid(6)} unmountOnExit>
-                {elem}
-              </SlideFade>
-            )
-          })}
-        </Flex>
+          {/* <SlideFade key={nanoid(6)} unmountOnExit> */}
+          <PanelContent panelType={name}></PanelContent>
+          {/* </SlideFade> */}
+        </Box>
       )
     })
+    return wrappedPanels
   }, [content])
 
   return (
-    <Stack direction={'vertical'} overflow={'scroll'} w={'100%'} h={'100%'}>
+    <Stack direction={'column'} overflow={'scroll'} w={'100%'} h={'100%'}>
       {handleContent()}
     </Stack>
   )

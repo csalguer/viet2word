@@ -35,11 +35,7 @@ const MenuBar = () => {
   )
 }
 
-const WaveSVGElement = ({
-  animation = () => {
-    return
-  },
-}: WaveSVGElementProps): ReactElement => {
+const WaveSVGElement = (): ReactElement => {
   return (
     <>
       <svg
@@ -59,10 +55,6 @@ const WaveSVGElement = ({
           <use xlinkHref='#gentle-wave' x='48' y='7' fill='#fff' />
         </g>
       </svg>
-      {
-        // eslint-disable-next-line no-console
-        console.info(animation)
-      }
     </>
   )
 }
@@ -71,17 +63,16 @@ const Wave = ({ children }: WaveProps) => {
   return (
     <>
       <Box position={'relative'}>
-        <WaveSVGElement
-          animation={() => {
-            return
-          }}
-        />
+        <WaveSVGElement />
         {!!children && children}
       </Box>
     </>
   )
 }
 
+type WaveSectionProps = {
+  children: JSX.Element[]
+}
 export const WaveSection = ({ children }: WaveSectionProps): ReactElement => {
   //TODO: Fix animation on hover for menu Items
 
@@ -91,7 +82,7 @@ export const WaveSection = ({ children }: WaveSectionProps): ReactElement => {
         id='heading-container'
         as={'section'}
         flexDirection={'column-reverse'}
-        h={'90vh'}
+        h={'100vh'}
         zIndex={-1}
         bg={
           'linear-gradient(48deg, rgba(255,181,86,1) 0%, rgba(236,105,40,1) 31%, rgba(199,58,103,1) 61%, rgba(149,41,171,1) 100%);'
@@ -101,7 +92,7 @@ export const WaveSection = ({ children }: WaveSectionProps): ReactElement => {
           <MenuBar />
         </Wave>
 
-        <>{children}</>
+        {children}
         <PageHeader />
       </Flex>
     </>
