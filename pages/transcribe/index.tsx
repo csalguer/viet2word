@@ -7,169 +7,13 @@ import Widget from '@/features/widget'
 import { TRANSCRIPTION } from '@/features/widget/index'
 import { Text, Box, Center } from '@chakra-ui/react'
 import { nanoid } from 'nanoid'
-
-type DescriptiveTextBlocksProps = {
-  title?: string
-  description?: string
-  content?: ReactElement
-}
-const DescriptiveTextBlocks = ({ title, description, content }: DescriptiveTextBlocksProps): ReactElement => {
-  return (
-    <Center margin={'1em'} padding={'1em'} flexDirection={'column'} w={'45vw'}>
-      {!!title && (
-        <Text fontFamily={'Alexandria'} padding={'0.2em'} color={'white'} fontWeight={800} fontSize={'5xl'}>
-          {title}
-        </Text>
-      )}
-      {!!description && (
-        <Text
-          fontFamily={'Didact Gothic'}
-          textAlign={'center'}
-          padding={'0.5em'}
-          minH={'25vh'}
-          maxW={'30vw'}
-          color={'white'}
-          fontWeight={400}
-          fontSize={'1.2em'}
-        >
-          {description}
-        </Text>
-      )}
-      {!!content && content}
-    </Center>
-  )
-}
-
-const SplashTitle = () => {
-  return (
-    <>
-      <Center position={'absolute'} marginBottom={'200px'} flexDirection={'column'}>
-        <Text
-          id={'main-action-tag'}
-          position={'absolute'}
-          left={'10vw'}
-          bottom={'0vh'}
-          fontFamily={'Alexandria'}
-          color={'white'}
-          fontWeight={900}
-          fontSize={'9xl'}
-          width={'8em'}
-        >
-          Transcribe
-        </Text>
-      </Center>
-    </>
-  )
-}
-
-interface StyledSectionProps {
-  content: ReactElement | ReactElement[]
-}
-
-const StyledSection = ({ content }: StyledSectionProps): ReactElement => {
-  return (
-    <>
-      <Center id={'transcribe-detail'} as={'section'} marginTop={'15em'} h={'60vh'} w={'100%'}>
-        {content}
-      </Center>
-    </>
-  )
-}
+import ContentScroller from './components/ContentScroller'
+import { content } from './components/Content'
 
 export default function Index(): ReactElement {
   // const handleRevealWidget = useCallback((event) => {
   //   console.log(event)
   // }, [])
-
-  const descriptionContent: ReactElement[] = [
-    <DescriptiveTextBlocks
-      key={nanoid(5)}
-      title={'Sao Lai: Language Mastery Through Speech-Focused Practice'}
-      description={
-        'Embracing a seamless and intuitive user interface, Linguid sets itself apart\
-      as an accessible and indispensable companion in the journey towards language\
-       proficiency. Elegant in its simplicity, effortlessly navigable, and accompanied\
-        by a scholarly tone, Linguid inspires confidence and motivation within learners,\
-         ensuring that educational endeavors are met with enthusiasm and unwavering dedication.'
-      }
-    />,
-    <DescriptiveTextBlocks key={nanoid(6)} />,
-  ]
-
-  const splashContent: ReactElement[] = [
-    <DescriptiveTextBlocks key={nanoid(5)} />,
-    <DescriptiveTextBlocks
-      key={nanoid(5)}
-      title={'Speak. Listen. Write.'}
-      description={
-        'Experience the ease of converting spoken words into text, simplifying language capture for a variety of applications.'
-      }
-    />,
-  ]
-
-  const demoContent: ReactElement[] = [
-    <DescriptiveTextBlocks
-      key={nanoid(5)}
-      title={'Bạn nói câu này có đúng không?'}
-      description={'Repeat the sentence below'}
-      content={
-        <Center w={'80vw'}>
-          <Text fontSize={'4em'} fontWeight={700} fontFamily={'Fragen'}>
-            Mặt trời lặn và biển lặng
-          </Text>
-        </Center>
-      }
-    />,
-    <DescriptiveTextBlocks
-      key={nanoid(5)}
-      // title={'Bạn nói câu này có đúng không?'}
-      title={'Try me out now!'}
-      description={'Repeat the sentence below'}
-      content={
-        <Center id={'transcribe-detail'} as={'section'} marginTop={'15em'} h={'60vh'} w={'100%'}>
-          <DescriptiveTextBlocks
-            content={
-              <Center maxH={'30vh'}>
-                <Widget type={TRANSCRIPTION} left />
-              </Center>
-            }
-          />
-        </Center>
-      }
-    />,
-  ]
-  // const contactMeSection: ReactElement[] = [
-  //   <>
-  //     <text>Hey</text>
-  //   </>,
-  // ]
-  enum PaneContent {
-    splash,
-    about,
-    demo,
-    features,
-    docs,
-    contact,
-  }
-  interface PaneProps {
-    as: PaneContent
-  }
-  const Pane = ({ as }: PaneProps) => {
-    return (
-      <Box h={'100%'} w={'100%'}>
-        {children}
-      </Box>
-    )
-  }
-
-  const Splash = () => {
-    return (
-      <>
-        <StyledSection content={splashContent} />
-        {/* <SplashTitle /> */}
-      </>
-    )
-  }
 
   return (
     <>
@@ -182,19 +26,19 @@ export default function Index(): ReactElement {
       <PermissionsProvider>
         <Box gap={'10vh'}>
           <WaveSection>
+            <ContentScroller content={content} />
+
             {/*Content right fade appear */}
-            <StyledSection content={splashContent} />
+            {/* <StyledSection content={splashContent} /> */}
             {/*Wave Down Bar down from top*/}
           </WaveSection>
-          <AuroraSection>
-            <StyledSection content={descriptionContent} />
-          </AuroraSection>
+          <AuroraSection>{/* <StyledSection content={descriptionContent} /> */}</AuroraSection>
           {/*Quick model description link to snippets + model research for STT & TTS w/ License information */}
 
           {/*Auto right fade for instruction + toggle between viet&english timer*/}
           {/* <StyledSection content={aboutContent} /> */}
           {/* Form + Resume*/}
-          <StyledSection content={demoContent} />
+          {/* <StyledSection content={demoContent} /> */}
           {/* {contactMeSection} */}
         </Box>
       </PermissionsProvider>
