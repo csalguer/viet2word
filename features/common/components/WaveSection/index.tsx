@@ -1,5 +1,5 @@
-import { ReactElement, useCallback, useLayoutEffect } from 'react'
-import { Text, Flex, Center } from '@chakra-ui/react'
+import { ReactElement, ReactNode, createRef, useRef, useCallback, useLayoutEffect } from 'react'
+import { Text, Flex, Box, Center } from '@chakra-ui/react'
 import styles from '@/features/common/components/WaveSection/wave.module.css'
 import PageHeader from '../PageHeader'
 import { nanoid } from 'nanoid'
@@ -11,37 +11,45 @@ import { nanoid } from 'nanoid'
 // const madrugada = ['rgba(220,250,240,1)', 'rgba(200,224,180,1)', ' rgba(176,225,210,1)', ' rgba(140,215,150,1)']
 // const
 
-interface WaveProps {
-  content?: ReactElement
-}
 // type MenuItem =
 
-const menuItems = [
-  <>
-    <Text key={nanoid(6)}>About</Text>,
-  </>,
-  <>
-    <Text key={nanoid(6)}>Features</Text>,
-  </>,
-  <>
-    <Text key={nanoid(6)}>Demo</Text>,
-  </>,
-  <>
-    <Text key={nanoid(6)}>Documentation</Text>,
-  </>,
-  <>
-    <Text key={nanoid(6)}>Contact</Text>,
-  </>,
-]
+const itemLabels = ['About', 'Features', 'Demo', 'Documentation', 'Contact']
+type MenuItemProps = { label: string }
+const MenuItem = ({ label }: MenuItemProps): ReactElement => {
+  return (
+    <>
+      <Text
+        className={styles.item}
+        as={'div'}
+        padding={'1.2em'}
+        bg={'red'}
+        fontFamily={'Albula Pro'}
+        fontSize={'xl'}
+        color={'rgba(236, 105, 40, 0.75)'}
+      >
+        {label}
+      </Text>
+    </>
+  )
+}
 
 const MenuBar = () => {
   return (
-    <Center width={'100%'} height={'100%'} gap={'0.8em'}>
-      {menuItems.map((item) => item)}
+    <Center padding={'1em'} position={'absolute'} width={'100%'} gap={'0.8em'}>
+      {itemLabels.map((item) => {
+        return <MenuItem key={nanoid(6)} label={item} />
+      })}
     </Center>
   )
 }
-const WaveElement = (): ReactElement => {
+type WaveSVGElementProps = {
+  animation?: () => void
+}
+const WaveSVGElement = ({
+  animation = () => {
+    return
+  },
+}: WaveSVGElementProps): ReactElement => {
   return (
     <>
       <svg
@@ -61,21 +69,50 @@ const WaveElement = (): ReactElement => {
           <use xlinkHref='#gentle-wave' x='48' y='7' fill='#fff' />
         </g>
       </svg>
+      {
+        // eslint-disable-next-line no-console
+        console.info(animation)
+      }
     </>
   )
 }
 
-const Wave = ({ content }: WaveProps) => {
+type WaveProps = {
+  children: ReactNode
+}
+const Wave = ({ children }: WaveProps) => {
   return (
     <>
-      <div>
-        <WaveElement
+      <Box position={'relative'}>
+        <WaveSVGElement
           animation={() => {
             return
           }}
         />
-        {!!content && content.map((item) => item)}
-      </div>
+        {!!children && children}
+      </Box>
+    </>
+  )
+}
+
+const Title = () => {
+  return (
+    <>
+      <Center position={'absolute'} marginBottom={'200px'} flexDirection={'column'}>
+        <Text
+          id={'main-action-tag'}
+          position={'absolute'}
+          left={'10vw'}
+          bottom={'0vh'}
+          fontFamily={'Alexandria'}
+          color={'white'}
+          fontWeight={900}
+          fontSize={'9xl'}
+          width={'8em'}
+        >
+          Transcribe
+        </Text>
+      </Center>
     </>
   )
 }
@@ -103,11 +140,12 @@ export const WaveSection = (): ReactElement => {
       title?.setAttribute('font-family', 'Fragen')
       // ;(title.innerText = 'Transcribe'), (title.fontFamily = 'Fragen')
     }
-  }, [styles])
+  }, [])
 
   useLayoutEffect(() => {
     setHoverStyles()
   }, [setHoverStyles])
+  //TODO: Fix animation on hover for menu Items
 
   return (
     <>
@@ -121,22 +159,10 @@ export const WaveSection = (): ReactElement => {
           'linear-gradient(48deg, rgba(255,181,86,1) 0%, rgba(236,105,40,1) 31%, rgba(199,58,103,1) 61%, rgba(149,41,171,1) 100%);'
         }
       >
-        <Wave></Wave>
-        <Center position={'absolute'} marginBottom={'200px'} flexDirection={'column'}>
-          <Text
-            id={'main-action-tag'}
-            position={'absolute'}
-            left={'10vw'}
-            bottom={'0vh'}
-            fontFamily={'Alexandria'}
-            color={'white'}
-            fontWeight={900}
-            fontSize={'9xl'}
-            width={'8em'}
-          >
-            Transcribe
-          </Text>
-        </Center>
+        <Wave>
+          <MenuBar />
+        </Wave>
+        <Title />
         <PageHeader />
       </Flex>
     </>
