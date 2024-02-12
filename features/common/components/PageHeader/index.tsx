@@ -1,8 +1,7 @@
 import { ReactElement } from 'react'
 import { Flex, Text, Link, Center } from '@chakra-ui/react'
-import { GithubLogo, Logo } from '../Logo'
-import { LogoRedo, LogoVariant } from '../Logo/LogoVariant'
-import styles from '../WaveSection/transcribe.module.css'
+import { GithubLogo } from '../Logo'
+import { LogoVariant } from '../Logo/LogoVariant'
 
 const SelfAttributionTag = (): ReactElement => {
   return (

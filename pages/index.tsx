@@ -1,5 +1,5 @@
 import Head from 'next/head'
-import type { ReactElement } from 'react'
+import { ReactElement } from 'react'
 import SideNavBar from '@/features/navigation'
 import Widget from '@/features/widget'
 

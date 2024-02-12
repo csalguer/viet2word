@@ -1,12 +1,12 @@
 import Head from 'next/head'
-import { type ReactElement } from 'react'
+import { ReactElement } from 'react'
 import PermissionsProvider from '@/features/permissions'
 import WaveSection from '@/features/common/components/WaveSection'
 import AuroraSection from '@/features/common/components/AuroraSection'
 import Widget from '@/features/widget'
 import { TRANSCRIPTION } from '@/features/widget/index'
 import { Text, Box, Center } from '@chakra-ui/react'
-import { nanoid } from '@reduxjs/toolkit'
+import { nanoid } from 'nanoid'
 
 type DescriptiveTextBlocksProps = {
   title?: string
@@ -110,11 +110,11 @@ export default function Index(): ReactElement {
       }
     />,
   ]
-  const contactMeSection: ReactElement[] = [
-    <>
-      <text>Hey</text>
-    </>,
-  ]
+  // const contactMeSection: ReactElement[] = [
+  //   <>
+  //     <text>Hey</text>
+  //   </>,
+  // ]
 
   return (
     <>
@@ -130,7 +130,7 @@ export default function Index(): ReactElement {
           <StyledSection content={descriptionContent} />
           <AuroraSection />
           <StyledSection content={demoContent} />
-          {contactMeSection}
+          {/* {contactMeSection} */}
         </Box>
       </PermissionsProvider>
     </>

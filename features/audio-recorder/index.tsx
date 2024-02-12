@@ -6,26 +6,15 @@ import { queryVietTranscription } from '../transcription/helpers/queryVietTransc
 import queryVietGeneration from '@/features/dictation/helpers/queryVietGeneration'
 import AudioVisualizer from './AudioVisualizer'
 import convertWebmToWAV from './helpers/convertWebmToWAV'
+import { StreamInfo } from './types/AudioRecorderTypes'
+
 const mimeType = 'audio/webm'
 const PENDING_PLACEHOLDER = 'Transcribing ...'
 const STARTING_POINT_PLACEHOLDER = 'Transcription will appear here.'
 const isPending = (text) => text == PENDING_PLACEHOLDER
 const hasYetToQueryEndpoint = (text) => text == STARTING_POINT_PLACEHOLDER
 
-type StreamInfo = {
-  stream: MediaStream
-  tracks: MediaStreamTrack[] // Audio Input Track only (every has kind=="microphone")
-  context: MediaStreamAudioSourceNode
-}
-
-enum IS {
-  RECORDING,
-  STOPPED,
-}
-
 const AudioControls = (): ReactElement => {
-  // const [stream, setStream] = useState<MediaStream | null>(null)
-
   const recordedData = useRef<Blob[]>([])
   const recorder = useRef<MediaRecorder | null>(null)
 
