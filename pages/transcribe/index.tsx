@@ -15,9 +15,9 @@ type DescriptiveTextBlocksProps = {
 }
 const DescriptiveTextBlocks = ({ title, description, content }: DescriptiveTextBlocksProps): ReactElement => {
   return (
-    <Center margin={'1em'} padding={'1em'} flexDirection={'column'} w={'45vw'} bg={'white'}>
+    <Center margin={'1em'} padding={'1em'} flexDirection={'column'} w={'45vw'}>
       {!!title && (
-        <Text fontFamily={'Alexandria'} padding={'0.2em'} color={'black'} fontWeight={800} fontSize={'4xl'}>
+        <Text fontFamily={'Alexandria'} padding={'0.2em'} color={'white'} fontWeight={800} fontSize={'5xl'}>
           {title}
         </Text>
       )}
@@ -27,7 +27,8 @@ const DescriptiveTextBlocks = ({ title, description, content }: DescriptiveTextB
           textAlign={'center'}
           padding={'0.5em'}
           minH={'25vh'}
-          color={'black'}
+          maxW={'30vw'}
+          color={'white'}
           fontWeight={400}
           fontSize={'1.2em'}
         >
@@ -70,6 +71,11 @@ export default function Index(): ReactElement {
          ensuring that educational endeavors are met with enthusiasm and unwavering dedication.'
       }
     />,
+    <DescriptiveTextBlocks key={nanoid(6)} />,
+  ]
+
+  const splashContent: ReactElement[] = [
+    <DescriptiveTextBlocks key={nanoid(5)} />,
     <DescriptiveTextBlocks
       key={nanoid(5)}
       title={'Speak. Listen. Write.'}
@@ -126,9 +132,18 @@ export default function Index(): ReactElement {
       </Head>
       <PermissionsProvider>
         <Box gap={'10vh'}>
-          <WaveSection />
-          <StyledSection content={descriptionContent} />
+          <WaveSection>
+            {/*Content right fade appear */}
+            <StyledSection content={splashContent} />
+            {/*Wave Down Bar down from top*/}
+            <StyledSection content={descriptionContent} />
+          </WaveSection>
           <AuroraSection />
+          {/*Quick model description link to snippets + model research for STT & TTS w/ License information */}
+
+          {/*Auto right fade for instruction + toggle between viet&english timer*/}
+          <StyledSection content={aboutContent} />
+          {/* Form + Resume*/}
           <StyledSection content={demoContent} />
           {/* {contactMeSection} */}
         </Box>

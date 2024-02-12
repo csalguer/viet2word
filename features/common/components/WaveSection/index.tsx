@@ -1,4 +1,4 @@
-import { ReactElement, ReactNode, createRef, useRef, useCallback, useLayoutEffect } from 'react'
+import { ReactElement, ReactNode, useCallback, useLayoutEffect } from 'react'
 import { Text, Flex, Box, Center } from '@chakra-ui/react'
 import styles from '@/features/common/components/WaveSection/wave.module.css'
 import PageHeader from '../PageHeader'
@@ -117,7 +117,8 @@ const Title = () => {
   )
 }
 
-export const WaveSection = (): ReactElement => {
+type WaveSectionProps = { chidren: ReactNode }
+export const WaveSection = ({ children }: WaveSectionProps): ReactElement => {
   const setHoverStyles = useCallback(() => {
     const title = (document.getElementById('main-action-tag') ?? <div className='main-action-tag'></div>) as HTMLElement
 
@@ -162,6 +163,7 @@ export const WaveSection = (): ReactElement => {
         <Wave>
           <MenuBar />
         </Wave>
+        {children}
         <Title />
         <PageHeader />
       </Flex>
