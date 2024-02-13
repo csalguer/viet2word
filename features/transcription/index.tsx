@@ -41,7 +41,22 @@ const Transcriber = (): ReactElement => {
     }
   }, [])
 
-  const startRecording = (): void => {
+  // const cleanupRecorder = useCallback((recorder: MediaRecorder) => {
+  //   recorder.current.ondataavailable = (event: BlobEvent) => {
+  //     event.preventDefault()
+  //     // eslint-disable-next-line no-console
+  //     console.log(event.currentTarget)
+  //     // eslint-disable-next-line no-console
+  //     console.error(event.data)
+  //   }
+  //   recorder.current.onstop = (event: MediaStreamAudioSourceNode) => {
+  //     event.disconnect()
+  //     // eslint-disable-next-line no-console
+  //     console.info('Recorder stopping,')
+  //   }
+  // }, [])
+
+  const startRecording = (): (() => void) => {
     setFinished(false)
     if (stream) {
       // MediaStream only supports recording in webm
@@ -56,6 +71,7 @@ const Transcriber = (): ReactElement => {
         if (event.data.size === 0) return
         localAudioChunks.push(event.data)
       }
+      // mediaRecorder.current.onstop = cleanupRecorder
       setAudioChunks(localAudioChunks)
     }
   }
@@ -79,12 +95,16 @@ const Transcriber = (): ReactElement => {
         setAudioChunks([])
         setWavBytes(wavBytes)
       }
+      mediaRecorder.current.stream.getAudioTracks().forEach((track) => {
+        if (track.readyState === 'live') {
+          // eslint-disable-next-line no-console
+          console.info(`Track ${track.id} of type ${track.label} is stopping...`)
+          track.stop()
+        }
+      })
+      mediaRecorder.current.stop()
       setFinished(true)
     }
-    if (mediaRecorder?.current) {
-      mediaRecorder.current.stop()
-    }
-    // mediaRecorder?.current ? mediaRecorder.current.stop() : null
   }
 
   useEffect(() => {
@@ -102,6 +122,16 @@ const Transcriber = (): ReactElement => {
     }
     return
   }
+
+  // return () => {
+  //   audioSource.mediaStream.getTracks().forEach((track) => {
+  //     if (track.readyState === 'live') {
+  //       track.stop()
+  //     }
+  //   })
+  //   audioSource.disconnect()
+  //   cleanupRecorder()
+  // }
 
   const setupToRerecordAudio = (): void => {
     setAudio(null)

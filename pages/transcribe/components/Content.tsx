@@ -1,4 +1,4 @@
-import { Center, Fade, Flex, Slide, SlideFade, Text, Container, VisuallyHidden, forwardRef } from '@chakra-ui/react'
+import { Center, Flex, Text } from '@chakra-ui/react'
 import Widget from '@/features/widget'
 import { nanoid } from 'nanoid'
 import { useCallback, useLayoutEffect } from 'react'
@@ -8,6 +8,7 @@ const Title = () => {
   const setHoverStyles = useCallback(() => {
     const title = (document.getElementById('main-action-tag') ?? <div className='main-action-tag'></div>) as HTMLElement
 
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     title.onmouseover = (event: Event) => {
       // TODO: Find out what to do with this extra info
       // eslint-disable-next-line no-console
@@ -18,6 +19,7 @@ const Title = () => {
       // title.fontFamily = 'Alexandria'
     }
 
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     title.onmouseleave = (event: Event) => {
       // TODO: Find out what to do with this extra info
       // eslint-disable-next-line no-console
@@ -155,14 +157,6 @@ export const content = {
   features: [],
   docs: [],
 }
-const transitions = {
-  splash: [Fade, SlideFade],
-  about: [Fade, null],
-  // features: [],
-  // demo: [],
-  // docs: [],
-  // contact: [],
-}
 
 export enum PanelType {
   splash = 'splash',
@@ -183,8 +177,6 @@ export const PanelContent = ({ panelType }: PanelContentProps): ReactElement => 
     <>
       <Flex border={'2px white solid'} w={'100%ß'} h={'100%'} overflow={'scrolled'}>
         {content[panelType].map((item: ReactElement) => {
-          // if (isNull(transitions[i])) return item
-          // const wrappedWithTransition = transitions[i].call
           return item
         })}
       </Flex>

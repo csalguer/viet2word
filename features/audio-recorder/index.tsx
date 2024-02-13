@@ -53,6 +53,20 @@ const AudioControls = (): ReactElement => {
         if (typeof event.data === 'undefined' || event.data.size === 0) return
         recordedData.current.push(event.data)
       }
+      return () => {
+        recorder.current?.ondataavailable = (event: BlobEvent) => {
+          event.preventDefault()
+          // eslint-disable-next-line no-console
+          console.log(event.currentTarget)
+          // eslint-disable-next-line no-console
+          console.error(event.data)
+        }
+        recorder.current.onstop = (event: MediaStreamAudioSourceNode) => {
+          event.disconnect()
+          // eslint-disable-next-line no-console
+          console.info('Recorder stopping,')
+        }
+      }
     }
 
     const setup = async () => {
@@ -64,18 +78,35 @@ const AudioControls = (): ReactElement => {
         const audioTracks = stream.getAudioTracks()
         const audioSource = new AudioContext().createMediaStreamSource(stream)
 
-        prepareRecorder(stream)
+        const cleanupRecorder = prepareRecorder(stream)
         setStreamInfo({
           stream: stream,
           tracks: audioTracks,
           context: audioSource,
         })
+        return () => {
+          audioSource.mediaStream.getTracks().forEach((track) => {
+            if (track.readyState === 'live') {
+              track.stop()
+            }
+          })
+          audioSource.disconnect()
+          cleanupRecorder()
+        }
       } catch (err) {
         alert(err)
         setStreamInfo(null)
+        return () => {
+          stream.getTracks().forEach((track) => {
+            if (track.readyState === 'live') {
+              track.stop()
+            }
+          })
+        }
       }
     }
-    setup() // Stream, tracks, context, and recorder
+    const cleanupContext = setup() // Stream, tracks, context, and recorder
+    return cleanupContext
   }, [handleConversion])
 
   //Define controller functions for recording
