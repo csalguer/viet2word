@@ -1,9 +1,9 @@
-import { ReactElement, useCallback, useLayoutEffect } from 'react'
-import { VisuallyHidden, SlideFade, Slide, Fade, Box, Container, Flex, Stack } from '@chakra-ui/react'
-import { PanelContent, ContentType, content } from './Content'
+import { useCallback } from 'react'
+import { Box, Stack } from '@chakra-ui/react'
+import { PanelContent, PanelType, content } from './Content'
 import { nanoid } from '@reduxjs/toolkit'
 
-const isVisible = (elm) => {
+export const isVisible = (elm) => {
   const rect = elm.props.self.getBoundingClientRect()
   const viewHeight = Math.max(document.documentElement.clientHeight, window.innerHeight)
   return !(rect.bottom < 0 || rect.top - viewHeight >= 0)
@@ -25,7 +25,7 @@ const ContentScroller = () => {
           h={'100%'}
         >
           {/* <SlideFade key={nanoid(6)} unmountOnExit> */}
-          <PanelContent panelType={name}></PanelContent>
+          <PanelContent panelType={name as PanelType}></PanelContent>
           {/* </SlideFade> */}
         </Box>
       )

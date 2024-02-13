@@ -56,7 +56,7 @@ const Transcriber = (): ReactElement => {
   //   }
   // }, [])
 
-  const startRecording = (): (() => void) => {
+  const startRecording = (): void => {
     setFinished(false)
     if (stream) {
       // MediaStream only supports recording in webm
@@ -71,7 +71,6 @@ const Transcriber = (): ReactElement => {
         if (event.data.size === 0) return
         localAudioChunks.push(event.data)
       }
-      // mediaRecorder.current.onstop = cleanupRecorder
       setAudioChunks(localAudioChunks)
     }
   }

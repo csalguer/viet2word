@@ -1,7 +1,7 @@
 import { Center, Flex, Text } from '@chakra-ui/react'
 import Widget from '@/features/widget'
 import { nanoid } from 'nanoid'
-import { useCallback, useLayoutEffect } from 'react'
+import { useCallback, useLayoutEffect, ReactElement } from 'react'
 import { TRANSCRIPTION } from '@/features/widget'
 
 const Title = () => {
@@ -55,14 +55,20 @@ const Title = () => {
 }
 
 type DescriptiveTextBlocksProps = {
+  id?: string
   title?: string
   description?: string
   content?: ReactElement
 }
 
-export const DescriptiveTextBlocks = ({ title, description, content }: DescriptiveTextBlocksProps): ReactElement => {
+export const DescriptiveTextBlocks = ({
+  id = nanoid(6),
+  title,
+  description,
+  content,
+}: DescriptiveTextBlocksProps): ReactElement => {
   return (
-    <Center margin={'1em'} padding={'1em'} flexDirection={'column'} w={'fit-content'}>
+    <Center id={id} margin={'1em'} padding={'1em'} flexDirection={'column'} w={'fit-content'}>
       {!!title && (
         <Text fontFamily={'Alexandria'} padding={'0.2em'} color={'white'} fontWeight={800} fontSize={'5xl'}>
           {title}
@@ -146,7 +152,7 @@ export const content = {
           <DescriptiveTextBlocks
             content={
               <Center maxH={'30vh'}>
-                <Widget export type={TRANSCRIPTION} left />
+                <Widget type={TRANSCRIPTION} left />
               </Center>
             }
           />

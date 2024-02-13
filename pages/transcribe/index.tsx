@@ -1,11 +1,9 @@
 import Head from 'next/head'
 import { ReactElement } from 'react'
-import PermissionsProvider from '@/features/permissions'
 import WaveSection from '@/features/common/components/WaveSection'
 import AuroraSection from '@/features/common/components/AuroraSection'
 import { Box } from '@chakra-ui/react'
 import ContentScroller from './components/ContentScroller'
-import { content } from './components/Content'
 
 export default function Index(): ReactElement {
   return (
@@ -16,25 +14,25 @@ export default function Index(): ReactElement {
         <meta name='viewport' content='width=device-width, initial-scale=1' />
         <link rel='icon' href='/favicon.ico' />
       </Head>
-      <PermissionsProvider>
-        <Box gap={'10vh'}>
-          <WaveSection>
-            <ContentScroller />
+      {/* <PermissionsProvider> */}
+      <Box gap={'10vh'}>
+        <WaveSection>
+          <ContentScroller />
 
-            {/*Content right fade appear */}
-            {/* <StyledSection content={splashContent} /> */}
-            {/*Wave Down Bar down from top*/}
-          </WaveSection>
-          <AuroraSection>{/* <StyledSection content={descriptionContent} /> */}</AuroraSection>
-          {/*Quick model description link to snippets + model research for STT & TTS w/ License information */}
+          {/*Content right fade appear */}
+          {/* <StyledSection content={splashContent} /> */}
+          {/*Wave Down Bar down from top*/}
+        </WaveSection>
+        {/* <AuroraSection><StyledSection content={descriptionContent} /></AuroraSection> */}
 
-          {/*Auto right fade for instruction + toggle between viet&english timer*/}
-          {/* <StyledSection content={aboutContent} /> */}
-          {/* Form + Resume*/}
-          {/* <StyledSection content={demoContent} /> */}
-          {/* {contactMeSection} */}
-        </Box>
-      </PermissionsProvider>
+        {/*Quick model description link to snippets + model research for STT & TTS w/ License information */}
+        {/*Auto right fade for instruction + toggle between viet&english timer*/}
+        {/* <StyledSection content={aboutContent} /> */}
+        {/* Form + Resume*/}
+        {/* <StyledSection content={demoContent} /> */}
+        {/* {contactMeSection} */}
+      </Box>
+      {/* </PermissionsProvider> */}
     </>
   )
 }

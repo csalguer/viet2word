@@ -1,5 +1,5 @@
-import { ReactElement, useCallback, useLayoutEffect } from 'react'
-import { WaveSectionProps, WaveProps, WaveSVGElementProps, MenuItemProps } from './types'
+import { ReactElement } from 'react'
+import { WaveSectionProps, WaveProps, MenuItemProps } from './types'
 import { Text, Flex, Box, Center } from '@chakra-ui/react'
 import styles from '@/features/common/components/WaveSection/wave.module.css'
 import PageHeader from '../PageHeader'
@@ -70,9 +70,6 @@ const Wave = ({ children }: WaveProps) => {
   )
 }
 
-type WaveSectionProps = {
-  children: JSX.Element[]
-}
 export const WaveSection = ({ children }: WaveSectionProps): ReactElement => {
   //TODO: Fix animation on hover for menu Items
 

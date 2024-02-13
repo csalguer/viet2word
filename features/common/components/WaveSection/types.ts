@@ -1,4 +1,6 @@
-export type WaveSectionProps = { chidren: ReactNode }
+import { ReactNode } from 'react'
+
+export type WaveSectionProps = { children: ReactNode }
 export type WaveProps = {
   children: ReactNode
 }

@@ -1,4 +1,4 @@
-import { Fragment, useState, useLayoutEffect, useCallback, useRef } from 'react'
+import { Fragment, useState, useEffect, useCallback, useRef } from 'react'
 import type { ReactElement } from 'react'
 import { Box, Button, CircularProgress, Flex } from '@chakra-ui/react'
 import { isNull } from 'lodash'
@@ -37,11 +37,10 @@ const AudioControls = (): ReactElement => {
     setAudioChunks([])
   }, [audioChunks])
 
-  useLayoutEffect(() => {
+  useEffect(() => {
     // Move check to permissions provider
     if (!('MediaRecorder' in window)) {
       alert('WebAudio API not supported')
-      return
     }
 
     const prepareRecorder = (stream: MediaStream) => {
@@ -54,17 +53,18 @@ const AudioControls = (): ReactElement => {
         recordedData.current.push(event.data)
       }
       return () => {
-        recorder.current?.ondataavailable = (event: BlobEvent) => {
-          event.preventDefault()
-          // eslint-disable-next-line no-console
-          console.log(event.currentTarget)
-          // eslint-disable-next-line no-console
-          console.error(event.data)
-        }
-        recorder.current.onstop = (event: MediaStreamAudioSourceNode) => {
-          event.disconnect()
-          // eslint-disable-next-line no-console
-          console.info('Recorder stopping,')
+        if (recorder.current) {
+          recorder.current.ondataavailable = (event: BlobEvent) => {
+            event.preventDefault()
+            // eslint-disable-next-line no-console
+            console.log(event.currentTarget)
+            // eslint-disable-next-line no-console
+            console.error(event.data)
+          }
+          recorder.current.onstop = (event: Event) => {
+            // eslint-disable-next-line no-console
+            console.info('Recorder stopping,', event)
+          }
         }
       }
     }
@@ -84,7 +84,7 @@ const AudioControls = (): ReactElement => {
           tracks: audioTracks,
           context: audioSource,
         })
-        return () => {
+        const cleanupTracks = () => {
           audioSource.mediaStream.getTracks().forEach((track) => {
             if (track.readyState === 'live') {
               track.stop()
@@ -93,20 +93,14 @@ const AudioControls = (): ReactElement => {
           audioSource.disconnect()
           cleanupRecorder()
         }
+        // TODO: CLEAN UP FUNCTION RETURN HERE
+        // return cleanupTracks
       } catch (err) {
+        //TODO: CLEAN UP FUNCTION RETURN HERE
         alert(err)
-        setStreamInfo(null)
-        return () => {
-          stream.getTracks().forEach((track) => {
-            if (track.readyState === 'live') {
-              track.stop()
-            }
-          })
-        }
       }
     }
-    const cleanupContext = setup() // Stream, tracks, context, and recorder
-    return cleanupContext
+    setup() // Stream, tracks, context, and recorder
   }, [handleConversion])
 
   //Define controller functions for recording
