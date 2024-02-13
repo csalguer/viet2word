@@ -31,7 +31,7 @@ const ContentScroller = () => {
       )
     })
     return wrappedPanels
-  }, [content])
+  }, [])
 
   return (
     <Stack direction={'column'} overflow={'scroll'} w={'100%'} h={'100%'}>

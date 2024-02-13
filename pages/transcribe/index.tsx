@@ -1,7 +1,7 @@
 import Head from 'next/head'
 import { ReactElement } from 'react'
 import WaveSection from '@/features/common/components/WaveSection'
-import AuroraSection from '@/features/common/components/AuroraSection'
+// import AuroraSection from '@/features/common/components/AuroraSection'
 import { Box } from '@chakra-ui/react'
 import ContentScroller from './components/ContentScroller'
 

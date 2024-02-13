@@ -189,3 +189,5 @@ export const PanelContent = ({ panelType }: PanelContentProps): ReactElement => 
     </>
   )
 }
+
+export default DescriptiveTextBlocks

@@ -95,6 +95,8 @@ const AudioControls = (): ReactElement => {
         }
         // TODO: CLEAN UP FUNCTION RETURN HERE
         // return cleanupTracks
+        // eslint-disable-next-line no-console
+        console.log(cleanupTracks)
       } catch (err) {
         //TODO: CLEAN UP FUNCTION RETURN HERE
         alert(err)
