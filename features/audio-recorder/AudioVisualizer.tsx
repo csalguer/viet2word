@@ -4,7 +4,7 @@ import { Box, Center, Flex } from '@chakra-ui/react'
 import { isNull } from 'lodash'
 
 interface AudioVisualizerProps {
-  stream: MediaStream
+  stream?: MediaStream | null
   widget?: boolean
 }
 
@@ -42,11 +42,15 @@ const AudioVisualizer = ({ stream, widget = true }: AudioVisualizerProps): React
   const [audioSource, setAudioSource] = useState<MediaStreamAudioSourceNode | null>(null)
 
   const setupAnalyzer = useCallback(() => {
-    if (!isNull(stream)) {
+    if (stream) {
       const audioContext = new AudioContext()
+      stream.onremovetrack = (event: MediaStreamTrackEvent) => {
+        // eslint-disable-next-line no-console
+        console.log(event, 'Closing out audioContext: ', audioContext)
+        audioContext.close()
+      }
       const audioSource = audioContext.createMediaStreamSource(stream)
       setAudioSource(audioSource)
-
       const analyzer = audioContext.createAnalyser()
       analyzer.minDecibels = -90
       analyzer.maxDecibels = -10
@@ -71,7 +75,7 @@ const AudioVisualizer = ({ stream, widget = true }: AudioVisualizerProps): React
   useEffect(() => {
     if (!analyzer) return
     const canvas = document.getElementById('audio-visualizer') as HTMLCanvasElement | null
-    if (canvas && stream.getAudioTracks().length > 0) {
+    if (canvas && stream && stream.getAudioTracks().length > 0) {
       const context2D = canvas.getContext('2d')
       if (context2D) {
         //TODO: Check if this line/condition cn be removed

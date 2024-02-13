@@ -1,4 +1,4 @@
-import { useState, useEffect, useCallback, useRef } from 'react'
+import { useState, useCallback, useRef } from 'react'
 import type { ReactElement } from 'react'
 import { Flex } from '@chakra-ui/react'
 import { isNull } from 'lodash'
@@ -21,59 +21,29 @@ const Transcriber = (): ReactElement => {
   const [audioChunks, setAudioChunks] = useState<BlobPart[]>([])
   const [audio, setAudio] = useState<string | null>(null)
   const [transcription, setTranscription] = useState<string | null>(null)
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [isFinishedRecording, setFinished] = useState<boolean>(false)
   const [wavBytes, setWavBytes] = useState<ArrayBuffer | null>(null)
 
-  const getMediaStream = useCallback(async () => {
-    if ('MediaRecorder' in window) {
-      try {
-        const streamData = await navigator.mediaDevices.getUserMedia({
-          audio: true,
-          video: false,
-        })
-        setStream(streamData)
-      } catch (err) {
-        alert(err)
-      }
-    } else {
-      alert('The MediaRecorder API is not supported in your browser.')
+  const startRecording = useCallback(async () => {
+    // setFinished(false)
+    const stream = await navigator.mediaDevices.getUserMedia({
+      audio: true,
+      video: false,
+    })
+    // MediaStream only supports recording in webm
+    const media = new MediaRecorder(stream, { mimeType })
+    // set the MediaRecorder instance to the mediaRecorder ref
+    mediaRecorder.current = media
+    mediaRecorder.current.start()
+    const localAudioChunks: Blob[] = []
+    inProgressData.current = localAudioChunks
+    mediaRecorder.current.ondataavailable = (event) => {
+      if (typeof event.data === 'undefined') return
+      if (event.data.size === 0) return
+      localAudioChunks.push(event.data)
     }
+    setAudioChunks(localAudioChunks)
   }, [])
-
-  // const cleanupRecorder = useCallback((recorder: MediaRecorder) => {
-  //   recorder.current.ondataavailable = (event: BlobEvent) => {
-  //     event.preventDefault()
-  //     // eslint-disable-next-line no-console
-  //     console.log(event.currentTarget)
-  //     // eslint-disable-next-line no-console
-  //     console.error(event.data)
-  //   }
-  //   recorder.current.onstop = (event: MediaStreamAudioSourceNode) => {
-  //     event.disconnect()
-  //     // eslint-disable-next-line no-console
-  //     console.info('Recorder stopping,')
-  //   }
-  // }, [])
-
-  const startRecording = (): void => {
-    setFinished(false)
-    if (stream) {
-      // MediaStream only supports recording in webm
-      const media = new MediaRecorder(stream, { mimeType })
-      // set the MediaRecorder instance to the mediaRecorder ref
-      mediaRecorder.current = media
-      mediaRecorder.current.start()
-      const localAudioChunks: Blob[] = []
-      inProgressData.current = localAudioChunks
-      mediaRecorder.current.ondataavailable = (event) => {
-        if (typeof event.data === 'undefined') return
-        if (event.data.size === 0) return
-        localAudioChunks.push(event.data)
-      }
-      setAudioChunks(localAudioChunks)
-    }
-  }
 
   const queryState = useQuery({
     queryKey: ['transcription', wavBytes],
@@ -81,7 +51,7 @@ const Transcriber = (): ReactElement => {
     enabled: false,
   })
 
-  const stopRecording = (): void => {
+  const stopRecording = useCallback((): void => {
     if (mediaRecorder?.current) {
       mediaRecorder.current.onstop = async () => {
         // Must convert the webm audioBlob to a WAV blob
@@ -104,11 +74,7 @@ const Transcriber = (): ReactElement => {
       mediaRecorder.current.stop()
       setFinished(true)
     }
-  }
-
-  useEffect(() => {
-    getMediaStream()
-  }, [getMediaStream])
+  }, [audioChunks])
 
   const handleSTTQueryRequest = async (): Promise<void> => {
     if (audio) {
@@ -137,11 +103,12 @@ const Transcriber = (): ReactElement => {
     setFinished(false)
     setTranscription(null)
   }
+
   return (
     <>
       <Flex gap={'12px'} flexDirection={'column'}>
         {isNull(audio) && !isFinishedRecording ? (
-          <AudioRecorder stream={stream} startRecording={startRecording} stopRecording={stopRecording} />
+          <AudioRecorder stream={stream} record={startRecording} stop={stopRecording} />
         ) : (
           <AudioCapturedControls onFinish={setupToRerecordAudio} audio={audio} onClick={handleSTTQueryRequest} />
         )}

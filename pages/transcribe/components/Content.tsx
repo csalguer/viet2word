@@ -1,7 +1,7 @@
 import { Center, Flex, Text } from '@chakra-ui/react'
 import Widget from '@/features/widget'
 import { nanoid } from 'nanoid'
-import { useCallback, useLayoutEffect, ReactElement } from 'react'
+import { useCallback, useEffect, ReactElement } from 'react'
 import { TRANSCRIPTION } from '@/features/widget'
 
 const Title = () => {
@@ -29,7 +29,7 @@ const Title = () => {
     }
   }, [])
 
-  useLayoutEffect(() => {
+  useEffect(() => {
     setHoverStyles()
   }, [setHoverStyles])
 
@@ -54,7 +54,7 @@ const Title = () => {
   )
 }
 
-type DescriptiveTextBlocksProps = {
+interface DescriptiveTextBlocksProps {
   id?: string
   title?: string
   description?: string
@@ -62,7 +62,7 @@ type DescriptiveTextBlocksProps = {
 }
 
 export const DescriptiveTextBlocks = ({
-  id = nanoid(6),
+  id,
   title,
   description,
   content,
@@ -94,74 +94,81 @@ export const DescriptiveTextBlocks = ({
 }
 
 export const content = {
-  splash: [
-    <DescriptiveTextBlocks
-      id={'landing-title'}
-      key={nanoid(5)}
-      content={
-        <Center position={'absolute'} marginBottom={'200px'} flexDirection={'column'}>
-          <Title />
-        </Center>
-      }
-    />,
-    <DescriptiveTextBlocks
-      id={'landing-action-text'}
-      key={nanoid(5)}
-      title={'Speak. Listen. Write.'}
-      description={
-        'Experience the ease of converting spoken words into text, simplifying language capture for a variety of applications.'
-      }
-    />,
-  ],
-  about: [
-    <DescriptiveTextBlocks
-      id={'description'}
-      key={nanoid(5)}
-      title={'Sao Lai: Language Mastery Through Speech-Focused Practice'}
-      description={
-        'Embracing a seamless and intuitive user interface, Linguid sets itself apart\
-      as an accessible and indispensable companion in the journey towards language\
-       proficiency. Elegant in its simplicity, effortlessly navigable, and accompanied\
-        by a scholarly tone, Linguid inspires confidence and motivation within learners,\
-         ensuring that educational endeavors are met with enthusiasm and unwavering dedication.'
-      }
-    />,
-  ],
-  demo: [
-    <DescriptiveTextBlocks
-      id={'follow-along'}
-      key={nanoid(5)}
-      title={'Bạn nói câu này có đúng không?'}
-      description={'Repeat the sentence below'}
-      content={
-        <Center w={'80vw'}>
-          <Text fontSize={'4em'} fontWeight={700} fontFamily={'Fragen'}>
-            Mặt trời lặn và biển lặng
-          </Text>
-        </Center>
-      }
-    />,
-    <DescriptiveTextBlocks
-      id={'follow-demo-element'}
-      key={nanoid(5)}
-      // title={'Bạn nói câu này có đúng không?'}
-      title={'Try me out now!'}
-      description={'Repeat the sentence below'}
-      content={
-        <Center id={'transcribe-detail'} as={'section'} marginTop={'15em'} h={'60vh'} w={'100%'}>
-          <DescriptiveTextBlocks
-            content={
-              <Center maxH={'30vh'}>
-                <Widget type={TRANSCRIPTION} left />
-              </Center>
-            }
-          />
-        </Center>
-      }
-    />,
-  ],
-  features: [],
-  docs: [],
+  splash: (
+    <>
+      <DescriptiveTextBlocks
+        id={'landing-title'}
+        key={nanoid(5)}
+        content={
+          <Center position={'absolute'} marginBottom={'200px'} flexDirection={'column'}>
+            <Title />
+          </Center>
+        }
+      />
+      <DescriptiveTextBlocks
+        id={'landing-action-text'}
+        key={nanoid(5)}
+        title={'Speak. Listen. Write.'}
+        description={
+          'Experience the ease of converting spoken words into text, simplifying language capture for a variety of applications.'
+        }
+      />
+    </>
+  ),
+  about: (
+    <>
+      <DescriptiveTextBlocks
+        id={'description'}
+        key={nanoid(5)}
+        title={'Sao Lai: Language Mastery Through Speech-Focused Practice'}
+        description={
+          'Embracing a seamless and intuitive user interface, Linguid sets itself apart\
+          as an accessible and indispensable companion in the journey towards language\
+          proficiency. Elegant in its simplicity, effortlessly navigable, and accompanied\
+          by a scholarly tone, Linguid inspires confidence and motivation within learners,\
+          ensuring that educational endeavors are met with enthusiasm and unwavering dedication.'
+        }
+      />
+    </>
+  ),
+  demo: (
+    <>
+      <DescriptiveTextBlocks
+        id={'follow-along'}
+        key={nanoid(5)}
+        title={'Bạn nói câu này có đúng không?'}
+        description={'Repeat the sentence below'}
+        content={
+          <Center w={'80vw'}>
+            <Text fontSize={'4em'} fontWeight={700} fontFamily={'Fragen'}>
+              Mặt trời lặn và biển lặng
+            </Text>
+          </Center>
+        }
+      />
+      <DescriptiveTextBlocks
+        id={'follow-demo-element'}
+        key={nanoid(5)}
+        // title={'Bạn nói câu này có đúng không?'}
+        title={'Try me out now!'}
+        description={'Repeat the sentence below'}
+        content={
+          <Center id={'transcribe-detail'} as={'section'} marginTop={'15em'} h={'60vh'} w={'100%'}>
+            <DescriptiveTextBlocks
+              content={
+                <Center maxH={'30vh'}>
+                  <Widget type={TRANSCRIPTION} left />
+                </Center>
+              }
+            />
+          </Center>
+        }
+      />
+    </>
+  ),
+  features: <></>,
+  docs: <></>,
+  contact: <></>,
 }
 
 export enum PanelType {
@@ -182,9 +189,7 @@ export const PanelContent = ({ panelType }: PanelContentProps): ReactElement => 
   return (
     <>
       <Flex border={'2px white solid'} w={'100%ß'} h={'100%'} overflow={'scrolled'}>
-        {content[panelType].map((item: ReactElement) => {
-          return item
-        })}
+        {content[panelType]}
       </Flex>
     </>
   )

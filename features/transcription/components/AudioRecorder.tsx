@@ -1,23 +1,29 @@
 import AudioVisualizer from '@/features/audio-recorder/AudioVisualizer'
 import { IconButton, Flex, Icon, Center } from '@chakra-ui/react'
-import { useState } from 'react'
+import { useState, useCallback } from 'react'
 import { FiSquare, FiMic } from 'react-icons/fi'
 
-const AudioRecorder = ({ stream, startRecording, stopRecording }) => {
+interface AudioRecorderProps {
+  stream?: MediaStream | null
+  record: () => void
+  stop: () => void
+}
+
+const AudioRecorder = ({ stream, record, stop }: AudioRecorderProps) => {
   const [isRecording, setIsRecording] = useState<boolean>(false)
 
-  const handleStartClick = () => {
+  const handleStartClick = useCallback(() => {
+    record() //TODO: Consider adding input for wait to start
     setIsRecording(true)
-    startRecording()
-  }
-  const handleStopClick = () => {
+  }, [record])
+  const handleStopClick = useCallback(() => {
+    stop()
     setIsRecording(false)
-    stopRecording()
-  }
+  }, [stop])
 
   return (
     <Flex w={'100%'} minWidth={'400px'} justifyContent={'space-between'} flexDirection={'row'}>
-      <AudioVisualizer stream={isRecording ? stream : null} />
+      <AudioVisualizer stream={stream} />
       <Center>
         {!isRecording && (
           <IconButton
