@@ -3,7 +3,7 @@ import { chakra } from '@chakra-ui/react'
 export const svgElement = () => {
   return (
     <>
-      <svg version='1.1' xmlns='http://www.w3.org/2000/svg' viewBox='0,0,1024,1024'>
+      <svg version='1.1' width={56} height={56} xmlns='http://www.w3.org/2000/svg' viewBox='0,0,1024,1024'>
         <g
           id='soundwave'
           fill='#ffffff'

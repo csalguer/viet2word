@@ -31,24 +31,24 @@ const authorTag = ({ name, link }: AuthorTagProps) => {
   )
 }
 
-const AuthorTag = chakra(authorTag)
+export const AuthorTag = chakra(authorTag)
 
 export const PageHeader = (): ReactElement => {
   return (
     <>
       <Center as={'section'} id={'page-header'} w={'100%'} justifyContent={'space-between'} padding={'2vh'}>
-        <Center>
-          <LogoVariant width={['0.6em', '1em', '2em', '4em']} height={['0.6em', '1em', '2em', '4em']} />
-          <Text fontFamily={'Albula Pro'} fontSize={'2xl'} fontWeight={900} color={'white'}>
+        <Center w={'fit-content'}>
+          <LogoVariant width={['md', 'lg', 'xl', '2xl']} height={['md', 'lg', 'xl', '2xl']} />
+          <Text
+            fontFamily={'Albula Pro'}
+            whiteSpace={'nowrap'}
+            fontSize={['md', 'lg', 'xl', '2xl']}
+            fontWeight={900}
+            color={'white'}
+          >
             SAO LẠI
           </Text>
         </Center>
-        {/* <AuthorTag
-          width={['md', 'xl', '2xl', '2xl']}
-          height={['md', 'xl', '2xl', '2xl']}
-          name={'csalguer'}
-          link={'https://www.github.com/csalguer'}
-        /> */}
       </Center>
     </>
   )
