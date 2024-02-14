@@ -4,6 +4,9 @@ import WaveSection from '@/features/common/components/WaveSection'
 // import AuroraSection from '@/features/common/components/AuroraSection'
 import { Box } from '@chakra-ui/react'
 import ContentScroller from './components/ContentScroller'
+import PageHeader from '@/features/common/components/PageHeader'
+import { MenuBar } from '@/features/common/components/WaveSection'
+import styles from './bars.module.css'
 
 export default function Index(): ReactElement {
   return (
@@ -14,15 +17,14 @@ export default function Index(): ReactElement {
         <meta name='viewport' content='width=device-width, initial-scale=1' />
         <link rel='icon' href='/favicon.ico' />
       </Head>
-      {/* <PermissionsProvider> */}
-      <Box gap={'10vh'}>
+      <Box className={'page-content'} h={'100vh'} gap={'10vh'}>
+        <PageHeader />
         <WaveSection>
           <ContentScroller />
-
-          {/*Content right fade appear */}
-          {/* <StyledSection content={splashContent} /> */}
-          {/*Wave Down Bar down from top*/}
         </WaveSection>
+        {/*Content right fade appear */}
+        {/* <StyledSection content={splashContent} /> */}
+        {/*Wave Down Bar down from top*/}
         {/* <AuroraSection><StyledSection content={descriptionContent} /></AuroraSection> */}
 
         {/*Quick model description link to snippets + model research for STT & TTS w/ License information */}
@@ -31,8 +33,8 @@ export default function Index(): ReactElement {
         {/* Form + Resume*/}
         {/* <StyledSection content={demoContent} /> */}
         {/* {contactMeSection} */}
+        <MenuBar />
       </Box>
-      {/* </PermissionsProvider> */}
     </>
   )
 }

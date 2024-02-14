@@ -1,51 +1,19 @@
 import { Center, Flex, Text } from '@chakra-ui/react'
 import Widget from '@/features/widget'
 import { nanoid } from 'nanoid'
-import { useCallback, useEffect, ReactElement } from 'react'
+import { ReactElement } from 'react'
 import { TRANSCRIPTION } from '@/features/widget'
 
 const Title = () => {
-  const setHoverStyles = useCallback(() => {
-    const title = (document.getElementById('main-action-tag') ?? <div className='main-action-tag'></div>) as HTMLElement
-
-    // eslint-disable-next-line @typescript-eslint/no-unused-vars
-    title.onmouseover = (event: Event) => {
-      // TODO: Find out what to do with this extra info
-      // eslint-disable-next-line no-console
-      const title = document.getElementById('main-action-tag')
-      title?.setAttribute('font-family', 'Alexandria')
-      title?.setAttribute('word-wrap', 'normal')
-      // title?.innerText = 'SAO LẠI'
-      // title.fontFamily = 'Alexandria'
-    }
-
-    // eslint-disable-next-line @typescript-eslint/no-unused-vars
-    title.onmouseleave = (event: Event) => {
-      // TODO: Find out what to do with this extra info
-      // eslint-disable-next-line no-console
-      const title = document.getElementById('main-action-tag')
-      title?.setAttribute('font-family', 'Fragen')
-      // ;(title.innerText = 'Transcribe'), (title.fontFamily = 'Fragen')
-    }
-  }, [])
-
-  useEffect(() => {
-    setHoverStyles()
-  }, [setHoverStyles])
-
   return (
     <>
-      <Center position={'absolute'} marginBottom={'200px'} flexDirection={'column'}>
+      <Center id={'splash-title'} flexDirection={'column'}>
         <Text
-          id={'main-action-tag'}
-          position={'absolute'}
-          left={'10vw'}
-          bottom={'0vh'}
+          id={'title-text'}
           fontFamily={'Alexandria'}
           color={'white'}
-          fontWeight={900}
-          fontSize={'9xl'}
-          width={'8em'}
+          fontWeight={800}
+          fontSize={['xl', '2xl', '6xl', '8xl']}
         >
           Transcribe
         </Text>
@@ -68,7 +36,7 @@ export const DescriptiveTextBlocks = ({
   content,
 }: DescriptiveTextBlocksProps): ReactElement => {
   return (
-    <Center id={id} margin={'1em'} padding={'1em'} flexDirection={'column'} w={'fit-content'}>
+    <Center id={id} margin={'1em'} padding={'1em'} flexDirection={'column'}>
       {!!title && (
         <Text fontFamily={'Alexandria'} padding={'0.2em'} color={'white'} fontWeight={800} fontSize={'5xl'}>
           {title}
@@ -188,7 +156,7 @@ type PanelContentProps = {
 export const PanelContent = ({ panelType }: PanelContentProps): ReactElement => {
   return (
     <>
-      <Flex border={'2px white solid'} w={'100%ß'} h={'100%'} overflow={'scrolled'}>
+      <Flex border={'2px white solid'} w={'100%'} h={'100%'} overflow={'scrolled'}>
         {content[panelType]}
       </Flex>
     </>

@@ -25,7 +25,6 @@ const Transcriber = (): ReactElement => {
   const [wavBytes, setWavBytes] = useState<ArrayBuffer | null>(null)
 
   const startRecording = useCallback(async () => {
-    // setFinished(false)
     const stream = await navigator.mediaDevices.getUserMedia({
       audio: true,
       video: false,
@@ -43,6 +42,7 @@ const Transcriber = (): ReactElement => {
       localAudioChunks.push(event.data)
     }
     setAudioChunks(localAudioChunks)
+    setStream(stream)
   }, [])
 
   const queryState = useQuery({
@@ -72,6 +72,7 @@ const Transcriber = (): ReactElement => {
         }
       })
       mediaRecorder.current.stop()
+      // stream?.dispatchEvent(new Event(''))
       setFinished(true)
     }
   }, [audioChunks])
@@ -87,16 +88,6 @@ const Transcriber = (): ReactElement => {
     }
     return
   }
-
-  // return () => {
-  //   audioSource.mediaStream.getTracks().forEach((track) => {
-  //     if (track.readyState === 'live') {
-  //       track.stop()
-  //     }
-  //   })
-  //   audioSource.disconnect()
-  //   cleanupRecorder()
-  // }
 
   const setupToRerecordAudio = (): void => {
     setAudio(null)

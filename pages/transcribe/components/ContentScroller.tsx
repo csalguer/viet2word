@@ -15,6 +15,8 @@ const ContentScroller = () => {
     const wrappedPanels = panelNames.map((name) => {
       return (
         <Box
+          id={'panel-container'}
+          marginTop={'10vh'}
           border={'2px white solid'}
           key={nanoid(6)}
           scrollBehavior={'smooth'}
@@ -34,7 +36,7 @@ const ContentScroller = () => {
   }, [])
 
   return (
-    <Stack direction={'column'} overflow={'scroll'} w={'100%'} h={'100%'}>
+    <Stack id={'content'} direction={'column'} overflow={'scroll'} w={'100%'} h={'100%'}>
       {handleContent()}
     </Stack>
   )

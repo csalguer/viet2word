@@ -55,8 +55,8 @@ const AudioVisualizer = ({ stream, widget = true }: AudioVisualizerProps): React
       analyzer.minDecibels = -90
       analyzer.maxDecibels = -10
       analyzer.smoothingTimeConstant = 0.85
-      audioSource.connect(analyzer)
       analyzer.fftSize = 128
+      audioSource.connect(analyzer)
       setAnalyzer(analyzer)
     }
   }, [stream])
@@ -81,13 +81,13 @@ const AudioVisualizer = ({ stream, widget = true }: AudioVisualizerProps): React
         //TODO: Check if this line/condition cn be removed
         context2D.clearRect(0, 0, canvas.height, canvas.height)
         const bufferLength = analyzer.frequencyBinCount
+        console.log(analyzer.frequencyBinCount)
         const dataArray = new Float32Array(bufferLength)
-        const sliceWidth = (canvas.height * 1.0) / bufferLength
-
+        const sliceWidth = (canvas.width * 1.0) / bufferLength
         const animate = (): void => {
           requestAnimationFrame(animate)
           let x = 0
-          context2D.fillRect(1, 1, canvas.height, canvas.height)
+          context2D.fillRect(0, 0, canvas.width, canvas.height)
           styleVisuals(context2D)
           analyzer.getFloatFrequencyData(dataArray)
           context2D.beginPath()
@@ -95,6 +95,7 @@ const AudioVisualizer = ({ stream, widget = true }: AudioVisualizerProps): React
           for (let i = 0; i < bufferLength; i++) {
             const v = dataArray[i] / 128.0
             const y = (v * canvas.height) / -2
+            // console.log(x, y)
             if (i === 0) {
               context2D.moveTo(x, y)
             } else {
@@ -102,7 +103,6 @@ const AudioVisualizer = ({ stream, widget = true }: AudioVisualizerProps): React
             }
             x += sliceWidth
           }
-          context2D.lineTo(canvas.width, canvas.height / 2)
           context2D.stroke()
         }
         animate()

@@ -14,7 +14,7 @@ const MenuItem = ({ label }: MenuItemProps): ReactElement => {
         className={styles.item}
         as={'div'}
         padding={'1.2em'}
-        bg={'red'}
+        // bg={'red'}
         fontFamily={'Albula Pro'}
         fontSize={'xl'}
         color={'rgba(236, 105, 40, 0.75)'}
@@ -25,9 +25,9 @@ const MenuItem = ({ label }: MenuItemProps): ReactElement => {
   )
 }
 
-const MenuBar = () => {
+export const MenuBar = () => {
   return (
-    <Center padding={'1em'} position={'absolute'} width={'100%'} gap={'0.8em'}>
+    <Center id={'menu'} padding={'1em'} width={'100%'} gap={'0.8em'}>
       {itemLabels.map((item) => {
         return <MenuItem key={nanoid(6)} label={item} />
       })}
@@ -62,9 +62,9 @@ const WaveSVGElement = (): ReactElement => {
 const Wave = ({ children }: WaveProps) => {
   return (
     <>
-      <Box position={'relative'}>
-        <WaveSVGElement />
-        {!!children && children}
+      <WaveSVGElement />
+      <Box id={'wave'} bg={'white'} position={'relative'}>
+        <Box>{!!children && children}</Box>
       </Box>
     </>
   )
@@ -76,21 +76,17 @@ export const WaveSection = ({ children }: WaveSectionProps): ReactElement => {
   return (
     <>
       <Flex
-        id='heading-container'
+        id='wave-container'
         as={'section'}
-        flexDirection={'column-reverse'}
-        h={'100vh'}
+        flexDirection={'column'}
+        h={'90vh'}
         zIndex={-1}
         bg={
           'linear-gradient(48deg, rgba(255,181,86,1) 0%, rgba(236,105,40,1) 31%, rgba(199,58,103,1) 61%, rgba(149,41,171,1) 100%);'
         }
       >
-        <Wave>
-          <MenuBar />
-        </Wave>
-
         {children}
-        <PageHeader />
+        <Wave></Wave>
       </Flex>
     </>
   )

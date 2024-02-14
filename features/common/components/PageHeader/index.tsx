@@ -1,11 +1,11 @@
 import { ReactElement } from 'react'
-import { Flex, Text, Link, Center } from '@chakra-ui/react'
+import { Flex, Text, Link, Center, Stack } from '@chakra-ui/react'
 import { GithubLogo } from '../Logo'
 import { LogoVariant } from '../Logo/LogoVariant'
 
 const SelfAttributionTag = (): ReactElement => {
   return (
-    <Flex position={'absolute'} top={'2vh'} right={'15vh'} flexDirection={'row'} gap={'0.8em'}>
+    <Flex id={'self-contact'} position={'absolute'} top={'2vh'} right={'15vh'} flexDirection={'row'} gap={'0.8em'}>
       <Text fontSize={{ sm: '0.8em', lg: '1.6em' }} fontFamily={'monospace'} color={'white'}>
         Made by{' '}
       </Text>
@@ -28,11 +28,9 @@ const SelfAttributionTag = (): ReactElement => {
 export const PageHeader = (): ReactElement => {
   return (
     <>
-      <Flex position={'absolute'} w={'100vw'} top={'2vh'} left={'10vh'}>
-        <LogoVariant width={'6em'} height={'6em'} />
-        {/* <LogoRedo width={'6em'} height={'6em'} light/> */}
-
+      <Flex id={'page-header'} position={'absolute'} w={'100%'} padding={'2vh 5vh'}>
         <Center>
+          <LogoVariant width={'6em'} height={'6em'} />
           <Text fontFamily={'Albula Pro'} fontSize={'2xl'} fontWeight={900} color={'white'}>
             SAO LẠI
           </Text>
