@@ -45,7 +45,7 @@ export const DescriptiveTextBlocks = ({
           padding={'0.2em'}
           color={'white'}
           fontWeight={800}
-          fontSize={'5xl'}
+          fontSize={['xl', '3xl', '4xl', '5xl']}
         >
           {title}
         </Text>
@@ -59,7 +59,7 @@ export const DescriptiveTextBlocks = ({
           maxW={'30vw'}
           color={'white'}
           fontWeight={400}
-          fontSize={'1.2em'}
+          fontSize={['md', 'lg', '2xl', '5xl']}
         >
           {description}
         </Text>
@@ -156,7 +156,15 @@ type PanelContentProps = {
 export const PanelContent = ({ panelType }: PanelContentProps): ReactElement => {
   return (
     <>
-      <Flex border={'2px white solid'} w={'100%'} h={'100%'} overflow={'scrolled'}>
+      <Flex
+        id={'panel-content'}
+        justifyContent={'space-between'}
+        gap={'4em'}
+        border={'2px white solid'}
+        w={'100%'}
+        h={'100%'}
+        overflow={'visible'}
+      >
         {content[panelType]}
       </Flex>
     </>

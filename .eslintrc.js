@@ -8,7 +8,7 @@ module.exports = {
     'plugin:react/recommended',
     'plugin:jsx-a11y/recommended',
     'plugin:react-hooks/recommended',
-    // 'plugin:@next/next/recommended',
+    'plugin:@next/next/recommended',
     'prettier',
   ],
   overrides: [

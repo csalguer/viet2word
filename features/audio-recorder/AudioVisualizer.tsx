@@ -81,7 +81,6 @@ const AudioVisualizer = ({ stream, widget = true }: AudioVisualizerProps): React
         //TODO: Check if this line/condition cn be removed
         context2D.clearRect(0, 0, canvas.height, canvas.height)
         const bufferLength = analyzer.frequencyBinCount
-        console.log(analyzer.frequencyBinCount)
         const dataArray = new Float32Array(bufferLength)
         const sliceWidth = (canvas.width * 1.0) / bufferLength
         const animate = (): void => {

@@ -26,7 +26,7 @@ const MenuItem = ({ label }: MenuItemProps): ReactElement => {
 
 export const MenuBar = () => {
   return (
-    <Center as={'section'} id={'menu'} bg={'white'} width={'100%'} gap={'0.8em'}>
+    <Center padding={'1em'} as={'section'} id={'menu'} bg={'white'} width={'100%'} gap={'0.8em'} overflow={'scroll'}>
       {itemLabels.map((item) => {
         return <MenuItem key={nanoid(6)} label={item} />
       })}

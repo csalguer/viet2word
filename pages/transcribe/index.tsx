@@ -5,8 +5,6 @@ import WaveSection from '@/features/common/components/WaveSection'
 import { Box } from '@chakra-ui/react'
 import ContentScroller from './components/ContentScroller'
 import PageHeader from '@/features/common/components/PageHeader'
-import { MenuBar } from '@/features/common/components/WaveSection'
-import styles from './bars.module.css'
 
 export default function Index(): ReactElement {
   return (

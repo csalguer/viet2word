@@ -15,10 +15,11 @@ const ContentScroller = () => {
     const wrappedPanels = panelNames.map((name) => {
       return (
         <Box
-          id={'panel-container'}
+          id={'panel'}
           // marginTop={'10vh'}
           border={'2px white solid'}
           key={nanoid(6)}
+          gap={'space-between'}
           scrollBehavior={'smooth'}
           scrollSnapAlign={'start'}
           scrollSnapType={'block'}
