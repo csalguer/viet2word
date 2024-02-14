@@ -28,7 +28,7 @@ const SelfAttributionTag = (): ReactElement => {
 export const PageHeader = (): ReactElement => {
   return (
     <>
-      <Center id={'page-header'} w={'100%'} justifyContent={'space-between'} padding={'2vh 5vh'}>
+      <Center as={'section'} id={'page-header'} w={'100%'} justifyContent={'space-between'} padding={'2vh 5vh'}>
         <Center>
           <LogoVariant width={'4em'} height={'4em'} />
           <Text fontFamily={'Albula Pro'} fontSize={'2xl'} fontWeight={900} color={'white'}>

@@ -26,7 +26,7 @@ const MenuItem = ({ label }: MenuItemProps): ReactElement => {
 
 export const MenuBar = () => {
   return (
-    <Center id={'menu'} padding={'1em'} width={'100%'} gap={'0.8em'}>
+    <Center as={'section'} id={'menu'} bg={'white'} width={'100%'} gap={'0.8em'}>
       {itemLabels.map((item) => {
         return <MenuItem key={nanoid(6)} label={item} />
       })}
@@ -36,7 +36,7 @@ export const MenuBar = () => {
 
 const WaveSVGElement = (): ReactElement => {
   return (
-    <>
+    <Box>
       <svg
         className={styles.waves}
         xmlns='http://www.w3.org/2000/svg'
@@ -54,7 +54,7 @@ const WaveSVGElement = (): ReactElement => {
           <use xlinkHref='#gentle-wave' x='48' y='7' fill='#fff' />
         </g>
       </svg>
-    </>
+    </Box>
   )
 }
 
@@ -62,9 +62,9 @@ const Wave = ({ children }: WaveProps) => {
   return (
     <>
       <WaveSVGElement />
-      {/* <Box id={'wave'} w={'100%'} bg={'white'} position={'relative'}>
+      <Box position={'absolute'} height={'10vh'} bottom='0vh' w={'100%'}>
         <Box>{!!children && children}</Box>
-      </Box> */}
+      </Box>
     </>
   )
 }
@@ -74,9 +74,18 @@ export const WaveSection = ({ children }: WaveSectionProps): ReactElement => {
 
   return (
     <>
-      <Flex id='wave-container' as={'section'} flexDirection={'column'} h={'80vh'} zIndex={0}>
+      <Flex
+        id='wave-container'
+        justifyContent={'space-between'}
+        as={'section'}
+        flexDirection={'column'}
+        h={'80vh'}
+        zIndex={0}
+      >
         {children}
-        <Wave></Wave>
+        <Wave>
+          <MenuBar />
+        </Wave>
       </Flex>
     </>
   )
