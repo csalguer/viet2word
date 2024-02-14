@@ -2,7 +2,6 @@ import { ReactElement } from 'react'
 import { WaveSectionProps, WaveProps, MenuItemProps } from './types'
 import { Text, Flex, Box, Center } from '@chakra-ui/react'
 import styles from '@/features/common/components/WaveSection/wave.module.css'
-import PageHeader from '../PageHeader'
 import { nanoid } from 'nanoid'
 
 const itemLabels = ['About', 'Features', 'Demo', 'Documentation', 'Contact']
@@ -63,9 +62,9 @@ const Wave = ({ children }: WaveProps) => {
   return (
     <>
       <WaveSVGElement />
-      <Box id={'wave'} bg={'white'} position={'relative'}>
+      {/* <Box id={'wave'} w={'100%'} bg={'white'} position={'relative'}>
         <Box>{!!children && children}</Box>
-      </Box>
+      </Box> */}
     </>
   )
 }
@@ -75,16 +74,7 @@ export const WaveSection = ({ children }: WaveSectionProps): ReactElement => {
 
   return (
     <>
-      <Flex
-        id='wave-container'
-        as={'section'}
-        flexDirection={'column'}
-        h={'90vh'}
-        zIndex={-1}
-        bg={
-          'linear-gradient(48deg, rgba(255,181,86,1) 0%, rgba(236,105,40,1) 31%, rgba(199,58,103,1) 61%, rgba(149,41,171,1) 100%);'
-        }
-      >
+      <Flex id='wave-container' as={'section'} flexDirection={'column'} h={'80vh'} zIndex={0}>
         {children}
         <Wave></Wave>
       </Flex>

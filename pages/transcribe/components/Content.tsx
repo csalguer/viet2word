@@ -38,7 +38,15 @@ export const DescriptiveTextBlocks = ({
   return (
     <Center id={id} margin={'1em'} padding={'1em'} flexDirection={'column'}>
       {!!title && (
-        <Text fontFamily={'Alexandria'} padding={'0.2em'} color={'white'} fontWeight={800} fontSize={'5xl'}>
+        <Text
+          fontFamily={'Alexandria'}
+          justifyContent={'center'}
+          textAlign={'center'}
+          padding={'0.2em'}
+          color={'white'}
+          fontWeight={800}
+          fontSize={'5xl'}
+        >
           {title}
         </Text>
       )}
@@ -64,15 +72,7 @@ export const DescriptiveTextBlocks = ({
 export const content = {
   splash: (
     <>
-      <DescriptiveTextBlocks
-        id={'landing-title'}
-        key={nanoid(5)}
-        content={
-          <Center position={'absolute'} marginBottom={'200px'} flexDirection={'column'}>
-            <Title />
-          </Center>
-        }
-      />
+      <DescriptiveTextBlocks id={'landing-title'} key={nanoid(5)} content={<Title />} />
       <DescriptiveTextBlocks
         id={'landing-action-text'}
         key={nanoid(5)}

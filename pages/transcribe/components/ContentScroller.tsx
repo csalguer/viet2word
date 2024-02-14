@@ -16,7 +16,7 @@ const ContentScroller = () => {
       return (
         <Box
           id={'panel-container'}
-          marginTop={'10vh'}
+          // marginTop={'10vh'}
           border={'2px white solid'}
           key={nanoid(6)}
           scrollBehavior={'smooth'}

@@ -17,7 +17,17 @@ export default function Index(): ReactElement {
         <meta name='viewport' content='width=device-width, initial-scale=1' />
         <link rel='icon' href='/favicon.ico' />
       </Head>
-      <Box className={'page-content'} h={'100vh'} gap={'10vh'}>
+      <Box
+        id={'page'}
+        backgroundColor={' #ff6347'}
+        backgroundImage={
+          ' linear-gradient(48deg,rgba(255, 181, 86, 1) 0%,rgba(236, 105, 40, 1) 31%,rgba(199, 58, 103,1) 61%,rgba(149, 41, 171, 1))'
+        }
+        /* Orange -> Dark Goldenrod -> Gold */
+        backgroundAttachment={' fixed'}
+        h={'100vh'}
+        gap={'10vh'}
+      >
         <PageHeader />
         <WaveSection>
           <ContentScroller />
@@ -33,7 +43,7 @@ export default function Index(): ReactElement {
         {/* Form + Resume*/}
         {/* <StyledSection content={demoContent} /> */}
         {/* {contactMeSection} */}
-        <MenuBar />
+        {/* <MenuBar /> */}
       </Box>
     </>
   )
