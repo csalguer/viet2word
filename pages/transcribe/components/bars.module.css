@@ -2,11 +2,10 @@
   position: absolute;
 }
 
-.textblock p{
+.textblock p {
   position: relative;
-
 }
-.textblock p:nth-child(0){
+.textblock p:nth-child(0) {
   opacity: 0;
   animation: blink 1.2s ease-in 0s infinite;
 }
@@ -16,16 +15,15 @@
   animation: blink 1.2s ease-in 0s infinite;
 }
 
-
 @keyframes blink {
-  0%{
+  0% {
     opacity: 0;
   }
 
-  50%{
+  50% {
     opacity: 1;
   }
-  100%{
+  100% {
     opacity: 0;
   }
 }

@@ -1,4 +1,4 @@
-import { Center, Flex, Text } from '@chakra-ui/react'
+import { Center, Box, Flex, Text } from '@chakra-ui/react'
 import Widget from '@/features/widget'
 import { nanoid } from 'nanoid'
 import { ReactElement } from 'react'
