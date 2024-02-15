@@ -1,5 +1,5 @@
 import { useCallback } from 'react'
-import { Box, Stack } from '@chakra-ui/react'
+import { Center, Stack } from '@chakra-ui/react'
 import { PanelContent, PanelType, content } from './Content'
 import { nanoid } from '@reduxjs/toolkit'
 
@@ -14,30 +14,33 @@ const ContentScroller = () => {
     const panelNames = Object.keys(content)
     const wrappedPanels = panelNames.map((name) => {
       return (
-        <Box
+        <Center
           id={'panel'}
-          // marginTop={'10vh'}
-          border={'2px white solid'}
           key={nanoid(6)}
-          gap={'space-between'}
+          bg={'orange'}
+          gap={'space-evenly'}
           scrollBehavior={'smooth'}
           scrollSnapAlign={'start'}
-          scrollSnapType={'block'}
           scrollSnapStop={'always'}
-          w={'100%'}
-          h={'100%'}
         >
-          {/* <SlideFade key={nanoid(6)} unmountOnExit> */}
           <PanelContent panelType={name as PanelType}></PanelContent>
-          {/* </SlideFade> */}
-        </Box>
+        </Center>
       )
     })
     return wrappedPanels
   }, [])
 
   return (
-    <Stack id={'content'} direction={'column'} overflow={'scroll'} w={'100%'} h={'100%'}>
+    <Stack
+      id={'content'}
+      display={'flex'}
+      alignItems={'center'}
+      direction={'column'}
+      overflow={'scroll'}
+      w={'100vw'}
+      h={'100%'}
+      bg={'grey'}
+    >
       {handleContent()}
     </Stack>
   )

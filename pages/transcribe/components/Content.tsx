@@ -69,6 +69,14 @@ export const DescriptiveTextBlocks = ({
   )
 }
 
+const translations = {
+  demoStart: ['Try this out', 'Thử cái này!'],
+  askForInput: ['Say the sentence below', 'Nói câu dưới đây'], //
+  sample: ['The sun sets and the sea is calm.', 'Mặt trời lặn và biển lặng.'],
+  confirmation: ['Was the text written <> correct?', 'Văn bản có được viết đúng không?'], // Position + desktop
+  // askForFeedback: ['']  => make into ^ or _ button input for training
+}
+
 export const content = {
   splash: (
     <>
@@ -88,55 +96,70 @@ export const content = {
       <DescriptiveTextBlocks
         id={'description'}
         key={nanoid(5)}
-        title={'Sao Lai: Language Mastery Through Speech-Focused Practice'}
-        description={
-          'Embracing a seamless and intuitive user interface, Linguid sets itself apart\
-          as an accessible and indispensable companion in the journey towards language\
-          proficiency. Elegant in its simplicity, effortlessly navigable, and accompanied\
-          by a scholarly tone, Linguid inspires confidence and motivation within learners,\
-          ensuring that educational endeavors are met with enthusiasm and unwavering dedication.'
+        title={'Language Mastery Through Speech-Focused Practice'}
+        content={
+          <Text fontFamily={'Didact Gothic'} textAlign={'center'} color={'white'}>
+            Embracing a seamless and intuitive user interface, Linguid sets itself apart as an accessible and
+            indispensable companion in the journey towards language proficiency. Elegant in its simplicity, effortlessly
+            navigable, and accompanied by a scholarly tone, Linguid inspires confidence and motivation within learners,
+            ensuring that educational endeavors are met with enthusiasm and unwavering dedication.
+          </Text>
+        }
+      />
+    </>
+  ),
+  instructions: (
+    <>
+      <TextBlinker text={translations['askForInput']} />
+      <DescriptiveTextBlocks
+        id={'follow-example'}
+        key={nanoid(5)}
+        description={}
+        content={
+          <Center w={'80vw'}>
+            <Text fontSize={'4em'} fontWeight={700} fontFamily={'Fragen'}></Text>
+          </Center>
         }
       />
     </>
   ),
   demo: (
     <>
+      <TextBlinker text={translations['demoStart']} />
+      <TextBlinker text={translations['askForInput']} />
       <DescriptiveTextBlocks
         id={'follow-along'}
         key={nanoid(5)}
-        title={'Bạn nói câu này có đúng không?'}
-        description={'Repeat the sentence below'}
         content={
-          <Center w={'80vw'}>
-            <Text fontSize={'4em'} fontWeight={700} fontFamily={'Fragen'}>
-              Mặt trời lặn và biển lặng
-            </Text>
-          </Center>
-        }
-      />
-      <DescriptiveTextBlocks
-        id={'follow-demo-element'}
-        key={nanoid(5)}
-        // title={'Bạn nói câu này có đúng không?'}
-        title={'Try me out now!'}
-        description={'Repeat the sentence below'}
-        content={
-          <Center id={'transcribe-detail'} as={'section'} marginTop={'15em'} h={'60vh'} w={'100%'}>
-            <DescriptiveTextBlocks
-              content={
-                <Center maxH={'30vh'}>
-                  <Widget type={TRANSCRIPTION} left />
-                </Center>
-              }
-            />
+          <Center maxH={'30vh'}>
+            <Widget type={TRANSCRIPTION} />
           </Center>
         }
       />
     </>
   ),
-  features: <></>,
+  confirmation: (
+    <>
+      <TextBlinker text={translations['confirmation']} />
+      <DescriptiveTextBlocks id={'follow-along'} key={nanoid(5)} content={<Box bg='green' w={'35%'} h={'35%'} />} />
+    </>
+  ),
   docs: <></>,
   contact: <></>,
+}
+
+type BlinkerProps = {
+  text: string[]
+}
+
+const TextBlinker = ({ text }: BlinkerProps): ReactElement => {
+  return (
+    <Center className='textblock'>
+      {text.map((elem) => {
+        return <Text key={nanoid(5)}>{elem}</Text>
+      })}
+    </Center>
+  )
 }
 
 export enum PanelType {
@@ -156,15 +179,7 @@ type PanelContentProps = {
 export const PanelContent = ({ panelType }: PanelContentProps): ReactElement => {
   return (
     <>
-      <Flex
-        id={'panel-content'}
-        justifyContent={'space-between'}
-        gap={'4em'}
-        border={'2px white solid'}
-        w={'100%'}
-        h={'100%'}
-        overflow={'visible'}
-      >
+      <Flex id={'panel-content'} justifyContent={'space-between'} height={'90vh'} bg={'rebeccapurple'}>
         {content[panelType]}
       </Flex>
     </>

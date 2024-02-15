@@ -1,0 +1,31 @@
+.textblock {
+  position: absolute;
+}
+
+.textblock p{
+  position: relative;
+
+}
+.textblock p:nth-child(0){
+  opacity: 0;
+  animation: blink 1.2s ease-in 0s infinite;
+}
+
+.textblock p:nth-child(1) {
+  opacity: 1;
+  animation: blink 1.2s ease-in 0s infinite;
+}
+
+
+@keyframes blink {
+  0%{
+    opacity: 0;
+  }
+
+  50%{
+    opacity: 1;
+  }
+  100%{
+    opacity: 0;
+  }
+}
