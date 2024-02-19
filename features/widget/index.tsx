@@ -1,5 +1,5 @@
 import type { ReactElement } from 'react'
-import { Box, Center, Flex, useColorModeValue } from '@chakra-ui/react'
+import { Box, Center, Flex } from '@chakra-ui/react'
 import Transcriber from '../transcription'
 import Reader from '../dictation'
 

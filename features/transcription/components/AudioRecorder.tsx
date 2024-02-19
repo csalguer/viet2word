@@ -1,5 +1,5 @@
 import AudioVisualizer from '@/features/audio-recorder/AudioVisualizer'
-import { IconButton, Flex, Icon, Center, useMediaQuery } from '@chakra-ui/react'
+import { IconButton, Flex, Icon, Center } from '@chakra-ui/react'
 import { useState, useCallback } from 'react'
 import { FiSquare, FiMic } from 'react-icons/fi'
 
@@ -10,7 +10,7 @@ interface AudioRecorderProps {
   widget?: boolean | null
 }
 
-const AudioRecorder = ({ stream, record, stop, widget = true }: AudioRecorderProps) => {
+const AudioRecorder = ({ stream, record, stop }: AudioRecorderProps) => {
   const [isRecording, setIsRecording] = useState<boolean>(false)
 
   const handleStartClick = useCallback(() => {
@@ -22,11 +22,10 @@ const AudioRecorder = ({ stream, record, stop, widget = true }: AudioRecorderPro
     setIsRecording(false)
   }, [stop])
 
-  const [isDesktop] = useMediaQuery('(min-width: 450px)')
   return (
-    <Flex w={'100%'} minWidth={'400px'} justifyContent={'space-between'} flexDirection={'column'}>
+    <Flex w={'100%'} gap={'1.5em'} flexDirection={'column'}>
       <AudioVisualizer stream={stream} widget />
-      <Center>
+      <Center id='recorded-audio-container'>
         {!isRecording && (
           <IconButton
             aria-label='Start Recording'

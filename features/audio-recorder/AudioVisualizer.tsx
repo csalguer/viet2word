@@ -1,6 +1,6 @@
 import { Fragment, useState, useRef, useEffect, useCallback } from 'react'
 import type { ReactElement } from 'react'
-import { Box, Center, Flex, useDimensions, useMediaQuery } from '@chakra-ui/react'
+import { Box, Center, useDimensions } from '@chakra-ui/react'
 import { isNull } from 'lodash'
 
 interface AudioVisualizerProps {
@@ -37,9 +37,9 @@ const mainStyling: VisualizerStyleOptions = {
 // presets for widget above ^, Preset for main In Progress
 
 const AudioVisualizer = ({ stream, widget = true }: AudioVisualizerProps): ReactElement => {
-  const [isDesktop] = useMediaQuery('(min-width: 450px)')
-  const vizRef = useRef()
+  const vizRef = useRef(null)
   const dimensions = useDimensions(vizRef)
+
   // CHANGE VALUE OF WIDGE TO FALSE LATER
   const [analyzer, setAnalyzer] = useState<AnalyserNode | null>(null)
   const [audioSource, setAudioSource] = useState<MediaStreamAudioSourceNode | null>(null)
@@ -51,6 +51,7 @@ const AudioVisualizer = ({ stream, widget = true }: AudioVisualizerProps): React
         // eslint-disable-next-line no-console
         console.log(event, 'Closing out audioContext: ', audioContext)
         audioContext.close()
+        setupAnalyzer()
       }
       const audioSource = audioContext.createMediaStreamSource(stream)
       setAudioSource(audioSource)
@@ -98,13 +99,16 @@ const AudioVisualizer = ({ stream, widget = true }: AudioVisualizerProps): React
           analyzer.getFloatFrequencyData(dataArray)
           const min = Math.min(...dataArray)
           const max = Math.max(...dataArray)
+          const avg = dataArray.reduce((prev, curr, index, array) => {
+            return index < array.length ? curr : curr / index
+          })
           const spread = min - max
-
+          // console.log(avg)
           context2D.beginPath()
 
           for (let i = 0; i < bufferLength; i++) {
             const v = dataArray[i] / 128
-            const y = -v * (canvas.height / 0.8) + spread
+            const y = -v * (canvas.height / 0.8) + 2 * spread
             if (i === 0) {
               context2D.moveTo(x, y)
             } else {
@@ -122,11 +126,11 @@ const AudioVisualizer = ({ stream, widget = true }: AudioVisualizerProps): React
   if (isNull(stream)) {
     return (
       <Center ref={vizRef} w={'100vw'} h={'35vh'} background={'transparent'}>
-        <Box //Change HTML tag and handle an animation within the actual canvas elem for a single return, no if/else block
+        <Center //Change HTML tag and handle an animation within the actual canvas elem for a single return, no if/else block
           width='100vw'
           height='2px'
           bg={'rgba(255, 255, 255, 0.2)'}
-        ></Box>
+        ></Center>
       </Center>
     )
   }

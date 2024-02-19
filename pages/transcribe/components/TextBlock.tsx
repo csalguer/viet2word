@@ -1,7 +1,7 @@
 import { sleep } from '@/features/transcription/components/AudioCapturedControls'
 import { Text, Center, chakra, SlideFade, ScaleFade, Fade } from '@chakra-ui/react'
 import { nanoid } from 'nanoid'
-import { createRef, useCallback, useEffect, useRef, useState } from 'react'
+import { useCallback, ReactElement, useEffect, useRef, useState } from 'react'
 
 export const Title = () => {
   return (
@@ -30,10 +30,6 @@ export interface Block {
   content?: ReactElement
 }
 
-enum Animation {
-  scale = ScaleFade,
-  slide = SlideFade,
-}
 type BlinkerProps = {
   text: string[]
   isBold?: boolean
@@ -41,7 +37,7 @@ type BlinkerProps = {
 
 export const Blinker = ({ text, isBold = false }: BlinkerProps): ReactElement => {
   const [label, setLabel] = useState(0)
-  const textRef = useRef()
+  const textRef = useRef('')
   // const textRef = useRef<HTMLParagraphElement>(null)
 
   const blink = useCallback(() => {
@@ -70,7 +66,7 @@ export const Blinker = ({ text, isBold = false }: BlinkerProps): ReactElement =>
         fontFamily={isBold ? 'Albula Pro' : 'Didact Gothic'}
         textTransform={isBold ? 'uppercase' : 'inherit'}
         color={'white'}
-        fontSize={('lg', 'xl', '2xl')}
+        fontSize={['2xl', '3xl', '4xl']}
         key={nanoid(5)}
       >
         {<SlideFade in={true}>{text[label]}</SlideFade>}
@@ -84,7 +80,7 @@ export const Block = ({ id, title, description, content }: Block): ReactElement 
   return (
     <Center id={id} margin={'1em'} padding={'1em'} flexDirection={'column'}>
       {!!title && (
-        <ScaleFade transition={{ exit: 'all 1s ease', enter: 'all 1s ease' }} in={true}>
+        <ScaleFade transition={{ exit: { delay: '.9s', transition: 'all 1s ease;' }, enter: 'all 1s ease;' }} in={true}>
           <Text
             fontFamily={'Alexandria'}
             justifyContent={'center'}

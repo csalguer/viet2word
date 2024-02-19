@@ -1,6 +1,6 @@
 import { useState, useCallback, useRef } from 'react'
 import type { ReactElement } from 'react'
-import { Flex, useMediaQuery } from '@chakra-ui/react'
+import { Center, Flex, useMediaQuery } from '@chakra-ui/react'
 import { isNull } from 'lodash'
 import { queryVietTranscription } from './helpers/queryVietTranscription'
 import convertWebmToWAV from '@/features/audio-recorder/helpers/convertWebmToWAV'
@@ -8,7 +8,7 @@ import AudioRecorder from './components/AudioRecorder'
 import DisplayTranscription from './components/DisplayTranscription'
 import AudioCapturedControls from './components/AudioCapturedControls'
 import { useQuery } from '@tanstack/react-query'
-import { TextBlinker, Title } from '@/pages/transcribe/components/TextBlock'
+import { Block, TextBlinker } from '@/pages/transcribe/components/TextBlock'
 import { translations } from '@/pages/transcribe/components/utilities'
 
 const mimeType = 'audio/webm'
@@ -100,7 +100,7 @@ const Transcriber = ({ widget }): ReactElement => {
   }
   return (
     <>
-      <Flex id={'transcriber'} gap={'12px'} flexDirection={!isDesktop ? 'column' : 'row'}>
+      <Flex id={'transcriber'} gap={'12px'} flexDirection={'column'}>
         {isNull(audio) && !isFinishedRecording ? (
           <AudioRecorder stream={stream} record={startRecording} stop={stopRecording} widget={widget} />
         ) : (
@@ -109,7 +109,14 @@ const Transcriber = ({ widget }): ReactElement => {
             <AudioCapturedControls onFinish={setupToRerecordAudio} audio={audio} onClick={handleSTTQueryRequest} />
           </Flex>
         )}
-        <DisplayTranscription transcription={transcription} />
+        {transcription && (
+          <Center id={'transcription-upper-container'}>
+            <DisplayTranscription transcription={transcription} />
+            <Block w={'200px'} length={'6px'} color={'#00004285'}>
+              {' '}
+            </Block>
+          </Center>
+        )}
       </Flex>
     </>
   )

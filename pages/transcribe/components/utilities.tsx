@@ -1,5 +1,5 @@
-import { TextBlock, TextBlinker, Animation } from './TextBlock'
-import { Text, Center, Box, chakra, Flex, useMediaQuery } from '@chakra-ui/react'
+import { TextBlock, TextBlinker } from './TextBlock'
+import { Text, Center, Box, Flex } from '@chakra-ui/react'
 import { Title } from './TextBlock'
 import Widget from '@/features/widget'
 import { TRANSCRIPTION } from '@/features/widget'
@@ -14,8 +14,6 @@ export const translations = {
   // askForFeedback: ['']  => make into ^ or _ button input for training
 }
 
-const ChakraWidget = chakra(Widget)
-
 const SplashContent = () => {
   return (
     <>
@@ -24,7 +22,7 @@ const SplashContent = () => {
         id={'splash-pane'}
         onClick={() => {
           const elem = document.getElementById('demo-pane')
-          elem.scrollIntoView({ behavior: 'smooth', block: 'start', inline: 'nearest' })
+          elem?.scrollIntoView({ behavior: 'smooth', block: 'start', inline: 'nearest' })
         }}
       >
         <Title />
@@ -65,13 +63,13 @@ const AboutContent = () => {
   )
 }
 
-const instructionsContent = () => {
-  return (
-    <>
-      <TextBlinker text={translations['askForInput']} />
-    </>
-  )
-}
+// const instructionsContent = () => {
+//   return (
+//     <>
+//       <TextBlinker text={translations['askForInput']} />
+//     </>
+//   )
+// }
 
 const DemoContent = () => {
   return (
@@ -79,11 +77,11 @@ const DemoContent = () => {
       <Center
         id={'demo-pane'}
         onClick={() => {
-          console.log('Clicked pane')
+          // console.log('Clicked pane')
           const marquee = document.getElementById('blinker-marquee')
           if (marquee) {
             // marquee.style.visibility = 'hidden'
-            marquee.style.opacity = 0
+            marquee.style.opacity = '0'
             marquee.style.transition = 'ease-in 0.3s;'
           }
         }}
