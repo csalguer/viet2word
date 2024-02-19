@@ -12,7 +12,7 @@ export const Title = () => {
           fontFamily={'Alexandria'}
           color={'white'}
           fontWeight={800}
-          fontSize={['xl', '2xl', '6xl', '8xl']}
+          fontSize={['6xl', '8xl', '9xl']}
         >
           Transcribe
         </Text>
@@ -44,12 +44,9 @@ export const Blinker = ({ text }: BlinkerProps): ReactElement => {
   const blink = useCallback(() => {
     const textRef = document.getElementById('blinker')
     if (textRef) {
-      // textRef.style.opacity = label ? 0 : 1
-      // textRef.style.opacity = !label ? 0 : 1
       setLabel(label == 0 ? 1 : 0)
       sleep(200)
       setLabel(label == 0 ? 1 : 0)
-      // setLabel(label == 0 ? 0 : 1)
     }
   }, [label])
 
@@ -60,17 +57,17 @@ export const Blinker = ({ text }: BlinkerProps): ReactElement => {
   return (
     <Center display='flex' className='textblock'>
       <Text
+        as={'div'}
         id={'blinker'}
         ref={textRef}
-        // ref={textRef}
         whiteSpace={'nowrap'}
         fontFamily={'Didact Gothic'}
         color={'white'}
-        fontSize={('md', 'lg', 'xl')}
+        fontSize={('lg', 'xl', '2xl')}
         key={nanoid(5)}
       >
-        {/* <SlideFade in={true}>{text[label]}</SlideFade> */}
-        {text[label]}
+        {<SlideFade in={true}>{text[label]}</SlideFade>}
+        {/* {text[label]} */}
       </Text>
     </Center>
   )
@@ -80,31 +77,35 @@ export const Block = ({ id, title, description, content }: Block): ReactElement 
   return (
     <Center id={id} margin={'1em'} padding={'1em'} flexDirection={'column'}>
       {!!title && (
-        <Text
-          fontFamily={'Alexandria'}
-          justifyContent={'center'}
-          textAlign={'center'}
-          padding={'0.2em'}
-          color={'white'}
-          fontWeight={800}
-          fontSize={['xl', '2xl', '3xl']}
-        >
-          {title}
-        </Text>
+        <ScaleFade transition={{ exit: 'all 1s ease', enter: 'all 1s ease' }} in={true}>
+          <Text
+            fontFamily={'Alexandria'}
+            justifyContent={'center'}
+            textAlign={'center'}
+            padding={'0.2em'}
+            color={'white'}
+            fontWeight={800}
+            fontSize={['2xl', '3xl', '5xl']}
+          >
+            {title}
+          </Text>
+        </ScaleFade>
       )}
       {!!description && (
-        <Text
-          fontFamily={'Didact Gothic'}
-          textAlign={'center'}
-          padding={'0.5em'}
-          minH={'25vh'}
-          maxW={'30vw'}
-          color={'white'}
-          fontWeight={400}
-          fontSize={['md', 'lg', 'xl']}
-        >
-          {description}
-        </Text>
+        <SlideFade offsetY={'35px'} in={true}>
+          <Text
+            fontFamily={'Didact Gothic'}
+            textAlign={'center'}
+            padding={'0.5em'}
+            // minH={'25vh'}
+            maxW={'75vw'}
+            color={'white'}
+            fontWeight={400}
+            fontSize={['lg', 'xl', '3xl']}
+          >
+            {description}
+          </Text>
+        </SlideFade>
       )}
       {!!content && content}
     </Center>

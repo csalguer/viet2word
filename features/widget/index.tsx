@@ -43,16 +43,7 @@ const Widget = ({ type, left, right, asNative = true }: WidgetProps): ReactEleme
           }}
         ></div>
       )}
-      <Box
-        maxW={'50vw'}
-        // bg={useColorModeValue('gray.100', 'gray.900')}
-        border={'1px solid gray.200'}
-        boxShadow={'2xl'}
-        rounded={'md'}
-        overflow={'hidden'}
-        maxWidth={550}
-        maxHeight={600}
-      >
+      <Box maxW={'50vw'} rounded={'md'} overflow={'hidden'} maxWidth={550} maxHeight={600}>
         <Center w={'100%'} h={'100%'}>
           <Flex p={4} m={4} direction={'column'} justifyContent={'center'} alignItems={'center'}>
             {getWidgetContent(type, asNative)}

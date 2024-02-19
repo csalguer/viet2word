@@ -1,6 +1,6 @@
-import { Fragment, useState, useEffect, useCallback } from 'react'
+import { Fragment, useState, useRef, useEffect, useCallback } from 'react'
 import type { ReactElement } from 'react'
-import { Box, Center, Flex } from '@chakra-ui/react'
+import { Box, Center, Flex, useDimensions, useMediaQuery } from '@chakra-ui/react'
 import { isNull } from 'lodash'
 
 interface AudioVisualizerProps {
@@ -37,6 +37,9 @@ const mainStyling: VisualizerStyleOptions = {
 // presets for widget above ^, Preset for main In Progress
 
 const AudioVisualizer = ({ stream, widget = true }: AudioVisualizerProps): ReactElement => {
+  const [isDesktop] = useMediaQuery('(min-width: 450px)')
+  const vizRef = useRef()
+  const dimensions = useDimensions(vizRef)
   // CHANGE VALUE OF WIDGE TO FALSE LATER
   const [analyzer, setAnalyzer] = useState<AnalyserNode | null>(null)
   const [audioSource, setAudioSource] = useState<MediaStreamAudioSourceNode | null>(null)
@@ -89,19 +92,15 @@ const AudioVisualizer = ({ stream, widget = true }: AudioVisualizerProps): React
           context2D.clearRect(0, 0, context2D.canvas.width, context2D.canvas.height)
           let x = 0
           context2D.fillStyle = 'rgba(255, 255, 255, 0.0)'
-          // context2D.globalAlpha = 0.0
           context2D.lineWidth = 4
-          // context2D.fillStyle = 'rgba(0,0,0,.2)'
           context2D.strokeStyle = '#EDF2F7'
           context2D.fillRect(0, 0, context2D.canvas.width, context2D.canvas.height)
-          // styleVisuals(context2D)
           analyzer.getFloatFrequencyData(dataArray)
           context2D.beginPath()
 
           for (let i = 0; i < bufferLength; i++) {
-            const v = dataArray[i] / 128.0
-            const y = (v * canvas.height) / -2
-            // console.log(x, y)
+            const v = dataArray[i] / 66
+            const y = (v * canvas.height) / -3
             if (i === 0) {
               context2D.moveTo(x, y)
             } else {
@@ -118,9 +117,9 @@ const AudioVisualizer = ({ stream, widget = true }: AudioVisualizerProps): React
 
   if (isNull(stream)) {
     return (
-      <Center w={'60%'} h={100}>
+      <Center ref={vizRef} w={'100vw'} h={'10vh'} background={'transparent'}>
         <Box //Change HTML tag and handle an animation within the actual canvas elem for a single return, no if/else block
-          width='100%'
+          width='100vw'
           height='2px'
           bg={'rgba(255, 255, 255, 0.2)'}
         ></Box>
@@ -129,9 +128,14 @@ const AudioVisualizer = ({ stream, widget = true }: AudioVisualizerProps): React
   }
   return (
     <>
-      <Flex w={300} h={100} background={'transparent'}>
-        <canvas width='300' height='100' color='rgba(255, 255, 255, 0.2)' id='audio-visualizer'></canvas>
-      </Flex>
+      <Center ref={vizRef} w={'100vw'} h={'10vh'} background={'transparent'}>
+        <canvas
+          width={dimensions.borderBox.width}
+          height={dimensions.borderBox.height}
+          color='rgba(255, 255, 255, 0.2)'
+          id='audio-visualizer'
+        ></canvas>
+      </Center>
     </>
   )
 }

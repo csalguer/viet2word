@@ -1,6 +1,6 @@
 import { useState, useCallback, useRef } from 'react'
 import type { ReactElement } from 'react'
-import { Flex } from '@chakra-ui/react'
+import { Flex, useMediaQuery } from '@chakra-ui/react'
 import { isNull } from 'lodash'
 import { queryVietTranscription } from './helpers/queryVietTranscription'
 import convertWebmToWAV from '@/features/audio-recorder/helpers/convertWebmToWAV'
@@ -23,7 +23,7 @@ const Transcriber = ({ widget }): ReactElement => {
   const [transcription, setTranscription] = useState<string | null>(null)
   const [isFinishedRecording, setFinished] = useState<boolean>(false)
   const [wavBytes, setWavBytes] = useState<ArrayBuffer | null>(null)
-
+  const [isDesktop] = useMediaQuery('(min-width: 450px)')
   const startRecording = useCallback(async () => {
     const stream = await navigator.mediaDevices.getUserMedia({
       audio: true,
@@ -94,10 +94,9 @@ const Transcriber = ({ widget }): ReactElement => {
     setFinished(false)
     setTranscription(null)
   }
-
   return (
     <>
-      <Flex gap={'12px'} flexDirection={'column'}>
+      <Flex gap={'12px'} flexDirection={isDesktop ? 'column !important' : 'row'}>
         {isNull(audio) && !isFinishedRecording ? (
           <AudioRecorder stream={stream} record={startRecording} stop={stopRecording} widget={widget} />
         ) : (

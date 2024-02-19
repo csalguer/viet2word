@@ -24,7 +24,7 @@ export const PanelContent = ({ panelType }: PanelContentProps): ReactElement => 
         scrollSnapAlign={'center'}
         scrollSnapStop={'always'}
         justifyContent={'space-between'}
-        height={'90vh'}
+        height={'60vh'}
       >
         {content[panelType]}
       </Flex>

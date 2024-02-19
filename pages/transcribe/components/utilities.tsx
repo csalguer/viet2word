@@ -1,5 +1,5 @@
 import { TextBlock, TextBlinker, Animation } from './TextBlock'
-import { Text, Center, Box, chakra, Flex } from '@chakra-ui/react'
+import { Text, Center, Box, chakra, Flex, useMediaQuery } from '@chakra-ui/react'
 import { Title } from './TextBlock'
 import Widget from '@/features/widget'
 import { TRANSCRIPTION } from '@/features/widget'
@@ -15,33 +15,36 @@ export const translations = {
 
 const ChakraWidget = chakra(Widget)
 
-const splashContent = () => {
+const SplashContent = () => {
   return (
-    <Box
-      id={'splash-pane'}
-      onClick={() => {
-        console.log('pane clicked')
-        const elem = document.getElementById('demo-pane')
-        elem.scrollIntoView({ behavior: 'smooth', block: 'start', inline: 'nearest' })
-        if (elem) {
-        }
-      }}
-    >
-      <Title />
-      <TextBlock
-        id={'landing-action-text'}
-        key={nanoid(5)}
-        title={'Speak. Listen. Write.'}
-        description={
-          'Experience the ease of converting spoken words into text, simplifying language capture for a variety of applications.'
-        }
-        fontSize={['md', 'lg', 'xl']}
-      />
-    </Box>
+    <>
+      <Center
+        flexDirection={'column'}
+        id={'splash-pane'}
+        onClick={() => {
+          const elem = document.getElementById('demo-pane')
+          elem.scrollIntoView({ behavior: 'smooth', block: 'start', inline: 'nearest' })
+        }}
+      >
+        <Title />
+        <TextBlock
+          id={'landing-action-text'}
+          key={nanoid(5)}
+          title={'Speak. Listen. Write.'}
+          description={'Experience the ease of converting spoken words into text.'}
+          content={
+            <Text color={'white'} fontFamily={'Didact Gothic'} fontSize={'12'}>
+              {'Simplifying language capture for a variety of applications.'}
+            </Text>
+          }
+          fontSize={['md', 'lg', 'xl']}
+        />
+      </Center>
+    </>
   )
 }
 
-const aboutContent = () => {
+const AboutContent = () => {
   return (
     <>
       <TextBlock
@@ -69,10 +72,10 @@ const instructionsContent = () => {
   )
 }
 
-const demoContent = () => {
+const DemoContent = () => {
   return (
     <>
-      <Flex id={'demo-pane'} flexDirection={'column'}>
+      <Center id={'demo-pane'} flexDirection={'column'}>
         <Flex flexDirection={'column'}>
           <TextBlinker text={translations['demoStart']} />
           <TextBlinker text={translations['askForInput']} />
@@ -86,12 +89,12 @@ const demoContent = () => {
             </Center>
           }
         />
-      </Flex>
+      </Center>
     </>
   )
 }
 
-const confirmationContent = () => {
+const ConfirmationContent = () => {
   return (
     <>
       <TextBlinker text={translations['confirmation']} />
@@ -101,11 +104,11 @@ const confirmationContent = () => {
 }
 
 export const content: Record<string, JSX.Element> = {
-  splash: splashContent(),
-  about: aboutContent(),
+  splash: SplashContent(),
+  about: AboutContent(),
   // instructions: instructionsContent(),
-  demo: demoContent(),
-  confirmation: confirmationContent(),
+  demo: DemoContent(),
+  confirmation: ConfirmationContent(),
   docs: <></>,
   contact: <></>,
 }

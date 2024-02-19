@@ -27,9 +27,9 @@ const AudioCapturedControls = ({ audio, onClick, onFinish }) => {
             aria-label='Fetch Transcription'
             height={16}
             width={16}
-            bg={'yellow.300'}
-            _hover={{ bg: 'yellow.400' }}
-            _pressed={{ bg: 'yellow.500' }}
+            bg={'white.300'}
+            _hover={{ bg: 'white.400' }}
+            _pressed={{ bg: 'white.500' }}
             borderRadius={'50%'}
             icon={<Icon as={FiEdit2} color={'white'} h={6} w={6} />}
             onClick={handleClick}
@@ -44,7 +44,7 @@ const AudioCapturedControls = ({ audio, onClick, onFinish }) => {
             borderRadius={'50%'}
             icon={
               <Center>
-                <CircularProgress h={'100%'} w={'100%'} isIndeterminate color='gray.400' />
+                <CircularProgress h={'100%'} w={'100%'} isIndeterminate color='white.400' />
               </Center>
             }
             isDisabled
@@ -56,7 +56,7 @@ const AudioCapturedControls = ({ audio, onClick, onFinish }) => {
             aria-label='Rerecord Audio'
             height={16}
             width={16}
-            bg={'gray.400'}
+            bg={'white.400'}
             borderRadius={'50%'}
             icon={<Icon as={FiRotateCw} color={'white'} h={6} w={6} />}
             onClick={handleFinish}
