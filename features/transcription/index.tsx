@@ -8,6 +8,8 @@ import AudioRecorder from './components/AudioRecorder'
 import DisplayTranscription from './components/DisplayTranscription'
 import AudioCapturedControls from './components/AudioCapturedControls'
 import { useQuery } from '@tanstack/react-query'
+import { TextBlinker, Title } from '@/pages/transcribe/components/TextBlock'
+import { translations } from '@/pages/transcribe/components/utilities'
 
 const mimeType = 'audio/webm'
 export const PENDING_PLACEHOLDER = 'Transcribing ...'
@@ -23,7 +25,9 @@ const Transcriber = ({ widget }): ReactElement => {
   const [transcription, setTranscription] = useState<string | null>(null)
   const [isFinishedRecording, setFinished] = useState<boolean>(false)
   const [wavBytes, setWavBytes] = useState<ArrayBuffer | null>(null)
+
   const [isDesktop] = useMediaQuery('(min-width: 450px)')
+
   const startRecording = useCallback(async () => {
     const stream = await navigator.mediaDevices.getUserMedia({
       audio: true,
@@ -96,11 +100,14 @@ const Transcriber = ({ widget }): ReactElement => {
   }
   return (
     <>
-      <Flex gap={'12px'} flexDirection={isDesktop ? 'column !important' : 'row'}>
+      <Flex id={'transcriber'} gap={'12px'} flexDirection={!isDesktop ? 'column' : 'row'}>
         {isNull(audio) && !isFinishedRecording ? (
           <AudioRecorder stream={stream} record={startRecording} stop={stopRecording} widget={widget} />
         ) : (
-          <AudioCapturedControls onFinish={setupToRerecordAudio} audio={audio} onClick={handleSTTQueryRequest} />
+          <>
+            <TextBlinker isBold text={translations['transcribe']}></TextBlinker>
+            <AudioCapturedControls onFinish={setupToRerecordAudio} audio={audio} onClick={handleSTTQueryRequest} />
+          </>
         )}
         <DisplayTranscription transcription={transcription} />
       </Flex>

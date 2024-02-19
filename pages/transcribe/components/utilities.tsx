@@ -10,6 +10,7 @@ export const translations = {
   askForInput: ['Say the sentence below', 'Nói câu dưới đây'], //
   sample: ['The sun sets and the sea is calm.', 'Mặt trời lặn và biển lặng.'],
   confirmation: ['Was the written text correct?', 'Văn bản có được viết đúng không?'], // Position + desktop
+  transcribe: ['Transcribe.', 'Chép Lại'],
   // askForFeedback: ['']  => make into ^ or _ button input for training
 }
 
@@ -75,8 +76,20 @@ const instructionsContent = () => {
 const DemoContent = () => {
   return (
     <>
-      <Center id={'demo-pane'} flexDirection={'column'}>
-        <Flex flexDirection={'column'}>
+      <Center
+        id={'demo-pane'}
+        onClick={() => {
+          console.log('Clicked pane')
+          const marquee = document.getElementById('blinker-marquee')
+          if (marquee) {
+            marquee.style.visibility = 'hidden'
+            marquee.style.opacity = 0
+            marquee.style.transition = 'ease-in 0.3s;'
+          }
+        }}
+        flexDirection={'column'}
+      >
+        <Flex id={'blinker-marquee'} flexDirection={'column'}>
           <TextBlinker text={translations['demoStart']} />
           <TextBlinker text={translations['askForInput']} />
         </Flex>
@@ -105,10 +118,10 @@ const ConfirmationContent = () => {
 
 export const content: Record<string, JSX.Element> = {
   splash: SplashContent(),
-  about: AboutContent(),
   // instructions: instructionsContent(),
   demo: DemoContent(),
   confirmation: ConfirmationContent(),
+  about: AboutContent(),
   docs: <></>,
   contact: <></>,
 }

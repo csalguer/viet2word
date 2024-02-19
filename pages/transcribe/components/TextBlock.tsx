@@ -1,22 +1,24 @@
 import { sleep } from '@/features/transcription/components/AudioCapturedControls'
-import { Text, Center, chakra, SlideFade, ScaleFade } from '@chakra-ui/react'
+import { Text, Center, chakra, SlideFade, ScaleFade, Fade } from '@chakra-ui/react'
 import { nanoid } from 'nanoid'
 import { createRef, useCallback, useEffect, useRef, useState } from 'react'
 
 export const Title = () => {
   return (
     <>
-      <Center id={'splash-title'} flexDirection={'column'}>
-        <Text
-          id={'title-text'}
-          fontFamily={'Alexandria'}
-          color={'white'}
-          fontWeight={800}
-          fontSize={['6xl', '8xl', '9xl']}
-        >
-          Transcribe
-        </Text>
-      </Center>
+      <Fade in={true}>
+        <Center id={'splash-title'} flexDirection={'column'}>
+          <Text
+            id={'title-text'}
+            fontFamily={'Alexandria'}
+            color={'white'}
+            fontWeight={800}
+            fontSize={['6xl', '8xl', '9xl']}
+          >
+            Transcribe
+          </Text>
+        </Center>
+      </Fade>
     </>
   )
 }
@@ -34,9 +36,10 @@ enum Animation {
 }
 type BlinkerProps = {
   text: string[]
+  isBold?: boolean
 }
 
-export const Blinker = ({ text }: BlinkerProps): ReactElement => {
+export const Blinker = ({ text, isBold = false }: BlinkerProps): ReactElement => {
   const [label, setLabel] = useState(0)
   const textRef = useRef()
   // const textRef = useRef<HTMLParagraphElement>(null)
@@ -51,7 +54,10 @@ export const Blinker = ({ text }: BlinkerProps): ReactElement => {
   }, [label])
 
   useEffect(() => {
-    setInterval(blink, 3200)
+    const id = setInterval(blink, 3200)
+    return () => {
+      clearInterval(id)
+    }
   }, [blink])
 
   return (
@@ -61,7 +67,8 @@ export const Blinker = ({ text }: BlinkerProps): ReactElement => {
         id={'blinker'}
         ref={textRef}
         whiteSpace={'nowrap'}
-        fontFamily={'Didact Gothic'}
+        fontFamily={isBold ? 'Albula Pro' : 'Didact Gothic'}
+        textTransform={isBold ? 'uppercase' : 'inherit'}
         color={'white'}
         fontSize={('lg', 'xl', '2xl')}
         key={nanoid(5)}

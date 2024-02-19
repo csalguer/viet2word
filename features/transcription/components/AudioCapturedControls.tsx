@@ -6,7 +6,7 @@ import { isNull } from 'lodash'
 
 export const sleep = (ms: number) => new Promise((r) => setTimeout(r, ms))
 
-const AudioCapturedControls = ({ audio, onClick, onFinish }) => {
+const AudioCapturedControls = ({ audio, onClick, onFinish, isDesktop }) => {
   const [startedFetch, setStartedFetch] = useState<boolean | null>(null)
 
   const handleClick = async () => {
@@ -44,7 +44,7 @@ const AudioCapturedControls = ({ audio, onClick, onFinish }) => {
             borderRadius={'50%'}
             icon={
               <Center>
-                <CircularProgress h={'100%'} w={'100%'} isIndeterminate color='white.400' />
+                <CircularProgress h={'100%'} w={'100%'} isIndeterminate color='gray.400' />
               </Center>
             }
             isDisabled

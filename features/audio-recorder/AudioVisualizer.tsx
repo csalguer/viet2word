@@ -96,11 +96,15 @@ const AudioVisualizer = ({ stream, widget = true }: AudioVisualizerProps): React
           context2D.strokeStyle = '#EDF2F7'
           context2D.fillRect(0, 0, context2D.canvas.width, context2D.canvas.height)
           analyzer.getFloatFrequencyData(dataArray)
+          const min = Math.min(...dataArray)
+          const max = Math.max(...dataArray)
+          const spread = min - max
+
           context2D.beginPath()
 
           for (let i = 0; i < bufferLength; i++) {
-            const v = dataArray[i] / 66
-            const y = (v * canvas.height) / -3
+            const v = dataArray[i] / 128
+            const y = -v * canvas.height
             if (i === 0) {
               context2D.moveTo(x, y)
             } else {
@@ -130,8 +134,8 @@ const AudioVisualizer = ({ stream, widget = true }: AudioVisualizerProps): React
     <>
       <Center ref={vizRef} w={'100vw'} h={'10vh'} background={'transparent'}>
         <canvas
-          width={dimensions.borderBox.width}
-          height={dimensions.borderBox.height}
+          width={dimensions?.borderBox.width}
+          height={dimensions?.borderBox.height}
           color='rgba(255, 255, 255, 0.2)'
           id='audio-visualizer'
         ></canvas>
