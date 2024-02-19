@@ -13,7 +13,7 @@ export const Title = () => {
             fontFamily={'Alexandria'}
             color={'white'}
             fontWeight={800}
-            fontSize={['6xl', '8xl', '9xl']}
+            fontSize={['6xl', '8xl', '8xl']}
           >
             Transcribe
           </Text>

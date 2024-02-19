@@ -2,7 +2,7 @@ import Head from 'next/head'
 import { ReactElement } from 'react'
 import WaveSection from '@/features/common/components/WaveSection'
 // import AuroraSection from '@/features/common/components/AuroraSection'
-import { Box } from '@chakra-ui/react'
+import { Box, Fade } from '@chakra-ui/react'
 import ContentScroller from './components/ContentScroller'
 import PageHeader from '@/features/common/components/PageHeader'
 
@@ -21,26 +21,23 @@ export default function Index(): ReactElement {
         backgroundImage={
           ' linear-gradient(48deg,rgba(255, 181, 86, 1) 0%,rgba(236, 105, 40, 1) 31%,rgba(199, 58, 103,1) 61%,rgba(149, 41, 171, 1))'
         }
-        /* Orange -> Dark Goldenrod -> Gold */
         backgroundAttachment={' fixed'}
         h={'100vh'}
         gap={'10vh'}
       >
         <PageHeader />
-        <WaveSection>
-          <ContentScroller />
-        </WaveSection>
+        <Fade in={true}>
+          <WaveSection>
+            <ContentScroller />
+          </WaveSection>
+        </Fade>
 
-        {/*Content right fade appear */}
-        {/* <StyledSection content={splashContent} /> */}
         {/*Wave Down Bar down from top*/}
         {/* <AuroraSection><StyledSection content={descriptionContent} /></AuroraSection> */}
 
         {/*Quick model description link to snippets + model research for STT & TTS w/ License information */}
         {/*Auto right fade for instruction + toggle between viet&english timer*/}
-        {/* <StyledSection content={aboutContent} /> */}
         {/* Form + Resume*/}
-        {/* <StyledSection content={demoContent} /> */}
         {/* {contactMeSection} */}
         {/* <MenuBar /> */}
       </Box>

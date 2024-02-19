@@ -60,12 +60,12 @@ const WaveSVGElement = (): ReactElement => {
 
 const Wave = ({ children }: WaveProps) => {
   return (
-    <>
+    <Flex flexDirection={'column-reverse'} height={'5vh'}>
       <WaveSVGElement />
-      <Box position={'absolute'} height={'10vh'} bottom='0vh' w={'100%'}>
+      <Box position={'absolute'} background={'white'} height={'10vh'} bottom='0vh' w={'100%'}>
         <Box>{!!children && children}</Box>
       </Box>
-    </>
+    </Flex>
   )
 }
 
@@ -83,9 +83,7 @@ export const WaveSection = ({ children }: WaveSectionProps): ReactElement => {
         zIndex={0}
       >
         {children}
-        <Wave>
-          <MenuBar />
-        </Wave>
+        <Wave>{/* <MenuBar /> */}</Wave>
       </Flex>
     </>
   )

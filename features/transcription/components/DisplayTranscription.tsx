@@ -42,7 +42,7 @@ const DisplayTranscription = ({ transcription }) => {
   }, [])
 
   return (
-    <Flex>
+    <Center w={'100vw'}>
       {transcription && (
         <Fade in={true}>
           <Center
@@ -59,6 +59,7 @@ const DisplayTranscription = ({ transcription }) => {
             backdropBlur={'lg'}
             dropShadow={'outline'}
             minH={'180px'}
+            minW={'85vw'}
             borderRadius={'6px'}
             transition={'max-height 1.75s ease-out'}
             justifyContent={'center'}
@@ -81,7 +82,7 @@ const DisplayTranscription = ({ transcription }) => {
           </Center>
         </Fade>
       )}
-    </Flex>
+    </Center>
   )
 }
 

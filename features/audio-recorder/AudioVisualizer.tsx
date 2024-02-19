@@ -104,7 +104,7 @@ const AudioVisualizer = ({ stream, widget = true }: AudioVisualizerProps): React
 
           for (let i = 0; i < bufferLength; i++) {
             const v = dataArray[i] / 128
-            const y = -v * canvas.height
+            const y = -v * (canvas.height / 0.8) + spread
             if (i === 0) {
               context2D.moveTo(x, y)
             } else {
@@ -121,7 +121,7 @@ const AudioVisualizer = ({ stream, widget = true }: AudioVisualizerProps): React
 
   if (isNull(stream)) {
     return (
-      <Center ref={vizRef} w={'100vw'} h={'10vh'} background={'transparent'}>
+      <Center ref={vizRef} w={'100vw'} h={'35vh'} background={'transparent'}>
         <Box //Change HTML tag and handle an animation within the actual canvas elem for a single return, no if/else block
           width='100vw'
           height='2px'
@@ -132,7 +132,7 @@ const AudioVisualizer = ({ stream, widget = true }: AudioVisualizerProps): React
   }
   return (
     <>
-      <Center ref={vizRef} w={'100vw'} h={'10vh'} background={'transparent'}>
+      <Center ref={vizRef} w={'100vw'} h={'35vh'} background={'transparent'}>
         <canvas
           width={dimensions?.borderBox.width}
           height={dimensions?.borderBox.height}

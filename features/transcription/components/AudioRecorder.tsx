@@ -24,12 +24,7 @@ const AudioRecorder = ({ stream, record, stop, widget = true }: AudioRecorderPro
 
   const [isDesktop] = useMediaQuery('(min-width: 450px)')
   return (
-    <Flex
-      w={'100%'}
-      minWidth={'400px'}
-      justifyContent={'space-between'}
-      flexDirection={!isDesktop ? 'column !important' : 'row'}
-    >
+    <Flex w={'100%'} minWidth={'400px'} justifyContent={'space-between'} flexDirection={'column'}>
       <AudioVisualizer stream={stream} widget />
       <Center>
         {!isRecording && (

@@ -104,10 +104,10 @@ const Transcriber = ({ widget }): ReactElement => {
         {isNull(audio) && !isFinishedRecording ? (
           <AudioRecorder stream={stream} record={startRecording} stop={stopRecording} widget={widget} />
         ) : (
-          <>
+          <Flex flexDir={'column'}>
             <TextBlinker isBold text={translations['transcribe']}></TextBlinker>
             <AudioCapturedControls onFinish={setupToRerecordAudio} audio={audio} onClick={handleSTTQueryRequest} />
-          </>
+          </Flex>
         )}
         <DisplayTranscription transcription={transcription} />
       </Flex>

@@ -10,7 +10,7 @@ export const translations = {
   askForInput: ['Say the sentence below', 'Nói câu dưới đây'], //
   sample: ['The sun sets and the sea is calm.', 'Mặt trời lặn và biển lặng.'],
   confirmation: ['Was the written text correct?', 'Văn bản có được viết đúng không?'], // Position + desktop
-  transcribe: ['Transcribe.', 'Chép Lại'],
+  transcribe: ['Transcribe.', 'Sao Lại'],
   // askForFeedback: ['']  => make into ^ or _ button input for training
 }
 
@@ -32,7 +32,7 @@ const SplashContent = () => {
           id={'landing-action-text'}
           key={nanoid(5)}
           title={'Speak. Listen. Write.'}
-          description={'Experience the ease of converting spoken words into text.'}
+          // description={'Experience the ease of converting spoken words into text.'}
           content={
             <Text color={'white'} fontFamily={'Didact Gothic'} fontSize={'12'}>
               {'Simplifying language capture for a variety of applications.'}
@@ -82,7 +82,7 @@ const DemoContent = () => {
           console.log('Clicked pane')
           const marquee = document.getElementById('blinker-marquee')
           if (marquee) {
-            marquee.style.visibility = 'hidden'
+            // marquee.style.visibility = 'hidden'
             marquee.style.opacity = 0
             marquee.style.transition = 'ease-in 0.3s;'
           }
