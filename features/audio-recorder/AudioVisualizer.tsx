@@ -15,13 +15,13 @@ type VisualizerStyleOptions = {
 }
 
 const widgetStyling: VisualizerStyleOptions = {
-  fillStyle: '#EDF2F7',
+  fillStyle: 'rgba(255, 255, 255, 0.2)',
   lineWidth: 2,
   strokeStyle: '#3182ce',
 }
 
 const mainStyling: VisualizerStyleOptions = {
-  fillStyle: '#ffffff00', //Transparent white
+  fillStyle: 'rgba(255, 255, 255, 0.2)', //Transparent white
   lineWidth: 4,
   strokeStyle: '#EDF2F765',
 }
@@ -77,6 +77,7 @@ const AudioVisualizer = ({ stream, widget = true }: AudioVisualizerProps): React
     const canvas = document.getElementById('audio-visualizer') as HTMLCanvasElement | null
     if (canvas && stream && stream.getAudioTracks().length > 0) {
       const context2D = canvas.getContext('2d')
+
       if (context2D) {
         //TODO: Check if this line/condition cn be removed
         context2D.clearRect(0, 0, canvas.height, canvas.height)
@@ -85,9 +86,15 @@ const AudioVisualizer = ({ stream, widget = true }: AudioVisualizerProps): React
         const sliceWidth = (canvas.width * 1.0) / bufferLength
         const animate = (): void => {
           requestAnimationFrame(animate)
+          context2D.clearRect(0, 0, context2D.canvas.width, context2D.canvas.height)
           let x = 0
-          context2D.fillRect(0, 0, canvas.width, canvas.height)
-          styleVisuals(context2D)
+          context2D.fillStyle = 'rgba(255, 255, 255, 0.0)'
+          // context2D.globalAlpha = 0.0
+          context2D.lineWidth = 4
+          // context2D.fillStyle = 'rgba(0,0,0,.2)'
+          context2D.strokeStyle = '#EDF2F7'
+          context2D.fillRect(0, 0, context2D.canvas.width, context2D.canvas.height)
+          // styleVisuals(context2D)
           analyzer.getFloatFrequencyData(dataArray)
           context2D.beginPath()
 
@@ -115,15 +122,15 @@ const AudioVisualizer = ({ stream, widget = true }: AudioVisualizerProps): React
         <Box //Change HTML tag and handle an animation within the actual canvas elem for a single return, no if/else block
           width='100%'
           height='2px'
-          bg={widget ? widgetStyling.strokeStyle : mainStyling.strokeStyle}
+          bg={'rgba(255, 255, 255, 0.2)'}
         ></Box>
       </Center>
     )
   }
   return (
     <>
-      <Flex w={300} h={100}>
-        <canvas width='300' height='100' id='audio-visualizer'></canvas>
+      <Flex w={300} h={100} background={'transparent'}>
+        <canvas width='300' height='100' color='rgba(255, 255, 255, 0.2)' id='audio-visualizer'></canvas>
       </Flex>
     </>
   )

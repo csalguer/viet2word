@@ -30,6 +30,7 @@ export default function Index(): ReactElement {
         <WaveSection>
           <ContentScroller />
         </WaveSection>
+
         {/*Content right fade appear */}
         {/* <StyledSection content={splashContent} /> */}
         {/*Wave Down Bar down from top*/}

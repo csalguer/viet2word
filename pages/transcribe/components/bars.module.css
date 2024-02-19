@@ -27,3 +27,9 @@
     opacity: 0;
   }
 }
+
+.scroller {
+  overflow: scroll;
+  scroll-snap-points-y: repeat(100vh);
+  scroll-snap-type: y mandatory;
+}

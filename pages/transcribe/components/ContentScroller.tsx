@@ -1,7 +1,8 @@
 import { useCallback } from 'react'
 import { Center, Stack } from '@chakra-ui/react'
-import { PanelContent, PanelType, content } from './Content'
+import { PanelContent, PanelType } from './Content'
 import { nanoid } from '@reduxjs/toolkit'
+import { content } from './utilities'
 
 export const isVisible = (elm) => {
   const rect = elm.props.self.getBoundingClientRect()
@@ -17,11 +18,10 @@ const ContentScroller = () => {
         <Center
           id={'panel'}
           key={nanoid(6)}
-          bg={'orange'}
+          // bg={'orange'}
           gap={'space-evenly'}
           scrollBehavior={'smooth'}
-          scrollSnapAlign={'start'}
-          scrollSnapStop={'always'}
+          scrollSnapType={'y'}
         >
           <PanelContent panelType={name as PanelType}></PanelContent>
         </Center>
@@ -39,7 +39,7 @@ const ContentScroller = () => {
       overflow={'scroll'}
       w={'100vw'}
       h={'100%'}
-      bg={'grey'}
+      // bg={'grey'}
     >
       {handleContent()}
     </Stack>

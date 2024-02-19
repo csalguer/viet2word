@@ -7,9 +7,10 @@ interface AudioRecorderProps {
   stream?: MediaStream | null
   record: () => void
   stop: () => void
+  widget?: boolean | null
 }
 
-const AudioRecorder = ({ stream, record, stop }: AudioRecorderProps) => {
+const AudioRecorder = ({ stream, record, stop, widget = true }: AudioRecorderProps) => {
   const [isRecording, setIsRecording] = useState<boolean>(false)
 
   const handleStartClick = useCallback(() => {
@@ -23,7 +24,7 @@ const AudioRecorder = ({ stream, record, stop }: AudioRecorderProps) => {
 
   return (
     <Flex w={'100%'} minWidth={'400px'} justifyContent={'space-between'} flexDirection={'row'}>
-      <AudioVisualizer stream={stream} />
+      <AudioVisualizer stream={stream} widget />
       <Center>
         {!isRecording && (
           <IconButton

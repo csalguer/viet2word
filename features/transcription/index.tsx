@@ -13,7 +13,7 @@ const mimeType = 'audio/webm'
 export const PENDING_PLACEHOLDER = 'Transcribing ...'
 export const STARTING_POINT_PLACEHOLDER = 'Transcription will appear here.'
 
-const Transcriber = (): ReactElement => {
+const Transcriber = ({ widget }): ReactElement => {
   const [stream, setStream] = useState<MediaStream | null>(null)
 
   const mediaRecorder = useRef<MediaRecorder | null>(null)
@@ -99,7 +99,7 @@ const Transcriber = (): ReactElement => {
     <>
       <Flex gap={'12px'} flexDirection={'column'}>
         {isNull(audio) && !isFinishedRecording ? (
-          <AudioRecorder stream={stream} record={startRecording} stop={stopRecording} />
+          <AudioRecorder stream={stream} record={startRecording} stop={stopRecording} widget={widget} />
         ) : (
           <AudioCapturedControls onFinish={setupToRerecordAudio} audio={audio} onClick={handleSTTQueryRequest} />
         )}

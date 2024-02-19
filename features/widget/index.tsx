@@ -10,15 +10,16 @@ interface WidgetProps {
   type?: string
   left?: boolean
   right?: boolean
+  asNative?: boolean
 }
 
 const NullContent = (): ReactElement => {
   return <div>No Widget Content Found</div>
 }
 
-export const getWidgetContent = (type) => {
+export const getWidgetContent = (type, asNative = false) => {
   if (type == TRANSCRIPTION) {
-    return <Transcriber />
+    return <Transcriber widget={!asNative} />
   }
   if (type == READING) {
     return <Reader />
@@ -26,7 +27,7 @@ export const getWidgetContent = (type) => {
   return <NullContent />
 }
 
-const Widget = ({ type, left, right }: WidgetProps): ReactElement => {
+const Widget = ({ type, left, right, asNative = true }: WidgetProps): ReactElement => {
   return (
     <Center h={'100vh'} w={'100%'}>
       {left && (
@@ -44,7 +45,7 @@ const Widget = ({ type, left, right }: WidgetProps): ReactElement => {
       )}
       <Box
         maxW={'50vw'}
-        bg={useColorModeValue('gray.100', 'gray.900')}
+        // bg={useColorModeValue('gray.100', 'gray.900')}
         border={'1px solid gray.200'}
         boxShadow={'2xl'}
         rounded={'md'}
@@ -54,7 +55,7 @@ const Widget = ({ type, left, right }: WidgetProps): ReactElement => {
       >
         <Center w={'100%'} h={'100%'}>
           <Flex p={4} m={4} direction={'column'} justifyContent={'center'} alignItems={'center'}>
-            {getWidgetContent(type)}
+            {getWidgetContent(type, asNative)}
           </Flex>
         </Center>
       </Box>
