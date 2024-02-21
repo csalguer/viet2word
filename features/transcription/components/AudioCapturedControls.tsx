@@ -6,18 +6,27 @@ import { isNull } from 'lodash'
 
 export const sleep = (ms: number) => new Promise((r) => setTimeout(r, ms))
 
-const AudioCapturedControls = ({ audio, onClick, onFinish }) => {
-  // console.log(isDesktop)
+export enum State {
+  justFinishedRecording,
+  isFetchingTranscription,
+  retryDemo,
+}
+
+const AudioCapturedControls = ({ audio, onClick, onFinish, setFetchState }) => {
   const [startedFetch, setStartedFetch] = useState<boolean | null>(null)
 
   const handleClick = async () => {
     setStartedFetch(true)
+    setFetchState(State.isFetchingTranscription)
     await onClick()
+    // Fetch finished and render retry demo
     setStartedFetch(false)
+    setFetchState(State.retryDemo)
   }
   const handleFinish = useCallback(() => {
     onFinish()
-  }, [onFinish])
+    setFetchState(State.justFinishedRecording) // Prepare for reset render
+  }, [onFinish, setFetchState])
 
   return (
     <Flex

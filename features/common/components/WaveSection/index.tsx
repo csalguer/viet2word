@@ -36,7 +36,7 @@ export const MenuBar = () => {
 
 const WaveSVGElement = (): ReactElement => {
   return (
-    <Box>
+    <Box id={'wavesElem'}>
       <svg
         className={styles.waves}
         xmlns='http://www.w3.org/2000/svg'
@@ -60,7 +60,7 @@ const WaveSVGElement = (): ReactElement => {
 
 const Wave = ({ children }: WaveProps) => {
   return (
-    <Flex flexDirection={'column-reverse'} height={'5vh'}>
+    <Flex id={'wave-svg-container'} flexDirection={'column-reverse'} height={'5vh'}>
       <WaveSVGElement />
       <Box position={'absolute'} background={'white'} height={'10vh'} bottom='0vh' w={'100%'}>
         <Box>{!!children && children}</Box>

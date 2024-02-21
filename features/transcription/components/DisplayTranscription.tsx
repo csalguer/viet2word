@@ -34,6 +34,18 @@ const DisplayTranscription = ({ transcription }) => {
     }
   }, [])
 
+  useEffect(() => {
+    if (isNull(transcription)) {
+      toast({
+        title: "Couldn't Transcribe",
+        description: 'No transcription',
+        status: 'error',
+        duration: 9000,
+        isClosable: true,
+      })
+    }
+  }, [toast, transcription])
+
   return (
     <Center w={'100vw'} minH={'20vh'}>
       <Fade in={true}>

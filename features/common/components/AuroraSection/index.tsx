@@ -5,7 +5,7 @@ import styles from './aurora.module.css'
 // import * as styles from './aurora.module.css'
 
 interface AuroraSectionProps {
-  content?: ReactElement
+  children?: JSX.Element
 }
 
 // interface LightSourceProps {
@@ -26,7 +26,7 @@ interface AuroraSectionProps {
 //   return <div className=vary ? vary(styles.lightsource)}></div>
 // }
 
-const AuroraSection = ({ content }: AuroraSectionProps): ReactElement => {
+const AuroraSection = ({ children }: AuroraSectionProps): ReactElement => {
   return (
     <>
       <Box className={styles.container}>
@@ -51,8 +51,14 @@ const AuroraSection = ({ content }: AuroraSectionProps): ReactElement => {
           <div className={styles.g4}></div>
           <div className={styles.g5}></div>
           <div className={styles.g6}></div>
+          <div className={styles.g1}></div>
+          <div className={styles.g2}></div>
+          <div className={styles.g3}></div>
+          <div className={styles.g4}></div>
+          <div className={styles.g5}></div>
+          <div className={styles.g6}></div>
         </div>
-        {content}
+        <Box>{children}</Box>
       </Box>
     </>
   )

@@ -1,7 +1,8 @@
-import { Fragment, useState, useRef, useEffect, useCallback } from 'react'
+import { Fragment, useState, useRef, useEffect, useCallback, useMemo } from 'react'
 import type { ReactElement } from 'react'
 import { Box, Center, useDimensions } from '@chakra-ui/react'
 import { isNull } from 'lodash'
+import WaveSurfer from 'wavesurfer/dist/wavesurfer'
 
 interface AudioVisualizerProps {
   stream?: MediaStream | null
@@ -56,9 +57,9 @@ const AudioVisualizer = ({ stream, widget = true }: AudioVisualizerProps): React
       const audioSource = audioContext.createMediaStreamSource(stream)
       setAudioSource(audioSource)
       const analyzer = audioContext.createAnalyser()
-      analyzer.minDecibels = -90
-      analyzer.maxDecibels = -10
-      analyzer.smoothingTimeConstant = 0.85
+      analyzer.minDecibels = -120
+      analyzer.maxDecibels = 0
+      analyzer.smoothingTimeConstant = 0.9
       analyzer.fftSize = 128
       audioSource.connect(analyzer)
       setAnalyzer(analyzer)
@@ -76,10 +77,15 @@ const AudioVisualizer = ({ stream, widget = true }: AudioVisualizerProps): React
     [widget],
   )
 
+  const isCapturing = useCallback(() => {
+    const canvas = document.getElementById('audio-visualizer') as HTMLCanvasElement | null
+    return canvas && stream && stream.getAudioTracks().length > 0
+  }, [stream])
+
   useEffect(() => {
     if (!analyzer) return
     const canvas = document.getElementById('audio-visualizer') as HTMLCanvasElement | null
-    if (canvas && stream && stream.getAudioTracks().length > 0) {
+    if (isCapturing()) {
       const context2D = canvas.getContext('2d')
 
       if (context2D) {
@@ -90,6 +96,7 @@ const AudioVisualizer = ({ stream, widget = true }: AudioVisualizerProps): React
         const sliceWidth = (canvas.width * 1.0) / bufferLength
         const animate = (): void => {
           requestAnimationFrame(animate)
+          // const wave = document.getElementById('wave-svg-contaienr')
           context2D.clearRect(0, 0, context2D.canvas.width, context2D.canvas.height)
           let x = 0
           context2D.fillStyle = 'rgba(255, 255, 255, 0.0)'
@@ -103,12 +110,12 @@ const AudioVisualizer = ({ stream, widget = true }: AudioVisualizerProps): React
             return index < array.length ? curr : curr / index
           })
           const spread = min - max
-          // console.log(avg)
+          const percentHeight = (avg / (canvas.height / 2)) * -1.0
           context2D.beginPath()
 
           for (let i = 0; i < bufferLength; i++) {
             const v = dataArray[i] / 128
-            const y = -v * (canvas.height / 0.8) + 2 * spread
+            const y = (-v * (canvas.height / 0.8) + 2 * spread) * percentHeight
             if (i === 0) {
               context2D.moveTo(x, y)
             } else {
@@ -121,28 +128,31 @@ const AudioVisualizer = ({ stream, widget = true }: AudioVisualizerProps): React
         animate()
       }
     }
-  }, [analyzer, audioSource, stream, styleVisuals])
+  }, [analyzer, audioSource, isCapturing, stream, styleVisuals])
 
-  if (isNull(stream)) {
-    return (
-      <Center ref={vizRef} w={'100vw'} h={'35vh'} background={'transparent'}>
-        <Center //Change HTML tag and handle an animation within the actual canvas elem for a single return, no if/else block
-          width='100vw'
-          height='2px'
-          bg={'rgba(255, 255, 255, 0.2)'}
-        ></Center>
-      </Center>
-    )
-  }
   return (
     <>
-      <Center ref={vizRef} w={'100vw'} h={'35vh'} background={'transparent'}>
-        <canvas
-          width={dimensions?.borderBox.width}
-          height={dimensions?.borderBox.height}
-          color='rgba(255, 255, 255, 0.2)'
-          id='audio-visualizer'
-        ></canvas>
+      <Center
+        id='canvas-container'
+        ref={vizRef}
+        w={'100vw'}
+        h={!isCapturing ? '25vh' : '45vh'}
+        background={'transparent'}
+      >
+        {isNull(stream) ? (
+          <Center //Change HTML tag and handle an animation within the actual canvas elem for a single return, no if/else block
+            width='100vw'
+            height='2px'
+            bg={'rgba(255, 255, 255)'}
+          />
+        ) : (
+          <canvas
+            width={dimensions?.borderBox.width}
+            height={dimensions?.borderBox.height}
+            color='rgba(255, 255, 255, 0.8)'
+            id='audio-visualizer'
+          ></canvas>
+        )}
       </Center>
     </>
   )

@@ -1,12 +1,12 @@
 import { useState, useCallback, useRef } from 'react'
 import type { ReactElement } from 'react'
-import { Center, Flex, useMediaQuery } from '@chakra-ui/react'
+import { Center, Flex, useToast, useMediaQuery } from '@chakra-ui/react'
 import { isNull } from 'lodash'
 import { queryVietTranscription } from './helpers/queryVietTranscription'
 import convertWebmToWAV from '@/features/audio-recorder/helpers/convertWebmToWAV'
 import AudioRecorder from './components/AudioRecorder'
 import DisplayTranscription from './components/DisplayTranscription'
-import AudioCapturedControls from './components/AudioCapturedControls'
+import AudioCapturedControls, { State } from './components/AudioCapturedControls'
 import { useQuery } from '@tanstack/react-query'
 import { Block, TextBlinker } from '@/pages/transcribe/components/TextBlock'
 import { translations } from '@/pages/transcribe/components/utilities'
@@ -27,6 +27,7 @@ const Transcriber = ({ widget }): ReactElement => {
   const [wavBytes, setWavBytes] = useState<ArrayBuffer | null>(null)
 
   const [isDesktop] = useMediaQuery('(min-width: 450px)')
+  const toast = useToast()
 
   const startRecording = useCallback(async () => {
     const stream = await navigator.mediaDevices.getUserMedia({
@@ -98,6 +99,8 @@ const Transcriber = ({ widget }): ReactElement => {
     setFinished(false)
     setTranscription(null)
   }
+  const [fetchState, setFetchState] = useState<State>(State.justFinishedRecording)
+
   return (
     <>
       <Flex id={'transcriber'} gap={'12px'} flexDirection={'column'}>
@@ -105,17 +108,29 @@ const Transcriber = ({ widget }): ReactElement => {
           <AudioRecorder stream={stream} record={startRecording} stop={stopRecording} widget={widget} />
         ) : (
           <Flex flexDir={'column'}>
-            <TextBlinker isBold text={translations['transcribe']}></TextBlinker>
-            <AudioCapturedControls onFinish={setupToRerecordAudio} audio={audio} onClick={handleSTTQueryRequest} />
+            {fetchState === State.justFinishedRecording && <TextBlinker isBold text={translations['transcribe']} />}
+            {fetchState === State.isFetchingTranscription && <TextBlinker isBold text={translations['transcribing']} />}
+            <AudioCapturedControls
+              setFetchState={setFetchState}
+              onFinish={setupToRerecordAudio}
+              audio={audio}
+              onClick={handleSTTQueryRequest}
+            />
           </Flex>
         )}
-        {transcription && (
-          <Center id={'transcription-upper-container'}>
+        {transcription ? (
+          <Center flexDirection={isDesktop ? 'row' : 'column'} id={'transcription-upper-container'}>
             <DisplayTranscription transcription={transcription} />
-            <Block w={'200px'} length={'6px'} color={'#00004285'}>
-              {' '}
-            </Block>
+            {fetchState === State.retryDemo && <TextBlinker isBold text={translations['transcribeAgain']} />}
+            {fetchState === State.retryDemo && transcription === '' && (
+              <TextBlinker isBold text={translations['notFound']} />
+            )}
           </Center>
+        ) : (
+          <Block w={'200px'} h={'100px'} length={'6px'} color={'#00004285'}>
+            {' '}
+            {fetchState === State.retryDemo && <TextBlinker isBold text={translations['transcribeAgain']} />}
+          </Block>
         )}
       </Flex>
     </>

@@ -1,7 +1,7 @@
 import Head from 'next/head'
 import { ReactElement } from 'react'
 import WaveSection from '@/features/common/components/WaveSection'
-// import AuroraSection from '@/features/common/components/AuroraSection'
+import AuroraSection from '@/features/common/components/AuroraSection'
 import { Box, Fade } from '@chakra-ui/react'
 import ContentScroller from './components/ContentScroller'
 import PageHeader from '@/features/common/components/PageHeader'
@@ -33,7 +33,9 @@ export default function Index(): ReactElement {
         </Fade>
 
         {/*Wave Down Bar down from top*/}
-        {/* <AuroraSection><StyledSection content={descriptionContent} /></AuroraSection> */}
+        {/* <AuroraSection>
+          <ContentScroller />
+        </AuroraSection> */}
 
         {/*Quick model description link to snippets + model research for STT & TTS w/ License information */}
         {/*Auto right fade for instruction + toggle between viet&english timer*/}

@@ -11,6 +11,9 @@ export const translations = {
   sample: ['The sun sets and the sea is calm.', 'Mặt trời lặn và biển lặng.'],
   confirmation: ['Was the written text correct?', 'Văn bản có được viết đúng không?'], // Position + desktop
   transcribe: ['Transcribe.', 'Sao Lại'],
+  transcribing: ['Transcribing...', 'Viết ra âm thanh...'],
+  transcribeAgain: ['Retry?', 'Sao Laji'],
+  notFound: ['Nothing could be written.', 'Không thể nghe thấy gì.'],
   // askForFeedback: ['']  => make into ^ or _ button input for training
 }
 
