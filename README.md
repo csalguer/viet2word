@@ -1,19 +1,38 @@
-<div style='flow-direction:row;display:flex;position:absolute;height:auto,width:200px;justify-content:center;align-items:center;'>
-  <img width="146" alt="Screenshot 2024-03-01 at 5 15 08 AM" src="https://github.com/csalguer/viet2word/assets/2432035/b0ab0eb8-5a5a-4154-bee9-f4e5d908fec4"> 
-  <h1>
-    <b>
-    Việt2Word - SAO LẠI Transcriber 
-    </b>
-  </h1>
-</div>
+                          
+ 
+![VLT](https://upload.wikimedia.org/wikipedia/commons/8/84/I_speak_Vietnamese.png)
+ 
+# Sao Lại Transcription Demo
 
+![Sao Lại ](https://saolai.vercel.app/random/1280x720)
+
+Stay up-to-date with the latest developments, feature updates, and success stories from our community of users. Join us today and try out the power of Machine Learning Speech Recognition for yourself!
+ 
+# VLT
+
+[![GitHub release (latest by date including pre-releases)](https://img.shields.io/github/v/release/navendu-pottekkat/awesome-readme?include_prereleases)](https://img.shields.io/github/v/release/navendu-pottekkat/awesome-readme?include_prereleases)
+[![GitHub last commit](https://img.shields.io/github/last-commit/navendu-pottekkat/awesome-readme)](https://img.shields.io/github/last-commit/navendu-pottekkat/awesome-readme)
+[![GitHub issues](https://img.shields.io/github/issues-raw/navendu-pottekkat/awesome-readme)](https://img.shields.io/github/issues-raw/navendu-pottekkat/awesome-readme)
+[![GitHub pull requests](https://img.shields.io/github/issues-pr/navendu-pottekkat/awesome-readme)](https://img.shields.io/github/issues-pr/navendu-pottekkat/awesome-readme)
+[![GitHub](https://img.shields.io/github/license/navendu-pottekkat/awesome-readme)](https://img.shields.io/github/license/navendu-pottekkat/awesome-readme)
+
+Việt2word is a revolutionary text-to-speech platform that leverages the power of Machine Learning Speech Recognition models to transcribe any Vietnamese audio into readable text. Built using React and TypeScript, our website utilizes cutting-edge techniques to push constrained datasets to new heights.
+ 
+# Installation
+[(Back to top)](#table-of-contents)
+
+1. Use `git clone` to download our project.
+2. Run `yarn install`
+3. Start server with `yarn start` and ensure that sister project `viet2word-API` is also running.
+4. Start developing or hosting our set of Vietnamese tools and see audio get written with a single click.
 
  
-## **Overview**
-viet2word is a revolutionary text-to-speech platform that leverages the power of Machine Learning Speech Recognition models to transcribe any Vietnamese audio into readable text. Built using React and TypeScript, our website utilizes cutting-edge techniques to push constrained datasets to new heights.
+# Usage
+[(Back to top)](#table-of-contents)
 
-<img width="337" alt="Screenshot 2024-05-26 at 3 08 06 AM" src="https://github.com/csalguer/viet2word/assets/2432035/cd14620a-24f3-4214-86d6-bbbd19ed9374">
+Speak. Write. Learn.
 
+Simple as that, just speak and practice your Vietnamese and get a written transcription in an instant.
 
 
 ## **Key Features**
@@ -30,11 +49,6 @@ viet2word is a revolutionary text-to-speech platform that leverages the power of
 * Machine Learning Models: Trained on large-scale Vietnamese audio datasets using popular frameworks like TensorFlow or PyTorch.
 * Constrained Dataset Techniques: Our proprietary algorithms enable us to effectively utilize limited datasets, achieving remarkable transcription accuracy.
 
-### **Getting Started**
-
-1. Use `git clone` to download our project.
-2. Start server with `yarn start` and ensure that sister project viet2word-API is also running.
-3. Start speaking Vietnamese and see it written with a single click.
 
 #### **Benefits**
 
@@ -44,8 +58,20 @@ viet2word is a revolutionary text-to-speech platform that leverages the power of
 
 **Join the viet2word Community**
 
-Stay up-to-date with the latest developments, feature updates, and success stories from our community of users. Join us today and experience the power of Machine Learning Speech Recognition for yourself!
+
+# Contribute
+[(Back to top)](#table-of-contents)
+
+Stay up-to-date with the latest developments, feature updates, and success stories from our community of users by watching this page. Join us today and experience the power of Machine Learning Speech Recognition for yourself! Contact using any of my links listed on my Github Profile!
+
+ 
+# License
+[(Back to top)](#table-of-contents)
+
+[MIT license](./LICENSE)
+
+
 
 **Contact Us**
 
-For any questions, feedback, or partnership inquiries, please reach out to us at [contact email]. We're excited to hear from you!
+For any questions, feedback, or partnership inquiries, please reach out to us at csalguer@alumni.stanford.edu or chris@salguero.dev to get ahold of us. We're excited to hear from you!
