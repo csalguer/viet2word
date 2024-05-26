@@ -12,6 +12,10 @@
 ## **Overview**
 viet2word is a revolutionary text-to-speech platform that leverages the power of Machine Learning Speech Recognition models to transcribe any Vietnamese audio into readable text. Built using React and TypeScript, our website utilizes cutting-edge techniques to push constrained datasets to new heights.
 
+<img width="337" alt="Screenshot 2024-05-26 at 3 08 06 AM" src="https://github.com/csalguer/viet2word/assets/2432035/cd14620a-24f3-4214-86d6-bbbd19ed9374">
+
+
+
 ## **Key Features**
 
 1. **Vietnamese Audio Transcription**: Our platform can accurately transcribe any Vietnamese audio file, including podcasts, interviews, lectures, and more.
