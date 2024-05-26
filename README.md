@@ -1,6 +1,14 @@
-# **README for viet2word**
-<img width="146" alt="Screenshot 2024-03-01 at 5 15 08 AM" src="https://github.com/csalguer/viet2word/assets/2432035/b0ab0eb8-5a5a-4154-bee9-f4e5d908fec4">
-*Việt2Word - SAO LẠI Transcriber 
+<div style='flow-direction:row;display:flex;position:absolute;height:auto,width:200px;justify-content:center;align-items:center;'>
+  <img width="146" alt="Screenshot 2024-03-01 at 5 15 08 AM" src="https://github.com/csalguer/viet2word/assets/2432035/b0ab0eb8-5a5a-4154-bee9-f4e5d908fec4"> 
+  <h1>
+    <b>
+    Việt2Word - SAO LẠI Transcriber 
+    </b>
+  </h1>
+</div>
+
+
+ 
 ## **Overview**
 viet2word is a revolutionary text-to-speech platform that leverages the power of Machine Learning Speech Recognition models to transcribe any Vietnamese audio into readable text. Built using React and TypeScript, our website utilizes cutting-edge techniques to push constrained datasets to new heights.
 
