@@ -1,38 +1,39 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# **README for viet2word**
+<img width="146" alt="Screenshot 2024-03-01 at 5 15 08 AM" src="https://github.com/csalguer/viet2word/assets/2432035/b0ab0eb8-5a5a-4154-bee9-f4e5d908fec4">
+*Việt2Word - SAO LẠI Transcriber 
+## **Overview**
+viet2word is a revolutionary text-to-speech platform that leverages the power of Machine Learning Speech Recognition models to transcribe any Vietnamese audio into readable text. Built using React and TypeScript, our website utilizes cutting-edge techniques to push constrained datasets to new heights.
 
-## Getting Started
+## **Key Features**
 
-First, run the development server:
+1. **Vietnamese Audio Transcription**: Our platform can accurately transcribe any Vietnamese audio file, including podcasts, interviews, lectures, and more.
+2. **Machine Learning Speech Recognition Models**: We utilize state-of-the-art Machine Learning models trained on large-scale Vietnamese audio datasets to achieve high transcription accuracy.
+3. **Constrained Dataset Techniques**: Our team has developed innovative techniques to leverage constrained datasets, allowing us to push the boundaries of what's possible with limited data.
+4. **Real-time Transcription**: Users can upload their audio files and receive instant transcriptions, making it easy to access and analyze Vietnamese audio content.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-```
+## **Technical Details**
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+* Frontend: Built using React and TypeScript for a seamless user experience.
+* Backend Sister Prject: Utilizes FastAPI for efficient API handling.
+* Machine Learning Models: Trained on large-scale Vietnamese audio datasets using popular frameworks like TensorFlow or PyTorch.
+* Constrained Dataset Techniques: Our proprietary algorithms enable us to effectively utilize limited datasets, achieving remarkable transcription accuracy.
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+### **Getting Started**
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+1. Use `git clone` to download our project.
+2. Start server with `yarn start` and ensure that sister project viet2word-API is also running.
+3. Start speaking Vietnamese and see it written with a single click.
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+#### **Benefits**
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+1. **Effortless Audio Analysis**: Quickly analyze Vietnamese audio content without the need for manual transcription.
+2. **Improved Accessibility**: Enable non-Vietnamese speakers to access and understand Vietnamese audio content.
+3. **Enhanced Research Capabilities**: Facilitate research and analysis of Vietnamese audio data with our accurate transcriptions.
 
-## Learn More
+**Join the viet2word Community**
 
-To learn more about Next.js, take a look at the following resources:
+Stay up-to-date with the latest developments, feature updates, and success stories from our community of users. Join us today and experience the power of Machine Learning Speech Recognition for yourself!
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+**Contact Us**
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+For any questions, feedback, or partnership inquiries, please reach out to us at [contact email]. We're excited to hear from you!
