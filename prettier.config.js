@@ -2,7 +2,7 @@ const prettierConfig = {
 	printWidth: 80,
 	tabWidth: 2,
 	useTabs: true,
-	semi: true,
+	semi: false,
 	singleQuote: false,
 	quoteProps: "as-needed",
 	jsxSingleQuote: false,
@@ -16,7 +16,7 @@ const prettierConfig = {
 	htmlWhitespaceSensitivity: "css",
 	endOfLine: "lf",
 	embeddedLanguageFormatting: "auto",
-	singleAttributePerLine: false
-}
+	singleAttributePerLine: false,
+};
 
-export default prettierConfig
+export default prettierConfig;
