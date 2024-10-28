@@ -1,36 +1,36 @@
-import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { RouterProvider, type createRouter } from "@tanstack/react-router";
-import type { FunctionComponent } from "./common/types";
-import { useState } from "react";
-import "@mantine/core/styles.css";
-import { ColorSchemeScript } from "@mantine/core";
-import { SearchBar } from "./features/dictionary/components";
-import { InfoCard } from "./features/dictionary/components/InfoCard/InfoCard";
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query"
+import { RouterProvider, type createRouter } from "@tanstack/react-router"
+import type { FunctionComponent } from "./common/types"
+import { useState } from "react"
+import "@mantine/core/styles.css"
+import { ColorSchemeScript } from "@mantine/core"
+import { SearchBar, InfoCard } from "./features/dictionary/components/SearchBar"
+import { SearchBar, InfoCard } from "./features/dictionary/components/InfoCard"
 
 const theme = createTheme({
 	/** Put your mantine theme override here */
-});
+})
 
 export function Home() {
-	const [word, setWord] = useState("");
-	const [definition, setDefinition] = useState(null);
-	const [error, setError] = useState("");
-	const [loading, setLoading] = useState(false);
+	const [word, setWord] = useState("")
+	const [definition, setDefinition] = useState(null)
+	const [error, setError] = useState("")
+	const [loading, setLoading] = useState(false)
 
 	const handleSearch = async (e: FormEvent) => {
-		if (!word.trim()) return;
-		setLoading(true);
-		setError("");
+		if (!word.trim()) return
+		setLoading(true)
+		setError("")
 		try {
-			const data = await getWordDefinition(word);
-			setDefinition(data);
+			const data = await getWordDefinition(word)
+			setDefinition(data)
 		} catch (err) {
-			setError("Word not found. Please try another word.");
-			setDefinition(null);
+			setError("Word not found. Please try another word.")
+			setDefinition(null)
 		} finally {
-			setLoading(false);
+			setLoading(false)
 		}
-	};
+	}
 
 	return (
 		<div className="min-h-screen bg-gray-100 py-8 px-4">
@@ -50,26 +50,19 @@ export function Home() {
 				)}
 			</div>
 		</div>
-	);
+	)
 }
+const queryClient = new QueryClient()
 
-const queryClient = new QueryClient();
-
-type AppProps = { router: ReturnType<typeof createRouter> };
+type AppProps = { router: ReturnType<typeof createRouter> }
 
 const App = ({ router }: AppProps): FunctionComponent => {
 	return (
 		<QueryClientProvider client={queryClient}>
 			<ColorSchemeScript />
 			<RouterProvider router={router} />
-			{/* <TanStackRouterDevelopmentTools
-				router={router}
-				initialIsOpen={false}
-				position="bottom-right"
-			/>
-			<ReactQueryDevtools initialIsOpen={false} /> */}
 		</QueryClientProvider>
-	);
-};
+	)
+}
 
-export default App;
+export default App

@@ -1,2 +1,2 @@
-export { InfoCard } from "./InfoCard"
-export { SearchBar } from "./SearchBar"
+export * from "./SearchBar"
+export * from "./InfoCard"
