@@ -5,7 +5,12 @@ import { RouterProvider, type createRouter } from "@tanstack/react-router"
 import type { ReactElement } from "react"
 import { useState } from "react"
 import "@mantine/core/styles.css"
-import { ColorSchemeScript, MantineProvider, createTheme } from "@mantine/core"
+import {
+	ColorSchemeScript,
+	Group,
+	MantineProvider,
+	createTheme,
+} from "@mantine/core"
 import {
 	InfoCard,
 	PageContainer,
@@ -21,23 +26,23 @@ export function Home(): ReactElement {
 	const [error, setError] = useState("")
 	const [loading, setLoading] = useState(false)
 
-	const handleSearch = async (event: FormEvent): Promise<void> => {
-		// if (!word.trim()) return
-		// setLoading(true)
-		// setError("")
-		// try {
-		// 	const data = await getWordDefinition(word)
-		// 	setDefinition(data)
-		// } catch (err) {
-		// 	setError("Word not found. Please try another word.")
-		// 	setDefinition(null)
-		// } finally {
-		// 	setLoading(false)
-		// }
-	}
+	// const handleSearch = async (event: FormEvent): Promise<void> => {
+	// if (!word.trim()) return
+	// setLoading(true)
+	// setError("")
+	// try {
+	// 	const data = await getWordDefinition(word)
+	// 	setDefinition(data)
+	// } catch (err) {
+	// 	setError("Word not found. Please try another word.")
+	// 	setDefinition(null)
+	// } finally {
+	// 	setLoading(false)
+	// }
+	// }
 
 	return (
-		<div>
+		<Group>
 			{/* <div className="max-w-4xl mx-auto space-y-8"> */}
 			<h1>Dictionary</h1>
 			<SearchBar word={word} onSearch={handleSearch} onWordChange={setWord} />
@@ -54,7 +59,7 @@ export function Home(): ReactElement {
 						/>
 					)} */}
 			{/* </div> */}
-		</div>
+		</Group>
 	)
 }
 // export const Home = (): FunctionComponent => {

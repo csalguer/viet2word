@@ -2,7 +2,7 @@
 import { Card, Text, Group, Container, Box } from "@mantine/core"
 import classes from "../InfoCard/InfoCard.module.css"
 
-interface InfoCardProps {
+export interface InfoCardProps {
 	word: string
 	phonetic?: string
 	meanings: Array<{
@@ -71,7 +71,6 @@ const InfoCard = ({
 					<Group key={index} className={classes.subdefinition} fz="xs" mt="xs">
 						- {definitions.definition}
 						{definitions?.example && (
-							
 							<Text className={classes.example} fz="xs" mt="xs">
 								({definitions?.example})
 							</Text>

@@ -17,7 +17,7 @@ const patchedImportPlugin = fixupPluginRules(eslintPluginImport)
 
 const baseESLintConfig = {
 	name: "eslint",
-	extends: [eslintJS.configs.recommended],
+	extends: [...typescriptEslint.configs.recommendedTypeChecked],
 	rules: {
 		"no-await-in-loop": "error",
 		"no-constant-binary-expression": "error",
