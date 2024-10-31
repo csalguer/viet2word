@@ -19,27 +19,31 @@ import {
 
 import { useTranslation } from "react-i18next"
 import type { FunctionComponent } from "../common/types"
+import {
+	MockInfoCards,
+	MOCK_CARD_INFO,
+} from "../features/dictionary/api/mockData"
+
+type DefinitionType = { definition?: string; example?: string }
+const NULL_DEFINITION = { definition: null, example: null }
 
 export function Home(): ReactElement {
 	const [word, setWord] = useState("")
-	const [definition, setDefinition] = useState(null)
+	const [definition, setDefinition] = useState(NULL_DEFINITION)
 	const [error, setError] = useState("")
 	const [loading, setLoading] = useState(false)
 
-	// const handleSearch = async (event: FormEvent): Promise<void> => {
-	// if (!word.trim()) return
-	// setLoading(true)
-	// setError("")
-	// try {
-	// 	const data = await getWordDefinition(word)
-	// 	setDefinition(data)
-	// } catch (err) {
-	// 	setError("Word not found. Please try another word.")
-	// 	setDefinition(null)
-	// } finally {
-	// 	setLoading(false)
-	// }
-	// }
+	const getWordDefinition = (word: string) => {
+		return word && word
+	}
+	const handleSearch = async (event: FormEvent): Promise<void> => {
+		event.preventDefault()
+		// TODO: Implement API call to fetch word definition
+		// const data = await getWordDefinition(null && "")
+		setDefinition(NULL_DEFINITION)
+		setError("")
+		setLoading(false)
+	}
 
 	return (
 		<Group>
@@ -48,23 +52,13 @@ export function Home(): ReactElement {
 			<SearchBar word={word} onSearch={handleSearch} onWordChange={setWord} />
 			{loading && <div className="text-center text-gray-600">Loading...</div>}
 			{error && <div className="text-center text-red-500">{error}</div>}
-			<PageContainer />
-			{/* {
-				mockData &&
-					mockData.map(
-						<InfoCard
-							meanings={definition.meanings}
-							phonetic={definition.phonetic}
-							word={definition.word}
-						/>
-					)} */}
-			{/* </div> */}
+			<PageContainer content={<MockInfoCards  />} />
 		</Group>
 	)
 }
+
 // export const Home = (): FunctionComponent => {
 // 	const { t, i18n } = useTranslation();
-
 // 	const onTranslateButtonClick = async (): Promise<void> => {
 // 		if (i18n.resolvedLanguage === "en") {
 // 			await i18n.changeLanguage("es");
