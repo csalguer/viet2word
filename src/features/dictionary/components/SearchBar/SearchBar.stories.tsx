@@ -1,14 +1,15 @@
-import React from 'react';
-import type {Meta, StoryObj} from '@storybook/react';
+import React from "react"
+import type { Meta, StoryObj } from "@storybook/react"
 
-import {SearchBar} from './SearchBar';
+import { SearchBar } from "./SearchBar"
+import { MantineProvider } from "@mantine/core"
 
 const meta: Meta<typeof SearchBar> = {
-  component: SearchBar,
-};
+	component: SearchBar,
+}
 
-export default meta;
+export default meta
 
-type Story = StoryObj<typeof SearchBar>;
+type Story = StoryObj<typeof SearchBar>
 
-export const Basic: Story = {args: {}};
+export const Primary: Story = { args: { primary: true, label: "SearchBar" } }

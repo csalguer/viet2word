@@ -15,14 +15,12 @@ import {
 	InfoCard,
 	PageContainer,
 	SearchBar,
+	MockInfoCards,
 } from "../features/dictionary/components"
 
 import { useTranslation } from "react-i18next"
 import type { FunctionComponent } from "../common/types"
-import {
-	MockInfoCards,
-	MOCK_CARD_INFO,
-} from "../features/dictionary/api/mockData"
+import { MOCK_CARD_INFO } from "../features/dictionary/api/mockData.ts"
 
 type DefinitionType = { definition?: string; example?: string }
 const NULL_DEFINITION = { definition: null, example: null }
@@ -45,6 +43,7 @@ export function Home(): ReactElement {
 		setLoading(false)
 	}
 
+	const content = <MockInfoCards content={MOCK_CARD_INFO} />
 	return (
 		<Group>
 			{/* <div className="max-w-4xl mx-auto space-y-8"> */}
@@ -52,7 +51,7 @@ export function Home(): ReactElement {
 			<SearchBar word={word} onSearch={handleSearch} onWordChange={setWord} />
 			{loading && <div className="text-center text-gray-600">Loading...</div>}
 			{error && <div className="text-center text-red-500">{error}</div>}
-			<PageContainer content={<MockInfoCards  />} />
+			<PageContainer content={content} />
 		</Group>
 	)
 }

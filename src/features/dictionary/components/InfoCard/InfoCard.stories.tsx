@@ -1,14 +1,16 @@
-import React from 'react';
-import type {Meta, StoryObj} from '@storybook/react';
+import React from "react"
+import type { Meta, StoryObj } from "@storybook/react"
 
-import {InfoCard} from './InfoCard';
+import { MantineProvider } from "@mantine/core"
+
+import InfoCard from "./InfoCard"
 
 const meta: Meta<typeof InfoCard> = {
-  component: InfoCard,
-};
+	component: InfoCard,
+}
 
-export default meta;
+export default meta
 
-type Story = StoryObj<typeof InfoCard>;
+type Story = StoryObj<typeof InfoCard>
 
-export const Basic: Story = {args: {}};
+export const Primary: Story = { args: { primary: true, label: "InfoCard" } }

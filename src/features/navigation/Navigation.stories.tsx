@@ -1,14 +1,15 @@
-import React from "react";
-import type { Meta, StoryObj } from "@storybook/react";
+import React from "react"
+import type { Meta, StoryObj } from "@storybook/react"
 
-import { navigation } from "./Navigation";
+import Navigation from "./Navigation"
+import { MantineProvider } from "@mantine/core"
 
 const meta: Meta<typeof navigation> = {
 	component: navigation,
-};
+}
 
-export default meta;
+export default meta
 
-type Story = StoryObj<typeof navigation>;
+type Story = StoryObj<typeof navigation>
 
-export const Basic: Story = { args: {} };
+export const Primary: Story = { args: { primary: true, label: "Navigation" } }

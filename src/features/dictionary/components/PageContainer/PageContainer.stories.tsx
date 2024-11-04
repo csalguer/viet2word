@@ -1,14 +1,17 @@
-import React from 'react';
-import type {Meta, StoryObj} from '@storybook/react';
+import React from "react"
+import type { Meta, StoryObj } from "@storybook/react"
 
-import {PageContainer} from './PageContainer';
+import PageContainer from "./PageContainer"
+import { MantineProvider } from "@mantine/core"
 
 const meta: Meta<typeof PageContainer> = {
-  component: PageContainer,
-};
+	component: PageContainer,
+}
 
-export default meta;
+export default meta
 
-type Story = StoryObj<typeof PageContainer>;
+type Story = StoryObj<typeof PageContainer>
 
-export const Basic: Story = {args: {}};
+export const Primary: Story = {
+	args: { primary: true, label: "PageContainer" },
+}

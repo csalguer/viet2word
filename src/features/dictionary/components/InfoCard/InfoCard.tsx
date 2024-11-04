@@ -1,6 +1,7 @@
 /* eslint-disable @typescript-eslint/no-unsafe-assignment */
-import { Card, Text, Group, Container, Box } from "@mantine/core"
+import { Card, Text, Group, Container, Box, SimpleGrid } from "@mantine/core"
 import classes from "../InfoCard/InfoCard.module.css"
+import { useCallback } from "react"
 
 export interface InfoCardProps {
 	word: string
@@ -14,24 +15,30 @@ export interface InfoCardProps {
 	}>
 }
 
-// const SearchItem = ()
+export type Meaning = {
+	meanings: {
+		partOfSpeech: string
+		definitions: {
+			definition: string
+			example: string
+		}
+	}
+}
 
-// const SearchItemContent = (:InfoCardProps): ReactDOM.ReactElement => {
-// 	return (
-//     <div className={classes.content}>
-//       <Text fz="lg" className={classes.word}>
-//         {word}
-//       </Text>
-//       {phonetic && (
-//         <Text className={classes.phonetic} fz="md">
-//           {phonetic}
-//         </Text>
-//       )}
-//     </div>
-//   )
-// }
+export interface MockInfoCardType {
+	content: {
+		word: string
+		meanings: {
+			partOfSpeech: string
+			definitions: {
+				definition: string
+				example: string
+			}
+		}[]
+	}[]
+}
 
-const InfoCardContent = ({
+export const InfoCardContent = ({
 	word,
 	phonetic,
 	meanings,
@@ -40,20 +47,29 @@ const InfoCardContent = ({
 		<Card
 			size="md"
 			withBorder
-			className={classes.card}
+			className={classes.InfoCard}
 			color="blue"
-			p="xs"
+			p="xxl"
+			display={"flex"}
+			direction="column"
+			gap="md"
+			shadow="sm"
+			elevation="md"
 			radius="md"
 		>
-			<Card.Section>{word}</Card.Section>
-			<Card.Section className={classes.section} mt="md">
-				<Group justify="apart">{meanings}</Group>
-			</Card.Section>
-			<Card.Section className={classes.section}>
-				<Text fw={500} fz="lg">
-					{phonetic}
-				</Text>
-			</Card.Section>
+			<Group padding="3rem">
+				<Card.Section padding={"5%"} margin={"5%"}>
+					{word}
+				</Card.Section>
+				<Card.Section className={classes.InfoCardContent} mt="md">
+					<Group justify="apart">{meanings}</Group>
+				</Card.Section>
+				<Card.Section className={classes.InfoCardContent}>
+					<Text fw={500} fz="lg">
+						{phonetic}
+					</Text>
+				</Card.Section>
+			</Group>
 		</Card>
 	)
 }
@@ -64,19 +80,28 @@ const InfoCard = ({
 	meanings,
 }: InfoCardProps): ReactElement => {
 	{
-		const formattedMeanings = meanings.map((meaning, index) => (
-			<Group key={index} className={classes.definition} fz="md" mt="xs">
-				{meaning.partOfSpeech}:{" "}
-				{meaning.definitions.map((definitions, index) => (
-					<Group key={index} className={classes.subdefinition} fz="xs" mt="xs">
-						- {definitions.definition}
-						{definitions?.example && (
-							<Text className={classes.example} fz="xs" mt="xs">
-								({definitions?.example})
-							</Text>
-						)}
-					</Group>
-				))}
+		const formattedMeanings = meanings?.map((meaning, index) => (
+			<Group>
+				<Group key={index} className={classes.partOfSpeech} fz="sm" mt="xs">
+					Part of Speech: {meaning.partOfSpeech}
+				</Group>
+				<Group key={index} className={classes.definition} fz="md" mt="xs">
+					{meaning.definitions.map((definitions, index) => (
+						<Group
+							key={index}
+							className={classes.subdefinition}
+							fz="xs"
+							mt="xs"
+						>
+							- {definitions.definition}
+							{definitions?.example && (
+								<Text className={classes.example} fz="xs" mt="xs">
+									({definitions?.example})
+								</Text>
+							)}
+						</Group>
+					))}
+				</Group>
 			</Group>
 		))
 
@@ -92,4 +117,36 @@ const InfoCard = ({
 	}
 }
 
+export const MockInfoCards = ({ content }: MockInfoCardType): ReactElement => {
+	// TODO: Implement logic to render multiple InfoCard components based on the content prop.
+	console.log(content)
+	const createCards = useCallback(
+		(item, index) => {
+			if (!item) {
+				// console.error(`No word found at index ${index} in data:`, item)
+				return null
+			} else {
+				return <InfoCard word={item.word} meanings={item.meanings} />
+			}
+		},
+		[content]
+	)
+
+	// If no content is provided, return an empty div.
+	const cards = content?.map(createCards) || []
+
+	return (
+		<Container id={"container"} maxWidth="container.xl">
+			<SimpleGrid
+				id={"grid"}
+				columns="1fr"
+				gap="md"
+				p="md"
+				maxWidth="container.xl"
+			>
+				{cards}
+			</SimpleGrid>
+		</Container>
+	)
+}
 export default InfoCard

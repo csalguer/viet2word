@@ -10,8 +10,8 @@ import {
 	Box,
 	Group,
 } from "@mantine/core"
-import InfoCard from "../InfoCard/InfoCard"
-import { MockInfoCards } from "../../api/mockData"
+import { InfoCard, MockInfoCards } from "../InfoCard/InfoCard"
+import { MOCK_CARD_INFO } from "../../api/mockData"
 
 const PRIMARY_COL_HEIGHT = rem(300)
 
@@ -27,11 +27,11 @@ export interface PageContainerProps {
 const PageContainer = ({ prop = "" }: PageContainerProps): ReactElement => {
 	return (
 		<>
-			<div id="page-container" className={styles.section}>
+			<Group id="page-container" className={styles.section}>
 				{/* {infoCards()} */}
 				{/* </LeadGrid> */}
-				<MockInfoCards />
-			</div>
+				<MockInfoCards content={MOCK_CARD_INFO.data} />
+			</Group>
 		</>
 	)
 }
