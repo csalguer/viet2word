@@ -5,52 +5,38 @@ import { RouterProvider, type createRouter } from "@tanstack/react-router"
 import type { ReactElement } from "react"
 import { useState } from "react"
 import "@mantine/core/styles.css"
-import { ColorSchemeScript, MantineProvider, createTheme } from "@mantine/core"
+import {
+	AppShell,
+	ColorSchemeScript,
+	MantineProvider,
+	createTheme,
+} from "@mantine/core"
+import { useDisclosure } from "@mantine/hooks"
+import AppConfig from "./config"
 
 const queryClient = new QueryClient()
 
 type AppProps = { router: ReturnType<typeof createRouter> }
 
-const theme = createTheme({
-	/** Put your mantine theme override here */
-	// colors: {
-	//   primary: "#3182ce",
-	// },
-	// shadows: {
-	//   default: "0 0 10px rgba(0, 0, 0, 0.1)",
-	// },
-	// breakpoints: {
-	//   sm: "480px",
-	//   md: "768px",
-	//   lg: "1024px",
-	//   xl: "1280px",
-	// },
-	// fonts: {
-	//   heading: "Poppins",
-	//   body: "Arial",
-	// },
-	// transitions: {
-	//   default: "0.3s ease-in-out",
-	// },
-	// shadows: {
-	//
-	breakpoints: {
-		xs: "30em",
-		sm: "48em",
-		md: "64em",
-		lg: "74em",
-		xl: "90em",
-	},
-})
-
 const App = ({ router }: AppProps): FunctionComponent => {
+	const [isOpen, { toggle }] = useDisclosure()
 	return (
-		<MantineProvider theme={theme}>
-			<QueryClientProvider client={queryClient}>
-				<ColorSchemeScript />
+		<AppConfig>
+			<AppShell
+				header={{ size: "8em" }}
+				navbar={{
+					hidden: "md",
+					hiddenFrom: "sm",
+					collapsed: { mobile: !isOpen },
+				}}
+				padding={"md"}
+			>
 				<RouterProvider router={router} />
-			</QueryClientProvider>
-		</MantineProvider>
+				<AppShell.Header>"HEADER"</AppShell.Header>
+
+				<AppShell.Navbar>"Navbar"</AppShell.Navbar>
+			</AppShell>
+		</AppConfig>
 	)
 }
 
