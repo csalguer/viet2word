@@ -19,24 +19,12 @@ const queryClient = new QueryClient()
 type AppProps = { router: ReturnType<typeof createRouter> }
 
 const App = ({ router }: AppProps): FunctionComponent => {
-	const [isOpen, { toggle }] = useDisclosure()
 	return (
-		<AppConfig>
-			<AppShell
-				header={{ size: "8em" }}
-				navbar={{
-					hidden: "md",
-					hiddenFrom: "sm",
-					collapsed: { mobile: !isOpen },
-				}}
-				padding={"md"}
-			>
+		<>
+			<AppConfig>
 				<RouterProvider router={router} />
-				<AppShell.Header>"HEADER"</AppShell.Header>
-
-				<AppShell.Navbar>"Navbar"</AppShell.Navbar>
-			</AppShell>
-		</AppConfig>
+			</AppConfig>
+		</>
 	)
 }
 

@@ -2,6 +2,7 @@
 import {
 	Card,
 	Text,
+	Center,
 	Group,
 	Container,
 	Box,
@@ -37,7 +38,7 @@ export type Meaning = {
 	}
 }
 
-export interface MockInfoCardType {
+export interface Cards {
 	content: {
 		word: string
 		meanings: {
@@ -50,7 +51,7 @@ export interface MockInfoCardType {
 	}[]
 }
 
-export const MockInfoCards = ({ content }: MockInfoCardType): ReactElement => {
+export const CardList = ({ content }: Cards[]): ReactElement => {
 	// TODO: Implement logic to render multiple InfoCard components based on the content prop.
 	const createCards = useCallback(
 		(item, index) => {
@@ -74,11 +75,16 @@ export const MockInfoCards = ({ content }: MockInfoCardType): ReactElement => {
 	const cards = content?.map(createCards) || []
 
 	return (
-		<Container id={"container"}>
-			<SimpleGrid id={"grid"} columns="1fr" gap="md" p="md">
-				{cards}
-			</SimpleGrid>
-		</Container>
+		<SimpleGrid
+			id={"grid"}
+			// type="container"
+			cols={{ base: 1, sm: 2, md: 3 }}
+			spacing={{ base: 1, sm: 2, md: 3 }}
+			gap="md"
+			p="md"
+		>
+			{cards}
+		</SimpleGrid>
 	)
 }
 interface WordProps {
@@ -134,8 +140,8 @@ interface VocabCardProps extends InfoCardProps {
 	// phonetic?: string
 	// meanings?: Meaning[]
 	// onClick?: () => void
-	// content?: MockInfoCardType["content"][]
-	// createCards?: (item: MockInfoCardType["content"][0], index: number) => ReactElement
+	// content?: CardList[]["content"][]
+	// createCards?: (item: CardList[]["content"][0], index: number) => ReactElement
 	// cards?: ReactElement[]
 }
 
@@ -146,15 +152,21 @@ export function VocabCard({
 	isHidden,
 }: VocabCardProps) {
 	const [visible, toggle] = useState<boolean>(isHidden)
-	// const [visibleDefinitions, toggleDefVisibility] =
-	// 	useState<boolean>(hideDefinitions)
 
 	const handleClick = useCallback(() => {
 		toggle(!visible)
-	}, [toggle])
+	}, [visible])
 
 	return (
-		<Card shadow="sm" padding="lg" radius="md" onClick={handleClick} withBorder>
+		<Card
+			shadow="sm"
+			padding="lg"
+			h="fit-content"
+			width="30vw"
+			radius="md"
+			onClick={handleClick}
+			withBorder
+		>
 			<Stack display={"flex"} justify="space-between" ml="md" mt="xs" mb="xs">
 				<Word word={word} partOfSpeech={meanings[0]?.partOfSpeech} />
 				{visible ? (

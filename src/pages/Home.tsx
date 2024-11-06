@@ -15,7 +15,7 @@ import {
 	InfoCard,
 	PageContainer,
 	SearchBar,
-	MockInfoCards,
+	CardList,
 } from "../features/dictionary/components"
 
 import { useTranslation } from "react-i18next"
@@ -43,11 +43,11 @@ export function Home(): ReactElement {
 		setLoading(false)
 	}
 
-	const content = <MockInfoCards content={MOCK_CARD_INFO} />
+	const content = <CardList content={MOCK_CARD_INFO} />
 	return (
-		<Group>
+		<Group id={"home-content"} w={"100vw"}>
 			{/* <div className="max-w-4xl mx-auto space-y-8"> */}
-			<h1>Dictionary</h1>
+			{/* <h1>Dictionary</h1> */}
 			<SearchBar word={word} onSearch={handleSearch} onWordChange={setWord} />
 			{loading && <div className="text-center text-gray-600">Loading...</div>}
 			{error && <div className="text-center text-red-500">{error}</div>}

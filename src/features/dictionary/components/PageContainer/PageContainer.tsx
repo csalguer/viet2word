@@ -3,6 +3,8 @@ import { ReactNode, useCallback, type ReactElement } from "react"
 import styles from "./PageContainer.module.css"
 import {
 	Container,
+	Center,
+	Flex,
 	SimpleGrid,
 	Skeleton,
 	Grid,
@@ -10,7 +12,7 @@ import {
 	Box,
 	Group,
 } from "@mantine/core"
-import { InfoCard, MockInfoCards } from "../InfoCard/InfoCard"
+import { InfoCard, CardList } from "../InfoCard/InfoCard"
 import { MOCK_CARD_INFO } from "../../api/mockData"
 
 const PRIMARY_COL_HEIGHT = rem(300)
@@ -27,10 +29,21 @@ export interface PageContainerProps {
 const PageContainer = ({ children }: PageContainerProps): ReactElement => {
 	return (
 		<>
-			<Group id="page-container" className={styles.section}>
-				<MockInfoCards content={MOCK_CARD_INFO.data} />
+			<Container
+				id={"container"}
+				style={{ resize: "horizontal", overflow: "hidden", width: "100vw" }}
+			>
+				{/* <Group id="vocab" className={styles.section}> */}
+				<Center>
+					<Flex
+						
+					>
+						<CardList content={MOCK_CARD_INFO.data} />
+					</Flex>
+				</Center>
 				{children}
-			</Group>
+				{/* </Group> */}
+			</Container>
 		</>
 	)
 }
