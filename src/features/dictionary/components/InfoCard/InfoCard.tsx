@@ -49,7 +49,7 @@ export const InfoCardContent = ({
 			withBorder
 			className={classes.InfoCard}
 			color="blue"
-			p="xxl"
+			// p="xxl"
 			display={"flex"}
 			direction="column"
 			gap="md"
@@ -119,14 +119,14 @@ const InfoCard = ({
 
 export const MockInfoCards = ({ content }: MockInfoCardType): ReactElement => {
 	// TODO: Implement logic to render multiple InfoCard components based on the content prop.
-	console.log(content)
 	const createCards = useCallback(
 		(item, index) => {
 			if (!item) {
-				// console.error(`No word found at index ${index} in data:`, item)
-				return null
+				return <div />
 			} else {
-				return <InfoCard word={item.word} meanings={item.meanings} />
+				return (
+					<InfoCard key={index} word={item.word} meanings={item.meanings} />
+				)
 			}
 		},
 		[content]

@@ -3,9 +3,20 @@ import type { Meta, StoryObj } from "@storybook/react"
 
 import PageContainer from "./PageContainer"
 import { MantineProvider } from "@mantine/core"
+import AppConfig from "../../../../config"
 
 const meta: Meta<typeof PageContainer> = {
 	component: PageContainer,
+	decorators: [
+		(Story, { parameters }) => {
+			const { word, phonetic, meanings } = parameters
+			return (
+				<AppConfig>
+					<Story word={word} phonetic={phonetic} meanings={meanings} />
+				</AppConfig>
+			)
+		},
+	],
 }
 
 export default meta

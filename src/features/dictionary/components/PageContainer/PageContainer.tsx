@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-unsafe-assignment */
-import { useCallback, type ReactElement } from "react"
+import { ReactNode, useCallback, type ReactElement } from "react"
 import styles from "./PageContainer.module.css"
 import {
 	Container,
@@ -21,16 +21,15 @@ const LeadGrid = (): ReactElement => {
 }
 
 export interface PageContainerProps {
-	prop?: string
+	children?: ReactNode
 }
 
-const PageContainer = ({ prop = "" }: PageContainerProps): ReactElement => {
+const PageContainer = ({ children }: PageContainerProps): ReactElement => {
 	return (
 		<>
 			<Group id="page-container" className={styles.section}>
-				{/* {infoCards()} */}
-				{/* </LeadGrid> */}
 				<MockInfoCards content={MOCK_CARD_INFO.data} />
+				{children}
 			</Group>
 		</>
 	)
