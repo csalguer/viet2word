@@ -11,7 +11,7 @@ export const withPalette = (children) => {
 
 	return (
 		<>
-			<PaletteContext.Provider context={context}>
+			<PaletteContext.Provider value={context}>
 				{children}
 			</PaletteContext.Provider>
 		</>

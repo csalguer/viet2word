@@ -1,5 +1,17 @@
 /* eslint-disable @typescript-eslint/no-unsafe-assignment */
-import { Card, Text, Group, Container, Box, SimpleGrid } from "@mantine/core"
+import {
+	Card,
+	Text,
+	Group,
+	Container,
+	Box,
+	Badge,
+	SimpleGrid,
+	Stack,
+	Space,
+	Skeleton,
+} from "@mantine/core"
+import { nanoid } from "nanoid"
 import classes from "../InfoCard/InfoCard.module.css"
 import { useCallback } from "react"
 
@@ -125,7 +137,12 @@ export const MockInfoCards = ({ content }: MockInfoCardType): ReactElement => {
 				return <div />
 			} else {
 				return (
-					<InfoCard key={index} word={item.word} meanings={item.meanings} />
+					<VocabCard
+						key={index}
+						word={item.word}
+						phonetic={""}
+						meanings={item.meanings}
+					/>
 				)
 			}
 		},
@@ -136,17 +153,85 @@ export const MockInfoCards = ({ content }: MockInfoCardType): ReactElement => {
 	const cards = content?.map(createCards) || []
 
 	return (
-		<Container id={"container"} maxWidth="container.xl">
-			<SimpleGrid
-				id={"grid"}
-				columns="1fr"
-				gap="md"
-				p="md"
-				maxWidth="container.xl"
-			>
+		<Container id={"container"}>
+			<SimpleGrid id={"grid"} columns="1fr" gap="md" p="md">
 				{cards}
 			</SimpleGrid>
 		</Container>
 	)
 }
+
+const Word = ({ word, partOfSpeech }) => {
+	return (
+		<>
+			<Group justify="space-between" mt="md" mb="xs">
+				<Text size="xl" fw={500}>
+					{word}
+				</Text>
+				<Badge color="blue">{meanings[0]?.partOfSpeech}</Badge>
+			</Group>
+		</>
+	)
+}
+
+const Meaning = ({ meanings, hidden }) => {
+	const [isHidden, toggleHidden] = useState(hidden)
+
+	const revealContent = useCallback(() => {
+		toggleHidden(!isHidden)
+	}, [toggleHidden])
+
+	return (
+		<Space h="fit-content">
+			{isHidden && <Skeleton></Skeleton>}
+			{!isHidden && (
+				<Stack justify="space-between" mt="md" mb="xs">
+					{meanings.length &&
+						meanings.map((item, index) => {
+							const { definitions, example } = item
+							return definitions.map((def, index) => {
+								return (
+									<Stack mb="xs" key={nanoid(6)}>
+										<Text size="md">{def.definition}</Text>
+										<Text size="xs">{def.example}</Text>
+									</Stack>
+								)
+							})
+						})}
+				</Stack>
+			)}
+		</Space>
+	)
+}
+
+export function VocabCard({ word, phonetic, meanings }: InfoCardProps) {
+	return (
+		<Card shadow="sm" padding="lg" radius="md" withBorder>
+			<Stack display={"flex"} justify="space-between" ml="md" mt="xs" mb="xs">
+				<Group justify="space-between" mt="md" mb="xs">
+					<Text size="xl" fw={500}>
+						{word}
+					</Text>
+					<Badge color="blue">{meanings[0]?.partOfSpeech}</Badge>
+				</Group>
+
+				<Stack justify="space-between" mt="md" mb="xs">
+					{meanings.length &&
+						meanings.map((item, index) => {
+							const { definitions, example } = item
+							return definitions.map((def, index) => {
+								return (
+									<Stack mb="xs" key={nanoid(6)}>
+										<Text size="md">{def.definition}</Text>
+										<Text size="xs">{def.example}</Text>
+									</Stack>
+								)
+							})
+						})}
+				</Stack>
+			</Stack>
+		</Card>
+	)
+}
+
 export default InfoCard
