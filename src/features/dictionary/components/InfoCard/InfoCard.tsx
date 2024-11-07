@@ -12,6 +12,7 @@ import {
 	Space,
 	Skeleton,
 } from "@mantine/core"
+import { motion, AnimatePresence } from "framer-motion"
 import { nanoid } from "nanoid"
 import classes from "../InfoCard/InfoCard.module.css"
 import { useCallback, useState } from "react"
@@ -53,18 +54,28 @@ export interface Cards {
 
 export const CardList = ({ content }: Cards[]): ReactElement => {
 	// TODO: Implement logic to render multiple InfoCard components based on the content prop.
+
+	const [selectedId, setSelectedId] = useState(null)
+
 	const createCards = useCallback(
 		(item, index) => {
 			if (!item) {
 				return <div />
 			} else {
 				return (
-					<VocabCard
-						key={index}
-						word={item.word}
-						phonetic={""}
-						meanings={item.meanings}
-					/>
+					<motion.div
+						layoutId={index}
+						onClick={() => {
+							setSelectedId(index)
+						}}
+					>
+						<VocabCard
+							key={index}
+							word={item.word}
+							phonetic={""}
+							meanings={item.meanings}
+						/>
+					</motion.div>
 				)
 			}
 		},
@@ -84,6 +95,9 @@ export const CardList = ({ content }: Cards[]): ReactElement => {
 			p="md"
 		>
 			{cards}
+			<AnimatePresence>
+				{selectedId && cards.length && cards[selectedId]}
+			</AnimatePresence>
 		</SimpleGrid>
 	)
 }
@@ -162,7 +176,7 @@ export function VocabCard({
 			shadow="sm"
 			padding="lg"
 			h="fit-content"
-			width="30vw"
+			w="25vw"
 			radius="md"
 			onClick={handleClick}
 			withBorder
