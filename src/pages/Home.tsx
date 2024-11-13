@@ -21,38 +21,16 @@ import {
 import { useTranslation } from "react-i18next"
 import type { FunctionComponent } from "../common/types"
 import { MOCK_CARD_INFO } from "../features/dictionary/api/mockData.ts"
-
-type DefinitionType = { definition?: string; example?: string }
-const NULL_DEFINITION = { definition: null, example: null }
+import { Navigation } from "../features/navigation/Navigation.tsx"
 
 export function Home(): ReactElement {
-	const [word, setWord] = useState("")
-	const [definition, setDefinition] = useState(NULL_DEFINITION)
-	const [error, setError] = useState("")
-	const [loading, setLoading] = useState(false)
-
-	const getWordDefinition = (word: string) => {
-		return word && word
-	}
-	const handleSearch = async (event: FormEvent): Promise<void> => {
-		event.preventDefault()
-		// TODO: Implement API call to fetch word definition
-		// const data = await getWordDefinition(null && "")
-		setDefinition(NULL_DEFINITION)
-		setError("")
-		setLoading(false)
-	}
-
 	const content = <CardList content={MOCK_CARD_INFO} />
 	return (
-		<Group id={"home-content"} w={"100vw"}>
-			{/* <div className="max-w-4xl mx-auto space-y-8"> */}
-			{/* <h1>Dictionary</h1> */}
-			<SearchBar word={word} onSearch={handleSearch} onWordChange={setWord} />
-			{loading && <div className="text-center text-gray-600">Loading...</div>}
-			{error && <div className="text-center text-red-500">{error}</div>}
-			<PageContainer content={content} />
-		</Group>
+		<Navigation>
+			<Group id={"home-content"} w={"100vw"}>
+				<PageContainer>{content}</PageContainer>
+			</Group>
+		</Navigation>
 	)
 }
 

@@ -12,7 +12,7 @@ import {
 	Space,
 	Skeleton,
 } from "@mantine/core"
-import { motion, AnimatePresence } from "framer-motion"
+import { motion, AnimatePresence, create } from "framer-motion"
 import { nanoid } from "nanoid"
 import classes from "../InfoCard/InfoCard.module.css"
 import { useCallback, useState } from "react"
@@ -64,13 +64,14 @@ export const CardList = ({ content }: Cards[]): ReactElement => {
 			} else {
 				return (
 					<motion.div
+						key={nanoid(6)}
 						layoutId={index}
 						onClick={() => {
 							setSelectedId(index)
 						}}
+						style={{ width: "fit-content", height: "fit-content" }}
 					>
 						<VocabCard
-							key={index}
 							word={item.word}
 							phonetic={""}
 							meanings={item.meanings}
@@ -81,24 +82,18 @@ export const CardList = ({ content }: Cards[]): ReactElement => {
 		},
 		[content]
 	)
-
 	// If no content is provided, return an empty div.
-	const cards = content?.map(createCards) || []
+	const cards = content?.data?.map(createCards) || []
 
 	return (
-		<SimpleGrid
-			id={"grid"}
-			// type="container"
-			cols={{ base: 1, sm: 2, md: 3 }}
-			spacing={{ base: 1, sm: 2, md: 3 }}
-			gap="md"
-			p="md"
-		>
-			{cards}
-			<AnimatePresence>
-				{selectedId && cards.length && cards[selectedId]}
+		<>
+			{cards.map((card) => {
+				return <>{card}</>
+			})}
+			<AnimatePresence initial={false}>
+				{selectedId && cards[selectedId]}
 			</AnimatePresence>
-		</SimpleGrid>
+		</>
 	)
 }
 interface WordProps {
@@ -109,7 +104,7 @@ const Word = ({ word, partOfSpeech }: WordProps) => {
 	return (
 		<>
 			<Group justify="space-between" mt="md" mb="xs">
-				<Text size="xl" fw={500}>
+				<Text size="xl" fw={700}>
 					{word}
 				</Text>
 				<Badge color="blue">{partOfSpeech}</Badge>
@@ -134,7 +129,9 @@ const Meaning = ({ meanings, onClick }: MeaningProps) => {
 						return definitions.map((def, index) => {
 							return (
 								<Stack mb="xs" key={nanoid(6)}>
-									<Text size="md">{def.definition}</Text>
+									<Text fw={700} size="md">
+										{def.definition}
+									</Text>
 									<Text size="xs">{def.example}</Text>
 								</Stack>
 							)
@@ -176,7 +173,7 @@ export function VocabCard({
 			shadow="sm"
 			padding="lg"
 			h="fit-content"
-			w="25vw"
+			w="30vw"
 			radius="md"
 			onClick={handleClick}
 			withBorder

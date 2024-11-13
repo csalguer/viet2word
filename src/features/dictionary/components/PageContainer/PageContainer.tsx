@@ -31,18 +31,26 @@ const PageContainer = ({ children }: PageContainerProps): ReactElement => {
 		<>
 			<Container
 				id={"container"}
-				style={{ resize: "horizontal", overflow: "hidden", width: "100vw" }}
+				fluid
+				style={{
+					background:
+						"radial-gradient(circle at 10% 20%, rgb(226, 240, 254) 0%, rgb(255, 247, 228) 90%)",
+					height: "100vh",
+				}}
 			>
-				{/* <Group id="vocab" className={styles.section}> */}
-				<Center>
-					<Flex
-						
-					>
-						<CardList content={MOCK_CARD_INFO.data} />
-					</Flex>
-				</Center>
-				{children}
-				{/* </Group> */}
+				<Flex
+					w={"100%"}
+					gap={"md"}
+					direction={"row"}
+					p={"lg"}
+					m={"md"}
+					align={"center"}
+					justify={"center"}
+					wrap={"wrap"}
+					id="page-container-flex"
+				>
+					{children}
+				</Flex>
 			</Container>
 		</>
 	)
