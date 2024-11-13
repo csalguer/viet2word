@@ -27,10 +27,19 @@ export function Home(): ReactElement {
 	const content = <CardList content={MOCK_CARD_INFO} />
 	return (
 		<>
-			<Navigation></Navigation>
-			<Group id={"home-content"} mt={"57px"} w={"100vw"}>
-				<PageContainer>{content}</PageContainer>
-			</Group>
+			<Navigation>
+				<Group
+					style={{
+						background:
+							"radial-gradient(circle at 10% 20%, rgb(226, 240, 254) 0%, rgb(255, 247, 228) 90%)",
+						height: "100vh",
+					}}
+				>
+					<Group id={"home-content"} mt={"57px"} w={"100vw"}>
+						<PageContainer>{content}</PageContainer>
+					</Group>
+				</Group>
+			</Navigation>
 		</>
 	)
 }

@@ -29,21 +29,12 @@ export interface PageContainerProps {
 const PageContainer = ({ children }: PageContainerProps): ReactElement => {
 	return (
 		<>
-			<Container
-				id={"container"}
-				fluid
-				style={{
-					background:
-						"radial-gradient(circle at 10% 20%, rgb(226, 240, 254) 0%, rgb(255, 247, 228) 90%)",
-					height: "100%",
-				}}
-			>
+			<Container id={"container"} fluid>
 				<Flex
 					w={"100%"}
 					gap={"md"}
 					direction={"row"}
 					p={"lg"}
-					// m={"md"}
 					align={"center"}
 					justify={"center"}
 					wrap={"wrap"}
