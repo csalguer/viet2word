@@ -35,7 +35,7 @@ const PageContainer = ({ children }: PageContainerProps): ReactElement => {
 				style={{
 					background:
 						"radial-gradient(circle at 10% 20%, rgb(226, 240, 254) 0%, rgb(255, 247, 228) 90%)",
-					height: "100vh",
+					height: "100%",
 				}}
 			>
 				<Flex
@@ -43,7 +43,7 @@ const PageContainer = ({ children }: PageContainerProps): ReactElement => {
 					gap={"md"}
 					direction={"row"}
 					p={"lg"}
-					m={"md"}
+					// m={"md"}
 					align={"center"}
 					justify={"center"}
 					wrap={"wrap"}

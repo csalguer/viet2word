@@ -11,11 +11,13 @@ import {
 	Stack,
 	Space,
 	Skeleton,
+	Spoiler,
 } from "@mantine/core"
 import { motion, AnimatePresence, create } from "framer-motion"
 import { nanoid } from "nanoid"
 import classes from "../InfoCard/InfoCard.module.css"
-import { useCallback, useState } from "react"
+import { useCallback, useEffect, useState } from "react"
+import palette from "../../../../styles/Palette"
 
 export interface InfoCardProps {
 	word: string
@@ -56,6 +58,7 @@ export const CardList = ({ content }: Cards[]): ReactElement => {
 	// TODO: Implement logic to render multiple InfoCard components based on the content prop.
 
 	const [selectedId, setSelectedId] = useState(null)
+	const [cards, setCards] = useState([])
 
 	const createCards = useCallback(
 		(item, index) => {
@@ -82,17 +85,20 @@ export const CardList = ({ content }: Cards[]): ReactElement => {
 		},
 		[content]
 	)
-	// If no content is provided, return an empty div.
-	const cards = content?.data?.map(createCards) || []
+
+	useEffect(() => {
+		// If no content is provided, return an empty div.
+		setCards(content?.data?.map(createCards))
+	}, [content])
 
 	return (
 		<>
 			{cards.map((card) => {
 				return <>{card}</>
 			})}
-			<AnimatePresence initial={false}>
+			{/* <AnimatePresence initial={false}>
 				{selectedId && cards[selectedId]}
-			</AnimatePresence>
+			</AnimatePresence> */}
 		</>
 	)
 }
@@ -107,7 +113,7 @@ const Word = ({ word, partOfSpeech }: WordProps) => {
 				<Text size="xl" fw={700}>
 					{word}
 				</Text>
-				<Badge color="blue">{partOfSpeech}</Badge>
+				<Badge>{partOfSpeech}</Badge>
 			</Group>
 		</>
 	)
@@ -121,7 +127,7 @@ interface MeaningProps {
 }
 const Meaning = ({ meanings, onClick }: MeaningProps) => {
 	return (
-		<Space h="fit-content" onClick={onClick}>
+		<Space h="100%" onClick={onClick}>
 			<Stack justify="space-between" mt="md" mb="xs">
 				{meanings.length &&
 					meanings.map((item, index) => {
@@ -164,7 +170,7 @@ export function VocabCard({
 }: VocabCardProps) {
 	const [visible, toggle] = useState<boolean>(isHidden)
 
-	const handleClick = useCallback(() => {
+	const toggleHidden = useCallback(() => {
 		toggle(!visible)
 	}, [visible])
 
@@ -172,16 +178,21 @@ export function VocabCard({
 		<Card
 			shadow="sm"
 			padding="lg"
-			h="fit-content"
-			w="30vw"
+			h="100%"
+			w={{ base: 300, sm: "85vw", md: "30vw" }}
 			radius="md"
-			onClick={handleClick}
+			onClick={toggleHidden}
 			withBorder
 		>
 			<Stack display={"flex"} justify="space-between" ml="md" mt="xs" mb="xs">
 				<Word word={word} partOfSpeech={meanings[0]?.partOfSpeech} />
 				{visible ? (
-					<Meaning meanings={meanings} onClick={handleClick} />
+					<Spoiler expanded={visible}>
+						<Meaning
+							meanings={meanings}
+							// Trigger visibility after draggability =>   onExpandedChange={}
+						/>
+					</Spoiler>
 				) : (
 					<Skeleton size={"lg"} />
 				)}

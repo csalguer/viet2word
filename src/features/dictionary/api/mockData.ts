@@ -100,6 +100,68 @@ export const MOCK_CARD_INFO = {
 				},
 			],
 		},
+		{
+			word: "Doohickey",
+			meanings: [
+				{
+					partOfSpeech: "名词",
+					definitions: [
+						{
+							definition: "General word for an item",
+							example:
+								"Give me that thing, that um, that , what's it called? That doohickey over there.",
+						},
+					],
+				},
+			],
+		},
+		{
+			word: "ą́ą́ę́ę́į́į́į́ííǫ́ǫ́tłṃḗṣṭṛ",
+			meanings: [
+				{
+					partOfSpeech: "动词",
+					definitions: [
+						{
+							definition: "~",
+							example: "Testing font coverage",
+						},
+						{
+							definition: "~",
+							// TODO: Add translation support during i18n feature work (hover + segment)
+							example: "Bilasáana shaa ninííł.   |    You give me apples.",
+						},
+					],
+				},
+			],
+		},
+		{
+			word: "भ",
+			meanings: [
+				{
+					partOfSpeech: "TEST",
+					definitions: [
+						{
+							definition: "TESTING FONT COVERAGE",
+							example: "",
+						},
+					],
+				},
+			],
+		},
+		{
+			word: "          ",
+			meanings: [
+				{
+					partOfSpeech: "Sustantivo",
+					definitions: [
+						{
+							definition: "",
+							example: "",
+						},
+					],
+				},
+			],
+		},
 	],
 }
 

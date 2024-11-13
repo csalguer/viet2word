@@ -26,11 +26,12 @@ import { Navigation } from "../features/navigation/Navigation.tsx"
 export function Home(): ReactElement {
 	const content = <CardList content={MOCK_CARD_INFO} />
 	return (
-		<Navigation>
-			<Group id={"home-content"} w={"100vw"}>
+		<>
+			<Navigation></Navigation>
+			<Group id={"home-content"} mt={"57px"} w={"100vw"}>
 				<PageContainer>{content}</PageContainer>
 			</Group>
-		</Navigation>
+		</>
 	)
 }
 
