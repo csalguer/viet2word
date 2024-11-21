@@ -73,6 +73,7 @@ export const Empty: Story = {
 		],
 	},
 }
+
 export const Word: Story = {
 	args: {
 		label: "InfoCard",
@@ -80,6 +81,8 @@ export const Word: Story = {
 		phonetic: "känCH, käNGk",
 	},
 }
+
+
 export const Meaning: Story = {
 	args: {
 		label: "InfoCard",

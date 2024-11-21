@@ -201,4 +201,12 @@ export function VocabCard({
 	)
 }
 
+export const EmptyCard = () => {
+	return (
+		<>
+			<VocabCard word={"      "} meanings={[]} />
+		</>
+	)
+}
+
 export default VocabCard
