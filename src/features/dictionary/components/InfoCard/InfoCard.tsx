@@ -15,7 +15,9 @@ import {
 	Flex,
 	Modal,
 	Dialog,
+	em,
 } from "@mantine/core"
+import { useMediaQuery } from "@mantine/hooks"
 import { motion, AnimatePresence, LayoutGroup } from "framer-motion"
 import { nanoid } from "nanoid"
 import classes from "../InfoCard/InfoCard.module.css"
@@ -95,16 +97,16 @@ export const withGreyedSelection = (element) => {
 	)
 }
 
-export const withZoom = (element) => {
+export const withZoom = (element, scaleBy = 1) => {
 	return (
 		<motion.div
 			layout
-			exit={{ opacity: 1, scale: 0.9 }}
-			initial={{ opacity: 1, scale: 0.9 }}
-			animate={{ opacity: 1, scale: 2 }}
+			exit={{ opacity: 1, scale: scaleBy * 0.2 }}
+			initial={{ opacity: 1, scale: scaleBy * 0.9 }}
+			animate={{ opacity: 1, scale: scaleBy * 1.1 }}
 			transition={{ ...spring, duration: 2.2, ease: "linear" }}
-			whileHover={{ scale: 1.85 }}
-			whileTap={{ scale: 1.75 }}
+			whileHover={{ scale: scaleBy * 0.85 }}
+			whileTap={{ scale: scaleBy * 0.75 }}
 		>
 			{element}
 		</motion.div>
@@ -117,12 +119,14 @@ export const CardList = ({ content }: Cards[]): ReactElement => {
 	const [selectedId, setSelectedId] = useState(null)
 	const [cards, setCards] = useState([])
 	const [buttons, setButtons] = useState([])
+	const isMobile = useMediaQuery(`(max-width: ${em(750)})`)
 
 	const createCards = useCallback(
 		(item, index) => {
 			// console.log(item.word)
 			const cardElement = (
-				<Group
+				<Center
+					w={{ base: 300, sm: "25vw", md: "30vw" }}
 					onClick={() => {
 						setSelectedId(null)
 					}}
@@ -134,9 +138,10 @@ export const CardList = ({ content }: Cards[]): ReactElement => {
 							phonetic={""}
 							expanded
 							meanings={item.meanings}
-						/>
+						/>,
+						isMobile ? 1.1 : 2.0
 					)}
-				</Group>
+				</Center>
 			)
 			return <AnimatePresence>{cardElement}</AnimatePresence>
 		},
@@ -144,9 +149,9 @@ export const CardList = ({ content }: Cards[]): ReactElement => {
 	)
 	const createVocabButtons = useCallback(
 		(item, index) => {
-			console.log(item.word)
 			const elem = (
-				<Group
+				<Center
+					w={{ base: 300, sm: "25vw", lg: "30vw" }}
 					onClick={() => {
 						setSelectedId(index)
 					}}
@@ -160,12 +165,19 @@ export const CardList = ({ content }: Cards[]): ReactElement => {
 							expanded={false}
 						/>
 					)}
-				</Group>
+				</Center>
 			)
 			return <AnimatePresence>{elem}</AnimatePresence>
 		},
 		[content, selectedId]
 	)
+
+	const getListStyle = useCallback(() => {
+		return {
+			filter: selectedId != null ? "blur(3.2px)" : "none",
+			color: selectedId != null ? "#3262c225" : "transparent",
+		}
+	}, [selectedId, isMobile])
 
 	useEffect(() => {
 		// If no content is provided, return an empty div.
@@ -174,27 +186,37 @@ export const CardList = ({ content }: Cards[]): ReactElement => {
 	}, [content])
 
 	return (
-		<Center>
-			{selectedId != null && (
-				<Center
-					style={{ zIndex: 1 }}
-					p="md"
-					onClick={() => {
-						setSelectedId(null)
-					}}
-					pos={"absolute"}
+		<>
+			<Center overflow={"scroll"}>
+				{selectedId != null && (
+					<Center
+						style={{ zIndex: 1 }}
+						p="md"
+						onClick={() => {
+							setSelectedId(null)
+						}}
+						w={{ base: 300, sm: "25vw", md: "30vw" }}
+						pos={"absolute"}
+						opacity={selectedId != null ? 1 : 0}
+					>
+						{cards[selectedId]}
+					</Center>
+				)}
+
+				<Flex
+					direction="row"
+					justify="center"
+					// align={"center"}
+					gap="1em"
+					wrap={"flex-wrap"}
+					style={getListStyle()}
 				>
-					{cards[selectedId]}
-				</Center>
-			)}
-			<Group>
-				<Flex direction="row" justify="flex-start" gap="1em" wrap={"wrap"}>
 					{buttons.map((elem) => {
 						return <>{elem}</>
 					})}
 				</Flex>
-			</Group>
-		</Center>
+			</Center>
+		</>
 	)
 }
 
@@ -394,8 +416,8 @@ export function VocabCard({
 		<Card
 			shadow="sm"
 			padding="lg"
-			h="100%"
-			w={{ base: 300, sm: "85vw", md: "30vw" }}
+			h="auto"
+			w={{ base: 300, sm: "100%", md: "30vw" }}
 			radius="md"
 			withBorder
 		>

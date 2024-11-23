@@ -36,7 +36,7 @@ export function Home(): ReactElement {
 					style={{
 						background:
 							"radial-gradient(circle at 10% 20%, rgb(226, 240, 254) 0%, rgb(255, 247, 228) 90%)",
-						height: "100vh",
+						height: "100%",
 					}}
 				>
 					<Group id={"home-content"} mt={"57px"} w={"100vw"}>

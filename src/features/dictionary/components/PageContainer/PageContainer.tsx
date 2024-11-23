@@ -28,7 +28,7 @@ export interface PageContainerProps {
 
 const PageContainer = ({ children }: PageContainerProps): ReactElement => {
 	return (
-		<>
+		<Center>
 			<Container id={"container"} fluid>
 				<Flex
 					w={"100%"}
@@ -43,7 +43,7 @@ const PageContainer = ({ children }: PageContainerProps): ReactElement => {
 					{children}
 				</Flex>
 			</Container>
-		</>
+		</Center>
 	)
 }
 

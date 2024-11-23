@@ -51,7 +51,7 @@ export const SearchBar = (): ReactElement => {
 						className={classes.search}
 						placeholder="Search"
 						visibleFrom="xs"
-						data={["猫	mèo", "犬	chó", "感恩	cảm ơn", "工作	công tác"]}
+						// data={["猫	mèo", "犬	chó", "感恩	cảm ơn", "工作	công tác"]}
 						leftSection={
 							<IconSearch
 								stroke={1.5}
