@@ -12,12 +12,22 @@ import {
 	Space,
 	Skeleton,
 	Spoiler,
+	Flex,
+	Modal,
+	Dialog,
 } from "@mantine/core"
-import { motion, AnimatePresence, create } from "framer-motion"
+import { motion, AnimatePresence, LayoutGroup } from "framer-motion"
 import { nanoid } from "nanoid"
 import classes from "../InfoCard/InfoCard.module.css"
 import { useCallback, useEffect, useState } from "react"
 import palette from "../../../../styles/Palette"
+
+const spring = {
+	type: "spring",
+	stiffness: 600,
+	damping: 60,
+	duration: 1.2,
+}
 
 export interface InfoCardProps {
 	word: string
@@ -54,11 +64,146 @@ export interface Cards {
 	}[]
 }
 
+export const withFadeOut = (element) => {
+	return (
+		<motion.div
+			layout
+			exit={{ opacity: 0.0, scale: 1.2 }}
+			initial={{ opacity: 1, scale: 0.9 }}
+			animate={{ opacity: 1, scale: 1 }}
+			transition={spring}
+			whileHover={{ scale: 1.1 }}
+			whileTap={{ scale: 0.95 }}
+		>
+			{element}
+		</motion.div>
+	)
+}
+export const withGreyedSelection = (element) => {
+	return (
+		<motion.div
+			layout
+			exit={{ opacity: 1, scale: 1.2, color: "#0f015225" }}
+			initial={{ opacity: 1, scale: 0.9 }}
+			animate={{ opacity: 1, scale: 1 }}
+			transition={spring}
+			whileHover={{ scale: 1.1 }}
+			whileTap={{ scale: 0.95 }}
+		>
+			{element}
+		</motion.div>
+	)
+}
+
+export const withZoom = (element) => {
+	return (
+		<motion.div
+			layout
+			exit={{ opacity: 1, scale: 0.9 }}
+			initial={{ opacity: 1, scale: 0.9 }}
+			animate={{ opacity: 1, scale: 2 }}
+			transition={{ ...spring, duration: 2.2, ease: "linear" }}
+			whileHover={{ scale: 1.85 }}
+			whileTap={{ scale: 1.75 }}
+		>
+			{element}
+		</motion.div>
+	)
+}
+
 export const CardList = ({ content }: Cards[]): ReactElement => {
 	// TODO: Implement logic to render multiple InfoCard components based on the content prop.
 
 	const [selectedId, setSelectedId] = useState(null)
 	const [cards, setCards] = useState([])
+	const [buttons, setButtons] = useState([])
+
+	const createCards = useCallback(
+		(item, index) => {
+			// console.log(item.word)
+			const cardElement = (
+				<Group
+					onClick={() => {
+						setSelectedId(null)
+					}}
+				>
+					{withZoom(
+						<VocabCard
+							key={nanoid(6)}
+							word={item.word}
+							phonetic={""}
+							expanded
+							meanings={item.meanings}
+						/>
+					)}
+				</Group>
+			)
+			return <AnimatePresence>{cardElement}</AnimatePresence>
+		},
+		[content, selectedId]
+	)
+	const createVocabButtons = useCallback(
+		(item, index) => {
+			console.log(item.word)
+			const elem = (
+				<Group
+					onClick={() => {
+						setSelectedId(index)
+					}}
+				>
+					{withFadeOut(
+						<VocabCard
+							key={nanoid(6)}
+							word={item.word}
+							phonetic={""}
+							meanings={item.meanings}
+							expanded={false}
+						/>
+					)}
+				</Group>
+			)
+			return <AnimatePresence>{elem}</AnimatePresence>
+		},
+		[content, selectedId]
+	)
+
+	useEffect(() => {
+		// If no content is provided, return an empty div.
+		setCards(content?.data?.map(createCards))
+		setButtons(content?.data?.map(createVocabButtons))
+	}, [content])
+
+	return (
+		<Center>
+			{selectedId != null && (
+				<Center
+					style={{ zIndex: 1 }}
+					p="md"
+					onClick={() => {
+						setSelectedId(null)
+					}}
+					pos={"absolute"}
+				>
+					{cards[selectedId]}
+				</Center>
+			)}
+			<Group>
+				<Flex direction="row" justify="flex-start" gap="1em" wrap={"wrap"}>
+					{buttons.map((elem) => {
+						return <>{elem}</>
+					})}
+				</Flex>
+			</Group>
+		</Center>
+	)
+}
+
+export const VocabCarousel = ({ content }: Cards[]): ReactElement => {
+	// TODO: Implement logic to render multiple InfoCard components based on the content prop.
+
+	const [selectedId, setSelectedId] = useState(null)
+	const [cards, setCards] = useState([])
+	const [buttons, setButtons] = useState([])
 
 	const createCards = useCallback(
 		(item, index) => {
@@ -66,20 +211,67 @@ export const CardList = ({ content }: Cards[]): ReactElement => {
 				return <div />
 			} else {
 				return (
-					<motion.div
-						key={nanoid(6)}
-						layoutId={index}
-						onClick={() => {
-							setSelectedId(index)
-						}}
-						style={{ width: "fit-content", height: "fit-content" }}
-					>
-						<VocabCard
-							word={item.word}
-							phonetic={""}
-							meanings={item.meanings}
-						/>
-					</motion.div>
+					<AnimatePresence>
+						<motion.div
+							key={nanoid(6)}
+							layout
+							// layoutId={index}
+							whileHover={{ scale: 1.1 }}
+							whileTap={{ scale: 0.95 }}
+							exit={{ opacity: 0.5, scale: 1.1 }}
+							initial={{ opacity: 1, scale: 0.95 }}
+							animate={{ opacity: 1, scale: 1 }}
+							transition={spring}
+							// style={{ width: "fit-content", height: "fit-content" }}
+						>
+							<VocabCard
+								onClick={() => {
+									selectedId ? setSelectedId(null) : setSelectedId(index)
+									console.log(index, item)
+								}}
+								word={item.word}
+								phonetic={""}
+								isHidden={false}
+								meanings={item.meanings}
+							/>
+						</motion.div>
+					</AnimatePresence>
+				)
+			}
+		},
+		[content]
+	)
+	const createVocabButtons = useCallback(
+		(item, index) => {
+			if (!!item) {
+				return <div />
+			} else {
+				return (
+					<AnimatePresence>
+						<motion.div
+							key={nanoid(6)}
+							layout
+							// layoutId={index}
+							whileHover={{ scale: 1.1 }}
+							whileTap={{ scale: 0.95 }}
+							exit={{ opacity: 0.5, scale: 1.1 }}
+							initial={{ opacity: 1, scale: 0.95 }}
+							animate={{ opacity: 1, scale: 1 }}
+							transition={spring}
+							// style={{ width: "fit-content", height: "fit-content" }}
+						>
+							<VocabCard
+								onClick={() => {
+									selectedId ? setSelectedId(null) : setSelectedId(index)
+									console.log(index, item)
+								}}
+								word={item.word}
+								phonetic={""}
+								isHidden={true}
+								meanings={item.meanings}
+							/>
+						</motion.div>
+					</AnimatePresence>
 				)
 			}
 		},
@@ -89,16 +281,31 @@ export const CardList = ({ content }: Cards[]): ReactElement => {
 	useEffect(() => {
 		// If no content is provided, return an empty div.
 		setCards(content?.data?.map(createCards))
+		setButtons(content?.data?.map(createVocabButtons))
 	}, [content])
 
 	return (
 		<>
-			{cards.map((card) => {
-				return <>{card}</>
-			})}
-			{/* <AnimatePresence initial={false}>
-				{selectedId && cards[selectedId]}
-			</AnimatePresence> */}
+			{selectedId ? (
+				<Center
+					style={{ zIndex: 1 }}
+					p="md"
+					onClick={() => {
+						selectedId ? setSelectedId(null) : setSelectedId(index)
+						return
+					}}
+					pos={"absolute"}
+				>
+					{buttons[selectedId]}
+				</Center>
+			) : null}
+			<Group>
+				<Flex direction="row" justify="flex-start" gap="1em" wrap={"wrap"}>
+					{cards.map((card) => {
+						return <>{card}</>
+					})}
+				</Flex>
+			</Group>
 		</>
 	)
 }
@@ -150,9 +357,10 @@ const Meaning = ({ meanings, onClick }: MeaningProps) => {
 
 interface VocabCardProps extends InfoCardProps {
 	// hideDefinitions?: boolean
-	isHidden?: boolean
+	visible?: boolean
+	expanded?: boolean
 	// toggleHidden?: () => void
-	// handleClick?: () => void
+	onClick?: () => void
 	// word?: string
 	// phonetic?: string
 	// meanings?: Meaning[]
@@ -166,13 +374,21 @@ export function VocabCard({
 	word,
 	phonetic,
 	meanings,
-	isHidden,
+	visible = true,
+	expanded = true,
+	onClick = null,
+	handle,
 }: VocabCardProps) {
-	const [visible, toggle] = useState<boolean>(isHidden)
+	const [isVisible, toggleVisibility] = useState<boolean>(visible)
+	const [isExpanded, toggleExpanded] = useState<boolean>(expanded)
 
-	const toggleHidden = useCallback(() => {
-		toggle(!visible)
-	}, [visible])
+	// const handleVisibilityToggle = useCallback(() => {
+	// 	toggleVisibility(!isVisible)
+	// }, [isVisible])
+
+	const handleExpandedToggle = useCallback(() => {
+		toggleExpanded(!isExpanded)
+	}, [isExpanded])
 
 	return (
 		<Card
@@ -181,19 +397,18 @@ export function VocabCard({
 			h="100%"
 			w={{ base: 300, sm: "85vw", md: "30vw" }}
 			radius="md"
-			onClick={toggleHidden}
 			withBorder
 		>
 			<Stack display={"flex"} justify="space-between" ml="md" mt="xs" mb="xs">
 				<Word word={word} partOfSpeech={meanings[0]?.partOfSpeech} />
-				{visible ? (
-					<Spoiler expanded={visible}>
-						<Meaning
-							meanings={meanings}
-							// Trigger visibility after draggability =>   onExpandedChange={}
-						/>
-					</Spoiler>
+				{isExpanded ? (
+					// <Spoiler expanded={visible}>
+					<Meaning
+						meanings={meanings}
+						// Trigger visibility after draggability =>   onExpandedChange={}
+					/>
 				) : (
+					// </Spoiler>
 					<Skeleton size={"lg"} />
 				)}
 			</Stack>

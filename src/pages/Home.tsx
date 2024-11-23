@@ -17,14 +17,18 @@ import {
 	SearchBar,
 	CardList,
 } from "../features/dictionary/components"
-
+import { motion } from "framer-motion"
 import { useTranslation } from "react-i18next"
 import type { FunctionComponent } from "../common/types"
 import { MOCK_CARD_INFO } from "../features/dictionary/api/mockData.ts"
 import { Navigation } from "../features/navigation/Navigation.tsx"
 
 export function Home(): ReactElement {
-	const content = <CardList content={MOCK_CARD_INFO} />
+	const content = (
+		<motion.div layout>
+			<CardList content={MOCK_CARD_INFO} />{" "}
+		</motion.div>
+	)
 	return (
 		<>
 			<Navigation>
