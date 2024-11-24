@@ -16,8 +16,9 @@ import {
 	PageContainer,
 	SearchBar,
 	CardList,
+	VocabCard,
 } from "../features/dictionary/components"
-import { motion } from "framer-motion"
+import { motion, AnimatePresence, LayoutGroup } from "framer-motion"
 import { useTranslation } from "react-i18next"
 import type { FunctionComponent } from "../common/types"
 import { MOCK_CARD_INFO } from "../features/dictionary/api/mockData.ts"
@@ -27,6 +28,17 @@ export function Home(): ReactElement {
 	const content = (
 		<motion.div layout>
 			<CardList content={MOCK_CARD_INFO} />{" "}
+			<TabbedCard tabs={["Word", "Definition", "Example", "Notes"]}>
+				<VocabCard
+					word={"buôi sang"}
+					phonetic={"ɓuo˧j sa:˧ŋ"}
+					visible
+					expanded
+					meanings={[{ meaning: { partOfSpeech: "", definitions: [
+						definition: "Morning" , example: "Buôi sang tôi ăn đi có bạn ấy."
+					]}}]}
+				/>
+			</TabbedCard>
 		</motion.div>
 	)
 	return (
@@ -40,7 +52,24 @@ export function Home(): ReactElement {
 					}}
 				>
 					<Group id={"home-content"} mt={"57px"} w={"100vw"}>
-						<PageContainer>{content}</PageContainer>
+						<PageContainer>
+						motion.div layout>
+			<CardList content={MOCK_CARD_INFO} />{" "}
+			<TabbedCard tabs={["Word", "Definition", "Example", "Notes"]}>
+				<VocabCard
+					word={"buôi sang"}
+					phonetic={"ɓuo˧j sa:˧ŋ"}
+					visible
+					expanded
+					meanings={[{ meaning: { partOfSpeech: "", definitions: [
+						definition: "Morning" , example: "Buôi sang tôi ăn đi có bạn ấy."
+					]}}]}
+				/>
+			</TabbedCard>
+		</motion.div>
+
+
+						</PageContainer>
 					</Group>
 				</Group>
 			</Navigation>

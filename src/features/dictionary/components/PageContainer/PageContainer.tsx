@@ -29,7 +29,7 @@ export interface PageContainerProps {
 const PageContainer = ({ children }: PageContainerProps): ReactElement => {
 	return (
 		<Center>
-			<Container id={"container"} fluid>
+			<Container id={"container"}>
 				<Flex
 					w={"100%"}
 					gap={"md"}

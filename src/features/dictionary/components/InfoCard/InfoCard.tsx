@@ -20,98 +20,21 @@ import {
 import { useMediaQuery } from "@mantine/hooks"
 import { motion, AnimatePresence, LayoutGroup } from "framer-motion"
 import { nanoid } from "nanoid"
-import classes from "../InfoCard/InfoCard.module.css"
 import { useCallback, useEffect, useState } from "react"
 import palette from "../../../../styles/Palette"
 
-const spring = {
-	type: "spring",
-	stiffness: 600,
-	damping: 60,
-	duration: 1.2,
-}
-
-export interface InfoCardProps {
-	word: string
-	phonetic?: string
-	meanings: Array<{
-		partOfSpeech: string
-		definitions: Array<{
-			definition: string
-			example?: string
-		}>
-	}>
-}
-
-export type Meaning = {
-	meanings: {
-		partOfSpeech: string
-		definitions: {
-			definition: string
-			example: string
-		}
-	}
-}
-
-export interface Cards {
-	content: {
-		word: string
-		meanings: {
-			partOfSpeech: string
-			definitions: {
-				definition: string
-				example: string
-			}
-		}[]
-	}[]
-}
-
-export const withFadeOut = (element) => {
-	return (
-		<motion.div
-			layout
-			exit={{ opacity: 0.0, scale: 1.2 }}
-			initial={{ opacity: 1, scale: 0.9 }}
-			animate={{ opacity: 1, scale: 1 }}
-			transition={spring}
-			whileHover={{ scale: 1.1 }}
-			whileTap={{ scale: 0.95 }}
-		>
-			{element}
-		</motion.div>
-	)
-}
-export const withGreyedSelection = (element) => {
-	return (
-		<motion.div
-			layout
-			exit={{ opacity: 1, scale: 1.2, color: "#0f015225" }}
-			initial={{ opacity: 1, scale: 0.9 }}
-			animate={{ opacity: 1, scale: 1 }}
-			transition={spring}
-			whileHover={{ scale: 1.1 }}
-			whileTap={{ scale: 0.95 }}
-		>
-			{element}
-		</motion.div>
-	)
-}
-
-export const withZoom = (element, scaleBy = 1) => {
-	return (
-		<motion.div
-			layout
-			exit={{ opacity: 1, scale: scaleBy * 0.2 }}
-			initial={{ opacity: 1, scale: scaleBy * 0.9 }}
-			animate={{ opacity: 1, scale: scaleBy * 1.1 }}
-			transition={{ ...spring, duration: 2.2, ease: "linear" }}
-			whileHover={{ scale: scaleBy * 0.85 }}
-			whileTap={{ scale: scaleBy * 0.75 }}
-		>
-			{element}
-		</motion.div>
-	)
-}
+import {
+	InfoCardProps,
+	Cards,
+	WordProps,
+	MeaningProps,
+	VocabCardProps,
+} from "./types"
+import {
+	withFadeOut,
+	withGreyedSelection,
+	withZoom,
+} from "../../../animation/hooks/index"
 
 export const CardList = ({ content }: Cards[]): ReactElement => {
 	// TODO: Implement logic to render multiple InfoCard components based on the content prop.
@@ -187,7 +110,7 @@ export const CardList = ({ content }: Cards[]): ReactElement => {
 
 	return (
 		<>
-			<Center overflow={"scroll"}>
+			<Center overflow={"scroll"} >
 				{selectedId != null && (
 					<Center
 						style={{ zIndex: 1 }}
@@ -208,7 +131,7 @@ export const CardList = ({ content }: Cards[]): ReactElement => {
 					justify="center"
 					// align={"center"}
 					gap="1em"
-					wrap={"flex-wrap"}
+					wrap={"wrap"}
 					style={getListStyle()}
 				>
 					{buttons.map((elem) => {
@@ -219,123 +142,7 @@ export const CardList = ({ content }: Cards[]): ReactElement => {
 		</>
 	)
 }
-
-export const VocabCarousel = ({ content }: Cards[]): ReactElement => {
-	// TODO: Implement logic to render multiple InfoCard components based on the content prop.
-
-	const [selectedId, setSelectedId] = useState(null)
-	const [cards, setCards] = useState([])
-	const [buttons, setButtons] = useState([])
-
-	const createCards = useCallback(
-		(item, index) => {
-			if (!item) {
-				return <div />
-			} else {
-				return (
-					<AnimatePresence>
-						<motion.div
-							key={nanoid(6)}
-							layout
-							// layoutId={index}
-							whileHover={{ scale: 1.1 }}
-							whileTap={{ scale: 0.95 }}
-							exit={{ opacity: 0.5, scale: 1.1 }}
-							initial={{ opacity: 1, scale: 0.95 }}
-							animate={{ opacity: 1, scale: 1 }}
-							transition={spring}
-							// style={{ width: "fit-content", height: "fit-content" }}
-						>
-							<VocabCard
-								onClick={() => {
-									selectedId ? setSelectedId(null) : setSelectedId(index)
-									console.log(index, item)
-								}}
-								word={item.word}
-								phonetic={""}
-								isHidden={false}
-								meanings={item.meanings}
-							/>
-						</motion.div>
-					</AnimatePresence>
-				)
-			}
-		},
-		[content]
-	)
-	const createVocabButtons = useCallback(
-		(item, index) => {
-			if (!!item) {
-				return <div />
-			} else {
-				return (
-					<AnimatePresence>
-						<motion.div
-							key={nanoid(6)}
-							layout
-							// layoutId={index}
-							whileHover={{ scale: 1.1 }}
-							whileTap={{ scale: 0.95 }}
-							exit={{ opacity: 0.5, scale: 1.1 }}
-							initial={{ opacity: 1, scale: 0.95 }}
-							animate={{ opacity: 1, scale: 1 }}
-							transition={spring}
-							// style={{ width: "fit-content", height: "fit-content" }}
-						>
-							<VocabCard
-								onClick={() => {
-									selectedId ? setSelectedId(null) : setSelectedId(index)
-									console.log(index, item)
-								}}
-								word={item.word}
-								phonetic={""}
-								isHidden={true}
-								meanings={item.meanings}
-							/>
-						</motion.div>
-					</AnimatePresence>
-				)
-			}
-		},
-		[content]
-	)
-
-	useEffect(() => {
-		// If no content is provided, return an empty div.
-		setCards(content?.data?.map(createCards))
-		setButtons(content?.data?.map(createVocabButtons))
-	}, [content])
-
-	return (
-		<>
-			{selectedId ? (
-				<Center
-					style={{ zIndex: 1 }}
-					p="md"
-					onClick={() => {
-						selectedId ? setSelectedId(null) : setSelectedId(index)
-						return
-					}}
-					pos={"absolute"}
-				>
-					{buttons[selectedId]}
-				</Center>
-			) : null}
-			<Group>
-				<Flex direction="row" justify="flex-start" gap="1em" wrap={"wrap"}>
-					{cards.map((card) => {
-						return <>{card}</>
-					})}
-				</Flex>
-			</Group>
-		</>
-	)
-}
-interface WordProps {
-	word: string
-	partOfSpeech?: string
-}
-const Word = ({ word, partOfSpeech }: WordProps) => {
+export const Word = ({ word, partOfSpeech }: WordProps) => {
 	return (
 		<>
 			<Group justify="space-between" mt="md" mb="xs">
@@ -347,14 +154,7 @@ const Word = ({ word, partOfSpeech }: WordProps) => {
 		</>
 	)
 }
-interface MeaningProps {
-	meanings: {
-		definition: string
-		example?: string
-	}[]
-	onClick?: () => void
-}
-const Meaning = ({ meanings, onClick }: MeaningProps) => {
+export const Meaning = ({ meanings, onClick }: MeaningProps) => {
 	return (
 		<Space h="100%" onClick={onClick}>
 			<Stack justify="space-between" mt="md" mb="xs">
@@ -375,21 +175,6 @@ const Meaning = ({ meanings, onClick }: MeaningProps) => {
 			</Stack>
 		</Space>
 	)
-}
-
-interface VocabCardProps extends InfoCardProps {
-	// hideDefinitions?: boolean
-	visible?: boolean
-	expanded?: boolean
-	// toggleHidden?: () => void
-	onClick?: () => void
-	// word?: string
-	// phonetic?: string
-	// meanings?: Meaning[]
-	// onClick?: () => void
-	// content?: CardList[]["content"][]
-	// createCards?: (item: CardList[]["content"][0], index: number) => ReactElement
-	// cards?: ReactElement[]
 }
 
 export function VocabCard({
@@ -424,13 +209,8 @@ export function VocabCard({
 			<Stack display={"flex"} justify="space-between" ml="md" mt="xs" mb="xs">
 				<Word word={word} partOfSpeech={meanings[0]?.partOfSpeech} />
 				{isExpanded ? (
-					// <Spoiler expanded={visible}>
-					<Meaning
-						meanings={meanings}
-						// Trigger visibility after draggability =>   onExpandedChange={}
-					/>
+					<Meaning meanings={meanings} />
 				) : (
-					// </Spoiler>
 					<Skeleton size={"lg"} />
 				)}
 			</Stack>
@@ -441,7 +221,7 @@ export function VocabCard({
 export const EmptyCard = () => {
 	return (
 		<>
-			<VocabCard word={"      "} meanings={[]} />
+			<VocabCard word={"  "} meanings={[]} />
 		</>
 	)
 }
