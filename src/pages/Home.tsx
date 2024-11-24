@@ -10,6 +10,7 @@ import {
 	Group,
 	MantineProvider,
 	createTheme,
+	Center,
 } from "@mantine/core"
 import {
 	InfoCard,
@@ -23,23 +24,46 @@ import { useTranslation } from "react-i18next"
 import type { FunctionComponent } from "../common/types"
 import { MOCK_CARD_INFO } from "../features/dictionary/api/mockData.ts"
 import { Navigation } from "../features/navigation/Navigation.tsx"
+import { TabbedCard } from "../features/cardset/components/index.ts"
 
 export function Home(): ReactElement {
-	const content = (
-		<motion.div layout>
-			<CardList content={MOCK_CARD_INFO} />{" "}
-			<TabbedCard tabs={["Word", "Definition", "Example", "Notes"]}>
-				<VocabCard
-					word={"buôi sang"}
-					phonetic={"ɓuo˧j sa:˧ŋ"}
-					visible
-					expanded
-					meanings={[{ meaning: { partOfSpeech: "", definitions: [
-						definition: "Morning" , example: "Buôi sang tôi ăn đi có bạn ấy."
-					]}}]}
-				/>
-			</TabbedCard>
-		</motion.div>
+	// const content = (
+	// 	<motion.div layout>
+	// 		<CardList content={MOCK_CARD_INFO} />{" "}
+	// 		<TabbedCard tabs={["Word", "Definition", "Example", "Notes"]}>
+	// 			<VocabCard
+	// 				word={"buôi sang"}
+	// 				phonetic={"ɓuo˧j sa:˧ŋ"}
+	// 				visible
+	// 				expanded
+	// 				meanings={[{ meaning: { partOfSpeech: "NOUN", definitions: [
+	// 					definition: "Morning" , example: "Buôi sang tôi ăn đi có bạn ấy."
+	// 				]}}]}
+	// 			/>
+	// 		</TabbedCard>
+	// 	</motion.div>
+	// )
+
+	const tab = (
+		<VocabCard
+			word={"buôi sang"}
+			phonetic={"ɓuo˧j sa:˧ŋ"}
+			visible
+			expanded
+			meanings={[
+				{
+					meaning: {
+						partOfSpeech: "",
+						definitions: [
+							{
+								definition: "Morning",
+								example: "Buôi sang tôi ăn đi có bạn ấy.",
+							},
+						],
+					},
+				},
+			]}
+		/>
 	)
 	return (
 		<>
@@ -53,22 +77,13 @@ export function Home(): ReactElement {
 				>
 					<Group id={"home-content"} mt={"57px"} w={"100vw"}>
 						<PageContainer>
-						motion.div layout>
-			<CardList content={MOCK_CARD_INFO} />{" "}
-			<TabbedCard tabs={["Word", "Definition", "Example", "Notes"]}>
-				<VocabCard
-					word={"buôi sang"}
-					phonetic={"ɓuo˧j sa:˧ŋ"}
-					visible
-					expanded
-					meanings={[{ meaning: { partOfSpeech: "", definitions: [
-						definition: "Morning" , example: "Buôi sang tôi ăn đi có bạn ấy."
-					]}}]}
-				/>
-			</TabbedCard>
-		</motion.div>
-
-
+							<motion.div layout>
+								<CardList content={MOCK_CARD_INFO} />{" "}
+							</motion.div>
+							<TabbedCard
+								tabs={["Word", "Def", "Example", "Notes"]}
+								children={[tab, tab, tab, tab]}
+							/>
 						</PageContainer>
 					</Group>
 				</Group>

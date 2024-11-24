@@ -1,6 +1,7 @@
 import { useCallback, useState, useEffect, ReactElement } from "react"
-import { Card, Tabs } from "@mantine/core"
+import { Card, Tabs, Center, Stack } from "@mantine/core"
 import styles from "./TabbedCard.css"
+import palette from "../../../../styles/Palette"
 
 export interface TabbedCardProps {
 	tabs: string[]
@@ -14,23 +15,55 @@ export function TabbedCard({ tabs, children }: TabbedCardProps) {
 				<Tabs
 					defaultValue="gallery"
 					orientation="vertical"
+					variant="pills"
+					radius="md"
 					onClick={() => setActiveTab(index)}
 				>
 					<Tabs.List>
-						{tabs.map((tab, index) => (
-							<Tabs.Tab value={tab}>{tab}</Tabs.Tab>
-						))}
+						{tabs?.map((tab, index) => {
+							console.log()
+							const color =
+								palette?.highlight[index % palette?.highlight?.length]
+							return (
+								<Tabs.Tab
+									value={tab}
+									color={palette?.highlight[index % palette?.highlight?.length]}
+									style={{
+										fontSize: "1.25rem",
+										fontWeight: "bold",
+
+										textTransform: "uppercase",
+										cursor: "pointer",
+										textOrientation: "mixed",
+										writingMode: "vertical-lr",
+										// transition: "color 0.3s ease",
+										// "&:hover": {
+										// 	color: "gray.800",
+										// },
+									}}
+								>
+									{tab}
+								</Tabs.Tab>
+							)
+						})}
 					</Tabs.List>
+					{children?.length &&
+						children?.map((child, index) => {
+							console.log(child)
+							return (
+								<Tabs.Panel value={tabs[index]}>
+									<TabbedCardContent>{child}</TabbedCardContent>
+								</Tabs.Panel>
+							)
+						})}
+					{children?.length == 0 && children}
 				</Tabs>
-				{children.map((child, index) => {
-					return <Tabs.Panel value="index">{child}</Tabs.Panel>
-				})}
 			</Center>
 		</>
 	)
 }
 
-export const TabbedCardContent = ({ tabs, children, activeTab }) => {
+export const TabbedCardContent = ({ children }) => {
 	return (
 		<Card
 			shadow="sm"

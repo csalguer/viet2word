@@ -110,7 +110,7 @@ export const CardList = ({ content }: Cards[]): ReactElement => {
 
 	return (
 		<>
-			<Center overflow={"scroll"} >
+			<Center overflow={"scroll"}>
 				{selectedId != null && (
 					<Center
 						style={{ zIndex: 1 }}
@@ -158,10 +158,10 @@ export const Meaning = ({ meanings, onClick }: MeaningProps) => {
 	return (
 		<Space h="100%" onClick={onClick}>
 			<Stack justify="space-between" mt="md" mb="xs">
-				{meanings.length &&
-					meanings.map((item, index) => {
+				{meanings?.length &&
+					meanings?.map((item, index) => {
 						const { definitions, example } = item
-						return definitions.map((def, index) => {
+						return definitions?.map((def, index) => {
 							return (
 								<Stack mb="xs" key={nanoid(6)}>
 									<Text fw={700} size="md">

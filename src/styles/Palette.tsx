@@ -36,7 +36,7 @@ const cool = [
 ]
 
 const paperPreview = {
-	highlight: ["#ca6703", "#ee9b00", "#90a955", "#cddc39", "#58748f", "#025f72"],
+	highlight: ["#9a2225", "#ca6703", "#ee9b00", "#4f762d", "#025f72", "#58748f"],
 	edit: [],
 }
 
