@@ -11,6 +11,8 @@ import {
 	MantineProvider,
 	createTheme,
 	Center,
+	Stack,
+	Text,
 } from "@mantine/core"
 import {
 	InfoCard,
@@ -18,6 +20,8 @@ import {
 	SearchBar,
 	CardList,
 	VocabCard,
+	Meaning,
+	Word,
 } from "../features/dictionary/components"
 import { motion, AnimatePresence, LayoutGroup } from "framer-motion"
 import { useTranslation } from "react-i18next"
@@ -25,6 +29,9 @@ import type { FunctionComponent } from "../common/types"
 import { MOCK_CARD_INFO } from "../features/dictionary/api/mockData.ts"
 import { Navigation } from "../features/navigation/Navigation.tsx"
 import { TabbedCard } from "../features/cardset/components/index.ts"
+import { nanoid } from "nanoid"
+// import { useQueryClient } from "@tanstack/react-query"
+// import { useTranslation } from "react-i18next"
 
 export function Home(): ReactElement {
 	// const content = (
@@ -44,12 +51,10 @@ export function Home(): ReactElement {
 	// 	</motion.div>
 	// )
 
-	const tab = (
-		<VocabCard
-			word={"buôi sang"}
-			phonetic={"ɓuo˧j sa:˧ŋ"}
-			visible
-			expanded
+	const tab = [
+		<Word word={"buôi sang"} partOfSpeech={"NOUN"} />,
+		<Word word={"ɓuo˧j sa:˧ŋ"} partOfSpeech={"NOUN"} />,
+		<Meaning
 			meanings={[
 				{
 					meaning: {
@@ -63,8 +68,15 @@ export function Home(): ReactElement {
 					},
 				},
 			]}
-		/>
-	)
+		/>,
+		<Stack mb="sm" key={nanoid(6)}>
+			<Text fw={700} size="lg">
+				"This is commonly used to talk about morning routines but less commonly
+				used in day to day phrases in the context of when or the time period an
+				action was taken/completed/done."
+			</Text>
+		</Stack>,
+	]
 	return (
 		<>
 			<Navigation>
@@ -75,17 +87,20 @@ export function Home(): ReactElement {
 						height: "100%",
 					}}
 				>
-					<Group id={"home-content"} mt={"57px"} w={"100vw"}>
-						<PageContainer>
+					<PageContainer>
+						<Group id={"home-content"} mt={"57px"} w={"100%"}>
 							<motion.div layout>
 								<CardList content={MOCK_CARD_INFO} />{" "}
 							</motion.div>
-							<TabbedCard
-								tabs={["Word", "Def", "Example", "Notes"]}
-								children={[tab, tab, tab, tab]}
-							/>
-						</PageContainer>
-					</Group>
+
+							<Center h={"100%"}>
+								<TabbedCard
+									tabs={["Word", "Def", "Example", "Notes"]}
+									children={[tab]}
+								/>
+							</Center>
+						</Group>
+					</PageContainer>
 				</Group>
 			</Navigation>
 		</>

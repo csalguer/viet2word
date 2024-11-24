@@ -2,6 +2,7 @@ import { useCallback, useState, useEffect, ReactElement } from "react"
 import { Card, Tabs, Center, Stack } from "@mantine/core"
 import styles from "./TabbedCard.css"
 import palette from "../../../../styles/Palette"
+import { withGreyedSelection } from "../../../animation/hooks"
 
 export interface TabbedCardProps {
 	tabs: string[]
@@ -9,6 +10,8 @@ export interface TabbedCardProps {
 }
 
 export function TabbedCard({ tabs, children }: TabbedCardProps) {
+	const [activeTab, setActiveTab] = useState<string | null>(tabs[0])
+
 	return (
 		<>
 			<Center>
@@ -17,29 +20,49 @@ export function TabbedCard({ tabs, children }: TabbedCardProps) {
 					orientation="vertical"
 					variant="pills"
 					radius="md"
-					onClick={() => setActiveTab(index)}
+					h={"auto"}
+					value={activeTab}
+					onChange={setActiveTab}
+					// onClick={() => setActiveTab(index)}
 				>
-					<Tabs.List>
+					<Tabs.List
+						style={{
+							backgroundColor: "gray.800",
+							color: "white",
+							boxShadow: "0 0 0 1px gray.200",
+						}}
+					>
 						{tabs?.map((tab, index) => {
-							console.log()
 							const color =
 								palette?.highlight[index % palette?.highlight?.length]
-							return (
+							return withGreyedSelection(
 								<Tabs.Tab
 									value={tab}
 									color={palette?.highlight[index % palette?.highlight?.length]}
 									style={{
-										fontSize: "1.25rem",
+										fontSize: "1.0rem",
 										fontWeight: "bold",
-
+										background:
+											palette?.highlight[index % palette?.highlight?.length],
+										color: "white",
 										textTransform: "uppercase",
 										cursor: "pointer",
 										textOrientation: "mixed",
 										writingMode: "vertical-lr",
-										// transition: "color 0.3s ease",
-										// "&:hover": {
-										// 	color: "gray.800",
-										// },
+										borderRadius: "md",
+										"&:after": {
+											color: color,
+											width: ".2rem",
+											borderRadius: "md",
+										},
+										"&:before": {
+											color: color,
+											width: ".2rem",
+											borderRadius: "md",
+										},
+										"&:hover": {
+											color: "gray.800",
+										},
 									}}
 								>
 									{tab}
@@ -51,8 +74,10 @@ export function TabbedCard({ tabs, children }: TabbedCardProps) {
 						children?.map((child, index) => {
 							console.log(child)
 							return (
-								<Tabs.Panel value={tabs[index]}>
-									<TabbedCardContent>{child}</TabbedCardContent>
+								<Tabs.Panel value={tabs[index]} h={"100%"} color="white">
+									<Center>
+										<TabbedCardContent>{child}</TabbedCardContent>
+									</Center>
 								</Tabs.Panel>
 							)
 						})}
@@ -68,8 +93,8 @@ export const TabbedCardContent = ({ children }) => {
 		<Card
 			shadow="sm"
 			padding="lg"
-			h="auto"
-			w={{ base: 300, sm: "100%", md: "30vw" }}
+			h="fit-content"
+			w={{ sm: "85vw", md: "60vw" }}
 			radius="md"
 			withBorder
 		>
