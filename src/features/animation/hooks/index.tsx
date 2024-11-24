@@ -26,12 +26,11 @@ export const withGreyedSelection = (element) => {
 	return (
 		<motion.div
 			layout
-			exit={{ opacity: 1, scale: 1.2, color: "#0f015225" }}
+			exit={{ opacity: 1, scale: 1.2, color: "#0f015245" }}
 			initial={{ opacity: 1, scale: 0.9 }}
 			animate={{ opacity: 1, scale: 1 }}
-			transition={spring}
-			whileHover={{ scale: 1.1 }}
-			whileTap={{ scale: 0.95 }}
+			whileHover={{ color: "#0f015235", scale: 0.8 }}
+			whileTap={{ scale: 0.95, color: "#0f015235" }}
 		>
 			{element}
 		</motion.div>

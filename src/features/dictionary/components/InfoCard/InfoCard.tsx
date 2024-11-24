@@ -50,13 +50,13 @@ export const CardList = ({ content }: Cards[]): ReactElement => {
 			const cardElement = (
 				<Center
 					w={{ base: 300, sm: "25vw", md: "30vw" }}
+					key={nanoid(6)}
 					onClick={() => {
 						setSelectedId(null)
 					}}
 				>
 					{withZoom(
 						<VocabCard
-							key={nanoid(6)}
 							word={item.word}
 							phonetic={""}
 							expanded
@@ -78,6 +78,7 @@ export const CardList = ({ content }: Cards[]): ReactElement => {
 					onClick={() => {
 						setSelectedId(index)
 					}}
+					key={nanoid(6)}
 				>
 					{withFadeOut(
 						<VocabCard

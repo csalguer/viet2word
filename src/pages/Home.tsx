@@ -53,7 +53,7 @@ export function Home(): ReactElement {
 
 	const tab = [
 		<Word word={"buôi sang"} partOfSpeech={"NOUN"} />,
-		<Word word={"ɓuo˧j sa:˧ŋ"} partOfSpeech={"NOUN"} />,
+		<Word word={"ɓuo˧j sa:˧ŋ"} partOfSpeech={null} />,
 		<Meaning
 			meanings={[
 				{
@@ -69,7 +69,7 @@ export function Home(): ReactElement {
 				},
 			]}
 		/>,
-		<Stack mb="sm" key={nanoid(6)}>
+		<Stack mb="sm">
 			<Text fw={700} size="lg">
 				"This is commonly used to talk about morning routines but less commonly
 				used in day to day phrases in the context of when or the time period an
@@ -93,10 +93,10 @@ export function Home(): ReactElement {
 								<CardList content={MOCK_CARD_INFO} />{" "}
 							</motion.div>
 
-							<Center h={"100%"}>
+							<Center bg={"white"} h={"100%"}>
 								<TabbedCard
 									tabs={["Word", "Def", "Example", "Notes"]}
-									children={[tab]}
+									children={tab}
 								/>
 							</Center>
 						</Group>

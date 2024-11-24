@@ -1,5 +1,5 @@
 import { useCallback, useState, useEffect, ReactElement } from "react"
-import { Card, Tabs, Center, Stack } from "@mantine/core"
+import { Card, Tabs, Center, Stack, Flex } from "@mantine/core"
 import styles from "./TabbedCard.css"
 import palette from "../../../../styles/Palette"
 import { withGreyedSelection } from "../../../animation/hooks"
@@ -16,20 +16,21 @@ export function TabbedCard({ tabs, children }: TabbedCardProps) {
 		<>
 			<Center>
 				<Tabs
-					defaultValue="gallery"
 					orientation="vertical"
 					variant="pills"
 					radius="md"
 					h={"auto"}
 					value={activeTab}
 					onChange={setActiveTab}
-					// onClick={() => setActiveTab(index)}
 				>
 					<Tabs.List
 						style={{
-							backgroundColor: "gray.800",
+							// backgroundColor: "gray.800",
 							color: "white",
 							boxShadow: "0 0 0 1px gray.200",
+							gap: "0rem",
+							borderTopRightRadius: "md",
+							borderTopLeftRadius: "md",
 						}}
 					>
 						{tabs?.map((tab, index) => {
@@ -48,21 +49,10 @@ export function TabbedCard({ tabs, children }: TabbedCardProps) {
 										textTransform: "uppercase",
 										cursor: "pointer",
 										textOrientation: "mixed",
-										writingMode: "vertical-lr",
-										borderRadius: "md",
-										"&:after": {
-											color: color,
-											width: ".2rem",
-											borderRadius: "md",
-										},
-										"&:before": {
-											color: color,
-											width: ".2rem",
-											borderRadius: "md",
-										},
-										"&:hover": {
-											color: "gray.800",
-										},
+										writingMode: "vertical-rl",
+										borderRadius: "0rem",
+										borderBottomLeftRadius: "0.8rem",
+										borderTopLeftRadius: "0.8rem",
 									}}
 								>
 									{tab}
@@ -72,10 +62,17 @@ export function TabbedCard({ tabs, children }: TabbedCardProps) {
 					</Tabs.List>
 					{children?.length &&
 						children?.map((child, index) => {
-							console.log(child)
+							const color =
+								palette?.highlight[index % palette?.highlight?.length]
 							return (
-								<Tabs.Panel value={tabs[index]} h={"100%"} color="white">
-									<Center>
+								<Tabs.Panel
+									value={tabs[index]}
+									h={"100%"}
+									w={"fit-content"}
+									color="white"
+									style={{ borderLeft: `1.0rem solid ${color}` }}
+								>
+									<Center h={"100%"}>
 										<TabbedCardContent>{child}</TabbedCardContent>
 									</Center>
 								</Tabs.Panel>
@@ -90,17 +87,25 @@ export function TabbedCard({ tabs, children }: TabbedCardProps) {
 
 export const TabbedCardContent = ({ children }) => {
 	return (
-		<Card
+		<Center
 			shadow="sm"
 			padding="lg"
 			h="fit-content"
 			w={{ sm: "85vw", md: "60vw" }}
+			justify="center"
 			radius="md"
 			withBorder
 		>
-			<Stack display={"flex"} justify="space-between" ml="md" mt="xs" mb="xs">
+			<Flex
+				display={"flex"}
+				justify="space-between"
+				align={"center"}
+				ml="md"
+				mt="xs"
+				mb="xs"
+			>
 				{children}
-			</Stack>
-		</Card>
+			</Flex>
+		</Center>
 	)
 }
