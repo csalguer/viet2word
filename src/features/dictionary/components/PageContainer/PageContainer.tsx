@@ -23,6 +23,7 @@ import { InfoCard, CardList } from "../InfoCard/InfoCard"
 import { MOCK_CARD_INFO } from "../../api/mockData"
 import { Gradients } from "../../../layout/styles/Gradients"
 import { palette } from "../../../../styles/Palette"
+import { IconSun, IconMoonStars } from "@tabler/icons-react"
 
 const PRIMARY_COL_HEIGHT = rem(300)
 
@@ -63,38 +64,9 @@ export interface PageContainerProps {
 //   cardListIconHoverDelay?: number
 // }
 
-import { IconSun, IconMoonStars } from "@tabler/icons-react"
-const sunIcon = (
-	<IconSun
-		style={{ width: rem(16), height: rem(16) }}
-		stroke={2.5}
-		color={"yellow"}
-	/>
-)
-
-const moonIcon = (
-	<IconMoonStars
-		style={{ width: rem(16), height: rem(16) }}
-		stroke={2.5}
-		color={"blue"}
-	/>
-)
-
-const NightModeSwitch = (props): ReactElement => {
-	return <Switch size={props.size} onLabel={sunIcon} offLabel={moonIcon} />
-	const [nightMode, setNightMode] = useState(false)
-}
-
 const PageContainer = ({ children }: PageContainerProps): ReactElement => {
-	const [backgroundColor, setBackgroundColor] = useState(Gradients.light)
+	
 
-	useLayoutEffect(() => {
-		// PERMISSIONS FOR AUDIO STUFF
-
-		// Loading of User Page Browser settings
-		//system settings or set in browser
-		setBackgroundColor(Gradients.light)
-	}, [backgroundColor])
 
 	return (
 		<>

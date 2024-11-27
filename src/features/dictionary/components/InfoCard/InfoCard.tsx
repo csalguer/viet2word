@@ -143,15 +143,22 @@ export const CardList = ({ content }: Cards[]): ReactElement => {
 		</>
 	)
 }
-export const Word = ({ word, partOfSpeech }: WordProps) => {
+
+export const Word = ({ word, partOfSpeech, isRTL = false }: WordProps) => {
 	return (
 		<>
-			<Group justify="space-between" mt="md" mb="xs">
+			<Flex
+				// TODO: Add RTL support alongside i18n support fixes with t() hook (useInternationalization?)
+				// direction={isRTL ? "row" : "row-reverse"}
+				justify="space-between"
+				mt="md"
+				mb="xs"
+			>
 				<Text size="xl" fw={700}>
 					{word}
 				</Text>
-				<Badge>{partOfSpeech}</Badge>
-			</Group>
+				{partOfSpeech && <Badge>{partOfSpeech}</Badge>}
+			</Flex>
 		</>
 	)
 }
@@ -178,10 +185,16 @@ export const Meaning = ({ meanings, onClick }: MeaningProps) => {
 	)
 }
 
+// TODO: Make small, med, and larger, separate button-like
+// TODO: Account for inner clickable + draggable on outer
+// TODO: Pass through "as" prop
+
 export function VocabCard({
 	word,
 	phonetic,
 	meanings,
+	vertical = false,
+	size,
 	visible = true,
 	expanded = true,
 	onClick = null,
@@ -218,6 +231,12 @@ export function VocabCard({
 		</Card>
 	)
 }
+
+const DictionaryItem = () => {
+	
+}
+
+
 
 export const EmptyCard = () => {
 	return (

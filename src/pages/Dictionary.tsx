@@ -27,7 +27,6 @@ import { motion, AnimatePresence, LayoutGroup } from "framer-motion"
 import { useTranslation } from "react-i18next"
 import type { FunctionComponent } from "../common/types"
 import { MOCK_CARD_INFO } from "../features/dictionary/api/mockData.ts"
-import { Navigation } from "../features/navigation/Navigation.tsx"
 import { TabbedCard } from "../features/cardset/components/index.ts"
 import { nanoid } from "nanoid"
 
@@ -42,7 +41,11 @@ export function Dictionary(): ReactElement {
 						height: "100%",
 					}}
 				>
-					<PageContainer>"HERE"</PageContainer>
+					<PageContainer>
+						{
+						
+						}
+						</PageContainer>
 				</Group>
 			</Navigation>
 		</>

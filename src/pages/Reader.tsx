@@ -36,9 +36,11 @@ import { TabbedCard } from "../features/cardset/components/index.ts"
 import { nanoid } from "nanoid"
 
 import { Gradients } from "../features/layout/styles/Gradients.ts"
-import Palette from "../features/layout/styles/Palette.ts"
+import Palette, {
+	VnZhHighlightColor,
+} from "../features/layout/styles/Palette.ts"
 import { useToggle } from "@mantine/hooks"
-import { ToneNames, VnZhHighlightColor } from "../styles/Palette.tsx"
+import { ToneNames } from "../styles/Palette.tsx"
 import { VocabCardProps } from "../features/dictionary/components/InfoCard/types.ts"
 
 export interface ReadingMaterialProps {
@@ -114,6 +116,7 @@ export interface Materia extends ReadingMaterialProps {
 	vocab?: VocabWord[]
 }
 
+// TODO: 
 export const VocabSheet = ({}: VocabSheetProps): ReactElement => {
 	const { t } = useTranslation()
 	console.log(useId(), MOCK_CARD_INFO)
@@ -132,7 +135,7 @@ export const VocabSheet = ({}: VocabSheetProps): ReactElement => {
 								key={nanoid(6)}
 								word={card.word}
 								phonetic={card.phonetic}
-								meanings={card.meaning}
+								meanings={card.meanings}
 							/>
 						</>
 					))}
@@ -151,74 +154,87 @@ const intro_lesson = {
 		{
 			word: "sân phổi",
 			phonetic: "",
-			meaning: {
-				definitions: [
-					{
-						definition: "courtyard",
-						example: "",
-					},
-					{
-						definition: "yard",
-						example: "",
-					},
-				],
-			},
+			meanings: [
+				{
+					partOfSpeech: "noun",
+					definitions: [
+						{
+							definition: "courtyard",
+							example: "",
+						},
+						{
+							definition: "yard",
+							example: "",
+						},
+					],
+				},
+			],
 		},
 		{
 			word: "lớp toán",
 			phonetic: "",
-			meaning: {
-				partOfSpeech: "NOUN",
-				definitions: [{ definition: "math class", example: "" }],
-			},
+			meanings: [
+				{
+					partOfSpeech: "NOUN",
+					definitions: [{ definition: "math class", example: "" }],
+				},
+			],
 		},
 		{
 			word: "nghìn lên trời",
 			phonetic: "",
-			meaning: {
-				partOfSpeech: "",
-				definitions: [{ definition: "looked up at the sky", example: "" }],
-			},
+			meanings: [
+				{
+					partOfSpeech: "",
+					definitions: [{ definition: "looked up at the sky", example: "" }],
+				},
+			],
 		},
 		{
 			word: "chưa là điều kỳ diệu",
 			phonetic: "",
-			meaning: {
-				partOfSpeech: "EXCL",
-				definitions: [{ definition: "isn't it incredible", example: "" }],
-			},
+			meanings: [
+				{
+					partOfSpeech: "EXCL",
+					definitions: [{ definition: "isn't it incredible", example: "" }],
+				},
+			],
 		},
-
 		{
 			word: "gật đầu",
 			phonetic: "",
-			meaning: {
-				partOfSpeech: "VERB",
-				definitions: [{ definition: "nodded his head", example: "" }],
-			},
+			meanings: [
+				{
+					partOfSpeech: "VERB",
+					definitions: [{ definition: "nodded his head", example: "" }],
+				},
+			],
 		},
-
 		{
 			word: "trả lời",
 			phonetic: "",
-			meaning: {
-				partOfSpeech: "",
-				definitions: [
-					{ definition: "replied", example: "" },
-					{ definition: "said", example: "" },
-				],
-			},
+			meanings: [
+				{
+					partOfSpeech: "",
+					definitions: [
+						{ definition: "replied", example: "" },
+						{ definition: "said", example: "" },
+					],
+				},
+			],
 		},
 		{
 			word: "cười",
 			phonetic: "",
-			meaning: {
-				partOfSpeech: "",
-				definitions: [
-					{ definition: "smiled", example: "" },
-					{ definition: "laughed", example: "" },
-				],
-			},
+			meanings: [
+				{
+					partOfSpeech: "",
+					definitions: [
+						{ definition: "smiled", example: "" },
+						{ definition: "laughed", example: "" },
+					],
+				},
+			],
 		},
 	],
 }
@@ -229,7 +245,7 @@ export function Reader(): ReactElement {
 	const mockLoad = useCallback(() => {
 		setTimeout(() => {
 			setData(intro_lesson)
-		}, 2000)
+		}, 1000)
 	}, [intro_lesson])
 
 	useLayoutEffect(() => {

@@ -2,7 +2,7 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query"
 import { RouterProvider, type createRouter } from "@tanstack/react-router"
-import type { ReactElement } from "react"
+import type { ReactElement, ReactNode } from "react"
 import { useState } from "react"
 import "@mantine/core/styles.css"
 import {
@@ -34,55 +34,59 @@ import { Reader } from "./Reader.tsx"
 // import { useQueryClient } from "@tanstack/react-query"
 // import { useTranslation } from "react-i18next"
 
-export function Home(): ReactElement {
-	// const content = (
-	// 	<motion.div layout>
-	// 		<CardList content={MOCK_CARD_INFO} />{" "}
-	// 		<TabbedCard tabs={["Word", "Definition", "Example", "Notes"]}>
-	// 			<VocabCard
-	// 				word={"buôi sang"}
-	// 				phonetic={"ɓuo˧j sa:˧ŋ"}
-	// 				visible
-	// 				expanded
-	// 				meanings={[{ meaning: { partOfSpeech: "NOUN", definitions: [
-	// 					definition: "Morning" , example: "Buôi sang tôi ăn đi có bạn ấy."
-	// 				]}}]}
-	// 			/>
-	// 		</TabbedCard>
-	// 	</motion.div>
-	// )
-
-	const tab = [
-		<Word key={nanoid(6)} word={"buôi sang"} partOfSpeech={"NOUN"} />,
-		<Word key={nanoid(6)} word={"ɓuo˧j sa:˧ŋ"} partOfSpeech={null} />,
-		<Meaning
-			key={nanoid(6)}
-			meanings={[
-				{
-					meaning: {
-						partOfSpeech: "",
-						definitions: [
-							{
-								definition: "Morning",
-								example: "Buôi sang tôi ăn đi có bạn ấy.",
-							},
-						],
-					},
+const tab = [
+	<Word key={nanoid(6)} word={"buôi sang"} partOfSpeech={"NOUN"} />,
+	<Word key={nanoid(6)} word={"ɓuo˧j sa:˧ŋ"} partOfSpeech={null} />,
+	<Meaning
+		key={nanoid(6)}
+		meanings={[
+			{
+				meaning: {
+					partOfSpeech: "noun",
+					definitions: [
+						{
+							definition: "Morning",
+							example: "Buôi sang tôi ăn đi có bạn ấy.",
+						},
+					],
 				},
-			]}
-		/>,
+			},
+		]}
+	/>,
+	({ children }): ReactNode => (
 		<Stack key={nanoid(6)} mb="sm">
 			<Text fw={700} size="lg">
 				"This is commonly used to talk about morning routines but less commonly
 				used in day to day phrases in the context of when or the time period an
 				action was taken/completed/done."
 			</Text>
-		</Stack>,
-	]
-
+		</Stack>
+	),
+]
+const CONTENT = () => {
 	return (
 		<>
-			<Group>Home Page</Group>
+			<Group id={"home-content"} mt={"57px"} w={"100%"}>
+				<motion.div layout>
+					<CardList content={MOCK_CARD_INFO} />{" "}
+				</motion.div>
+				<Center h={"100%"}>
+					<TabbedCard
+						tabs={["Word", "Def", "Example", "Notes"]}
+						children={[tab]}
+					/>
+				</Center>
+			</Group>
+		</>
+	)
+}
+
+export function Home(): ReactElement {
+	return (
+		<>
+			<Group>
+				<CONTENT />
+			</Group>
 		</>
 	)
 }

@@ -1,8 +1,6 @@
 import { withThemeByClassName } from "@storybook/addon-themes"
+import {AppConfig} from '@/c'
 import type { Preview } from "@storybook/react"
-
-// /* TODO: update import to your tailwind styles file. If you're using Angular, inject this through your angular.json config instead */
-// import "../src/styles/tailwind.css"
 
 const preview: Preview = {
 	parameters: {
@@ -25,6 +23,8 @@ const preview: Preview = {
 			},
 			defaultTheme: "light",
 		}),
+		//TODO: Add all provider support
+		
 	],
 }
 

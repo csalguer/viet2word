@@ -4,21 +4,6 @@ import { Group } from "@mantine/core"
 import { InfoCard } from "../components/InfoCard/InfoCard"
 import { ReactElement } from "react"
 
-// {
-// 	word: "大学",
-// 	meanings: [
-// 		{
-// 			partOfSpeech: "noun",
-// 			definitions: [
-// 				{
-// 					definition: "a university, college, or institution",
-// 					example: "University",
-// 				},
-// 			],
-// 		},
-// 	],
-// },
-
 export const MOCK_CARD_INFO = {
 	data: [
 		{
@@ -182,6 +167,7 @@ interface MockInfoCardType {
 	}[]
 }
 
+// Finish stub for query api start
 const fetchMockData: Promise<MockDataType> = async () => {
 	return Promise.resolve(MOCK_DATA)
 }

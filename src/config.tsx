@@ -5,6 +5,7 @@ import { QueryClientProvider, QueryClient } from "@tanstack/react-query"
 import { createContext, ReactNode } from "react"
 import { ColorSchemeScript } from "@mantine/core"
 import { withPalette } from "./styles/PaletteContext"
+import { Provider } from "@/components/ui/provider"
 
 export const withMantineProvider = ({ children }: ReactNode): ReactNode => {
 	return <MantineProvider theme={theme}>{children}</MantineProvider>
@@ -22,14 +23,14 @@ export const ConfigProvider = (
 	// initialConfig: { paperPreview, colors, shadows, headings, breakpoints },
 ) => {
 	return (
-		<div>
+		<>
 			<MantineProvider theme={theme}>
 				<QueryClientProvider client={queryClient}>
 					<ColorSchemeScript />
 					{withPalette(children)}
 				</QueryClientProvider>
 			</MantineProvider>
-		</div>
+		</>
 	)
 }
 
