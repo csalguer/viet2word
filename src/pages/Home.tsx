@@ -79,33 +79,10 @@ export function Home(): ReactElement {
 			</Text>
 		</Stack>,
 	]
+
 	return (
 		<>
-			<Navigation>
-				<Group
-					style={{
-						background:
-							"radial-gradient(circle at 10% 20%, rgb(226, 240, 254) 0%, rgb(255, 247, 228) 90%)",
-						height: "100%",
-					}}
-				>
-					<PageContainer>
-						{/* <Group id={"home-content"} mt={"57px"} w={"100%"}>
-							<motion.div layout>
-								<CardList content={MOCK_CARD_INFO} />{" "}
-							</motion.div>
-
-							<Center bg={"white"} h={"100%"}>
-								<TabbedCard
-									tabs={["Word", "Def", "Example", "Notes"]}
-									children={tab}
-								/>
-							</Center>
-						</Group> */}
-						<Reader />
-					</PageContainer>
-				</Group>
-			</Navigation>
+			<Group>Home Page</Group>
 		</>
 	)
 }

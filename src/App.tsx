@@ -13,6 +13,7 @@ import {
 } from "@mantine/core"
 import { useDisclosure } from "@mantine/hooks"
 import AppConfig from "./config"
+import { Navigation } from "./features/navigation"
 
 const queryClient = new QueryClient()
 
@@ -22,7 +23,9 @@ const App = ({ router }: AppProps): FunctionComponent => {
 	return (
 		<>
 			<AppConfig>
-				<RouterProvider router={router} />
+				<Navigation>
+					<RouterProvider router={router} />
+				</Navigation>
 			</AppConfig>
 		</>
 	)

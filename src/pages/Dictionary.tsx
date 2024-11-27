@@ -42,7 +42,7 @@ export function Dictionary(): ReactElement {
 						height: "100%",
 					}}
 				>
-					<PageContainer>{"HERE"}</PageContainer>
+					<PageContainer>"HERE"</PageContainer>
 				</Group>
 			</Navigation>
 		</>

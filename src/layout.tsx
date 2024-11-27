@@ -29,27 +29,7 @@ export default function RootLayout({
 				<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 				<title>VLT</title>
 			</head>
-			<body className={inter.className}>
-				<AppConfig>
-					<AppShell
-						header={{
-							height: { base: 48, sm: 60, lg: 76 },
-						}}
-						// navbar={{
-						// 	breakpoint: "sm",
-						// 	collapsed: { mobile: !mobileOpened, desktop: !desktopOpened },
-						// }}
-						padding={"md"}
-					>
-						<AppShell.Header id="nav-header">
-							{/* <Group>Tryi</Group> */}
-						</AppShell.Header>
-
-						{/* <AppShell.Navbar>"Navbar"</AppShell.Navbar> */}
-						{children}
-					</AppShell>
-				</AppConfig>
-			</body>
+			<body className={inter.className}>{children}</body>
 		</html>
 	)
 }

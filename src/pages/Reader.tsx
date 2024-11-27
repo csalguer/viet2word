@@ -35,7 +35,7 @@ import { Navigation } from "../features/navigation/Navigation.tsx"
 import { TabbedCard } from "../features/cardset/components/index.ts"
 import { nanoid } from "nanoid"
 
-import { Gradients } from "../styles/Gradients.ts"
+import { Gradients } from "../features/layout/styles/Gradients.ts"
 import Palette from "../features/layout/styles/Palette.ts"
 import { useToggle } from "@mantine/hooks"
 import { ToneNames, VnZhHighlightColor } from "../styles/Palette.tsx"
@@ -238,31 +238,25 @@ export function Reader(): ReactElement {
 
 	return (
 		<>
-			<Navigation>
-				<Group>
-					<PageContainer>
-						<Group id={"home-content"} m="lg" p="lg" w={"100%"}>
-							<Center m="xl" p="xl" h={"100%"}>
-								<Paper
-									miw={"85vw"}
-									opacity={1}
-									m="xl"
-									p="xl"
-									radius="lg"
-									bg={"white"}
-								>
-									<ReadingMaterial
-										title={data?.title}
-										content={data?.content}
-										summary={data?.summary}
-									/>
-									<VocabSheet vocab={data?.vocab} />
-								</Paper>
-							</Center>
-						</Group>
-					</PageContainer>
-				</Group>
-			</Navigation>
+			<Group id={"reader-content"} m="lg" p="lg" w={"100%"}>
+				<Center m="xl" p="xl" h={"100%"}>
+					<Paper
+						miw={"85vw"}
+						opacity={1}
+						m="xl"
+						p="xl"
+						radius="lg"
+						bg={"white"}
+					>
+						<ReadingMaterial
+							title={data?.title}
+							content={data?.content}
+							summary={data?.summary}
+						/>
+						<VocabSheet vocab={data?.vocab} />
+					</Paper>
+				</Center>
+			</Group>
 		</>
 	)
 }
