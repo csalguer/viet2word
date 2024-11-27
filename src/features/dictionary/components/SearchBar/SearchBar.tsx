@@ -28,7 +28,8 @@ export const SearchBar = (): ReactElement => {
 			className={classes.link}
 			href={link.link}
 			onClick={(event) => {
-				event.preventDefault()
+				console.log(link)
+				// event.preventDefault()
 			}}
 		>
 			{link.label}

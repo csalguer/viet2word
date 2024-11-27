@@ -1,4 +1,5 @@
 import { motion } from "framer-motion"
+import { nanoid } from "nanoid"
 
 const spring = {
 	type: "spring",
@@ -10,6 +11,7 @@ const spring = {
 export const withFadeOut = (element) => {
 	return (
 		<motion.div
+			key={nanoid(6)}
 			layout
 			exit={{ opacity: 0.0, scale: 1.2 }}
 			initial={{ opacity: 1, scale: 0.9 }}
@@ -25,6 +27,7 @@ export const withFadeOut = (element) => {
 export const withGreyedSelection = (element) => {
 	return (
 		<motion.div
+			key={nanoid(6)}
 			layout
 			exit={{ opacity: 1, scale: 1.2, color: "#0f015245" }}
 			initial={{ opacity: 1, scale: 0.9 }}
@@ -40,6 +43,7 @@ export const withGreyedSelection = (element) => {
 export const withZoom = (element, scaleBy = 1) => {
 	return (
 		<motion.div
+			key={nanoid(6)}
 			layout
 			exit={{ opacity: 1, scale: scaleBy * 0.2 }}
 			initial={{ opacity: 1, scale: scaleBy * 0.9 }}

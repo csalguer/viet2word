@@ -66,7 +66,7 @@ export const CardList = ({ content }: Cards[]): ReactElement => {
 					)}
 				</Center>
 			)
-			return <AnimatePresence>{cardElement}</AnimatePresence>
+			return <AnimatePresence key={nanoid(6)}>{cardElement}</AnimatePresence>
 		},
 		[content, selectedId]
 	)
@@ -91,7 +91,7 @@ export const CardList = ({ content }: Cards[]): ReactElement => {
 					)}
 				</Center>
 			)
-			return <AnimatePresence>{elem}</AnimatePresence>
+			return <AnimatePresence key={nanoid(6)}>{elem}</AnimatePresence>
 		},
 		[content, selectedId]
 	)
@@ -136,7 +136,7 @@ export const CardList = ({ content }: Cards[]): ReactElement => {
 					style={getListStyle()}
 				>
 					{buttons.map((elem) => {
-						return <>{elem}</>
+						return <div key={nanoid(6)}>{elem}</div>
 					})}
 				</Flex>
 			</Center>
@@ -164,7 +164,7 @@ export const Meaning = ({ meanings, onClick }: MeaningProps) => {
 						const { definitions, example } = item
 						return definitions?.map((def, index) => {
 							return (
-								<Stack mb="xs" key={nanoid(6)}>
+								<Stack key={nanoid(6)} mb="xs" key={nanoid(6)}>
 									<Text fw={700} size="md">
 										{def.definition}
 									</Text>

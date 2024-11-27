@@ -30,6 +30,7 @@ import { MOCK_CARD_INFO } from "../features/dictionary/api/mockData.ts"
 import { Navigation } from "../features/navigation/Navigation.tsx"
 import { TabbedCard } from "../features/cardset/components/index.ts"
 import { nanoid } from "nanoid"
+import { Reader } from "./Reader.tsx"
 // import { useQueryClient } from "@tanstack/react-query"
 // import { useTranslation } from "react-i18next"
 
@@ -52,9 +53,10 @@ export function Home(): ReactElement {
 	// )
 
 	const tab = [
-		<Word word={"buôi sang"} partOfSpeech={"NOUN"} />,
-		<Word word={"ɓuo˧j sa:˧ŋ"} partOfSpeech={null} />,
+		<Word key={nanoid(6)} word={"buôi sang"} partOfSpeech={"NOUN"} />,
+		<Word key={nanoid(6)} word={"ɓuo˧j sa:˧ŋ"} partOfSpeech={null} />,
 		<Meaning
+			key={nanoid(6)}
 			meanings={[
 				{
 					meaning: {
@@ -69,7 +71,7 @@ export function Home(): ReactElement {
 				},
 			]}
 		/>,
-		<Stack mb="sm">
+		<Stack key={nanoid(6)} mb="sm">
 			<Text fw={700} size="lg">
 				"This is commonly used to talk about morning routines but less commonly
 				used in day to day phrases in the context of when or the time period an
@@ -88,7 +90,7 @@ export function Home(): ReactElement {
 					}}
 				>
 					<PageContainer>
-						<Group id={"home-content"} mt={"57px"} w={"100%"}>
+						{/* <Group id={"home-content"} mt={"57px"} w={"100%"}>
 							<motion.div layout>
 								<CardList content={MOCK_CARD_INFO} />{" "}
 							</motion.div>
@@ -99,7 +101,8 @@ export function Home(): ReactElement {
 									children={tab}
 								/>
 							</Center>
-						</Group>
+						</Group> */}
+						<Reader />
 					</PageContainer>
 				</Group>
 			</Navigation>

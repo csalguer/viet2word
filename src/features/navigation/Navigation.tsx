@@ -3,6 +3,7 @@ import { AppShell } from "@mantine/core"
 import { useDisclosure } from "@mantine/hooks"
 import styles from "./Navigation.css"
 import { SearchBar } from "../dictionary/components"
+import { Gradients } from "../../styles/Gradients"
 export interface navigationProps {
 	prop?: string
 }
@@ -29,20 +30,29 @@ export function Navigation({ children }: navigationProps) {
 
 	return (
 		<AppShell
-			header={{
-				// height: { base: 48, sm: 60, lg: 76 },
-				// breakpoint: "sm",
-				width: "100vw",
-				// height: "10vh",
-				// collapsed: { mobile: mobileOpened, desktop: desktopOpened },
-			}}
+			header={
+				{
+					// height: { base: 48, sm: 60, lg: 76 },
+					// breakpoint: "sm",
+					// width: "100vw",
+					// height: "10vh",
+					// collapsed: { mobile: mobileOpened, desktop: desktopOpened },
+				}
+			}
 			// navbar={{
 			// 	// hidden: "md",
 			// 	// hiddenFrom: "sm",
 			// 	breakpoint: "sm",
 			// 	collapsed: { mobile: !mobileOpened, desktop: !desktopOpened },
 			// }}
+			w={"100%"}
+			h={"100vh"}
 			padding={"md"}
+			style={{
+				background: Gradients.summer,
+				overflow: "scroll",
+				// height: "100%",
+			}}
 		>
 			<AppShell.Header width={"100vw"}>
 				<SearchBar word={word} onSearch={handleSearch} onWordChange={setWord} />

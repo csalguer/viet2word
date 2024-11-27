@@ -3,7 +3,7 @@ import { Card, Tabs, Center, Stack, Flex } from "@mantine/core"
 import styles from "./TabbedCard.css"
 import palette from "../../../../styles/Palette"
 import { withGreyedSelection } from "../../../animation/hooks"
-
+import { nanoid } from "nanoid"
 export interface TabbedCardProps {
 	tabs: string[]
 	children: ReactElement[] | ReactElement
@@ -36,9 +36,12 @@ export function TabbedCard({ tabs, children }: TabbedCardProps) {
 						{tabs?.map((tab, index) => {
 							const color =
 								palette?.highlight[index % palette?.highlight?.length]
-							return withGreyedSelection(
+							return
+							;<>
+								withGreyedSelection(
 								<Tabs.Tab
 									value={tab}
+									key={nanoid(6)}
 									color={palette?.highlight[index % palette?.highlight?.length]}
 									style={{
 										fontSize: "1.0rem",
@@ -57,7 +60,8 @@ export function TabbedCard({ tabs, children }: TabbedCardProps) {
 								>
 									{tab}
 								</Tabs.Tab>
-							)
+								)052.
+							</>
 						})}
 					</Tabs.List>
 					{children?.length &&
@@ -66,6 +70,7 @@ export function TabbedCard({ tabs, children }: TabbedCardProps) {
 								palette?.highlight[index % palette?.highlight?.length]
 							return (
 								<Tabs.Panel
+									key={nanoid(6)}
 									value={tabs[index]}
 									h={"100%"}
 									w={"fit-content"}
