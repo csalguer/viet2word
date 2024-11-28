@@ -11,7 +11,7 @@ export interface TabbedCardProps {
 
 export function TabbedCard({ tabs, children }: TabbedCardProps) {
 	const [activeTab, setActiveTab] = useState<string | null>(tabs[0])
-
+	
 	return (
 		<>
 			<Center>

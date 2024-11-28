@@ -216,6 +216,8 @@ export function VocabCard({
 			shadow="sm"
 			padding="lg"
 			h="auto"
+			mah={{ base: 300, sm: "100%", md: "25vh" }}
+			mih={{ base: 300, sm: "100%", md: "20vh" }}
 			w={{ base: 300, sm: "100%", md: "25vw" }}
 			radius="md"
 			withBorder

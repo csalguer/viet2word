@@ -102,7 +102,6 @@ export const ReadingMaterial = ({
 		const reading = []
 		// console.log(sentences)
 		for (const sentence of sentences) {
-			console.log(sentence)
 			const wordElements = sentence.split(" ").map((word, index) => {
 				return (
 					<motion.div
@@ -190,7 +189,7 @@ export const VocabSheet = ({}: VocabSheetProps): ReactElement => {
 					{/* {t("vocab_sheet.title")} */}
 					Vocabulary
 				</Text>
-				<Flex wrap={"wrap"} direction={"row"} gap={"lg"}>
+				<Flex wrap={"wrap"} justify={'center'} align={'center'} direction={"row"} gap={"lg"}>
 					{intro_lesson_ZH?.vocab?.map((card, index) => (
 						<>
 							<VocabCard
