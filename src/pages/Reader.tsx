@@ -78,6 +78,32 @@ export const Legend = (props: BoxProps) => {
 	)
 }
 
+function detectVietnameseTone(word: string): string {
+	const toneMarks: Record<string, string> = {
+		ngang: "", // No diacritical mark
+		huyền: "àầằèềìòồờùừỳ",
+		sắc: "áấắéếíóốúứý",
+		hỏi: "ảẩẳẻểỉỏổởửủỷ",
+		ngã: "ãẵẫễẽĩỡỗõũữỹ",
+		nặng: "ạặậẹệịọộợụựỵ",
+	}
+
+	// Iterate through tone categories and check for matching characters
+	for (const [tone, characters] of Object.entries(toneMarks)) {
+		for (const char of word) {
+			if (characters.includes(char)) {
+				return tone // Return the first detected tone
+			}
+		}
+	}
+	return "ngang" // Default to neutral tone if no mark is found
+}
+
+// Example usage
+const word = "hỏi"
+const tone = detectVietnameseTone(word)
+console.log(`The tone of the word '${word}' is: ${tone}`)
+
 // export const VnDiacriticMap = {
 // 	NGANG: {},
 // 	SAC:{} ,
