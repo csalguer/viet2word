@@ -216,7 +216,7 @@ export function VocabCard({
 			shadow="sm"
 			padding="lg"
 			h="auto"
-			w={{ base: 300, sm: "100%", md: "30vw" }}
+			w={{ base: 300, sm: "100%", md: "25vw" }}
 			radius="md"
 			withBorder
 		>

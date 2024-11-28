@@ -6,6 +6,43 @@
 import {Color, ToneNames, VnZhHighlightColor, Palette} from "../styles/Palette"
 
 
+function detectVietnameseTone(word: string): string {
+	const toneMarks: Record<string, string> = {
+		NGA: "", // No diacritical mark
+		HUYEN: "àầằèềìòồờùừỳ",
+		SAC: "áấắéếíóốúứý",
+		HOI: "ảẩẳẻểỉỏổởửủỷ",
+		NGA: "ãẵẫễẽĩỡỗõũữỹ",
+		NANG: "ạặậẹệịọộợụựỵ",
+	}
+
+	// Iterate through tone categories and check for matching characters
+	for (const [tone, characters] of Object.entries(toneMarks)) {
+		for (const char of word) {
+			if (characters.includes(char)) {
+				return tone // Return the first detected tone
+			}
+		}
+	}
+	return "ngang" // Default to neutral tone if no mark is found
+}
+
+// Example usage
+
+// export const VnDiacriticMap = {
+// 	NGANG: {},
+// 	SAC:{} ,
+// 	HUYEN:{} ,
+// 	HOI:{} ,
+// 	NGA:{} ,
+// 	NANG:{} ,
+// }
+
+// const getToneColor = (word: string): CSSStyleValue => {
+
+// }
+
+
 type Diacritic<Tone> = Record<Tone, (s:string) => string>
 {
   Tone.NGANG: (s:string) => {return {

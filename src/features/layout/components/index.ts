@@ -1,1 +1,0 @@
-export {NightModeSwitch} from './NightModeSwitch';

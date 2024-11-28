@@ -38,7 +38,7 @@ import { MOCK_CARD_INFO } from "../features/dictionary/api/mockData.ts"
 import { Navigation } from "../features/navigation/Navigation.tsx"
 import { TabbedCard } from "../features/cardset/components/index.ts"
 import { nanoid } from "nanoid"
-
+import {intro_lesson_VN, intro_lesson_ZH} from "../features/reader/api/mockLesson"
 import { Gradients } from "../features/layout/styles/Gradients.ts"
 import Palette, {
 	VnZhHighlightColor,
@@ -77,45 +77,6 @@ export const Legend = (props: BoxProps) => {
 		</Center>
 	)
 }
-
-function detectVietnameseTone(word: string): string {
-	const toneMarks: Record<string, string> = {
-		ngang: "", // No diacritical mark
-		huyền: "àầằèềìòồờùừỳ",
-		sắc: "áấắéếíóốúứý",
-		hỏi: "ảẩẳẻểỉỏổởửủỷ",
-		ngã: "ãẵẫễẽĩỡỗõũữỹ",
-		nặng: "ạặậẹệịọộợụựỵ",
-	}
-
-	// Iterate through tone categories and check for matching characters
-	for (const [tone, characters] of Object.entries(toneMarks)) {
-		for (const char of word) {
-			if (characters.includes(char)) {
-				return tone // Return the first detected tone
-			}
-		}
-	}
-	return "ngang" // Default to neutral tone if no mark is found
-}
-
-// Example usage
-const word = "hỏi"
-const tone = detectVietnameseTone(word)
-console.log(`The tone of the word '${word}' is: ${tone}`)
-
-// export const VnDiacriticMap = {
-// 	NGANG: {},
-// 	SAC:{} ,
-// 	HUYEN:{} ,
-// 	HOI:{} ,
-// 	NGA:{} ,
-// 	NANG:{} ,
-// }
-
-// const getToneColor = (word: string): CSSStyleValue => {
-
-// }
 
 export const ReadingMaterial = ({
 	title,
@@ -229,8 +190,8 @@ export const VocabSheet = ({}: VocabSheetProps): ReactElement => {
 					{/* {t("vocab_sheet.title")} */}
 					Vocabulary
 				</Text>
-				<Flex wrap={"wrap"} direction={"column"} gap={"xl"}>
-					{intro_lesson?.vocab?.map((card, index) => (
+				<Flex wrap={"wrap"} direction={"row"} gap={"lg"}>
+					{intro_lesson_ZH?.vocab?.map((card, index) => (
 						<>
 							<VocabCard
 								key={nanoid(6)}
@@ -246,99 +207,6 @@ export const VocabSheet = ({}: VocabSheetProps): ReactElement => {
 	)
 }
 
-const intro_lesson = {
-	title: "Intro",
-	content: `Ana và Carlos ngồi xuống trong sân phổi đợi khi lớp toán bắt đầu. Ana nhìn lên trời và nói: "Chưa là điều kỳ diệu như thế nào đã thay đổi thời tiết gần đây?". Carlos gật đầu và trả lời: "Vâng, những ngày này rất nóng. Tôi hy vọng sẽ có mưa một chút để làm mát không khí". Ana cười và nói: "Tôi cũng vậy, nhưng tôi nghĩ đó là bình thường vào mùa này". Carlos cười và cả hai tiếp tục trò chuyện về thời tiết khi chờ các bạn đến.`,
-	summary:
-		"Ana and Carlos discussed the hot weather in the courtyard before their math class, with Ana commenting on its sudden change and Carlos expressing his desire for rain.",
-	vocab: [
-		{
-			word: "sân phổi",
-			phonetic: "",
-			meanings: [
-				{
-					partOfSpeech: "noun",
-					definitions: [
-						{
-							definition: "courtyard",
-							example: "",
-						},
-						{
-							definition: "yard",
-							example: "",
-						},
-					],
-				},
-			],
-		},
-		{
-			word: "lớp toán",
-			phonetic: "",
-			meanings: [
-				{
-					partOfSpeech: "NOUN",
-					definitions: [{ definition: "math class", example: "" }],
-				},
-			],
-		},
-		{
-			word: "nghìn lên trời",
-			phonetic: "",
-			meanings: [
-				{
-					partOfSpeech: "",
-					definitions: [{ definition: "looked up at the sky", example: "" }],
-				},
-			],
-		},
-		{
-			word: "chưa là điều kỳ diệu",
-			phonetic: "",
-			meanings: [
-				{
-					partOfSpeech: "EXCL",
-					definitions: [{ definition: "isn't it incredible", example: "" }],
-				},
-			],
-		},
-		{
-			word: "gật đầu",
-			phonetic: "",
-			meanings: [
-				{
-					partOfSpeech: "VERB",
-					definitions: [{ definition: "nodded his head", example: "" }],
-				},
-			],
-		},
-		{
-			word: "trả lời",
-			phonetic: "",
-			meanings: [
-				{
-					partOfSpeech: "",
-					definitions: [
-						{ definition: "replied", example: "" },
-						{ definition: "said", example: "" },
-					],
-				},
-			],
-		},
-		{
-			word: "cười",
-			phonetic: "",
-			meanings: [
-				{
-					partOfSpeech: "",
-					definitions: [
-						{ definition: "smiled", example: "" },
-						{ definition: "laughed", example: "" },
-					],
-				},
-			],
-		},
-	],
-}
 
 const Section = ({ children }) => {
 	return (
@@ -392,27 +260,17 @@ const GrammarPreview = ({ grammarPoints }) => {
 }
 
 export function Reader(): ReactElement {
-	// const [data, setData] = useState<Materia | null>(null)
 
-	// const mockLoad = useCallback(() => {
-	// 	setData(intro_lesson)
-	// 	// setTimeout(() => {
-	// 	// }, 1000)
-	// }, [intro_lesson])
-
-	// useLayoutEffect(() => {
-	// 	mockLoad()
-	// }, [])
 
 	const introductoryElements = [
 		() => {
-			return <Summary summary={intro_lesson.summary} />
+			return <Summary summary={intro_lesson_ZH.summary} />
 		},
 		() => {
 			return (
 				<ReadingMaterial
-					title={intro_lesson.title}
-					content={intro_lesson.content}
+					title={intro_lesson_ZH.title}
+					content={intro_lesson_ZH.content}
 				/>
 			)
 		},
@@ -438,7 +296,7 @@ export function Reader(): ReactElement {
 					{introductoryElements.map((element, index) => (
 						<Section key={index}>{element()}</Section>
 					))}
-					<VocabSheet vocab={intro_lesson.vocab} />
+					<VocabSheet vocab={intro_lesson_ZH.vocab} />
 				</Flex>
 			</Group>
 		</>

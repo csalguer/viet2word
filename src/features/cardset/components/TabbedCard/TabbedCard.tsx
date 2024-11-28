@@ -25,7 +25,6 @@ export function TabbedCard({ tabs, children }: TabbedCardProps) {
 				>
 					<Tabs.List
 						style={{
-							// backgroundColor: "gray.800",
 							color: "white",
 							boxShadow: "0 0 0 1px gray.200",
 							gap: "0rem",
@@ -37,8 +36,8 @@ export function TabbedCard({ tabs, children }: TabbedCardProps) {
 							const color =
 								palette?.highlight[index % palette?.highlight?.length]
 							return
-							;<>
-								withGreyedSelection(
+							<>
+								{withGreyedSelection(
 								<Tabs.Tab
 									value={tab}
 									key={nanoid(6)}
@@ -60,7 +59,7 @@ export function TabbedCard({ tabs, children }: TabbedCardProps) {
 								>
 									{tab}
 								</Tabs.Tab>
-								)052.
+								)}
 							</>
 						})}
 					</Tabs.List>
