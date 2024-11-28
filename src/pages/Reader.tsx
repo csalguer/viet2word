@@ -17,7 +17,11 @@ import {
 	Pill,
 	Box,
 	Flex,
+	Title,
+	BoxProps,
+	Transition,
 } from "@mantine/core"
+import { useHover } from "@mantine/hooks"
 import {
 	InfoCard,
 	PageContainer,
@@ -40,7 +44,7 @@ import Palette, {
 	VnZhHighlightColor,
 } from "../features/layout/styles/Palette.ts"
 import { useToggle } from "@mantine/hooks"
-import { ToneNames } from "../styles/Palette.tsx"
+import palette, { ToneNames } from "../styles/Palette.tsx"
 import { VocabCardProps } from "../features/dictionary/components/InfoCard/types.ts"
 
 export interface ReadingMaterialProps {
@@ -49,9 +53,9 @@ export interface ReadingMaterialProps {
 	summary: string
 }
 
-export const Legend = () => {
+export const Legend = (props: BoxProps) => {
 	return (
-		<Center opacity={1}>
+		<Center hiddenFrom={props?.hiddenFrom} opacity={1}>
 			<Flex
 				direction={"row"}
 				w={"100%"}
@@ -74,37 +78,101 @@ export const Legend = () => {
 	)
 }
 
+// export const VnDiacriticMap = {
+// 	NGANG: {},
+// 	SAC:{} ,
+// 	HUYEN:{} ,
+// 	HOI:{} ,
+// 	NGA:{} ,
+// 	NANG:{} ,
+// }
+
+// const getToneColor = (word: string): CSSStyleValue => {
+
+// }
+
 export const ReadingMaterial = ({
 	title,
 	content,
-	summary,
 }: ReadingMaterialProps): ReactElement => {
-	const [expanded, setExpanded] = useState<boolean>(false)
+	const [sentences, setSentences] = useState<Array<string>>([])
+	const [displayedContent, setDisplayedContent] = useState(null)
+	const [sentenceFocused, setSentenceFocused] = useState<number | null>(null)
+	const [wordFocused, setWordFocused] = useState<number | null>(null)
 
 	const [value, toggle] = useToggle([false, true])
-	const handleClick = useCallback(() => {
-		toggle()
-	}, [expanded])
+
+	const { wordHovered, wordRef } = useHover()
+	const { sentenceHovered, sentenceRef } = useHover()
+
+	useEffect(() => {
+		if (!!content) {
+			setSentences(content?.split("."))
+		}
+	}, [content])
+
+	useEffect(() => {
+		const reading = []
+		// console.log(sentences)
+		for (const sentence of sentences) {
+			console.log(sentence)
+			const wordElements = sentence.split(" ").map((word, index) => {
+				return (
+					<motion.div
+						whileHover={() => {
+							border: "1px solid slateblue"
+						}}
+					>
+						<Text
+							className="word"
+							key={nanoid(6)}
+							w={"fit-content"}
+							h={"100%"}
+							size="xl"
+						>
+							{word}
+						</Text>
+					</motion.div>
+				)
+			})
+
+			const sentenceElem = (
+				<>
+					<Flex
+						className="sentence"
+						wrap="wrap"
+						align="flex-start"
+						direction={"row"}
+						style={{ textWrap: "wrap", flexWrap: "wrap" }}
+						gap={"0.2rem"}
+						justify={"flex-start"}
+					>
+						{wordElements}
+					</Flex>
+				</>
+			)
+			reading.push(sentenceElem)
+		}
+		setDisplayedContent(reading)
+	}, [sentences, wordRef, sentenceRef])
 
 	return (
-		<Stack m="xl" p="xl" direction={"column"} gap={"md"}>
-			<Text size="2.4rem" fw={700}>
-				{title}
-			</Text>
-			<Text size="2.0rem" fw={400}>
-				Summary
-			</Text>
-			<Text size="xl" fw={400}>
-				{summary}
-			</Text>
-			<Text size="2.0rem" fw={500}>
-				Reading
-			</Text>
-			<Text size="xl" fw={400}>
-				{content}
-			</Text>
-			<Legend />
-		</Stack>
+		<>
+			<Stack
+				m={{ base: "md", sm: "md", lg: "xl" }}
+				p={{ base: "md", sm: "md", lg: "xl" }}
+				direction={"column"}
+				gap={"md"}
+			>
+				<Title order={1} fw={700}>
+					{title}
+				</Title>
+				<Flex style={{ flexWrap: "wrap", overflowWrap: "break-word" }}>
+					{displayedContent}
+				</Flex>
+				<Legend hiddenFrom={"sm"} />
+			</Stack>
+		</>
 	)
 }
 
@@ -116,17 +184,24 @@ export interface Materia extends ReadingMaterialProps {
 	vocab?: VocabWord[]
 }
 
-// TODO: 
+// TODO:
 export const VocabSheet = ({}: VocabSheetProps): ReactElement => {
 	const { t } = useTranslation()
 	console.log(useId(), MOCK_CARD_INFO)
 
 	return (
-		<Box>
-			<Flex w={"100%"} direction={"column"} gap={"md"}>
-				<Text size="xl" fw={700}>
+		<>
+			<Flex
+				w={"100%"}
+				justify={"center"}
+				align={"center"}
+				direction={"column"}
+				gap={"md"}
+				p="lg"
+			>
+				<Text color={Palette.gray["800"]} size="1.8rem" fw={700}>
 					{/* {t("vocab_sheet.title")} */}
-					VOCAB
+					Vocabulary
 				</Text>
 				<Flex wrap={"wrap"} direction={"column"} gap={"xl"}>
 					{intro_lesson?.vocab?.map((card, index) => (
@@ -141,7 +216,7 @@ export const VocabSheet = ({}: VocabSheetProps): ReactElement => {
 					))}
 				</Flex>
 			</Flex>
-		</Box>
+		</>
 	)
 }
 
@@ -239,39 +314,106 @@ const intro_lesson = {
 	],
 }
 
+const Section = ({ children }) => {
+	return (
+		<>
+			<Paper
+				miw={"85vw"}
+				opacity={1}
+				m={{ base: 0, sm: 0, lg: "xl" }}
+				p={{ base: 0, sm: 0, lg: "xl" }}
+				radius="lg"
+				bg={"white"}
+			>
+				{children}
+			</Paper>
+		</>
+	)
+}
+
+const Summary = ({ summary }) => {
+	return (
+		<>
+			<Stack
+				m={{ base: "md", sm: "md", lg: "xl" }}
+				p={{ base: "md", sm: "md", lg: "xl" }}
+				direction={"column"}
+				gap={"md"}
+			>
+				<Title order={1} fw={700}>
+					Summary
+				</Title>
+				<Text size="xl" fw={400}>
+					{summary}
+				</Text>
+			</Stack>
+		</>
+	)
+}
+const GrammarPreview = ({ grammarPoints }) => {
+	return (
+		<>
+			<Title order={3} fw={400}>
+				Grammar Preview
+			</Title>
+			{grammarPoints?.map((point, index) => (
+				<Text key={nanoid(6)} size="xl" fw={400}>
+					{point}
+				</Text>
+			))}
+		</>
+	)
+}
+
 export function Reader(): ReactElement {
-	const [data, setData] = useState<Materia | null>(null)
+	// const [data, setData] = useState<Materia | null>(null)
 
-	const mockLoad = useCallback(() => {
-		setTimeout(() => {
-			setData(intro_lesson)
-		}, 1000)
-	}, [intro_lesson])
+	// const mockLoad = useCallback(() => {
+	// 	setData(intro_lesson)
+	// 	// setTimeout(() => {
+	// 	// }, 1000)
+	// }, [intro_lesson])
 
-	useLayoutEffect(() => {
-		mockLoad()
-	}, [])
+	// useLayoutEffect(() => {
+	// 	mockLoad()
+	// }, [])
+
+	const introductoryElements = [
+		() => {
+			return <Summary summary={intro_lesson.summary} />
+		},
+		() => {
+			return (
+				<ReadingMaterial
+					title={intro_lesson.title}
+					content={intro_lesson.content}
+				/>
+			)
+		},
+		() => {
+			return <GrammarPreview grammarPoints={null} />
+		},
+	]
 
 	return (
 		<>
-			<Group id={"reader-content"} m="lg" p="lg" w={"100%"}>
-				<Center m="xl" p="xl" h={"100%"}>
-					<Paper
-						miw={"85vw"}
-						opacity={1}
-						m="xl"
-						p="xl"
-						radius="lg"
-						bg={"white"}
-					>
-						<ReadingMaterial
-							title={data?.title}
-							content={data?.content}
-							summary={data?.summary}
-						/>
-						<VocabSheet vocab={data?.vocab} />
-					</Paper>
-				</Center>
+			<Group
+				id={"reader-content"}
+				m={{ base: 0, sm: 0, lg: "lg" }}
+				p={{ base: 0, sm: 0, lg: "lg" }}
+				w={"100%"}
+			>
+				<Flex
+					justify={"center"}
+					align={"center"}
+					direction={"column"}
+					gap={"xl"}
+				>
+					{introductoryElements.map((element, index) => (
+						<Section key={index}>{element()}</Section>
+					))}
+					<VocabSheet vocab={intro_lesson.vocab} />
+				</Flex>
 			</Group>
 		</>
 	)

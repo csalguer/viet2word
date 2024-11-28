@@ -8,7 +8,6 @@ const config: StorybookConfig = {
 		"@storybook/addon-styling",
 		"@mantine/core",
 		"storybook-addon-mantine",
-
 		{
 			name: "storybook-addon-mantine",
 			options: {},

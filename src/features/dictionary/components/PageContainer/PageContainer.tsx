@@ -65,31 +65,33 @@ export interface PageContainerProps {
 // }
 
 const PageContainer = ({ children }: PageContainerProps): ReactElement => {
-	
-
-
 	return (
 		<>
 			<Container fluid id={"container"}>
-				<Box
-					style={{
-						position: "absolute",
-						top: "2rem",
-						right: "2rem",
-					}}
-				></Box>
 				<Center
 					style={{
-						background: "",
 						height: "100%",
 					}}
-					mt="lg"
+					mt="xl"
 				>
 					<Flex
 						w={"100%"}
 						gap={"md"}
 						direction={"row"}
-						p={"lg"}
+						hiddenFrom="md"
+						align={"center"}
+						justify={"center"}
+						wrap={"wrap"}
+						// p={"lg"}
+						id="page-container-flex"
+					>
+						{children}
+					</Flex>
+					<Flex
+						w={"100%"}
+						gap={"md"}
+						direction={"row"}
+						visibleFrom="lg"
 						align={"center"}
 						justify={"center"}
 						wrap={"wrap"}

@@ -33,9 +33,9 @@ export function Navigation({ children }: navigationProps) {
 			<AppShell
 				w={"100%"}
 				h={"100vh"}
-				padding={"md"}
+				padding={{ base: 0, sm: 0, md: "md", lg: "md" }}
 				style={{
-					background: Gradients.summer,
+					background: Gradients.light,
 					overflow: "scroll",
 					// height: "100%",
 				}}

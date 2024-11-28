@@ -5,7 +5,7 @@ import { MantineProvider } from "@mantine/core"
 import InfoCard from "./InfoCard"
 import { MOCK_CARD_INFO } from "../../api/mockData"
 import { theme } from "../../../../styles/theme"
-import { AppConfig } from "../../../../config"
+import { withMantineProvider, AppConfig } from "../../../../config"
 
 // import { withPalette } from "../../../../styles/PaletteContext"
 
@@ -14,11 +14,8 @@ const meta: Meta<typeof InfoCard> = {
 	decorators: [
 		(Story, { parameters }) => {
 			const { word, phonetic, meanings } = parameters
-			return (
-				<AppConfig>
-					<Story word={word} phonetic={phonetic} meanings={meanings} />
-				</AppConfig>
-			)
+			const elem = <Story word={word} phonetic={phonetic} meanings={meanings} />
+			return withMantineProvider({ children: elem })
 		},
 	],
 }
@@ -81,7 +78,6 @@ export const Word: Story = {
 		phonetic: "känCH, käNGk",
 	},
 }
-
 
 export const Meaning: Story = {
 	args: {

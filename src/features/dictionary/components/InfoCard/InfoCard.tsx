@@ -171,7 +171,7 @@ export const Meaning = ({ meanings, onClick }: MeaningProps) => {
 						const { definitions, example } = item
 						return definitions?.map((def, index) => {
 							return (
-								<Stack key={nanoid(6)} mb="xs" key={nanoid(6)}>
+								<Stack key={nanoid(6)} mb="xs">
 									<Text fw={700} size="md">
 										{def.definition}
 									</Text>
@@ -232,11 +232,7 @@ export function VocabCard({
 	)
 }
 
-const DictionaryItem = () => {
-	
-}
-
-
+const DictionaryItem = () => {}
 
 export const EmptyCard = () => {
 	return (

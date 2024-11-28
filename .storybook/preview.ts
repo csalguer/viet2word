@@ -1,5 +1,5 @@
 import { withThemeByClassName } from "@storybook/addon-themes"
-import {AppConfig} from '@/c'
+import { AppConfig } from "@/c"
 import type { Preview } from "@storybook/react"
 
 const preview: Preview = {
@@ -23,8 +23,6 @@ const preview: Preview = {
 			},
 			defaultTheme: "light",
 		}),
-		//TODO: Add all provider support
-		
 	],
 }
 
