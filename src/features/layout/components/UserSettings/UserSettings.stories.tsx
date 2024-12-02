@@ -1,14 +1,14 @@
-import React from 'react';
-import type {Meta, StoryObj} from '@storybook/react';
+import React from "react"
+import type { Meta, StoryObj } from "@storybook/react"
 
-import {UserSettings} from './UserSettings';
+import { UserSettings } from "./UserSettings"
 
 const meta: Meta<typeof UserSettings> = {
-  component: UserSettings,
-};
+	component: UserSettings,
+}
 
-export default meta;
+export default meta
 
-type Story = StoryObj<typeof UserSettings>;
+type Story = StoryObj<typeof UserSettings>
 
-export const Basic: Story = {args: {}};
+export const Basic: Story = { args: {} }

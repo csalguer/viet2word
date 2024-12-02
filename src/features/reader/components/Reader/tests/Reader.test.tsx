@@ -1,5 +1,5 @@
-import React from 'react';
+import React from "react"
 
-import {Reader} from '../Reader';
+import { Reader } from "../Reader"
 
-describe('<Reader />', () => {});
+describe("<Reader />", () => {})

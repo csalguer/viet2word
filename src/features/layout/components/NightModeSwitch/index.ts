@@ -1,1 +1,2 @@
-export * from './NightModeSwitch';
+export * from "./NightModeSwitch"
+export * from "./NightModeButton"

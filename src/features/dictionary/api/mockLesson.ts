@@ -91,5 +91,4 @@ const intro_lesson = {
 		},
 	],
 }
-
-default export intro_lesson
+export default intro_lesson

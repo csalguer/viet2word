@@ -1,2 +1,2 @@
-export {Reader} from './Reader';
-export {ReadingContent} from './ReadingContent';
+export { Reader } from "./Reader"
+export { ReadingContent } from "./ReadingContent"

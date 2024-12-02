@@ -1,14 +1,14 @@
-import React from 'react';
-import type {Meta, StoryObj} from '@storybook/react';
+import React from "react"
+import type { Meta, StoryObj } from "@storybook/react"
 
-import {ReadingContent} from './ReadingContent';
+import { ReadingContent } from "./ReadingContent"
 
 const meta: Meta<typeof ReadingContent> = {
-  component: ReadingContent,
-};
+	component: ReadingContent,
+}
 
-export default meta;
+export default meta
 
-type Story = StoryObj<typeof ReadingContent>;
+type Story = StoryObj<typeof ReadingContent>
 
-export const Basic: Story = {args: {}};
+export const Basic: Story = { args: {} }

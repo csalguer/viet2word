@@ -41,11 +41,7 @@ export function Dictionary(): ReactElement {
 						height: "100%",
 					}}
 				>
-					<PageContainer>
-						{
-						
-						}
-						</PageContainer>
+					<PageContainer>{}</PageContainer>
 				</Group>
 			</Navigation>
 		</>

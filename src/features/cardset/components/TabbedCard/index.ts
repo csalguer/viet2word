@@ -1,1 +1,1 @@
-export * from './TabbedCard';
+export * from "./TabbedCard"

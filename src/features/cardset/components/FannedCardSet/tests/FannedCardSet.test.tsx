@@ -1,5 +1,5 @@
-import React from 'react';
+import React from "react"
 
-import {FannedCardSet} from '../FannedCardSet';
+import { FannedCardSet } from "../FannedCardSet"
 
-describe('<FannedCardSet />', () => {});
+describe("<FannedCardSet />", () => {})

@@ -1,5 +1,5 @@
-import React from "react";
+import React from "react"
 
-import { navigation } from "../Navigation";
+import { navigation } from "../Navigation"
 
-describe("<navigation />", () => {});
+describe("<navigation />", () => {})

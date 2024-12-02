@@ -1,5 +1,5 @@
-import React from 'react';
+import React from "react"
 
-import {NightModeSwitch} from '../NightModeSwitch';
+import { NightModeSwitch } from "../NightModeSwitch"
 
-describe('<NightModeSwitch />', () => {});
+describe("<NightModeSwitch />", () => {})

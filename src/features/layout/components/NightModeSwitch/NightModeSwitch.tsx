@@ -1,32 +1,65 @@
-import React from 'react';
+import { useState, useEffect } from "react"
 
-import styles from './NightModeSwitch.css';
-import { useColorScheme } from '@mantine/hooks';
-import { Switch } from '@mantine/core';
-
+import { useColorScheme } from "@mantine/hooks"
+import { Switch, ActionIcon, IconAdjustments, rem } from "@mantine/core"
+import { IconSun, IconMoon } from "@tabler/icons-react"
+import { colorsPractical } from "../../styles/Palette"
 
 export interface NightModeSwitchProps {
-
+	darkMode: boolean
 }
 
+export function NightModeSwitch({ prop }: NightModeSwitchProps) {
+	const colorScheme = useColorScheme()
 
-const SunIcon = () => {
-  return (
-    <>
-    </>
-  )
+	const sunIcon = (
+		<IconSun
+			style={{ width: rem(16), height: rem(16) }}
+			stroke={2.5}
+			color={colorsPractical[1]}
+		/>
+	)
+
+	const moonIcon = (
+		<IconMoon
+			style={{ width: rem(16), height: rem(16) }}
+			stroke={2.5}
+			color={colorsPractical[5]}
+		/>
+	)
+
+	return (
+		<Switch
+			size="xl"
+			color={"gray"}
+			onLabel={<sunIcon />}
+			offLabel={<moonIcon />}
+		></Switch>
+	)
 }
-const MoonIcon = () => {
-  return (
-    <>
-    </>
-  )
-}
 
-export function NightModeSwitch({prop = 'default value'}: NightModeSwitchProps) {
-  const colorScheme = useColorScheme();
+export const NightModeButton = ({ props }) => {
+	const colorScheme = useColorScheme()
 
-  return (
-    <Switch onLabel={} offLabel={}></Switch>
-  )
+	const sunIcon = (
+		<IconSun
+			style={{ width: rem(16), height: rem(16) }}
+			stroke={2.5}
+			color={colorsPractical[1]}
+		/>
+	)
+
+	const moonIcon = (
+		<IconMoon
+			style={{ width: rem(16), height: rem(16) }}
+			stroke={2.5}
+			color={colorsPractical[5]}
+		/>
+	)
+	return (
+		<ActionIcon variant="filled" color="gray" size="xl" aria-label="Night Mode">
+			<IconAdjustments style={{ width: "70%", height: "70%" }} stroke={1.5} />
+			{colorScheme ? <sunIcon /> : <moonIcon />}
+		</ActionIcon>
+	)
 }

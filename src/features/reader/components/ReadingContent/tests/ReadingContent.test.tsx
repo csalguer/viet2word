@@ -1,5 +1,5 @@
-import React from 'react';
+import React from "react"
 
-import {ReadingContent} from '../ReadingContent';
+import { ReadingContent } from "../ReadingContent"
 
-describe('<ReadingContent />', () => {});
+describe("<ReadingContent />", () => {})

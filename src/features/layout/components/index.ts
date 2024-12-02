@@ -1,2 +1,2 @@
-export {NightModeSwitch} from './NightModeSwitch';
-export {UserSettings} from './UserSettings';
+export { NightModeSwitch } from "./NightModeSwitch"
+export { UserSettings } from "./UserSettings"

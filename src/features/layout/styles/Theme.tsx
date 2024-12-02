@@ -1,8 +1,8 @@
-import { mode } from '@chakra-ui/theme-tools'
-import type { StyleFunctionProps } from '@chakra-ui/styled-system'
+import { mode } from "@chakra-ui/theme-tools"
+import type { StyleFunctionProps } from "@chakra-ui/styled-system"
 
-import { extendTheme } from '@chakra-ui/react'
-import * as colors from './Palette'
+import { extendTheme } from "@chakra-ui/react"
+import * as colors from "./Palette"
 
 // import { colorsUpdated } from './ColorsUpdated'
 // Keep wave form 1/2 (line or box fills...) ==> WaveSurfer () > remove canvas click disappear issue
@@ -22,29 +22,29 @@ import * as colors from './Palette'
 //
 
 const theme = extendTheme(() => {
-  return {
-    components: {
-      Text: {
-        sizes: {
-          md: {},
-          lg: {},
-          xl: {},
-        },
-        variants: {
-          base: {},
-          lg: {
-            backgroundImage: '',
-          },
-        },
-      },
-    },
-    styles: {
-      global: {
-        body: {},
-      },
-    },
-    colors: { ...colors },
-  }
+	return {
+		components: {
+			Text: {
+				sizes: {
+					md: {},
+					lg: {},
+					xl: {},
+				},
+				variants: {
+					base: {},
+					lg: {
+						backgroundImage: "",
+					},
+				},
+			},
+		},
+		styles: {
+			global: {
+				body: {},
+			},
+		},
+		colors: { ...colors },
+	}
 })
 
 export default theme

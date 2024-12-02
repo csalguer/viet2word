@@ -38,7 +38,10 @@ import { MOCK_CARD_INFO } from "../features/dictionary/api/mockData.ts"
 import { Navigation } from "../features/navigation/Navigation.tsx"
 import { TabbedCard } from "../features/cardset/components/index.ts"
 import { nanoid } from "nanoid"
-import {intro_lesson_VN, intro_lesson_ZH} from "../features/reader/api/mockLesson"
+import {
+	intro_lesson_VN,
+	intro_lesson_ZH,
+} from "../features/reader/api/mockLesson"
 import { Gradients } from "../features/layout/styles/Gradients.ts"
 import Palette, {
 	VnZhHighlightColor,
@@ -189,7 +192,13 @@ export const VocabSheet = ({}: VocabSheetProps): ReactElement => {
 					{/* {t("vocab_sheet.title")} */}
 					Vocabulary
 				</Text>
-				<Flex wrap={"wrap"} justify={'center'} align={'center'} direction={"row"} gap={"lg"}>
+				<Flex
+					wrap={"wrap"}
+					justify={"center"}
+					align={"center"}
+					direction={"row"}
+					gap={"lg"}
+				>
 					{intro_lesson_ZH?.vocab?.map((card, index) => (
 						<>
 							<VocabCard
@@ -205,7 +214,6 @@ export const VocabSheet = ({}: VocabSheetProps): ReactElement => {
 		</>
 	)
 }
-
 
 const Section = ({ children }) => {
 	return (
@@ -259,8 +267,6 @@ const GrammarPreview = ({ grammarPoints }) => {
 }
 
 export function Reader(): ReactElement {
-
-
 	const introductoryElements = [
 		() => {
 			return <Summary summary={intro_lesson_ZH.summary} />

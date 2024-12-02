@@ -81,9 +81,9 @@ const CONTENT = () => {
 export function Home(): ReactElement {
 	return (
 		<>
-			{/* <Group>
+			<Group>
 				<CONTENT />
-			</Group> */}
+			</Group>
 		</>
 	)
 }

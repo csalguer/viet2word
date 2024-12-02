@@ -6,7 +6,7 @@ import { useDisclosure } from "@mantine/hooks"
 import { IconSearch } from "@tabler/icons-react"
 // import { MantineLogo } from "@mantinex/mantine-logo"
 import classes from "../SearchBar/SearchBar.module.css"
-
+import { NightModeButton } from "../../../layout/components/NightModeSwitch/NightModeButton"
 export interface SearchBarProps {
 	prop?: string
 }
@@ -59,6 +59,7 @@ export const SearchBar = (): ReactElement => {
 							/>
 						}
 					/>
+					<NightModeButton />
 				</Group>
 			</div>
 		</header>

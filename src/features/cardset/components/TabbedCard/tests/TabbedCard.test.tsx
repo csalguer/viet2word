@@ -1,5 +1,5 @@
-import React from 'react';
+import React from "react"
 
-import {TabbedCard} from '../TabbedCard';
+import { TabbedCard } from "../TabbedCard"
 
-describe('<TabbedCard />', () => {});
+describe("<TabbedCard />", () => {})

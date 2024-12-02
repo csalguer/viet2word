@@ -1,1 +1,1 @@
-export * from './ReadingContent';
+export * from "./ReadingContent"
