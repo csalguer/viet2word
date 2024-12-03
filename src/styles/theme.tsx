@@ -8,7 +8,7 @@ const typography = {
 	// spacing: "1rem",
 	headings: {
 		fontFamily:
-			"system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif",
+			"'Loretta', system-ui, -apple-system, BlinkMacSystemFont ,'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif",
 		fontWeight: "700",
 		textWrap: "wrap",
 		// sizes: {
