@@ -56,7 +56,7 @@ export const SearchBar = (): ReactElement => {
 							<IconSearch
 								stroke={1.5}
 								style={{ width: rem(16), height: rem(16) }}
-							/> 
+							/>
 						}
 					/>
 					<NightModeButton />
