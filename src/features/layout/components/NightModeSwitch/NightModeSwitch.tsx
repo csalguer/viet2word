@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react"
 
 import { useColorScheme } from "@mantine/hooks"
-import { Switch, ActionIcon, IconAdjustments, rem } from "@mantine/core"
+import { Switch, ActionIcon, rem } from "@mantine/core"
 import { IconSun, IconMoon } from "@tabler/icons-react"
 import { colorsPractical } from "../../styles/Palette"
 
@@ -58,7 +58,7 @@ export const NightModeButton = ({ props }) => {
 	)
 	return (
 		<ActionIcon variant="filled" color="gray" size="xl" aria-label="Night Mode">
-			<IconAdjustments style={{ width: "70%", height: "70%" }} stroke={1.5} />
+			{/* <IconAdjustments style={{ width: "70%", height: "70%" }} stroke={1.5} /> */}
 			{colorScheme ? <sunIcon /> : <moonIcon />}
 		</ActionIcon>
 	)

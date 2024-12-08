@@ -6,6 +6,8 @@ import { createContext, ReactNode } from "react"
 import { ColorSchemeScript } from "@mantine/core"
 import { withPalette } from "./styles/PaletteContext"
 import { Provider } from "@/components/ui/provider"
+import '@mantine/carousel/styles.css'; // Include carousel styles 
+
 
 export const withMantineProvider = ({ children }: ReactNode): ReactNode => {
 	return <MantineProvider theme={theme}>{children}</MantineProvider>

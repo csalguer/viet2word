@@ -19,7 +19,7 @@ import {
 	Group,
 	Switch,
 } from "@mantine/core"
-import { InfoCard, CardList } from "../InfoCard/InfoCard"
+import { InfoCard, CardList } from "../InfoCard/VocabCard"
 import { MOCK_CARD_INFO } from "../../api/mockData"
 import { Gradients } from "../../../layout/styles/Gradients"
 import { palette } from "../../../../styles/Palette"

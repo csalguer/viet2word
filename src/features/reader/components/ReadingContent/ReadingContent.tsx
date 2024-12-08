@@ -1,7 +1,5 @@
 import React from "react"
 
-import styles from "./ReadingContent.css"
-
 export interface ReadingContentProps {
 	prop?: string
 }

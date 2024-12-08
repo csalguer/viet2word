@@ -1,28 +1,16 @@
 import { MantineSize } from "@mantine/core"
+import { Definition, DictionaryItem } from "../../types"
 
-export interface InfoCardProps {
+export interface DictionaryItemProps {
 	// Make sure this is used for all vocab as schema for data
-	word: string
-	phonetic?: string
-	meanings: Array<{
-		partOfSpeech: string
-		definitions: Array<{
-			definition: string
-			example?: string
-		}>
-	}>
+	item: DictionaryItem
 }
 
-export interface Cards {
+type VocabCard = DictionaryItem<typeof T>
+
+export interface Cards<T> {
 	content: {
-		word: string
-		meanings: {
-			partOfSpeech: string
-			definitions: {
-				definition: string
-				example: string
-			}
-		}[]
+		items: T[]
 	}[]
 }
 
@@ -31,15 +19,12 @@ export interface WordProps {
 	partOfSpeech?: string
 	isRTL?: boolean
 }
-export interface MeaningProps {
-	meanings: {
-		definition: string
-		example?: string
-	}[]
+export interface DefinitionsListProps {
+	definitions: Definition[]
 	onClick?: () => void
 }
 
-export interface VocabCardProps extends InfoCardProps {
+export interface VocabCardProps extends DictionaryItem {
 	// hideDefinitions?: boolean
 	visible?: boolean
 	expanded?: boolean

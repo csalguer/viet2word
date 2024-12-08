@@ -1,8 +1,7 @@
-import { useCallback, useEffect } from "react"
+import { useCallback, useEffect, ReactElement } from "react"
 import { useQuery } from "@tanstack/react-query"
 import { Group } from "@mantine/core"
-import { InfoCard } from "../components/InfoCard/InfoCard"
-import { ReactElement } from "react"
+import { InfoCard } from "../components/VocabCard"
 
 export const MOCK_CARD_INFO = {
 	data: [
@@ -150,6 +149,53 @@ export const MOCK_CARD_INFO = {
 	],
 }
 
+export const EXTRA = {
+	data: [
+		{
+			word: "Conch",
+			meanings: [
+				{
+					partOfSpeech: "noun",
+					definitions: [
+						{
+							definition: "Mollusk",
+							example:
+								"A plate is plate dem	countably plural in Patois, a famous dish of which is Conch Salad.",
+						},
+					],
+				},
+			],
+		},
+		{
+			word: "junction",
+			phonetic: "jəNG(k)SHən",
+			meanings: [
+				{
+					partOfSpeech: "noun",
+					definitions: [
+						{
+							definition: "a point where two or more things are joined",
+							example: ": the junction of the two rivers.",
+						},
+						{
+							definition:
+								"Electronics a region of transition in a semiconductor between a part where conduction is mainly by electrons and a part where it is mainly by holes.",
+							example: ": the junction of the two rivers.",
+						},
+						{
+							definition: "the action or fact of joining or being joined",
+							example:
+								"the vena cava is formed by the junction of three veins | the junction of two roundels produces a triangular space",
+						},
+					],
+				},
+			],
+		},
+	],
+}
+
+export const DATA = MOCK_CARD_INFO.data.concat(EXTRA.data)
+
 type Meaning = {
 	meanings: {
 		partOfSpeech: string
@@ -165,18 +211,4 @@ interface MockInfoCardType {
 		word: string
 		meanings: Meaning[]
 	}[]
-}
-
-// Finish stub for query api start
-const fetchMockData: Promise<MockDataType> = async () => {
-	return Promise.resolve(MOCK_DATA)
-}
-
-const mockDataGet = (): MockDataType => {
-	return useMockData()
-}
-// const fetchMockData = (): MockDataType => { }
-
-export const useMockData = () => {
-	return useQuery<MockDataType>("mockData", fetchMockData)
 }

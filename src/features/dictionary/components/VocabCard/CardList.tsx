@@ -22,12 +22,12 @@ import { motion, AnimatePresence, LayoutGroup } from "framer-motion"
 import { nanoid } from "nanoid"
 import { useCallback, useEffect, useState } from "react"
 import palette from "../../../../styles/Palette"
-
+import { VocabCard } from "./VocabCard"
 import {
 	InfoCardProps,
 	Cards,
 	WordProps,
-	MeaningProps,
+	DefinitionsListProps,
 	VocabCardProps,
 } from "./types"
 import {
@@ -36,9 +36,18 @@ import {
 	withZoom,
 } from "../../../animation/hooks/index"
 
-export const CardList = ({ content }: Cards[]): ReactElement => {
+interface APIReturn<T> {
+	data?: T | T[] | Record<string, T>
+	error: {
+		status: number
+		message: string
+		time: Date
+	}
+}
+// type CardData = typeof Cards
+type CardData = APIReturn<CardData>
+export const CardList = ({ content }: CardData): ReactElement => {
 	// TODO: Implement logic to render multiple InfoCard components based on the content prop.
-
 	const [selectedId, setSelectedId] = useState(null)
 	const [cards, setCards] = useState([])
 	const [buttons, setButtons] = useState([])
@@ -135,7 +144,7 @@ export const CardList = ({ content }: Cards[]): ReactElement => {
 					wrap={"wrap"}
 					style={getListStyle()}
 				>
-					{buttons.map((elem) => {
+					{buttons?.map((elem) => {
 						return <div key={nanoid(6)}>{elem}</div>
 					})}
 				</Flex>
@@ -144,109 +153,20 @@ export const CardList = ({ content }: Cards[]): ReactElement => {
 	)
 }
 
-export const Word = ({ word, partOfSpeech, isRTL = false }: WordProps) => {
-	return (
-		<>
-			<Flex
-				// TODO: Add RTL support alongside i18n support fixes with t() hook (useInternationalization?)
-				// direction={isRTL ? "row" : "row-reverse"}
-				justify="space-between"
-				mt="md"
-				mb="xs"
-			>
-				<Text size="xl" fw={700}>
-					{word}
-				</Text>
-				{partOfSpeech && <Badge>{partOfSpeech}</Badge>}
-			</Flex>
-		</>
-	)
-}
-export const Meaning = ({ meanings, onClick }: MeaningProps) => {
-	return (
-		<Space h="100%" onClick={onClick}>
-			<Stack justify="space-between" mt="md" mb="xs">
-				{meanings?.length &&
-					meanings?.map((item, index) => {
-						const { definitions, example } = item
-						return definitions?.map((def, index) => {
-							return (
-								<>
-									<Group>
-										-
-										<Stack key={nanoid(6)} mb="xs">
-											<Text fw={700} size="md">
-												{def.definition}
-											</Text>
-											<Text size="xs">{def.example}</Text>
-										</Stack>
-									</Group>
-								</>
-							)
-						})
-					})}
-			</Stack>
-		</Space>
-	)
+interface CarouselListProps extends CardData {
+
 }
 
-// TODO: Make small, med, and larger, separate button-like
-// TODO: Account for inner clickable + draggable on outer
-// TODO: Pass through "as" prop
+export const CarouselList = ({content}: CarouselListProps): ReactElement => {
 
-export function VocabCard({
-	word,
-	phonetic,
-	meanings,
-	vertical = false,
-	size,
-	visible = true,
-	expanded = true,
-	onClick = null,
-	handle,
-}: VocabCardProps) {
-	const [isVisible, toggleVisibility] = useState<boolean>(visible)
-	const [isExpanded, toggleExpanded] = useState<boolean>(expanded)
 
-	// const handleVisibilityToggle = useCallback(() => {
-	// 	toggleVisibility(!isVisible)
-	// }, [isVisible])
+  return (
+    <>
+    <Group>
+      <Center>
 
-	const handleExpandedToggle = useCallback(() => {
-		toggleExpanded(!isExpanded)
-	}, [isExpanded])
-
-	return (
-		<Card
-			shadow="sm"
-			padding="lg"
-			h="auto"
-			mah={{ base: 300, sm: "100%", md: "25vh" }}
-			mih={{ base: 300, sm: "100%", md: "20vh" }}
-			w={{ base: 300, sm: "100%", md: "25vw" }}
-			radius="md"
-			withBorder
-		>
-			<Stack display={"flex"} justify="space-between" ml="md" mt="xs" mb="xs">
-				<Word word={word} partOfSpeech={meanings[0]?.partOfSpeech} />
-				{isExpanded ? (
-					<Meaning meanings={meanings} />
-				) : (
-					<Skeleton size={"lg"} />
-				)}
-			</Stack>
-		</Card>
-	)
+      </Center>
+    </Group>
+    </>
+  )
 }
-
-const DictionaryItem = () => {}
-
-export const EmptyCard = () => {
-	return (
-		<>
-			<VocabCard word={"  "} meanings={[]} />
-		</>
-	)
-}
-
-export default VocabCard

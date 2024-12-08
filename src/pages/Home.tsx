@@ -20,7 +20,7 @@ import {
 	SearchBar,
 	CardList,
 	VocabCard,
-	Meaning,
+	DefinitionsList,
 	Word,
 } from "../features/dictionary/components"
 import { motion, AnimatePresence, LayoutGroup } from "framer-motion"
