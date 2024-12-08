@@ -2,19 +2,19 @@ import React from "react"
 import type { Meta, StoryObj } from "@storybook/react"
 
 import PageContainer from "./PageContainer"
-import { MantineProvider } from "@mantine/core"
+import { Center, MantineProvider } from "@mantine/core"
 import AppConfig from "../../../../config"
 
 const meta: Meta<typeof PageContainer> = {
 	component: PageContainer,
 	decorators: [
-		// (Story, { parameters }) => {
-		// 	return (
-		// 		<AppConfig>
-		// 			<Story word={word} phonetic={phonetic} meanings={meanings} />
-		// 		</AppConfig>
-		// 	)
-		// },
+		(Story, { parameters }) => {
+			return (
+				<Center bg={'teal'} w="100%" h="100vh">
+					{Story()}
+				</Center>
+			)
+		},
 	],
 }
 

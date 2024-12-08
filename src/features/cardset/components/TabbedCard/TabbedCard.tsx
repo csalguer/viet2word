@@ -9,18 +9,25 @@ export interface TabbedCardProps {
 	children: ReactElement[] | ReactElement
 }
 
-const tabStyle = {
-	fontSize: "1.0rem",
-	fontWeight: "bold",
-	background: palette?.highlight[index % palette?.highlight?.length],
-	color: "white",
-	textTransform: "uppercase",
-	cursor: "pointer",
-	textOrientation: "mixed",
-	writingMode: "vertical-rl",
-	borderRadius: "0rem",
-	borderBottomLeftRadius: "0.8rem",
-	borderTopLeftRadius: "0.8rem",
+
+const getTabColor = (num: number): string =>  (palette?.highlight[num % palette?.highlight?.length])
+
+
+
+const tabStyle = (num: number): ReactElement => { 
+	return {
+		fontSize: "1.0rem",
+		fontWeight: "bold",
+		background: getTabColor(num),
+		color: "white",
+		textTransform: "uppercase",
+		cursor: "pointer",
+		textOrientation: "mixed",
+		writingMode: "vertical-rl",
+		borderRadius: "0rem",
+		borderBottomLeftRadius: "0.8rem",
+		borderTopLeftRadius: "0.8rem",
+	}
 }
 
 export function TabbedCard({ tabs, children }: TabbedCardProps) {
@@ -41,18 +48,15 @@ export function TabbedCard({ tabs, children }: TabbedCardProps) {
 						color: "white",
 						boxShadow: "0 0 0 1px gray.200",
 						gap: "0rem",
-						// borderTopRightRadius: "md",
-						// borderTopLeftRadius: "md",
 					}}
 				>
 					{tabs?.map((tab, index) => {
-						const color = palette?.highlight[index % palette?.highlight?.length]
 						return
-						;<Tabs.Tab
+						<Tabs.Tab
 							value={tab}
 							key={nanoid(6)}
-							color={color}
-							style={tabStyle}
+							color={getTabColor(index)}
+							style={tabStyle(index)}
 						>
 							{tab}
 						</Tabs.Tab>
@@ -60,7 +64,6 @@ export function TabbedCard({ tabs, children }: TabbedCardProps) {
 				</Tabs.List>
 				{children?.length &&
 					children?.map((child, index) => {
-						const color = palette?.highlight[index % palette?.highlight?.length]
 						return (
 							<Tabs.Panel
 								key={nanoid(6)}
@@ -68,7 +71,7 @@ export function TabbedCard({ tabs, children }: TabbedCardProps) {
 								h={"100%"}
 								w={"fit-content"}
 								color="white"
-								style={{ borderLeft: `1.0rem solid ${color}` }}
+								style={{ borderLeft: `1.0rem solid ${getTabColor(index)}` }}
 							>
 								<Center h={"100%"}>
 									<TabbedCardContent>{child}</TabbedCardContent>

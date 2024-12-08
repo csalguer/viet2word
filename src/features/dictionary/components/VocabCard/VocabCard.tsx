@@ -36,6 +36,24 @@ import {
 	withZoom,
 } from "../../../animation/hooks/index"
 
+
+
+// TODO: Remember to internationalize all type accesses for the PartOfSpeech enum type
+// TODO: Type out all possible parts of speech including:
+//       -[] Zh
+//       -[] Kr
+//       -[] Sp
+//       -[] Jp
+//       -[] Eng
+//       -[] Vn
+// enum type PartOfSpeech {
+// 	noun
+// 	adj
+// adv
+// verb, ..., etc.
+// }
+
+
 export const Word = ({ word, partOfSpeech, isRTL = false }: WordProps) => {
 	return (
 		<>

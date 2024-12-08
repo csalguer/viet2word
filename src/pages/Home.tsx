@@ -36,10 +36,41 @@ import { Reader } from "./Reader.tsx"
 
 const tab = [
 	<Word key={nanoid(6)} word={"buôi sang"} partOfSpeech={"NOUN"} />,
-	<Word key={nanoid(6)} word={"ɓuo˧j sa:˧ŋ"} partOfSpeech={null} />,
-	<Meaning
+	<DefinitionsList
 		key={nanoid(6)}
-		meanings={[
+		definitions={[
+			{
+				meaning: {
+					partOfSpeech: "noun",
+					definitions: [
+						{
+							definition: "Morning",
+							example: "Buôi sang tôi ăn đi có bạn ấy.",
+						},
+					],
+				},
+			},
+		]}
+	/>,
+	<DefinitionsList
+		key={nanoid(6)}
+		definitions={[
+			{
+				meaning: {
+					partOfSpeech: "noun",
+					definitions: [
+						{
+							definition: "Morning",
+							example: "Buôi sang tôi ăn đi có bạn ấy.",
+						},
+					],
+				},
+			},
+		]}
+	/>,
+	<DefinitionsList
+		key={nanoid(6)}
+		definitions={[
 			{
 				meaning: {
 					partOfSpeech: "noun",
@@ -67,12 +98,12 @@ const CONTENT = () => {
 	return (
 		<>
 			<Group id={"home-content"} mt={"57px"} w={"100%"}>
-				{/* <Center h={"100%"}>
+				<Center h={"100%"}>
 					<TabbedCard
 						tabs={["Word", "Def", "Example", "Notes"]}
 						children={[tab]}
 					/>
-				</Center> */}
+				</Center>
 			</Group>
 		</>
 	)
@@ -81,9 +112,9 @@ const CONTENT = () => {
 export function Home(): ReactElement {
 	return (
 		<>
-			{/* <Group>
+			<Group>
 				<CONTENT />
-			</Group> */}
+			</Group>
 		</>
 	)
 }

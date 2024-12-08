@@ -18,7 +18,7 @@ import {
 	em,
 } from "@mantine/core"
 import { useMediaQuery } from "@mantine/hooks"
-import { Carousel } from "@mantine/carousel"
+import { Carousel, Embla } from "@mantine/carousel"
 import { motion, AnimatePresence, LayoutGroup } from "framer-motion"
 import { nanoid } from "nanoid"
 import { useCallback, useEffect, useState } from "react"
@@ -140,7 +140,6 @@ export const CardList = ({ content }: CardData): ReactElement => {
 				<Flex
 					direction="row"
 					justify="center"
-					// align={"center"}
 					gap="1em"
 					wrap={"wrap"}
 					style={getListStyle()}
@@ -154,14 +153,37 @@ export const CardList = ({ content }: CardData): ReactElement => {
 	)
 }
 
-interface CarouselListProps extends CardData {}
+interface CarouselListProps extends CardData {
+	content: VocabCard[]
+	handleScroll: () => void
+	handle
+
+}
 
 export const CarouselList = ({ content }: CarouselListProps): ReactElement => {
+
+
+
 	return (
 		<>
-			<Group>
-				<Carousel></Carousel>
-			</Group>
+			<Flex h={{base: 300, sm: 250, md: 300, lg: 400}}>
+				<Carousel withIndicators slideSize={"25%"} style={{flex: 1}}  slideGap={'md'} loop>
+					<Carousel.Slide>
+						{
+							content?.map((item, index) => {
+								return (
+									<>
+										<Group>
+											<VocabCard size={"lg"} word={item.word} phonetic={item.phonetic} definitions={item.definitions} />
+										</Group>
+									</>
+								)
+							})
+						}
+					</Carousel.Slide>
+
+				</Carousel>
+			</Flex>
 		</>
 	)
 }

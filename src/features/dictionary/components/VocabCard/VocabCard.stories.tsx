@@ -1,7 +1,8 @@
 import React from "react"
 import type { Meta, StoryObj } from "@storybook/react"
 
-import VocabCard, { CardList } from "./VocabCard"
+import {VocabCard} from "./VocabCard"
+import {CardList} from "./CardList"
 import { MOCK_CARD_INFO } from "../../api/mockData"
 import { theme } from "../../../../styles/theme"
 // import { withMantineProvider, AppConfig } from "../../../../config"
