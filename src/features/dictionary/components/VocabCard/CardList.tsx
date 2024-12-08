@@ -18,6 +18,7 @@ import {
 	em,
 } from "@mantine/core"
 import { useMediaQuery } from "@mantine/hooks"
+import { Carousel } from "@mantine/carousel"
 import { motion, AnimatePresence, LayoutGroup } from "framer-motion"
 import { nanoid } from "nanoid"
 import { useCallback, useEffect, useState } from "react"
@@ -153,20 +154,14 @@ export const CardList = ({ content }: CardData): ReactElement => {
 	)
 }
 
-interface CarouselListProps extends CardData {
+interface CarouselListProps extends CardData {}
 
-}
-
-export const CarouselList = ({content}: CarouselListProps): ReactElement => {
-
-
-  return (
-    <>
-    <Group>
-      <Center>
-
-      </Center>
-    </Group>
-    </>
-  )
+export const CarouselList = ({ content }: CarouselListProps): ReactElement => {
+	return (
+		<>
+			<Group>
+				<Carousel></Carousel>
+			</Group>
+		</>
+	)
 }
