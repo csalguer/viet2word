@@ -18,14 +18,14 @@ function ColorSchemeWrapper({ children }: { children: React.ReactNode }) {
     return () => channel.off(DARK_MODE_EVENT_NAME, handleColorScheme);
   }, [channel]);
 
-  return <>{children}</>;
+  return <>{children}</>; 
 }
 
 
 export const decorators = [
   (renderStory: any) => <ColorSchemeWrapper>{renderStory()}</ColorSchemeWrapper>,
   (renderStory: any) => <MantineProvider>{renderStory()}</MantineProvider>,
-];
+]
 
 export const preview: Preview = {
 	parameters: {

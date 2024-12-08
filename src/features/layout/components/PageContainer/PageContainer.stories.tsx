@@ -8,21 +8,20 @@ import AppConfig from "../../../../config"
 const meta: Meta<typeof PageContainer> = {
 	component: PageContainer,
 	decorators: [
-		(Story, { parameters }) => {
-			const { word, phonetic, meanings } = parameters
-			return (
-				<AppConfig>
-					<Story word={word} phonetic={phonetic} meanings={meanings} />
-				</AppConfig>
-			)
-		},
+		// (Story, { parameters }) => {
+		// 	return (
+		// 		<AppConfig>
+		// 			<Story word={word} phonetic={phonetic} meanings={meanings} />
+		// 		</AppConfig>
+		// 	)
+		// },
 	],
 }
-
-export default meta
 
 type Story = StoryObj<typeof PageContainer>
 
 export const Primary: Story = {
 	args: { primary: true, label: "PageContainer" },
 }
+
+export default meta

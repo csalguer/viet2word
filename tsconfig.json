@@ -4,6 +4,7 @@
 		"useDefineForClassFields": true,
 		"lib": ["ES2020", "DOM", "DOM.Iterable"],
 		"module": "ESNext",
+		"composite": true,
 		"skipLibCheck": false,
 		"esModuleInterop": true,
 		"allowSyntheticDefaultImports": true,
@@ -29,5 +30,4 @@
 		"noUncheckedIndexedAccess": true
 	},
 	"include": ["src", "e2e"],
-	"references": [{ "path": "./tsconfig.node.json" }]
 }
