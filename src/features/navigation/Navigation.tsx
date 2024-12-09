@@ -4,14 +4,14 @@ import { useDisclosure } from "@mantine/hooks"
 import styles from "./Navigation.css"
 import { PageContainer, SearchBar } from "../dictionary/components"
 import { Gradients } from "../layout/styles/Gradients"
-export interface navigationProps {
+export interface NavigationProps {
 	prop?: string
 }
 
 type DefinitionType = { definition?: string; example?: string }
 const NULL_DEFINITION = { definition: null, example: null }
 
-export function Navigation({ children }: navigationProps) {
+export function Navigation({ children }: NavigationProps) {
 	const [mobileOpened, { toggle: toggleMobile }] = useDisclosure()
 	const [desktopOpened, { toggle: toggleDesktop }] = useDisclosure()
 	const [word, setWord] = useState("")

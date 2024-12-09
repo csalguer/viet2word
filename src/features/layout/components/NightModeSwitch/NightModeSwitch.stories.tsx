@@ -1,7 +1,7 @@
 import React from "react"
 import type { Meta, StoryObj } from "@storybook/react"
 
-import {NightModeSwitch} from "./NightModeSwitch"
+import {NightModeSwitch, NightModeButton} from "./NightModeSwitch"
 import { Center, MantineProvider } from "@mantine/core"
 
 const meta: Meta<typeof NightModeSwitch> = {
