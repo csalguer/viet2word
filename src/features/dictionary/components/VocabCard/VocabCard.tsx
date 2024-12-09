@@ -107,7 +107,7 @@ export const DefinitionsList = ({
 export const VocabCard = ({
 	word,
 	phonetic,
-	definitions,
+	meanings,
 	vertical = false,
 	size,
 	visible = true,
@@ -136,10 +136,10 @@ export const VocabCard = ({
 			<Stack display={"flex"} justify="space-between" ml="md" mt="xs" mb="xs">
 				<Word
 					word={word}
-					partOfSpeech={definitions?.length && definitions[0]?.partOfSpeech}
+					partOfSpeech={meanings?.length && meanings[0]?.partOfSpeech}
 				/>
 				{isExpanded ? (
-					<DefinitionsList definitions={definitions} />
+					<DefinitionsList definitions={meanings} />
 				) : (
 					<Skeleton size={"lg"} />
 				)}

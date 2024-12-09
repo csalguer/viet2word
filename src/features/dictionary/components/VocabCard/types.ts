@@ -25,18 +25,10 @@ export interface DefinitionsListProps {
 }
 
 export interface VocabCardProps extends DictionaryItem {
-	// hideDefinitions?: boolean
 	visible?: boolean
 	expanded?: boolean
 	size?: MantineSize
 	vertical?: boolean
-	// toggleHidden?: () => void
 	onClick?: () => void
-	// word?: string
-	// phonetic?: string
-	// meanings?: Meaning[]
-	// onClick?: () => void
-	// content?: CardList[]["content"][]
-	// createCards?: (item: CardList[]["content"][0], index: number) => ReactElement
-	// cards?: ReactElement[]
+	
 }

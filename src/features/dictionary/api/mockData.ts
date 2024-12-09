@@ -7,6 +7,7 @@ export const MOCK_CARD_INFO = {
 	data: [
 		{
 			word: "vẹt đuôi dài",
+			phonetic: "vɛːkᴰ² ɗuːjᴬ¹ jaːjᴬ²",
 			meanings: [
 				{
 					partOfSpeech: "noun",
@@ -58,6 +59,7 @@ export const MOCK_CARD_INFO = {
 		},
 		{
 			word: "mèo",
+			phonetic: "mɛːwᴬ²",
 			meanings: [
 				{
 					partOfSpeech: "noun",
@@ -72,6 +74,7 @@ export const MOCK_CARD_INFO = {
 		},
 		{
 			word: "công tác",
+			phonetic: "kɔŋ͡mᴬ¹ taːkᴰ¹",
 			meanings: [
 				{
 					partOfSpeech: "noun",

@@ -14,3 +14,15 @@ export interface DictionaryItem {
 	phonetic?: string
 	meanings: Array<Meaning>
 }
+
+
+// SearchItem == DictionaryEntry
+// Entry -> 
+//     headword: string
+//     pronunciation: string
+//     partOfSpeech: string
+//     DEFs: [
+//       definition: string 
+//       ¿translation: i18n?
+//       example: string
+//     ]
