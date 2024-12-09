@@ -15,8 +15,8 @@ const links = [
 	{ link: "/home", label: "HOME" },
 	{ link: "/reader", label: "READER" },
 	{ link: "/dictionary", label: "DICTIONARY" },
-	{ link: "/pricing", label: "PRICING" },
-	{ link: "/chat", label: "CHAT" },
+	// { link: "/pricing", label: "PRICING" },
+	// { link: "/chat", label: "CHAT" },
 ]
 
 export const SearchBar = (): ReactElement => {
@@ -37,32 +37,30 @@ export const SearchBar = (): ReactElement => {
 	))
 
 	return (
-		<header className={classes.header}>
-			<div className={classes.inner}>
-				<Group>
-					<Burger hiddenFrom="sm" opened={opened} size="sm" onClick={toggle} />
-					{/* <MantineLogo size={28} /> */}
-				</Group>
+		<div className={classes.inner}>
+			<Group>
+				<Burger hiddenFrom="sm" opened={opened} size="sm" onClick={toggle} />
+				{/* <MantineLogo size={28} /> */}
+			</Group>
 
-				<Group>
-					<Group className={classes.links} gap={5} ml={50} visibleFrom="sm">
-						{items}
-					</Group>
-					<Autocomplete
-						className={classes.search}
-						placeholder="Search"
-						visibleFrom="xs"
-						leftSection={
-							<IconSearch
-								stroke={1.5}
-								style={{ width: rem(16), height: rem(16) }}
-							/>
-						}
-					/>
-					<NightModeButton />
+			<Group>
+				<Group className={classes.links} gap={5} ml={50} visibleFrom="sm">
+					{items}
 				</Group>
-			</div>
-		</header>
+				<Autocomplete
+					className={classes.search}
+					placeholder="Search"
+					visibleFrom="xs"
+					leftSection={
+						<IconSearch
+							stroke={1.5}
+							style={{ width: rem(16), height: rem(16) }}
+						/>
+					}
+				/>
+				<NightModeButton />
+			</Group>
+		</div>
 	)
 }
 

@@ -10,7 +10,7 @@ const meta: Meta<typeof PageContainer> = {
 	decorators: [
 		(Story, { parameters }) => {
 			return (
-				<Center bg={'teal'} w="100%" h="100vh">
+				<Center bg={"teal"} w="100%" h="100vh">
 					{Story()}
 				</Center>
 			)

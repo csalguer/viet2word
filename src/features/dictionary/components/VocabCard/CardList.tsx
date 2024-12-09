@@ -157,32 +157,36 @@ interface CarouselListProps extends CardData {
 	content: VocabCard[]
 	handleScroll: () => void
 	handle
-
 }
 
 export const CarouselList = ({ content }: CarouselListProps): ReactElement => {
-
-
-
 	return (
 		<>
-			<Flex h={{base: 300, sm: 250, md: 300, lg: 400}}>
-				<Carousel withIndicators slideSize={"25%"} style={{flex: 1}}  slideGap={'md'} loop>
-					<Carousel.Slide>
-						{
-							content?.map((item, index) => {
-								return (
-									<>
-										<Group>
-											<VocabCard size={"lg"} word={item.word} phonetic={item.phonetic} definitions={item.definitions} />
-										</Group>
-									</>
-								)
-							})
-						}
-					</Carousel.Slide>
-
-				</Carousel>
+			<Flex h={{ base: 300, sm: 250, md: 300, lg: 400 }}>
+				<Group>
+					<Carousel
+						withIndicators
+						slideSize={"25%"}
+						style={{ flex: 1 }}
+						slideGap={"md"}
+						loop
+					>
+						{content?.map((item, index) => {
+							return (
+								<>
+									<Carousel.Slide>
+										<VocabCard
+											size={"lg"}
+											word={item.word}
+											phonetic={item.phonetic}
+											definitions={item.definitions}
+										/>
+									</Carousel.Slide>
+								</>
+							)
+						})}
+					</Carousel>
+				</Group>
 			</Flex>
 		</>
 	)

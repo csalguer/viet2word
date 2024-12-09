@@ -1,13 +1,10 @@
 import React from "react"
 import type { Meta, StoryObj } from "@storybook/react"
 
-import {VocabCard} from "./VocabCard"
-import {CardList} from "./CardList"
+import { VocabCard } from "./VocabCard"
+import { CardList } from "./CardList"
 import { MOCK_CARD_INFO } from "../../api/mockData"
 import { theme } from "../../../../styles/theme"
-// import { withMantineProvider, AppConfig } from "../../../../config"
-
-// import { withPalette } from "../../../../styles/PaletteContext"
 
 const meta: Meta<typeof VocabCard> = {
 	component: VocabCard,
@@ -20,7 +17,6 @@ const metaList: Meta<typeof CardList> = {
 
 const { data } = MOCK_CARD_INFO
 type Story = StoryObj<typeof VocabCard>
-type VocabListStory = StoryObj<typeof CardList>
 
 // TODO: Multiple examples and how to render
 // TODO: Styling for origin of the definition (jargon, industry, study/field) // keep consistent per language
@@ -31,6 +27,7 @@ export const Primary: Story = {
 		primary: true,
 		label: "VocabCard",
 		...data[0],
+		expanded: true,
 	},
 }
 export const Empty: Story = {

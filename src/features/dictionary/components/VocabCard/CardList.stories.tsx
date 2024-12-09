@@ -37,21 +37,16 @@ export const VocabList: VocabListStory = {
 	},
 }
 
+//TODO: Make carousel with
+// Story Progression
+// Lightning Round
+//
+// Picture to Word Associations
+// Any Carousel ~> Focus on Scroll Animations
+//Replaceable Indicator?
 export const Carousel: Story = {
 	args: {
 		label: "CarouselList",
-		...Primary.args,
-	},
-}
-export const Static: Story = {
-	args: {
-		label: "Static",
-		...Primary.args,
-	},
-}
-export const Interactable: Story = {
-	args: {
-		label: "Interactable",
 		...Primary.args,
 	},
 }

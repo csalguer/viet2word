@@ -20,9 +20,7 @@ const meta: Meta<typeof Navigation> = {
 type Story = StoryObj<typeof Navigation>
 
 export const Primary: Story = {
-	args: { primary: true, label: "Navigation",
-		
-	 },
+	args: { primary: true, label: "Navigation" },
 }
 
 export default meta

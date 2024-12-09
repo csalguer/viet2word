@@ -9,12 +9,10 @@ export interface TabbedCardProps {
 	children: ReactElement[] | ReactElement
 }
 
+const getTabColor = (num: number): string =>
+	palette?.highlight[num % palette?.highlight?.length]
 
-const getTabColor = (num: number): string =>  (palette?.highlight[num % palette?.highlight?.length])
-
-
-
-const tabStyle = (num: number): ReactElement => { 
+const tabStyle = (num: number): ReactElement => {
 	return {
 		fontSize: "1.0rem",
 		fontWeight: "bold",
@@ -52,7 +50,7 @@ export function TabbedCard({ tabs, children }: TabbedCardProps) {
 				>
 					{tabs?.map((tab, index) => {
 						return
-						<Tabs.Tab
+						;<Tabs.Tab
 							value={tab}
 							key={nanoid(6)}
 							color={getTabColor(index)}

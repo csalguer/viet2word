@@ -1,5 +1,5 @@
 import { useState, useCallback } from "react"
-import { AppShell } from "@mantine/core"
+import { AppShell, useMantineColorScheme } from "@mantine/core"
 import { useDisclosure } from "@mantine/hooks"
 import styles from "./Navigation.css"
 import { PageContainer, SearchBar } from "../dictionary/components"
@@ -19,6 +19,8 @@ export function Navigation({ children }: navigationProps) {
 	const [error, setError] = useState("")
 	const [loading, setLoading] = useState(false)
 
+	const { colorScheme, toggleColorScheme } = useMantineColorScheme()
+
 	const handleSearch = async (event: FormEvent): Promise<void> => {
 		event.preventDefault()
 		// TODO: Implement API call to fetch word definition
@@ -37,7 +39,6 @@ export function Navigation({ children }: navigationProps) {
 				style={{
 					background: Gradients.light,
 					overflow: "scroll",
-					// height: "100%",
 				}}
 			>
 				<AppShell.Header width={"100vw"}>
@@ -52,3 +53,5 @@ export function Navigation({ children }: navigationProps) {
 		</>
 	)
 }
+
+export default Navigation
