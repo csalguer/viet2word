@@ -16,6 +16,7 @@ import {
 	Modal,
 	Dialog,
 	em,
+	List,
 } from "@mantine/core"
 import { useMediaQuery } from "@mantine/hooks"
 import { motion, AnimatePresence, LayoutGroup } from "framer-motion"
@@ -61,7 +62,7 @@ export const Word = ({ word, partOfSpeech, isRTL = false }: WordProps) => {
 				mt="md"
 				mb="xs"
 			>
-				<Text size="xl" fw={700}>
+				<Text size="2.8rem" fw={700}>
 					{word}
 				</Text>
 				{partOfSpeech && <Badge>{partOfSpeech}</Badge>}
@@ -75,27 +76,26 @@ export const DefinitionsList = ({
 }: DefinitionsListProps) => {
 	return (
 		<Space h="100%" onClick={onClick}>
-			<Stack justify="space-between" mt="md" mb="xs">
+			<List justify="space-between" mt="md" mb="xs">
 				{definitions?.length &&
 					definitions?.map((item, index) => {
 						const { definitions, example } = item
 						return definitions?.map((def, index) => {
 							return (
 								<>
-									<Group>
-										-
+									<List.Item>
 										<Stack key={nanoid(6)} mb="xs">
 											<Text fw={700} size="md">
 												{def.definition}
 											</Text>
 											<Text size="xs">{def.example}</Text>
 										</Stack>
-									</Group>
+									</List.Item>
 								</>
 							)
 						})
 					})}
-			</Stack>
+			</List>
 		</Space>
 	)
 }
@@ -127,7 +127,7 @@ export const VocabCard = ({
 			shadow="sm"
 			padding="lg"
 			h="auto"
-			mah={{ base: 300, sm: "100%", md: "25vh" }}
+			// mah={{ base: 300, sm: "100%", md: "25vh" }}
 			mih={{ base: 300, sm: "100%", md: "20vh" }}
 			w={{ base: 300, sm: "100%", md: "25vw" }}
 			radius="md"

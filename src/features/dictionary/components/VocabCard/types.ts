@@ -30,5 +30,4 @@ export interface VocabCardProps extends DictionaryItem {
 	size?: MantineSize
 	vertical?: boolean
 	onClick?: () => void
-	
 }

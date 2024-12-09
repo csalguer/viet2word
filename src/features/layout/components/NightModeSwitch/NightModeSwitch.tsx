@@ -1,7 +1,13 @@
 import { useState, useEffect } from "react"
 
 import { useColorScheme } from "@mantine/hooks"
-import { Switch, ActionIcon, rem, useMantineColorScheme, Button } from "@mantine/core"
+import {
+	Switch,
+	ActionIcon,
+	rem,
+	useMantineColorScheme,
+	Button,
+} from "@mantine/core"
 import { IconSun, IconMoon } from "@tabler/icons-react"
 import { colorsPractical } from "../../styles/Palette"
 
@@ -37,17 +43,11 @@ export function NightModeSwitch({ prop }: NightModeSwitchProps) {
 }
 
 export const NightModeButton = ({ props }) => {
-	
-	const {colorScheme, toggleColorScheme} = useMantineColorScheme()
+	const { colorScheme, toggleColorScheme } = useMantineColorScheme()
 
-	
 	return (
-		<Button size="lg" color={'gray'}>
-			{colorScheme == 'light' ? (
-				<SUN/>
-				) : (
-				<MOON	/>
-			)}
+		<Button size="lg" color={"gray"}>
+			{colorScheme == "light" ? <SUN /> : <MOON />}
 		</Button>
 	)
 }
