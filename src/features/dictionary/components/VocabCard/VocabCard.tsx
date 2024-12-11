@@ -17,6 +17,7 @@ import {
 	Dialog,
 	em,
 	List,
+	Pill,
 } from "@mantine/core"
 import { useMediaQuery } from "@mantine/hooks"
 import { motion, AnimatePresence, LayoutGroup } from "framer-motion"
@@ -36,6 +37,12 @@ import {
 	withGreyedSelection,
 	withZoom,
 } from "../../../animation/hooks/index"
+import {
+	IconBookmark,
+	IconStar,
+	IconBookmarkFilled,
+	IconStarFilled,
+} from "@tabler/icons-react"
 
 // TODO: Remember to internationalize all type accesses for the PartOfSpeech enum type
 // TODO: Type out all possible parts of speech including:
@@ -59,8 +66,7 @@ export const Word = ({ word, partOfSpeech, isRTL = false }: WordProps) => {
 				// TODO: Add RTL support alongside i18n support fixes with t() hook (useInternationalization?)
 				// direction={isRTL ? "row" : "row-reverse"}
 				justify="space-between"
-				mt="md"
-				mb="xs"
+				p={"md"}
 			>
 				<Text size="2.8rem" fw={700}>
 					{word}
@@ -76,7 +82,7 @@ export const DefinitionsList = ({
 }: DefinitionsListProps) => {
 	return (
 		<Space h="100%" onClick={onClick}>
-			<List justify="space-between" mt="md" mb="xs">
+			<List p="md" justify="space-between">
 				{definitions?.length &&
 					definitions?.map((item, index) => {
 						const { definitions, example } = item
@@ -85,10 +91,10 @@ export const DefinitionsList = ({
 								<>
 									<List.Item>
 										<Stack key={nanoid(6)} mb="xs">
-											<Text fw={700} size="md">
+											<Text fw={700} size="xl">
 												{def.definition}
 											</Text>
-											<Text size="xs">{def.example}</Text>
+											<Text size="lg">{def.example}</Text>
 										</Stack>
 									</List.Item>
 								</>
@@ -100,10 +106,29 @@ export const DefinitionsList = ({
 	)
 }
 
+const VocabHeader = ({ onClick, badge }) => {
+	return (
+		<Group>
+			<Flex
+				justify={"space-between"}
+				justify={"flex-end"}
+				dir="row"
+				w="100%"
+				m="sm"
+			>
+				{badge}
+				<Flex gap="lg" h="fit-content">
+					<Star />
+					<Bookmark />
+				</Flex>
+			</Flex>
+		</Group>
+	)
+}
+
 // TODO: Make small, med, and larger, separate button-like
 // TODO: Account for inner clickable + draggable on outer
 // TODO: Pass through "as" prop
-
 export const VocabCard = ({
 	word,
 	phonetic,
@@ -123,28 +148,80 @@ export const VocabCard = ({
 	}, [isExpanded])
 
 	return (
-		<Card
-			shadow="sm"
-			padding="lg"
-			h="auto"
-			// mah={{ base: 300, sm: "100%", md: "25vh" }}
-			mih={{ base: 300, sm: "100%", md: "20vh" }}
-			w={{ base: 300, sm: "100%", md: "25vw" }}
-			radius="md"
-			withBorder
-		>
-			<Stack display={"flex"} justify="space-between" ml="md" mt="xs" mb="xs">
+		<Flex>
+			<Card
+				shadow="sm"
+				// p="lg"
+				m={"xl"}
+				h="auto"
+				mih={{ sm: "100%", md: "20vh" }}
+				radius="md"
+				withBorder
+			>
+				<Card.Section w={"100%"}>
+					{<VocabHeader onClick={() => {}} badge={<div></div>} />}
+				</Card.Section>
+				<Card.Section w={"100%"}>
+					<VocabContent word={word} expanded={isExpanded} meanings={meanings} />
+				</Card.Section>
+				<Card.Section w={"100%"}>{}</Card.Section>
+			</Card>
+		</Flex>
+	)
+}
+
+interface IconButtonProps {
+	filled: boolean
+	callback: () => void
+}
+
+const Bookmark = ({ filled, callback }: BookmarkProps) => {
+	return (
+		<>
+			{filled ? (
+				<IconBookmarkFilled color="darkred"></IconBookmarkFilled>
+			) : (
+				<IconBookmark color="lightgray"></IconBookmark>
+			)}
+		</>
+	)
+}
+
+const Star = ({ filled, callback }) => {
+	return (
+		<>
+			{filled ? (
+				<IconStarFilled color="yellow"></IconStarFilled>
+			) : (
+				<IconStar color="lightgray"></IconStar>
+			)}
+		</>
+	)
+}
+
+const Notification = () => {
+	return (
+		<>
+			<Pill color={"red"}></Pill>
+		</>
+	)
+}
+
+const VocabContent = ({ word, meanings, expanded }): ReactElement => {
+	return (
+		<>
+			<Stack display={"flex"} justify="space-between" m="md">
 				<Word
 					word={word}
 					partOfSpeech={meanings?.length && meanings[0]?.partOfSpeech}
 				/>
-				{isExpanded ? (
+				{expanded ? (
 					<DefinitionsList definitions={meanings} />
 				) : (
 					<Skeleton size={"lg"} />
 				)}
 			</Stack>
-		</Card>
+		</>
 	)
 }
 

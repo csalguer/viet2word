@@ -18,3 +18,5 @@ export const config = {
   embeddedLanguageFormatting: "auto",
   singleAttributePerLine: false
 }
+
+default export config

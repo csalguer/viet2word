@@ -7,10 +7,10 @@ export const MOCK_CARD_INFO = {
 	data: [
 		{
 			word: "vẹt đuôi dài",
-			phonetic: "vɛːkᴰ² ɗuːjᴬ¹ jaːjᴬ²",
+			phonetics: "vɛːkᴰ² ɗuːjᴬ¹ jaːjᴬ²",
 			meanings: [
 				{
-					partOfSpeech: "noun",
+					partOfSpeech: "verb",
 					definitions: [
 						{
 							definition: "a macaw",
@@ -19,6 +19,7 @@ export const MOCK_CARD_INFO = {
 					],
 				},
 				{
+					partOfSpeech: "noun",
 					definitions: [
 						{
 							definition: "金刚鹦鹉",
@@ -59,7 +60,7 @@ export const MOCK_CARD_INFO = {
 		},
 		{
 			word: "mèo",
-			phonetic: "mɛːwᴬ²",
+			phonetics: "mɛːwᴬ²",
 			meanings: [
 				{
 					partOfSpeech: "noun",
@@ -74,7 +75,7 @@ export const MOCK_CARD_INFO = {
 		},
 		{
 			word: "công tác",
-			phonetic: "kɔŋ͡mᴬ¹ taːkᴰ¹",
+			phonetics: "kɔŋ͡mᴬ¹ taːkᴰ¹",
 			meanings: [
 				{
 					partOfSpeech: "noun",
@@ -171,7 +172,7 @@ export const EXTRA = {
 		},
 		{
 			word: "junction",
-			phonetic: "jəNG(k)SHən",
+			phonetics: "jəNG(k)SHən",
 			meanings: [
 				{
 					partOfSpeech: "noun",

@@ -26,8 +26,8 @@ export const Primary: Story = {
 	args: {
 		primary: true,
 		label: "VocabCard",
-		...data[0],
 		expanded: true,
+		...data[0],
 	},
 }
 export const Empty: Story = {
