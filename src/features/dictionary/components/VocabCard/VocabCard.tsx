@@ -18,8 +18,11 @@ import {
 	em,
 	List,
 	Pill,
+	AspectRatio,
+	Blockquote,
+	Transition,
 } from "@mantine/core"
-import { useMediaQuery } from "@mantine/hooks"
+import { useHover, useMediaQuery } from "@mantine/hooks"
 import { motion, AnimatePresence, LayoutGroup } from "framer-motion"
 import { nanoid } from "nanoid"
 import { useCallback, useEffect, useState } from "react"
@@ -42,7 +45,10 @@ import {
 	IconStar,
 	IconBookmarkFilled,
 	IconStarFilled,
+	IconPointFilled,
 } from "@tabler/icons-react"
+import Palette from "../../../layout/styles/Palette"
+import { Definition } from "../../types"
 
 // TODO: Remember to internationalize all type accesses for the PartOfSpeech enum type
 // TODO: Type out all possible parts of speech including:
@@ -59,70 +65,169 @@ import {
 // verb, ..., etc.
 // }
 
-export const Word = ({ word, partOfSpeech, isRTL = false }: WordProps) => {
+export const Word = ({ word, phonetic }: WordProps) => {
 	return (
 		<>
-			<Flex
+			<Stack
 				// TODO: Add RTL support alongside i18n support fixes with t() hook (useInternationalization?)
 				// direction={isRTL ? "row" : "row-reverse"}
 				justify="space-between"
+				w={"100%"}
+				dir="column"
 				p={"md"}
 			>
-				<Text size="2.8rem" fw={700}>
-					{word}
-				</Text>
-				{partOfSpeech && <Badge>{partOfSpeech}</Badge>}
-			</Flex>
+				{!!word ? (
+					<Text size="2.8rem" fw={700}>
+						{word}
+					</Text>
+				) : (
+					<Skeleton h="48px" w="100%" animate />
+				)}
+				{!!phonetic ? (
+					<Text size="1.4rem" color={Palette.neutrals.bluestone} fw={400}>
+						{phonetic}
+					</Text>
+				) : !!word ? (
+					<Text></Text>
+				) : (
+					<Skeleton h="32px" w="80%" animate />
+				)}
+			</Stack>
 		</>
 	)
 }
-export const DefinitionsList = ({
-	definitions,
-	onClick,
-}: DefinitionsListProps) => {
+
+export const DefinitionsListLoading = () => {
 	return (
-		<Space h="100%" onClick={onClick}>
-			<List p="md" justify="space-between">
-				{definitions?.length &&
-					definitions?.map((item, index) => {
-						const { definitions, example } = item
-						return definitions?.map((def, index) => {
-							return (
-								<>
-									<List.Item>
-										<Stack key={nanoid(6)} mb="xs">
-											<Text fw={700} size="xl">
-												{def.definition}
-											</Text>
-											<Text size="lg">{def.example}</Text>
-										</Stack>
-									</List.Item>
-								</>
-							)
-						})
-					})}
-			</List>
-		</Space>
+		<Stack ml="xl" gap="sm">
+			<Skeleton w="100%" h="24px" animate />
+			<Skeleton w="100%" h="24px" animate />
+			<Skeleton w="100%" h="24px" animate />
+		</Stack>
 	)
 }
 
-const VocabHeader = ({ onClick, badge }) => {
+const withBlockQuote = (content: Definition): ReactNode => {
 	return (
-		<Group>
+		<>
+			<Blockquote
+				color={Palette.neutrals.slate}
+				cite={
+					<Text color={Palette.neutrals.slate} size="mg">
+						{content.example}
+					</Text>
+				}
+			>
+				{content.definition}
+			</Blockquote>
+		</>
+	)
+}
+const withTextElem = (content: Definition): ReactNode => {
+	return (
+		<Stack key={nanoid(6)} mb="xs">
+			<Text fw={700} size="xl">
+				{content.definition}
+			</Text>
+			<Text color={Palette.neutrals.slate} size="lg">
+				{content.example}
+			</Text>
+		</Stack>
+	)
+}
+
+const withHoverElem = (content): ReactNode => {
+	const [toDisplay, setToDisplay] = useState<string>(content?.definition ?? "")
+	const [ref, hovered] = useHover()
+	const handleHover = useCallback(
+		(event: MouseEvent) => {
+			if (event.type == "mouseenter") {
+				setToDisplay(content.example)
+			} else if (event.type == "mouseleave") {
+				setToDisplay(content.definition)
+			}
+		},
+		[content]
+	)
+
+	return (
+		<>
+			<Center>
+				<Transition>
+					<Stack key={nanoid(6)} mb="xs" ref={ref} onMouseOver={handleHover}>
+						<Text
+							fw={700}
+							color={
+								hovered ? Palette.neutrals.bluestone : Palette.neutrals.shale
+							}
+							bg={hovered ? Palette.neutrals.bluestone : Palette.neutrals.shale}
+							size="xl"
+						>
+							{toDisplay}
+						</Text>
+					</Stack>
+				</Transition>
+			</Center>
+		</>
+	)
+}
+
+export const DefinitionsList = ({
+	definitions,
+	onClick,
+	variant = false,
+}: DefinitionsListProps) => {
+	return (
+		// <Space h="100%" onClick={onClick}>
+
+		definitions ? (
+			<List p="md" justify="space-between">
+				{definitions?.length &&
+					definitions?.map((item, index) => {
+						console.log(item)
+						const { definitions, example } = item
+						return definitions?.map((def, index) => {
+							withTextElem(def)
+						})
+					})}
+			</List>
+		) : (
+			<DefinitionsListLoading />
+		)
+
+		// </Space>
+	)
+}
+
+const VocabHeader = ({ word, phonetic, onClick }) => {
+	return (
+		<>
+			<Group
+				justify="flex-end"
+				pos={"absolute"}
+				display={"inline-flex"}
+				right="4px"
+				top="4px"
+				w="100%"
+				p="sm"
+				// m="sm"
+			>
+				<Flex gap="lg" h="fit-content">
+					{/* <Star /> */}
+					<Bookmark />
+				</Flex>
+			</Group>
 			<Flex
 				justify={"space-between"}
-				justify={"flex-end"}
+				align={"flex-end"}
 				dir="row"
 				w="100%"
 				m="sm"
+				pt="xl"
 			>
-				{badge}
-				<Flex gap="lg" h="fit-content">
-					<Star />
-					<Bookmark />
-				</Flex>
+				<Word word={word} phonetic={phonetic} />
 			</Flex>
-		</Group>
+		</>
 	)
 }
 
@@ -153,18 +258,20 @@ export const VocabCard = ({
 				shadow="sm"
 				// p="lg"
 				m={"xl"}
-				h="auto"
-				mih={{ sm: "100%", md: "20vh" }}
+				h="fit-content"
+				w={{ md: "100%", lg: "50%" }}
+				mih={{ md: "100%", lg: "50%" }}
+				miw={"330px"}
 				radius="md"
 				withBorder
 			>
 				<Card.Section w={"100%"}>
-					{<VocabHeader onClick={() => {}} badge={<div></div>} />}
+					{<VocabHeader word={word} phonetic={phonetic} onClick={() => {}} />}
 				</Card.Section>
 				<Card.Section w={"100%"}>
-					<VocabContent word={word} expanded={isExpanded} meanings={meanings} />
+					<VocabContent expanded={isExpanded} meanings={meanings} />
 				</Card.Section>
-				<Card.Section w={"100%"}>{}</Card.Section>
+				{/* <Card.Section w={"100%"}>{}</Card.Section> */}
 			</Card>
 		</Flex>
 	)
@@ -207,16 +314,12 @@ const Notification = () => {
 	)
 }
 
-const VocabContent = ({ word, meanings, expanded }): ReactElement => {
+export const VocabContent = ({ meanings, expanded, variant }): ReactElement => {
 	return (
 		<>
 			<Stack display={"flex"} justify="space-between" m="md">
-				<Word
-					word={word}
-					partOfSpeech={meanings?.length && meanings[0]?.partOfSpeech}
-				/>
 				{expanded ? (
-					<DefinitionsList definitions={meanings} />
+					<DefinitionsList definitions={meanings} variant />
 				) : (
 					<Skeleton size={"lg"} />
 				)}
@@ -228,7 +331,7 @@ const VocabContent = ({ word, meanings, expanded }): ReactElement => {
 export const EmptyCard = () => {
 	return (
 		<>
-			<VocabCard word={"  "} meanings={[]} />
+			<VocabCard word={null} meanings={null} />
 		</>
 	)
 }

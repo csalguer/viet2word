@@ -221,7 +221,8 @@ export const Palette = {
 	neutrals: {
 		beige: "#bda28f",
 		warm: "#ccaba4",
-		slate: "#9b9b9b",
+		shale: "#9b9b9b",
+		slate: "#7b7b7b",
 		bluestone: "#58748f",
 		legalpad: "#e9d8a6",
 		white: "#ede0d4",

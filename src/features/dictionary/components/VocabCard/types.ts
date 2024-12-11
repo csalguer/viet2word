@@ -15,7 +15,7 @@ export interface Cards<T> {
 }
 
 export interface WordProps {
-	word: string
+	word?: string
 	partOfSpeech?: string
 	isRTL?: boolean
 }

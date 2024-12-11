@@ -3,6 +3,7 @@ import { RouterProvider, type createRouter } from "@tanstack/react-router"
 import { QueryClientProvider, QueryClient } from "@tanstack/react-query"
 import { createContext, ReactNode, ColorSchemeScript } from "react"
 import withPalette from "./PaletteContext"
+import "../../public/fonts.css"
 
 const typography = {
 	// spacing: "1rem",
@@ -49,7 +50,10 @@ const breakpoints = {
 	lg: "74em",
 	xl: "90em",
 }
-
+const fontFamily = {
+	fontFamily:
+		"'Loretta Regular', system-ui, -apple-system, BlinkMacSystemFont ,'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif",
+}
 export const options = { typography, shadows, breakpoints }
 
 export const theme = createTheme({
@@ -58,6 +62,7 @@ export const theme = createTheme({
 	shadows,
 	breakpoints,
 	typography,
+	fontFamily,
 })
 
 export default theme
