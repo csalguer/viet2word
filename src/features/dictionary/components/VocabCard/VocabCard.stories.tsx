@@ -49,7 +49,7 @@ export const Headword: Story = {
 			const { word, phonetic } = item
 			return (
 				<>
-					<Stack bg="lightgray" border="2px dashed #555555">
+					<Stack bg="white" border="2px dashed #555555">
 						<Word word={word} phonetic={phonetic} />
 					</Stack>
 					<Divider my={"md"} />
@@ -70,7 +70,7 @@ export const Meaning: Story = {
 				{data.map((item, index) => {
 					const { meanings } = item
 					return (
-						<Container bg="lightgray">
+						<Container bg="white">
 							<VocabContent meanings={meanings} expanded />
 						</Container>
 					)
@@ -91,7 +91,7 @@ export const MeaningVariant: Story = {
 				{data.map((item, index) => {
 					const { meanings } = item
 					return (
-						<Container bg="lightgray">
+						<Container bg="white">
 							<VocabContent variant meanings={meanings} expanded />
 						</Container>
 					)

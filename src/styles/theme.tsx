@@ -9,7 +9,7 @@ const typography = {
 	// spacing: "1rem",
 	headings: {
 		fontFamily:
-			"'Loretta', system-ui, -apple-system, BlinkMacSystemFont ,'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif",
+			"-system-ui, -apple-system, BlinkMacSystemFont ,'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif",
 		fontWeight: "700",
 		textWrap: "wrap",
 		// sizes: {
@@ -50,10 +50,10 @@ const breakpoints = {
 	lg: "74em",
 	xl: "90em",
 }
-const fontFamily = {
-	fontFamily:
-		"'Loretta Regular', system-ui, -apple-system, BlinkMacSystemFont ,'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif",
-}
+// const fontFamily = {
+// 	fontFamily:
+// 		"system-ui, -apple-system, BlinkMacSystemFont ,'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif",
+// }
 export const options = { typography, shadows, breakpoints }
 
 export const theme = createTheme({
@@ -62,7 +62,7 @@ export const theme = createTheme({
 	shadows,
 	breakpoints,
 	typography,
-	fontFamily,
+	// fontFamily,
 })
 
 export default theme

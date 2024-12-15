@@ -135,6 +135,18 @@ const withTextElem = (content: Definition): ReactNode => {
 		</Stack>
 	)
 }
+const withDetailTextElem = (content: Definition): ReactNode => {
+	return (
+		<Stack key={nanoid(6)} mb="xs">
+			<Text styles={{ textTransform: "capitalize" }} fw={400} size="lg">
+				<em>{content.definition}</em>
+			</Text>
+			<Text color={Palette.neutrals.slate} size="lg">
+				{content.example}
+			</Text>
+		</Stack>
+	)
+}
 
 const withHoverElem = (content): ReactNode => {
 	const [toDisplay, setToDisplay] = useState<string>(content?.definition ?? "")
@@ -187,7 +199,7 @@ export const DefinitionsList = ({
 						console.log(item)
 						const { definitions, example } = item
 						return definitions?.map((def, index) => {
-							withTextElem(def)
+							return variant ? withTextElem(def) : withDetailTextElem(def)
 						})
 					})}
 			</List>

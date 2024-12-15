@@ -88,6 +88,52 @@ export const MOCK_CARD_INFO = {
 				},
 			],
 		},
+
+		{
+			word: "Conch",
+			meanings: [
+				{
+					partOfSpeech: "noun",
+					definitions: [
+						{
+							definition: "Mollusk",
+							example:
+								"A plate is plate dem	countably plural in Patois, a famous dish of which is Conch Salad.",
+						},
+					],
+				},
+			],
+		},
+		{
+			word: "junction",
+			phonetic: "jəNG(k)SHən",
+			meanings: [
+				{
+					partOfSpeech: "noun",
+					definitions: [
+						{
+							definition: "a point where two or more things are joined",
+							example: ": the junction of the two rivers.",
+						},
+						{
+							definition:
+								"Electronics a region of transition in a semiconductor between a part where conduction is mainly by electrons and a part where it is mainly by holes.",
+							example: ": the junction of the two rivers.",
+						},
+						{
+							definition: "the action or fact of joining or being joined",
+							example:
+								"the vena cava is formed by the junction of three veins | the junction of two roundels produces a triangular space",
+						},
+					],
+				},
+			],
+		},
+	],
+}
+
+export const EXTRA = {
+	data: [
 		{
 			word: "Doohickey",
 			meanings: [
@@ -145,51 +191,6 @@ export const MOCK_CARD_INFO = {
 						{
 							definition: "",
 							example: "",
-						},
-					],
-				},
-			],
-		},
-	],
-}
-
-export const EXTRA = {
-	data: [
-		{
-			word: "Conch",
-			meanings: [
-				{
-					partOfSpeech: "noun",
-					definitions: [
-						{
-							definition: "Mollusk",
-							example:
-								"A plate is plate dem	countably plural in Patois, a famous dish of which is Conch Salad.",
-						},
-					],
-				},
-			],
-		},
-		{
-			word: "junction",
-			phonetic: "jəNG(k)SHən",
-			meanings: [
-				{
-					partOfSpeech: "noun",
-					definitions: [
-						{
-							definition: "a point where two or more things are joined",
-							example: ": the junction of the two rivers.",
-						},
-						{
-							definition:
-								"Electronics a region of transition in a semiconductor between a part where conduction is mainly by electrons and a part where it is mainly by holes.",
-							example: ": the junction of the two rivers.",
-						},
-						{
-							definition: "the action or fact of joining or being joined",
-							example:
-								"the vena cava is formed by the junction of three veins | the junction of two roundels produces a triangular space",
 						},
 					],
 				},

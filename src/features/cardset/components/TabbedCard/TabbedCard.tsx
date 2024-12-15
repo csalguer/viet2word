@@ -32,7 +32,7 @@ export function TabbedCard({ tabs, children }: TabbedCardProps) {
 	const [activeTab, setActiveTab] = useState<string | null>(tabs[0])
 
 	return (
-		<Center>
+		<Center id="tabbed-card">
 			<Tabs
 				orientation="vertical"
 				variant="pills"
@@ -43,40 +43,42 @@ export function TabbedCard({ tabs, children }: TabbedCardProps) {
 			>
 				<Tabs.List
 					style={{
+						background: "white",
 						color: "white",
 						boxShadow: "0 0 0 1px gray.200",
 						gap: "0rem",
 					}}
+					id="tabbed-list"
 				>
 					{tabs?.map((tab, index) => {
-						return
-						;<Tabs.Tab
-							value={tab}
-							key={nanoid(6)}
-							color={getTabColor(index)}
-							style={tabStyle(index)}
-						>
-							{tab}
-						</Tabs.Tab>
-					})}
-				</Tabs.List>
-				{children?.length &&
-					children?.map((child, index) => {
 						return (
-							<Tabs.Panel
+							<Tabs.Tab
+								value={tab}
 								key={nanoid(6)}
-								value={tabs[index]}
-								h={"100%"}
-								w={"fit-content"}
-								color="white"
-								style={{ borderLeft: `1.0rem solid ${getTabColor(index)}` }}
+								color={getTabColor(index)}
+								style={tabStyle(index)}
 							>
-								<Center h={"100%"}>
-									<TabbedCardContent>{child}</TabbedCardContent>
-								</Center>
-							</Tabs.Panel>
+								{tab}
+							</Tabs.Tab>
 						)
 					})}
+				</Tabs.List>
+				{children?.map((child, index) => {
+					return (
+						<Tabs.Panel
+							key={nanoid(6)}
+							value={tabs[index]}
+							h={"100%"}
+							w={"fit-content"}
+							color="white"
+							style={{ borderLeft: `1.0rem solid ${getTabColor(index)}` }}
+						>
+							<Center h={"100%"}>
+								<TabbedCardContent>{child}</TabbedCardContent>
+							</Center>
+						</Tabs.Panel>
+					)
+				})}
 				{children?.length == 0 && children}
 			</Tabs>
 		</Center>
@@ -102,6 +104,9 @@ export const TabbedCardContent = ({ children }) => {
 				ml="md"
 				mt="xs"
 				mb="xs"
+				bg="white"
+				w={"100%"}
+				h={"100%"}
 			>
 				{children}
 			</Flex>
