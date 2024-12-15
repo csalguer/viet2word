@@ -273,7 +273,7 @@ export const VocabCard = ({
 				h="fit-content"
 				w={{ md: "100%", lg: "50%" }}
 				mih={{ md: "100%", lg: "50%" }}
-				miw={"330px"}
+				miw={"400px"}
 				radius="md"
 				withBorder
 			>

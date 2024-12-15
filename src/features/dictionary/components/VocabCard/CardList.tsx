@@ -16,6 +16,7 @@ import {
 	Modal,
 	Dialog,
 	em,
+	UnstyledButton,
 } from "@mantine/core"
 import { useMediaQuery } from "@mantine/hooks"
 import { Carousel, Embla } from "@mantine/carousel"
@@ -109,7 +110,7 @@ export const CardList = ({ content }: CardData): ReactElement => {
 	const getListStyle = useCallback(() => {
 		return {
 			filter: selectedId != null ? "blur(3.2px)" : "none",
-			color: selectedId != null ? "#3262c225" : "transparent",
+			// color: selectedId != null ? "#3262c225" : "transparent",
 		}
 	}, [selectedId, isMobile])
 
@@ -130,7 +131,7 @@ export const CardList = ({ content }: CardData): ReactElement => {
 					style={getListStyle()}
 				>
 					{buttons?.map((elem) => {
-						return <div key={nanoid(6)}>{elem}</div>
+						return <UnstyledButton key={nanoid(6)}>{elem}</UnstyledButton>
 					})}
 				</Flex>
 			</Center>

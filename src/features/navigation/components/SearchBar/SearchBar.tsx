@@ -1,7 +1,7 @@
 "use client"
 import type { ReactElement } from "react"
 
-import { Autocomplete, Group, Burger, rem } from "@mantine/core"
+import { Autocomplete, Group, Burger, rem, Anchor } from "@mantine/core"
 import { useDisclosure } from "@mantine/hooks"
 import { IconSearch } from "@tabler/icons-react"
 // import { MantineLogo } from "@mantinex/mantine-logo"
@@ -23,7 +23,7 @@ export const SearchBar = (): ReactElement => {
 	const [opened, { toggle }] = useDisclosure(false)
 
 	const items = links.map((link) => (
-		<a
+		<Anchor
 			key={link.label}
 			className={classes.link}
 			href={link.link}
@@ -33,7 +33,7 @@ export const SearchBar = (): ReactElement => {
 			}}
 		>
 			{link.label}
-		</a>
+		</Anchor>
 	))
 
 	return (
@@ -44,7 +44,13 @@ export const SearchBar = (): ReactElement => {
 			</Group>
 
 			<Group>
-				<Group className={classes.links} gap={5} ml={50} visibleFrom="sm">
+				<Group
+					className={classes.links}
+					gap={"lg"}
+					ml={"lg"}
+					mr={"lg"}
+					visibleFrom="sm"
+				>
 					{items}
 				</Group>
 				<Autocomplete

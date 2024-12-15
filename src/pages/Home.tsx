@@ -110,11 +110,5 @@ const CONTENT = () => {
 }
 
 export function Home(): ReactElement {
-	return (
-		<>
-			<Group>
-				<CONTENT />
-			</Group>
-		</>
-	)
+	return <></>
 }

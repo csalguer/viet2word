@@ -35,13 +35,21 @@ export function Navigation({ children }: NavigationProps) {
 			<AppShell
 				w={"100%"}
 				h={"100vh"}
-				padding={{ base: 0, sm: 0, md: "md", lg: "md" }}
+				// padding={{ base: 0, sm: 0, md: "md", lg: "md" }}
 				style={{
 					background: Gradients.light,
 					overflow: "scroll",
 				}}
 			>
-				<AppShell.Header width={"100vw"}>
+				<AppShell.Header
+					styles={{
+						header: {
+							background: "transparent",
+							border: "none",
+						},
+					}}
+					width={"100vw"}
+				>
 					<SearchBar
 						word={word}
 						onSearch={handleSearch}
