@@ -13,6 +13,11 @@ import {
 	Center,
 	Stack,
 	Text,
+	Title,
+	Input,
+	Button,
+	getGradient,
+	useMantineTheme,
 } from "@mantine/core"
 import {
 	InfoCard,
@@ -31,6 +36,7 @@ import { Navigation } from "../features/navigation/Navigation.tsx"
 import { TabbedCard } from "../features/cardset/components/index.ts"
 import { nanoid } from "nanoid"
 import { Reader } from "./Reader.tsx"
+import palette from "../styles/Palette.tsx"
 // import { useQueryClient } from "@tanstack/react-query"
 // import { useTranslation } from "react-i18next"
 
@@ -110,5 +116,67 @@ const CONTENT = () => {
 }
 
 export function Home(): ReactElement {
-	return <></>
+	const theme = useMantineTheme()
+
+	return (
+		<>
+			<PageContainer>
+				<Group>
+					<Group>
+						<Title>Vietnamese Language Tools</Title>
+						<Text>
+							Anim occaecat non anim nisi est sit officia ipsum commodo
+							consequat ex fugiat reprehenderit eu cupidatat tempor deserunt.
+						</Text>
+						<Button>Try Now</Button>
+						<Input placeholder="Search here" w="400px" h="150px"></Input>
+					</Group>
+					<Group
+						display={"flex"}
+						w="fit-content"
+						h="100%"
+						m={"xl"}
+						bg={getGradient(
+							{
+								from: palette.highlight[0],
+								to: palette.highlight[2],
+								deg: 90,
+							},
+							theme
+						)}
+						styles={{ filter: "blur(3.4px)" }}
+					>
+						<VocabCard
+							word="魔鬼"
+							meanings={{
+								definitions: [
+									{
+										defintion: "Ghost, spirit",
+										example: "黑魔者让了魔鬼从村农出去。",
+									},
+								],
+							}}
+							visible
+							expanded
+						></VocabCard>
+						<VocabCard
+							word="azafrán"
+							meanings={{
+								definitions: [
+									{
+										defintion:
+											"Rich and deep yellow spice made from the pistils of the saffron flower",
+										example:
+											"Para un toque auténtico y mejor color, se le debe agregar un poco de azafrán al arroz.",
+									},
+								],
+							}}
+							visible
+							expanded
+						></VocabCard>
+					</Group>
+				</Group>
+			</PageContainer>
+		</>
+	)
 }

@@ -196,6 +196,20 @@ export const EXTRA = {
 				},
 			],
 		},
+		{
+			word: "kỷ lạ",
+			meanings: [
+				{
+					partOfSpeech: "ADJ",
+					definitions: [
+						{
+							definition: "strange",
+							example: "Bạn kỷ lạ",
+						},
+					],
+				},
+			],
+		},
 	],
 }
 
