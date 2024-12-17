@@ -1,5 +1,6 @@
 import { MantineSize } from "@mantine/core"
 import { Definition, DictionaryItem } from "../../types"
+import { RefObject } from "react"
 
 export interface DictionaryItemProps {
 	// Make sure this is used for all vocab as schema for data
@@ -30,6 +31,7 @@ export interface VocabCardProps extends DictionaryItem {
 	size?: MantineSize
 	vertical?: boolean
 	onClick?: () => void
+	ref: RefObject
 }
 
 // TODO:

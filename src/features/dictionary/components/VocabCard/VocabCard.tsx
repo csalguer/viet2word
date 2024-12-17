@@ -256,6 +256,7 @@ export const VocabCard = ({
 	expanded = true,
 	onClick = null,
 	handle,
+	ref = null,
 }: VocabCardProps) => {
 	const [isVisible, toggleVisibility] = useState<boolean>(visible)
 	const [isExpanded, toggleExpanded] = useState<boolean>(expanded)
@@ -265,7 +266,7 @@ export const VocabCard = ({
 	}, [isExpanded])
 
 	return (
-		<Flex>
+		<Flex ref={ref}>
 			<Card
 				shadow="sm"
 				// p="lg"
