@@ -270,7 +270,7 @@ export const VocabCard = ({
 			<Card
 				shadow="sm"
 				// p="lg"
-				m={"xl"}
+				// m={"xl"}
 				h="fit-content"
 				w={{ md: "100%", lg: "50%" }}
 				mih={{ md: "100%", lg: "50%" }}

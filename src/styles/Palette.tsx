@@ -63,7 +63,15 @@ const cool = [
 ]
 
 const paperPreview = {
-	highlight: ["#9a2225", "#ca6703", "#ee9b00", "#4f762d", "#025f72", "#58748f"],
+	highlight: [
+		"#8b3125",
+		"#9a2225",
+		"#ca6703",
+		"#ee9b00",
+		"#4f762d",
+		"#025f72",
+		"#58748f",
+	],
 	edit: [
 		"#9b9b9b", // Main backgr NOT SHADOW TOO WARM
 		"#760000", // Main Correction

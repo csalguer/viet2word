@@ -227,6 +227,27 @@ export const Palette = {
 		legalpad: "#e9d8a6",
 		white: "#ede0d4",
 	},
+	colorsEstimate: [
+		"#9a2225",
+		"#ae2112",
+		"#ba3d04",
+		"#ca6703",
+		"#ee9b00",
+		"#f2b559",
+		"#90a955",
+		"#4f762d",
+		"#31572c",
+		"#069396",
+		"#58748f",
+		"#025f72",
+		"#001219",
+		"#6d597a",
+		"#6a4c93",
+		"#5f0f40",
+		"#ef466f",
+		"#e9d8a6",
+		"#ede0d4",
+	],
 }
 
 export default Palette
