@@ -18,57 +18,87 @@ import { VocabCard } from "../../../dictionary/components"
 import PageContainer from "../PageContainer/PageContainer"
 import Palette from "../../styles/Palette"
 import theme from "../../styles/Theme"
-
+import styles from "./HeroSection.module.css"
 import * as motion from "motion/client"
 import { transform } from "framer-motion"
+import { Gradients } from "../../styles/Gradients"
+import { nanoid } from "nanoid"
+import { useMediaQuery, create } from "@mantine/hooks"
+import { Carousel } from "@mantine/carousel"
+import { createStyles, getStylesRef } from "@mantine/core"
+import Autoplay from "embla-carousel-autoplay"
 
 const text =
 	" Anim occaecat non anim nisi est sit officoia ipsum commodo consequat ex fugiat reprehenderit eu cupidatat tempor deserunt."
 
-const SaffronCard = forwardRef((props, ref) => (
-	<Box pos={"absolute"} top={"150px"} style={{ zIndex: 3 }} right={"150px"}>
-		<VocabCard
-			// ref={ref}
-			word="azafrán"
-			meanings={{
-				partOfSpeech: "SUST",
-				definitions: [
-					{
-						definition:
-							"Rich and deep yellow spice made from the pistils of the saffron flower",
-						example:
-							"Para un toque auténtico y mejor color, se le debe agregar un poco de azafrán al arroz.",
-					},
-				],
-			}}
-			visible
-			expanded={true}
-		/>
-	</Box>
-))
-const GhostRef = forwardRef((props, ref) => (
-	<Box pos={"absolute"} style={{ zIndex: 2 }} top={"10px"} right={"10px"}>
-		<VocabCard
-			// ref={ref}
-			word="魔鬼"
-			meanings={{
-				partOfSpeech: "名词",
-				definitions: [
-					{
-						definition: "Ghost, spirit",
-						example: "黑魔者让了魔鬼从村农出去。",
-					},
-				],
-			}}
-			visible
-			expanded
-		/>
-	</Box>
-))
+const CardsStock: ReactElement = [
+	<VocabCard
+		// ref={ref}
+		word="azafrán"
+		meanings={{
+			partOfSpeech: "SUST",
+			definitions: [
+				{
+					definition:
+						"Rich and deep yellow spice made from the pistils of the saffron flower",
+					example:
+						"Para un toque auténtico y mejor color, se le debe agregar un poco de azafrán al arroz.",
+				},
+			],
+		}}
+		visible
+		expanded={true}
+	/>,
+	<VocabCard
+		// ref={ref}
+		word="魔鬼"
+		meanings={{
+			partOfSpeech: "名词",
+			definitions: [
+				{
+					definition: "Ghost, spirit",
+					example: "黑魔者让了魔鬼从村农出去。",
+				},
+			],
+		}}
+		visible
+		expanded
+	/>,
+	<VocabCard
+		// ref={ref}
+		word="شربرت"
+		meanings={{
+			partOfSpeech: "اسم",
+			definitions: [
+				{
+					definition: "Sherbert",
+					example: "Mango sherbert.",
+				},
+			],
+		}}
+		visible
+		expanded
+	/>,
+	<VocabCard
+		// ref={ref}
+		word="ngọ gâi"
+		meanings={{
+			partOfSpeech: "danh từ",
+			definitions: [
+				{
+					definition: "culantro",
+					example: "......",
+				},
+			],
+		}}
+		visible
+		expanded
+	/>,
+]
 
 const HeroText = ({
-	title = "CHŨNG NÓI",
-	content = "Velit sint enim esse eu ut cupidatat veniam aute amet magna proident culpa dolore ipsum.",
+	title = "VLT",
+	content = "Cast off the crast, and focus your craft.",
 	verbAction = "Search Here",
 }): ReactElement => {
 	return (
@@ -76,19 +106,27 @@ const HeroText = ({
 			<Center gap="xl">
 				<Stack w="400px" gap="xl">
 					<Text
-						style={{ fontFamily: "Calistoga" }}
+						variant="gradient"
+						gradient={{
+							from: "#9a2225",
+							to: "#ca6703",
+							deg: 94,
+						}}
 						w="200px"
 						fw={800}
-						size="2.8rem"
+						size="5rem"
 					>
 						{title}
+					</Text>
+					<Text fw={800} size="3rem">
+						Go from livid to love it.
 					</Text>
 					<Text
 						w={"30vw"}
 						style={{
 							textWrap: "wrap",
 							flexWrap: "wrap",
-							fontFamily: "Spectral SC",
+							fontFamily: "Vủ Thành An",
 							lineHeight: "2.0rem",
 						}}
 						size="1.4rem"
@@ -110,22 +148,18 @@ const HeroAnimatedAura = ({}): ReactElement => {
 		<Flex
 			dir="row"
 			// justify={"stretch"}
-			pos={"absolute"}
+			// pos={"absolute"}
 			gap={"7rem"}
 			style={{ zIndex: 0 }}
-			align={"center"}
+			// align={"center"}
 		>
 			<AuraCloudDiv
-				colorA={lighten(Palette?.colorsEstimate[3], 0.45)}
-				colorB={lighten(Palette?.colorsEstimate[5], 0.45)}
+				colorA={lighten(Palette?.colorsEstimate[1], 0.15)}
+				colorB={lighten(Palette?.colorsEstimate[2], 0.15)}
 			/>
 			<AuraCloudDiv
-				colorA={lighten(Palette?.colorsEstimate[6], 0.45)}
-				colorB={lighten(Palette?.colorsEstimate[11], 0.45)}
-			/>
-			<AuraCloudDiv
-				colorB={lighten(Palette?.colorsEstimate[1], 0.45)}
-				colorA={lighten(Palette?.colorsEstimate[7], 0.45)}
+				colorA={lighten(Palette?.colorsEstimate[4], 0.15)}
+				colorB={lighten(Palette?.colorsEstimate[5], 0.15)}
 			/>
 		</Flex>
 	)
@@ -153,40 +187,59 @@ const AuraCloudDiv = ({ colorA, colorB }) => {
 
 export const HeroSection = (): ReactElement => {
 	const theme = useMantineTheme()
-	const ghostRef = createRef()
-	const saffronRef = createRef()
+	const autoplay = useRef(Autoplay({ delay: 2000 }))
 
+	const mobile = useMediaQuery(`(max-width: ${theme.breakpoints.sm})`)
+	const slides = CardsStock.map((item) => (
+		<Box>
+			<Carousel.Slide key={nanoid(6)}>{item}</Carousel.Slide>
+		</Box>
+	))
+	console.log(slides)
 	return (
 		<>
-			<Container
+			<Center
 				pos={"absolute"}
-				bg="white"
-				p={"xl"}
-				m="xl"
+				// p={"xl"}
 				h="800px"
 				w="100%"
 				size="xl"
 			>
-				<Flex
-					// justify={"space-between"}
-					gap={"lg"}
-					m="xl"
-					p="xl"
-					align={"center"}
-					h={"100%"}
-					direction={"row"}
-				>
-					<HeroText />
-				</Flex>
-				{/* <Center pos={"relative"} w="auto" h="fit-content"> */}
-				<Group>
-					<GhostRef ref={ghostRef} />
-					<SaffronCard ref={saffronRef} />
-				</Group>
-				<HeroAnimatedAura />
-
-				{/* </Center> */}
-			</Container>
+				<Center>
+					<Center>
+						<Container size="md">
+							<Center>
+								<Flex
+									// justify={"space-between"}
+									gap={"lg"}
+									m="xl"
+									p="xl"
+									align={"center"}
+									h={"100%"}
+									direction={"row"}
+								>
+									<HeroText />
+								</Flex>
+								<Carousel
+									loop
+									align="start"
+									slidesToScroll={mobile ? 1 : 2}
+									w={"fit-content"}
+									h={"215px"}
+									withControls
+									withIndicators
+									classNames={styles.carousel}
+								>
+									<Flex dir="row" w={"400px"} h="215px">
+										{slides}
+									</Flex>
+								</Carousel>
+							</Center>
+						</Container>
+					</Center>
+					<HeroAnimatedAura />
+				</Center>
+			</Center>
 		</>
 	)
 }

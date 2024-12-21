@@ -7,19 +7,6 @@ const colors = {
 	info: "#2196f3",
 	warning: "#ff9800",
 	error: "#f44336",
-
-	gray: [
-		"#f8f8f8",
-		"#f2f2f2",
-		"#e0e0e0",
-		"#bdbdbd",
-		"#9e9e9e",
-		"#757575",
-		"#616161",
-		"#424242",
-		"#212121",
-		"#111111",
-	],
 }
 
 export const brand_base = ["#FFB556", "#EC6928", "#C73A67", "#9529AB"]

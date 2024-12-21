@@ -34,33 +34,3 @@
 	font-weight: 600;
 	font-style: normal;
 }
-@font-face {
-	font-family: "Alfa Slab One";
-	src: url("./AlfaSlabOne-Regular.ttf") format("ttf");
-	font-weight: 600;
-	font-style: normal;
-}
-@font-face {
-	font-family: "Calistoga";
-	src: url("./Calistoga-Regular.ttf") format("ttf");
-	font-weight: 600;
-	font-style: normal;
-}
-@font-face {
-	font-family: "Cormorant";
-	src: url("./CormorantUpright-Regular.ttf") format("ttf");
-	font-weight: 600;
-	font-style: normal;
-}
-@font-face {
-	font-family: "Spectral SC";
-	src: url("./SpectralSC-Regular.ttf") format("ttf");
-	font-weight: 600;
-	font-style: normal;
-}
-@font-face {
-	font-family: "Yeseva One";
-	src: url("./YesevaOne-Regular.ttf") format("ttf");
-	font-weight: 600;
-	font-style: normal;
-}
