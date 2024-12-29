@@ -1,0 +1,65 @@
+[
+    {
+        "word": "a",
+        "parts_of_speech": [
+            {
+                "type": "excl",
+                "definitions": [
+                    {
+                        "definition": "O; oh (exclamation of surprise, regret, etc.)",
+                        "examples": [
+                            {
+                                "example": "a, đồ chơi đẹp quá!",
+                                "translation": "Oh! What a nice toy!"
+                            },
+                            {
+                                "example": "a, tội nghiệp quá",
+                                "translation": "Oh! What a pity!"
+                            }
+                        ]
+                    },
+                    {
+                        "definition": "By the way",
+                        "examples": [
+                            {
+                                "example": "a, còn một vấn đề này nữa",
+                                "translation": "By the way, there's this one other question"
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "type": "noun",
+                "definitions": [
+                    {
+                        "definition": "Acre (100 square meters)"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "word": "a dua",
+        "parts_of_speech": [
+            {
+                "type": "verb",
+                "definitions": [
+                    {
+                        "definition": "To ape, to chime in, to join in, to take a leaf out of sb's book",
+                        "examples": [
+                            {
+                                "example": "a dua theo lối ăn mặc lố lăng",
+                                "translation": "to ape other's eccentric style of dress"
+                            },
+                            {
+                                "example": "người hay a dua bắt chước",
+                                "translation": "a copy-cat"
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    }
+]

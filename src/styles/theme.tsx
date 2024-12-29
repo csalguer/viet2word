@@ -112,7 +112,7 @@ export const theme = createTheme({
 	shadows,
 	breakpoints,
 	typography,
-	defaultGradient,
+	// defaultGradient,
 	// fontFamily,
 })
 

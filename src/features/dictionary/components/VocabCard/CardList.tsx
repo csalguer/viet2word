@@ -36,7 +36,7 @@ import {
 	withFadeOut,
 	withGreyedSelection,
 	withZoom,
-} from "../../../animation/hooks/index"
+} from "../../../anim&action/hooks/index"
 
 interface APIReturn<T> {
 	data?: T | T[] | Record<string, T>

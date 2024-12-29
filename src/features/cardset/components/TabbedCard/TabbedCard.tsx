@@ -2,7 +2,7 @@ import { useCallback, useState, useEffect, ReactElement } from "react"
 import { Card, Tabs, Center, Stack, Flex } from "@mantine/core"
 import styles from "./TabbedCard.css"
 import palette from "../../../../styles/Palette"
-import { withGreyedSelection } from "../../../animation/hooks"
+import { withGreyedSelection } from "../../../anim&action/hooks"
 import { nanoid } from "nanoid"
 export interface TabbedCardProps {
 	tabs: string[]

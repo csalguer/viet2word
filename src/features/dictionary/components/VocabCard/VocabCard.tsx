@@ -39,7 +39,7 @@ import {
 	withFadeOut,
 	withGreyedSelection,
 	withZoom,
-} from "../../../animation/hooks/index"
+} from "../../../anim&action/hooks/index"
 import {
 	IconBookmark,
 	IconStar,
