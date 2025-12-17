@@ -1,39 +1,39 @@
 export type ConfigProps = {
-	shadows: { sm: str; md: str; lg: str; xl: str; xxl: str; xxxl: str }
+	shadows: { sm: string; md: string; lg: string; xl: string; xxl: string; xxxl: string }
 	typography: {
-		spacing: str
+		spacing: string
 		headings: {
-			fontFamily: str
-			fontWeight: str
-			textWrap: str
+			fontFamily: string
+			fontWeight: string
+			textWrap: string
 			headings: {
 				sizes: {
-					xs: str
-					sm: str
-					md: str
-					lg: str
-					xl: str
-					xxl: str
-					xxxl: str
-					xxxxxl: str
+					xs: string
+					sm: string
+					md: string
+					lg: string
+					xl: string
+					xxl: string
+					xxxl: string
+					xxxxxl: string
 				}
 			}
 		}
-		breakpoints: { xs: str; sm: str; md: str; lg: str; xl: str }
+		breakpoints: { xs: string; sm: string; md: string; lg: string; xl: string }
 	}
 }
 
 export type ColorPalette = {
-	warm: str[]
-	greens: str[]
-	cool: str[]
-	highlighter: str[]
-	edit: str[]
-	primary: str
-	secondary: str
-	success: str
-	info: str
-	warning: str
-	error: str
-	gray: str[]
+	warm: string[]
+	greens: string[]
+	cool: string[]
+	highlighter: string[]
+	edit: string[]
+	primary: string
+	secondary: string
+	success: string
+	info: string
+	warning: string
+	error: string
+	gray: string[]
 }

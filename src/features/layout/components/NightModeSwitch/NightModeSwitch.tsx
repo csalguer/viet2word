@@ -30,7 +30,7 @@ const MOON = () => (
 		color={colorsPractical[5]}
 	/>
 )
-export function NightModeSwitch({ prop }: NightModeSwitchProps) {
+export function NightModeSwitch({ darkMode }: NightModeSwitchProps) {
 	const colorScheme = useColorScheme()
 	return (
 		<Switch

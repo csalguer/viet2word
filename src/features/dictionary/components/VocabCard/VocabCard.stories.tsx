@@ -1,5 +1,5 @@
 import React from "react"
-import type { Meta, StoryObj } from "@storybook/react"
+import type { Meta, StoryObj } from "@storybook/react-vite"
 
 import { DefinitionsList, VocabCard, VocabContent, Word } from "./VocabCard"
 import { CardList } from "./CardList"
@@ -26,42 +26,41 @@ type Story = StoryObj<typeof VocabCard>
 // TODO: Syllable/written word-break * notation
 export const Primary: Story = {
 	args: {
-		primary: true,
-		label: "VocabCard",
 		expanded: true,
 		...data[0],
 	},
 }
 export const Empty: Story = {
 	args: {
-		label: "VocabCard",
 		...data[10],
 	},
 }
 
 export const Headword: Story = {
 	args: {
-		label: "VocabCard",
 		// ...data[3],
 	},
 	render: () => {
-		return data.map((item, index) => {
-			const { word, phonetic } = item
-			return (
-				<>
-					<Stack bg="white" border="2px dashed #555555">
-						<Word word={word} phonetic={phonetic} />
-					</Stack>
-					<Divider my={"md"} />
-				</>
-			)
-		})
+		return (
+			<>
+				{data.map((item, index) => {
+					const { word, phonetic } = item
+					return (
+						<>
+							<Stack bg="white">
+								<Word word={word} phonetic={phonetic} />
+							</Stack>
+							<Divider my={"md"} />
+						</>
+					)
+				})}
+			</>
+		)
 	},
 }
 
 export const Meaning: Story = {
 	args: {
-		label: "VocabCard",
 		...data[4],
 	},
 	render: () => {
@@ -82,7 +81,6 @@ export const Meaning: Story = {
 
 export const MeaningVariant: Story = {
 	args: {
-		label: "VocabCard",
 		...data[2],
 	},
 	render: () => {

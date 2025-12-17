@@ -1,5 +1,5 @@
 import React from "react"
-import type { Meta, StoryObj } from "@storybook/react"
+import type { Meta, StoryObj } from "@storybook/react-vite"
 
 import { CardList } from "./CardList"
 import { DATA, MOCK_CARD_INFO } from "../../api/mockData"
@@ -20,20 +20,13 @@ type Story = StoryObj<typeof CardList>
 // TODO: Syllable/written word-break * notation
 export const Primary: Story = {
 	args: {
-		primary: true,
-		label: "CardList",
-		content: {
-			data: [...DATA],
-		},
+		content: DATA,
 	},
 }
 
-export const VocabList: VocabListStory = {
+export const VocabList: Story = {
 	args: {
-		label: "VocabList",
-		content: {
-			data: [...DATA],
-		},
+		content: DATA,
 	},
 }
 
@@ -46,7 +39,6 @@ export const VocabList: VocabListStory = {
 //Replaceable Indicator?
 export const Carousel: Story = {
 	args: {
-		label: "CarouselList",
 		...Primary.args,
 	},
 }

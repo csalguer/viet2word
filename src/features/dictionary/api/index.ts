@@ -1,5 +1,6 @@
 import { useQuery } from "@tanstack/react-query"
 import axios from "axios"
+import { DictionaryItem } from "../types"
 
 // Define a function to fetch dictionary items
 const fetchDictionaryItems = async (

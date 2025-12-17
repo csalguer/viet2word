@@ -10,79 +10,33 @@
 
 import { createFileRoute } from '@tanstack/react-router'
 
-// Import Routes
+import { Route as rootRouteImport } from './routes/__root'
+import { Route as IndexRouteImport } from './routes/index'
 
-import { Route as rootRoute } from './routes/__root'
-import { Route as IndexImport } from './routes/index'
+const ReaderLazyRouteImport = createFileRoute('/reader')()
+const HomeLazyRouteImport = createFileRoute('/home')()
+const DicionaryLazyRouteImport = createFileRoute('/dicionary')()
 
-// Create Virtual Routes
-
-const ReaderLazyImport = createFileRoute('/reader')()
-const HomeLazyImport = createFileRoute('/home')()
-const DicionaryLazyImport = createFileRoute('/dicionary')()
-
-// Create/Update Routes
-
-const ReaderLazyRoute = ReaderLazyImport.update({
+const ReaderLazyRoute = ReaderLazyRouteImport.update({
   id: '/reader',
   path: '/reader',
-  getParentRoute: () => rootRoute,
+  getParentRoute: () => rootRouteImport,
 } as any).lazy(() => import('./routes/reader.lazy').then((d) => d.Route))
-
-const HomeLazyRoute = HomeLazyImport.update({
+const HomeLazyRoute = HomeLazyRouteImport.update({
   id: '/home',
   path: '/home',
-  getParentRoute: () => rootRoute,
+  getParentRoute: () => rootRouteImport,
 } as any).lazy(() => import('./routes/home.lazy').then((d) => d.Route))
-
-const DicionaryLazyRoute = DicionaryLazyImport.update({
+const DicionaryLazyRoute = DicionaryLazyRouteImport.update({
   id: '/dicionary',
   path: '/dicionary',
-  getParentRoute: () => rootRoute,
+  getParentRoute: () => rootRouteImport,
 } as any).lazy(() => import('./routes/dicionary.lazy').then((d) => d.Route))
-
-const IndexRoute = IndexImport.update({
+const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
-  getParentRoute: () => rootRoute,
+  getParentRoute: () => rootRouteImport,
 } as any)
-
-// Populate the FileRoutesByPath interface
-
-declare module '@tanstack/react-router' {
-  interface FileRoutesByPath {
-    '/': {
-      id: '/'
-      path: '/'
-      fullPath: '/'
-      preLoaderRoute: typeof IndexImport
-      parentRoute: typeof rootRoute
-    }
-    '/dicionary': {
-      id: '/dicionary'
-      path: '/dicionary'
-      fullPath: '/dicionary'
-      preLoaderRoute: typeof DicionaryLazyImport
-      parentRoute: typeof rootRoute
-    }
-    '/home': {
-      id: '/home'
-      path: '/home'
-      fullPath: '/home'
-      preLoaderRoute: typeof HomeLazyImport
-      parentRoute: typeof rootRoute
-    }
-    '/reader': {
-      id: '/reader'
-      path: '/reader'
-      fullPath: '/reader'
-      preLoaderRoute: typeof ReaderLazyImport
-      parentRoute: typeof rootRoute
-    }
-  }
-}
-
-// Create and export the route tree
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
@@ -90,22 +44,19 @@ export interface FileRoutesByFullPath {
   '/home': typeof HomeLazyRoute
   '/reader': typeof ReaderLazyRoute
 }
-
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/dicionary': typeof DicionaryLazyRoute
   '/home': typeof HomeLazyRoute
   '/reader': typeof ReaderLazyRoute
 }
-
 export interface FileRoutesById {
-  __root__: typeof rootRoute
+  __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/dicionary': typeof DicionaryLazyRoute
   '/home': typeof HomeLazyRoute
   '/reader': typeof ReaderLazyRoute
 }
-
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths: '/' | '/dicionary' | '/home' | '/reader'
@@ -114,12 +65,44 @@ export interface FileRouteTypes {
   id: '__root__' | '/' | '/dicionary' | '/home' | '/reader'
   fileRoutesById: FileRoutesById
 }
-
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   DicionaryLazyRoute: typeof DicionaryLazyRoute
   HomeLazyRoute: typeof HomeLazyRoute
   ReaderLazyRoute: typeof ReaderLazyRoute
+}
+
+declare module '@tanstack/react-router' {
+  interface FileRoutesByPath {
+    '/reader': {
+      id: '/reader'
+      path: '/reader'
+      fullPath: '/reader'
+      preLoaderRoute: typeof ReaderLazyRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/home': {
+      id: '/home'
+      path: '/home'
+      fullPath: '/home'
+      preLoaderRoute: typeof HomeLazyRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/dicionary': {
+      id: '/dicionary'
+      path: '/dicionary'
+      fullPath: '/dicionary'
+      preLoaderRoute: typeof DicionaryLazyRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/': {
+      id: '/'
+      path: '/'
+      fullPath: '/'
+      preLoaderRoute: typeof IndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+  }
 }
 
 const rootRouteChildren: RootRouteChildren = {
@@ -128,35 +111,6 @@ const rootRouteChildren: RootRouteChildren = {
   HomeLazyRoute: HomeLazyRoute,
   ReaderLazyRoute: ReaderLazyRoute,
 }
-
-export const routeTree = rootRoute
+export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
-
-/* ROUTE_MANIFEST_START
-{
-  "routes": {
-    "__root__": {
-      "filePath": "__root.ts",
-      "children": [
-        "/",
-        "/dicionary",
-        "/home",
-        "/reader"
-      ]
-    },
-    "/": {
-      "filePath": "index.ts"
-    },
-    "/dicionary": {
-      "filePath": "dicionary.lazy.tsx"
-    },
-    "/home": {
-      "filePath": "home.lazy.tsx"
-    },
-    "/reader": {
-      "filePath": "reader.lazy.tsx"
-    }
-  }
-}
-ROUTE_MANIFEST_END */

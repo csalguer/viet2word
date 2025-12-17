@@ -1,38 +1,29 @@
 import type { StorybookConfig } from "@storybook/react-vite"
 
 const config: StorybookConfig = {
-	stories: ["../src/**/*.mdx", "../src/**/*.stories.@(js|jsx|mjs|ts|tsx)"],
-	addons: [
-		"@storybook/addon-links",
-		"@storybook/addon-essentials",
-		"@storybook/addon-interactions",
-		"@storybook/addon-styling",
-		"@mantine/core",
-		"storybook-addon-mantine",
-		"@storybook/addon-styling-webpack", // Add this line only if you are not using Vite
-		"storybook-dark-mode",
-		{
-			name: "storybook-addon-mantine",
-			options: {},
-		},
-	],
-	framework: {
+    stories: ["../src/**/*.mdx", "../src/**/*.stories.@(js|jsx|mjs|ts|tsx)"],
+
+    addons: [
+        "@storybook/addon-links",
+        "@storybook/addon-docs"
+    ],
+
+    framework: {
 		name: "@storybook/react-vite",
 		options: {},
 	},
-	core: {
+
+    core: {
 		disableTelemetry: true,
 	},
-	docs: {
-		autodocs: "tag",
-	},
-	refs: {
+
+    refs: {
 		mantine: {
 			title: "Mantine",
 			url: "https://spigelli.github.io/mantine-storybook/",
 			srcUrl: "https://spigelli.github.io/mantine-storybook/",
 			expanded: false, // Optional, true by default
 		},
-	},
+	}
 }
 export default config

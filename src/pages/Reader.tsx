@@ -2,7 +2,7 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query"
 import { RouterProvider, type createRouter } from "@tanstack/react-router"
-import type { ReactElement } from "react"
+import type { ReactElement, ReactNode } from "react"
 import { useId, useState, useCallback, useLayoutEffect, useEffect } from "react"
 import "@mantine/core/styles.css"
 import {
@@ -48,7 +48,7 @@ import Palette, {
 } from "../features/layout/styles/Palette.ts"
 import { useToggle } from "@mantine/hooks"
 import palette, { ToneNames } from "../styles/Palette.tsx"
-import { VocabCardProps } from "../features/dictionary/components/InfoCard/types.ts"
+import { VocabCardProps } from "../features/dictionary/components/VocabCard/types.ts"
 
 export interface ReadingMaterialProps {
 	title: string
@@ -69,7 +69,7 @@ export const Legend = (props: BoxProps) => {
 					const [toneName, toneColor] = tone
 					return (
 						<Group gap="sm" key={nanoid(6)}>
-							<Box w={"1.6rem"} h={"1.6rem"} radius="sm" bg={toneColor} />
+							<Paper w={"1.6rem"} h={"1.6rem"} radius="sm" bg={toneColor} />
 							<Text size="sm" fw={700} color={toneColor}>
 								{toneName}
 							</Text>
@@ -84,16 +84,17 @@ export const Legend = (props: BoxProps) => {
 export const ReadingMaterial = ({
 	title,
 	content,
+	summary,
 }: ReadingMaterialProps): ReactElement => {
 	const [sentences, setSentences] = useState<Array<string>>([])
-	const [displayedContent, setDisplayedContent] = useState(null)
+	const [displayedContent, setDisplayedContent] = useState<ReactNode>(null)
 	const [sentenceFocused, setSentenceFocused] = useState<number | null>(null)
 	const [wordFocused, setWordFocused] = useState<number | null>(null)
 
 	const [value, toggle] = useToggle([false, true])
 
-	const { wordHovered, wordRef } = useHover()
-	const { sentenceHovered, sentenceRef } = useHover()
+	const { hovered: wordHovered, ref: wordRef } = useHover()
+	const { hovered: sentenceHovered, ref: sentenceRef } = useHover()
 
 	useEffect(() => {
 		if (!!content) {
@@ -102,13 +103,13 @@ export const ReadingMaterial = ({
 	}, [content])
 
 	useEffect(() => {
-		const reading = []
+		const reading: ReactElement[] = []
 		// console.log(sentences)
 		for (const sentence of sentences) {
 			const wordElements = sentence.split(" ").map((word, index) => {
 				return (
 					<motion.div
-						whileHover={() => {
+						whileHover={{
 							border: "1px solid slateblue"
 						}}
 					>
@@ -150,7 +151,6 @@ export const ReadingMaterial = ({
 			<Stack
 				m={{ base: "md", sm: "md", lg: "xl" }}
 				p={{ base: "md", sm: "md", lg: "xl" }}
-				direction={"column"}
 				gap={"md"}
 			>
 				<Title order={1} fw={700}>
@@ -173,8 +173,12 @@ export interface Materia extends ReadingMaterialProps {
 	vocab?: VocabWord[]
 }
 
+export interface VocabSheetProps {
+	vocab: VocabWord[]
+}
+
 // TODO:
-export const VocabSheet = ({}: VocabSheetProps): ReactElement => {
+export const VocabSheet = ({ vocab }: VocabSheetProps): ReactElement => {
 	const { t } = useTranslation()
 	console.log(useId(), MOCK_CARD_INFO)
 
@@ -199,7 +203,7 @@ export const VocabSheet = ({}: VocabSheetProps): ReactElement => {
 					direction={"row"}
 					gap={"lg"}
 				>
-					{intro_lesson_ZH?.vocab?.map((card, index) => (
+					{vocab?.map((card, index) => (
 						<>
 							<VocabCard
 								key={nanoid(6)}
@@ -238,7 +242,6 @@ const Summary = ({ summary }) => {
 			<Stack
 				m={{ base: "md", sm: "md", lg: "xl" }}
 				p={{ base: "md", sm: "md", lg: "xl" }}
-				direction={"column"}
 				gap={"md"}
 			>
 				<Title order={1} fw={700}>
@@ -275,6 +278,7 @@ export function Reader(): ReactElement {
 			return (
 				<ReadingMaterial
 					title={intro_lesson_ZH.title}
+					summary={intro_lesson_ZH.summary}
 					content={intro_lesson_ZH.content}
 				/>
 			)

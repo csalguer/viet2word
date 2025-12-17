@@ -17,9 +17,9 @@ import { Navigation } from "./features/navigation"
 
 const queryClient = new QueryClient()
 
-type AppProps = { router: ReturnType<typeof createRouter> }
+type AppProps = { router: any }
 
-const App = ({ router }: AppProps): FunctionComponent => {
+const App = ({ router }: AppProps): ReactElement => {
 	return (
 		<>
 			<AppConfig>

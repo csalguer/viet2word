@@ -20,7 +20,7 @@ import {
 	SearchBar,
 	CardList,
 	VocabCard,
-	Meaning,
+	VocabContent,
 	Word,
 } from "../features/dictionary/components"
 import { motion, AnimatePresence, LayoutGroup } from "framer-motion"
@@ -36,20 +36,19 @@ import { Reader } from "./Reader.tsx"
 
 const tab = [
 	<Word key={nanoid(6)} word={"buôi sang"} partOfSpeech={"NOUN"} />,
-	<Word key={nanoid(6)} word={"ɓuo˧j sa:˧ŋ"} partOfSpeech={null} />,
-	<Meaning
+	<Word key={nanoid(6)} word={"ɓuo˧j sa:˧ŋ"} />,
+	<VocabContent
 		key={nanoid(6)}
+		expanded={true}
 		meanings={[
 			{
-				meaning: {
-					partOfSpeech: "noun",
-					definitions: [
-						{
-							definition: "Morning",
-							example: "Buôi sang tôi ăn đi có bạn ấy.",
-						},
-					],
-				},
+				partOfSpeech: "noun",
+				definitions: [
+					{
+						definition: "Morning",
+						example: "Buôi sang tôi ăn đi có bạn ấy.",
+					},
+				],
 			},
 		]}
 	/>,

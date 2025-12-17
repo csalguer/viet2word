@@ -19,10 +19,10 @@ import {
 	Group,
 	Switch,
 } from "@mantine/core"
-import { InfoCard, CardList } from "../InfoCard/VocabCard"
-import { MOCK_CARD_INFO } from "../../api/mockData"
+import { InfoCard, CardList } from "../../../dictionary/components/VocabCard"
+import { MOCK_CARD_INFO } from "../../../dictionary/api/mockData"
 import { Gradients } from "../../../layout/styles/Gradients"
-import { palette } from "../../../../styles/Palette"
+import Palette from "../../../../styles/Palette"
 import { IconSun, IconMoonStars } from "@tabler/icons-react"
 
 const PRIMARY_COL_HEIGHT = rem(300)

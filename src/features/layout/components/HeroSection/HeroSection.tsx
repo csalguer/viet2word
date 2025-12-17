@@ -1,4 +1,4 @@
-import { useRef, useEffect, forwardRef, createRef } from "react"
+import { useRef, useEffect, forwardRef, createRef, ReactElement } from "react"
 import {
 	useMantineTheme,
 	Group,
@@ -17,25 +17,22 @@ import {
 import { VocabCard } from "../../../dictionary/components"
 import PageContainer from "../PageContainer/PageContainer"
 import Palette from "../../styles/Palette"
-import theme from "../../styles/Theme"
 import styles from "./HeroSection.module.css"
-import * as motion from "motion/client"
-import { transform } from "framer-motion"
+import { motion, transform } from "framer-motion"
 import { Gradients } from "../../styles/Gradients"
 import { nanoid } from "nanoid"
-import { useMediaQuery, create } from "@mantine/hooks"
+import { useMediaQuery } from "@mantine/hooks"
 import { Carousel } from "@mantine/carousel"
-import { createStyles, getStylesRef } from "@mantine/core"
 import Autoplay from "embla-carousel-autoplay"
 
 const text =
 	" Anim occaecat non anim nisi est sit officoia ipsum commodo consequat ex fugiat reprehenderit eu cupidatat tempor deserunt."
 
-const CardsStock: ReactElement = [
+const CardsStock: ReactElement[] = [
 	<VocabCard
 		// ref={ref}
 		word="azafrán"
-		meanings={{
+		meanings={[{
 			partOfSpeech: "SUST",
 			definitions: [
 				{
@@ -45,14 +42,14 @@ const CardsStock: ReactElement = [
 						"Para un toque auténtico y mejor color, se le debe agregar un poco de azafrán al arroz.",
 				},
 			],
-		}}
+		}]}
 		visible
 		expanded={true}
 	/>,
 	<VocabCard
 		// ref={ref}
 		word="魔鬼"
-		meanings={{
+		meanings={[{
 			partOfSpeech: "名词",
 			definitions: [
 				{
@@ -60,14 +57,14 @@ const CardsStock: ReactElement = [
 					example: "黑魔者让了魔鬼从村农出去。",
 				},
 			],
-		}}
+		}]}
 		visible
 		expanded
 	/>,
 	<VocabCard
 		// ref={ref}
 		word="شربرت"
-		meanings={{
+		meanings={[{
 			partOfSpeech: "اسم",
 			definitions: [
 				{
@@ -75,14 +72,14 @@ const CardsStock: ReactElement = [
 					example: "Mango sherbert.",
 				},
 			],
-		}}
+		}]}
 		visible
 		expanded
 	/>,
 	<VocabCard
 		// ref={ref}
 		word="ngọ gâi"
-		meanings={{
+		meanings={[{
 			partOfSpeech: "danh từ",
 			definitions: [
 				{
@@ -90,7 +87,7 @@ const CardsStock: ReactElement = [
 					example: "......",
 				},
 			],
-		}}
+		}]}
 		visible
 		expanded
 	/>,
@@ -103,7 +100,7 @@ const HeroText = ({
 }): ReactElement => {
 	return (
 		<>
-			<Center gap="xl">
+			<Center>
 				<Stack w="400px" gap="xl">
 					<Text
 						variant="gradient"
@@ -170,14 +167,11 @@ const AuraCloudDiv = ({ colorA, colorB }) => {
 	return (
 		// <motion.div animate={{}}>
 		<Box
-			styles={{
-				filter: "blur(3.4px)",
-				backgroundColor: Palette.neutrals.bluestone,
-			}}
-			color="transparent"
 			w="95%"
 			h="95%"
 			style={{
+				filter: "blur(3.4px)",
+				backgroundColor: Palette.neutrals.bluestone,
 				boxShadow: shadowColor,
 			}}
 		/>
@@ -203,7 +197,6 @@ export const HeroSection = (): ReactElement => {
 				// p={"xl"}
 				h="800px"
 				w="100%"
-				size="xl"
 			>
 				<Center>
 					<Center>
@@ -221,14 +214,11 @@ export const HeroSection = (): ReactElement => {
 									<HeroText />
 								</Flex>
 								<Carousel
-									loop
-									align="start"
-									slidesToScroll={mobile ? 1 : 2}
 									w={"fit-content"}
 									h={"215px"}
 									withControls
 									withIndicators
-									classNames={styles.carousel}
+									className={styles.carousel}
 								>
 									<Flex dir="row" w={"400px"} h="215px">
 										{slides}

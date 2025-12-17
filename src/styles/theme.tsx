@@ -1,7 +1,7 @@
-import { createTheme, getGradient, MantineProvider } from "@mantine/core"
+import { createTheme, getGradient, MantineProvider, ColorSchemeScript } from "@mantine/core"
 import { RouterProvider, type createRouter } from "@tanstack/react-router"
 import { QueryClientProvider, QueryClient } from "@tanstack/react-query"
-import { createContext, ReactNode, ColorSchemeScript } from "react"
+import { createContext, ReactNode } from "react"
 import withPalette from "./PaletteContext"
 import "../../public/fonts.css"
 
@@ -14,14 +14,14 @@ const typography = {
 		fontFamily:
 			"-system-ui, -apple-system, BlinkMacSystemFont ,'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif",
 		fontWeight: "700",
-		textWrap: "wrap",
+		textWrap: "wrap" as const,
 		sizes: {
 			h1: {
 				// Gradient style
 				fontFamily: "Calistoga",
 				fontSize: "3.0rem",
-				fontWeight: 900,
-				lineHeight: 1.1,
+				fontWeight: "900",
+				lineHeight: "1.1",
 				margin: 0,
 				padding: 0,
 				color: "white",
@@ -29,8 +29,8 @@ const typography = {
 			h2: {
 				// Unit Header
 				fontSize: "2.85rem",
-				fontWeight: 800,
-				lineHeight: 1.0,
+				fontWeight: "800",
+				lineHeight: "1.0",
 				margin: 0,
 				padding: 0,
 				color: "white",
@@ -39,8 +39,8 @@ const typography = {
 			h3: {
 				// Section Header
 				fontSize: "2.5rem",
-				fontWeight: 700,
-				lineHeight: 1.0,
+				fontWeight: "700",
+				lineHeight: "1.0",
 				margin: 0,
 				padding: 0,
 				color: "white",
@@ -49,8 +49,8 @@ const typography = {
 			h4: {
 				// Title
 				fontSize: "2.2rem",
-				fontWeight: 700,
-				lineHeight: 1.0,
+				fontWeight: "700",
+				lineHeight: "1.0",
 				margin: 0,
 				padding: 0,
 				color: "white",
@@ -59,8 +59,8 @@ const typography = {
 			h5: {
 				//
 				fontFamily: "Loretta",
-				fontWeight: 700,
-				lineHeight: 1.0,
+				fontWeight: "700",
+				lineHeight: "1.0",
 				margin: 0,
 				padding: 0,
 				color: "white",
@@ -69,8 +69,8 @@ const typography = {
 				// Details / Etc.
 
 				fontFamily: "Loretta",
-				fontWeight: 500,
-				lineHeight: 1.0,
+				fontWeight: "500",
+				lineHeight: "1.0",
 				margin: 0,
 				padding: 0,
 				color: "#00121b",
@@ -111,7 +111,7 @@ export const theme = createTheme({
 	// spacing: "1rem",
 	shadows,
 	breakpoints,
-	typography,
+	headings: typography.headings,
 	// defaultGradient,
 	// fontFamily,
 })

@@ -4,3 +4,4 @@ import PageContainer from "../../layout/components/PageContainer/PageContainer"
 export * from "./VocabCard"
 export { SearchBar }
 export { PageContainer }
+export type { Meaning } from "../types"

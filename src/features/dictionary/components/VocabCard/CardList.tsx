@@ -19,10 +19,10 @@ import {
 	UnstyledButton,
 } from "@mantine/core"
 import { useMediaQuery } from "@mantine/hooks"
-import { Carousel, Embla } from "@mantine/carousel"
+import { Carousel } from "@mantine/carousel"
 import { motion, AnimatePresence, LayoutGroup } from "framer-motion"
 import { nanoid } from "nanoid"
-import { useCallback, useEffect, useState } from "react"
+import { useCallback, useEffect, useState, ReactElement } from "react"
 import palette from "../../../../styles/Palette"
 import { VocabCard } from "./VocabCard"
 import {
@@ -36,7 +36,7 @@ import {
 	withFadeOut,
 	withGreyedSelection,
 	withZoom,
-} from "../../../anim&action/hooks/index"
+} from "../../../animation/hooks/index"
 
 interface APIReturn<T> {
 	data?: T | T[] | Record<string, T>
@@ -46,13 +46,16 @@ interface APIReturn<T> {
 		time: Date
 	}
 }
-// type CardData = typeof Cards
-type CardData = APIReturn<CardData>
-export const CardList = ({ content }: CardData): ReactElement => {
+
+interface CardListProps {
+    content: VocabCardProps[]
+}
+
+export const CardList = ({ content }: CardListProps): ReactElement => {
 	// TODO: Implement logic to render multiple InfoCard components based on the content prop.
 	const [selectedId, setSelectedId] = useState(null)
-	const [cards, setCards] = useState([])
-	const [buttons, setButtons] = useState([])
+	const [cards, setCards] = useState<ReactElement[]>([])
+	const [buttons, setButtons] = useState<ReactElement[]>([])
 	const isMobile = useMediaQuery(`(max-width: ${em(750)})`)
 
 	const createCards = useCallback(
@@ -116,13 +119,13 @@ export const CardList = ({ content }: CardData): ReactElement => {
 
 	useEffect(() => {
 		// If no content is provided, return an empty div.
-		setCards(content?.data?.map(createCards))
-		setButtons(content?.data?.map(createVocabButtons))
+		setCards(content?.map(createCards))
+		setButtons(content?.map(createVocabButtons))
 	}, [content])
 
 	return (
 		<>
-			<Center overflow={"scroll"}>
+			<Center style={{ overflow: "scroll" }}>
 				{selectedId != null && (
 					<Center
 						style={{ zIndex: 1 }}
@@ -151,10 +154,9 @@ export const CardList = ({ content }: CardData): ReactElement => {
 	)
 }
 
-interface CarouselListProps extends CardData {
-	content: VocabCard[]
-	handleScroll: () => void
-	handle
+interface CarouselListProps {
+	content: VocabCardProps[]
+	handleScroll?: () => void
 }
 
 export const CarouselList = ({ content }: CarouselListProps): ReactElement => {
@@ -167,7 +169,6 @@ export const CarouselList = ({ content }: CarouselListProps): ReactElement => {
 						slideSize={"25%"}
 						style={{ flex: 1 }}
 						slideGap={"md"}
-						loop
 					>
 						{content?.map((item, index) => {
 							return (
@@ -177,7 +178,7 @@ export const CarouselList = ({ content }: CarouselListProps): ReactElement => {
 											size={"lg"}
 											word={item.word}
 											phonetic={item.phonetic}
-											definitions={item.definitions}
+											meanings={item.meanings}
 										/>
 									</Carousel.Slide>
 								</>

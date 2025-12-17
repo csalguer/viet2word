@@ -46,15 +46,13 @@ const tab = [
 		key={nanoid(6)}
 		definitions={[
 			{
-				meaning: {
-					partOfSpeech: "noun",
-					definitions: [
-						{
-							definition: "Morning",
-							example: "Buôi sang tôi ăn đi có bạn ấy.",
-						},
-					],
-				},
+				partOfSpeech: "noun",
+				definitions: [
+					{
+						definition: "Morning",
+						example: "Buôi sang tôi ăn đi có bạn ấy.",
+					},
+				],
 			},
 		]}
 	/>,
@@ -62,15 +60,13 @@ const tab = [
 		key={nanoid(6)}
 		definitions={[
 			{
-				meaning: {
-					partOfSpeech: "noun",
-					definitions: [
-						{
-							definition: "Morning",
-							example: "Buôi sang tôi ăn đi có bạn ấy.",
-						},
-					],
-				},
+				partOfSpeech: "noun",
+				definitions: [
+					{
+						definition: "Morning",
+						example: "Buôi sang tôi ăn đi có bạn ấy.",
+					},
+				],
 			},
 		]}
 	/>,
@@ -78,19 +74,17 @@ const tab = [
 		key={nanoid(6)}
 		definitions={[
 			{
-				meaning: {
-					partOfSpeech: "noun",
-					definitions: [
-						{
-							definition: "Morning",
-							example: "Buôi sang tôi ăn đi có bạn ấy.",
-						},
-					],
-				},
+				partOfSpeech: "noun",
+				definitions: [
+					{
+						definition: "Morning",
+						example: "Buôi sang tôi ăn đi có bạn ấy.",
+					},
+				],
 			},
 		]}
 	/>,
-	({ children }): ReactNode => (
+	(
 		<Stack key={nanoid(6)} mb="sm">
 			<Text fw={700} size="lg">
 				"This is commonly used to talk about morning routines but less commonly
@@ -107,7 +101,7 @@ const CONTENT = () => {
 				<Center h={"100%"}>
 					<TabbedCard
 						tabs={["Word", "Def", "Example", "Notes"]}
-						children={[tab]}
+						children={tab}
 					/>
 				</Center>
 			</Group>
@@ -138,39 +132,45 @@ export function Home(): ReactElement {
 						m={"xl"}
 						bg={getGradient(
 							{
-								from: palette.highlight[0],
-								to: palette.highlight[2],
+								from: palette.highlighter[0] ?? "",
+								to: palette.highlighter[2] ?? "",
 								deg: 90,
 							},
 							theme
 						)}
-						styles={{ filter: "blur(3.4px)" }}
+						styles={{ root: { filter: "blur(3.4px)" } }}
 					>
 						<VocabCard
 							word="魔鬼"
-							meanings={{
-								definitions: [
-									{
-										defintion: "Ghost, spirit",
-										example: "黑魔者让了魔鬼从村农出去。",
-									},
-								],
-							}}
+							meanings={[
+								{
+									partOfSpeech: "noun",
+									definitions: [
+										{
+											definition: "Ghost, spirit",
+											example: "黑魔者让了魔鬼从村农出去。",
+										},
+									],
+								},
+							]}
 							visible
 							expanded
 						></VocabCard>
 						<VocabCard
 							word="azafrán"
-							meanings={{
-								definitions: [
-									{
-										defintion:
-											"Rich and deep yellow spice made from the pistils of the saffron flower",
-										example:
-											"Para un toque auténtico y mejor color, se le debe agregar un poco de azafrán al arroz.",
-									},
-								],
-							}}
+							meanings={[
+								{
+									partOfSpeech: "noun",
+									definitions: [
+										{
+											definition:
+												"Rich and deep yellow spice made from the pistils of the saffron flower",
+											example:
+												"Para un toque auténtico y mejor color, se le debe agregar un poco de azafrán al arroz.",
+										},
+									],
+								},
+							]}
 							visible
 							expanded
 						></VocabCard>

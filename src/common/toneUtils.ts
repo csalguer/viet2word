@@ -3,16 +3,15 @@
 
 // Tone (Diacritic, VnZhHighlightColor, index, Contours, Pitch (data for pitch accents), _in:(block out for intonation profile/etc.), )
 
-import {
+import Palette, {
 	Color,
 	ToneNames,
 	VnZhHighlightColor,
-	Palette,
 } from "../styles/Palette"
 
 export const detectVietnameseTone = (word: string): string => {
 	const toneMarks: Record<string, string> = {
-		NGA: "", // No diacritical mark
+		NGANG: "", // No diacritical mark
 		HUYEN: "àầằèềìòồờùừỳ",
 		SAC: "áấắéếíóốúứý",
 		HOI: "ảẩẳẻểỉỏổởửủỷ",
@@ -46,7 +45,7 @@ export const detectVietnameseTone = (word: string): string => {
 
 // }
 
-type Diacritic<Tone> = Record<Tone, (s: string) => string>
+type Diacritic<Tone extends string | number | symbol> = Record<Tone, (s: string) => string>
 
 const getToneInfo = {
 	NGANG: (s: string) => {
@@ -63,7 +62,6 @@ const getToneInfo = {
 		return {
 			diacritic: " ",
 			highlightColor: VnZhHighlightColor.SÁC,
-			contours: 1,
 			contours: 1,
 			pitch: {
 				data: [],

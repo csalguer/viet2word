@@ -9,6 +9,9 @@ import classes from "../SearchBar/SearchBar.module.css"
 import { NightModeButton } from "../../../layout/components/NightModeSwitch/NightModeButton"
 export interface SearchBarProps {
 	prop?: string
+	word: string
+	onSearch: (event: any) => Promise<void>
+	onWordChange: (value: string) => void
 }
 
 const links = [
@@ -19,13 +22,17 @@ const links = [
 	// { link: "/chat", label: "CHAT" },
 ]
 
-export const SearchBar = (): ReactElement => {
+export const SearchBar = ({
+	word,
+	onSearch,
+	onWordChange,
+}: SearchBarProps): ReactElement => {
 	const [opened, { toggle }] = useDisclosure(false)
 
 	const items = links.map((link) => (
 		<Anchor
 			key={link.label}
-			className={classes.link}
+			className={classes["link"]}
 			href={link.link}
 			onClick={(event) => {
 				console.log(link)
@@ -37,7 +44,7 @@ export const SearchBar = (): ReactElement => {
 	))
 
 	return (
-		<div className={classes.inner}>
+		<div className={classes["inner"]}>
 			<Group>
 				<Burger hiddenFrom="sm" opened={opened} size="sm" onClick={toggle} />
 				{/* <MantineLogo size={28} /> */}
@@ -45,7 +52,7 @@ export const SearchBar = (): ReactElement => {
 
 			<Group>
 				<Group
-					className={classes.links}
+					className={classes["links"]}
 					gap={"lg"}
 					ml={"lg"}
 					mr={"lg"}
@@ -54,9 +61,16 @@ export const SearchBar = (): ReactElement => {
 					{items}
 				</Group>
 				<Autocomplete
-					className={classes.search}
+					className={classes["search"]}
 					placeholder="Search"
 					visibleFrom="xs"
+					value={word}
+					onChange={onWordChange}
+					onKeyDown={(e) => {
+						if (e.key === "Enter") {
+							onSearch(e)
+						}
+					}}
 					leftSection={
 						<IconSearch
 							stroke={1.5}

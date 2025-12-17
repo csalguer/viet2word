@@ -1,5 +1,5 @@
 import React from "react"
-import type { Meta, StoryObj } from "@storybook/react"
+import type { Meta, StoryObj } from "@storybook/react-vite"
 
 import { SearchBar } from "./SearchBar"
 import { MantineProvider } from "@mantine/core"
@@ -12,4 +12,10 @@ export default meta
 
 type Story = StoryObj<typeof SearchBar>
 
-export const Primary: Story = { args: { primary: true, label: "SearchBar" } }
+export const Primary: Story = {
+	args: {
+		word: "",
+		onSearch: async () => {},
+		onWordChange: () => {},
+	},
+}

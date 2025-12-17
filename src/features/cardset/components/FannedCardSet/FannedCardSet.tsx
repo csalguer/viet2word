@@ -1,4 +1,4 @@
-import React from "react"
+import React, { ReactElement } from "react"
 
 import styles from "./FannedCardSet.css"
 
@@ -6,6 +6,6 @@ export interface FannedCardSetProps {
 	content: ReactElement[]
 }
 
-export function FannedCardSet({ prop = "default value" }: FannedCardSetProps) {
-	return
+export function FannedCardSet({ content }: FannedCardSetProps) {
+	return null
 }

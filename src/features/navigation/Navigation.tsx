@@ -1,4 +1,4 @@
-import { useState, useCallback } from "react"
+import { useState, useCallback, ReactNode, FormEvent } from "react"
 import { AppShell, useMantineColorScheme } from "@mantine/core"
 import { useDisclosure } from "@mantine/hooks"
 import styles from "./Navigation.css"
@@ -6,6 +6,7 @@ import { PageContainer, SearchBar } from "../dictionary/components"
 import { Gradients } from "../layout/styles/Gradients"
 export interface NavigationProps {
 	prop?: string
+	children: ReactNode
 }
 
 type DefinitionType = { definition?: string; example?: string }
@@ -48,7 +49,7 @@ export function Navigation({ children }: NavigationProps) {
 							border: "none",
 						},
 					}}
-					width={"100vw"}
+					w={"100vw"}
 				>
 					<SearchBar
 						word={word}

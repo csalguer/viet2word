@@ -1,5 +1,5 @@
 import React from "react"
-import type { Meta, StoryObj } from "@storybook/react"
+import type { Meta, StoryObj } from "@storybook/react-vite"
 
 import { NightModeSwitch, NightModeButton } from "./NightModeSwitch"
 import { Center, MantineProvider } from "@mantine/core"
@@ -20,7 +20,7 @@ const meta: Meta<typeof NightModeSwitch> = {
 type Story = StoryObj<typeof NightModeSwitch>
 
 export const Primary: Story = {
-	args: { primary: true, label: "NightModeSwitch" },
+	args: { darkMode: false },
 }
 
 export default meta

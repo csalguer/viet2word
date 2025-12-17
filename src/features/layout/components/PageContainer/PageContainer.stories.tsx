@@ -1,5 +1,5 @@
 import React from "react"
-import type { Meta, StoryObj } from "@storybook/react"
+import type { Meta, StoryObj } from "@storybook/react-vite"
 
 import PageContainer from "./PageContainer"
 import { Center, MantineProvider } from "@mantine/core"
@@ -21,7 +21,7 @@ const meta: Meta<typeof PageContainer> = {
 type Story = StoryObj<typeof PageContainer>
 
 export const Primary: Story = {
-	args: { primary: true, label: "PageContainer" },
+	args: { children: <div>Page Content</div> },
 }
 
 export default meta

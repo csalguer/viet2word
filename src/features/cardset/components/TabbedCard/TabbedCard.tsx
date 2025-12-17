@@ -1,8 +1,8 @@
-import { useCallback, useState, useEffect, ReactElement } from "react"
+import { useCallback, useState, useEffect, ReactElement, CSSProperties, Children } from "react"
 import { Card, Tabs, Center, Stack, Flex } from "@mantine/core"
 import styles from "./TabbedCard.css"
 import palette from "../../../../styles/Palette"
-import { withGreyedSelection } from "../../../anim&action/hooks"
+import { withGreyedSelection } from "../../../animation/hooks"
 import { nanoid } from "nanoid"
 export interface TabbedCardProps {
 	tabs: string[]
@@ -10,9 +10,9 @@ export interface TabbedCardProps {
 }
 
 const getTabColor = (num: number): string =>
-	palette?.highlight[num % palette?.highlight?.length]
+	palette?.highlighter[num % palette?.highlighter?.length]
 
-const tabStyle = (num: number): ReactElement => {
+const tabStyle = (num: number): CSSProperties => {
 	return {
 		fontSize: "1.0rem",
 		fontWeight: "bold",
@@ -63,7 +63,7 @@ export function TabbedCard({ tabs, children }: TabbedCardProps) {
 						)
 					})}
 				</Tabs.List>
-				{children?.map((child, index) => {
+				{Children.map(children, (child, index) => {
 					return (
 						<Tabs.Panel
 							key={nanoid(6)}
@@ -79,7 +79,7 @@ export function TabbedCard({ tabs, children }: TabbedCardProps) {
 						</Tabs.Panel>
 					)
 				})}
-				{children?.length == 0 && children}
+				{Children.count(children) == 0 && children}
 			</Tabs>
 		</Center>
 	)
@@ -87,12 +87,11 @@ export function TabbedCard({ tabs, children }: TabbedCardProps) {
 
 export const TabbedCardContent = ({ children }) => {
 	return (
-		<Center
+		<Card
 			shadow="sm"
 			padding="lg"
 			h="fit-content"
 			w={{ sm: "85vw", md: "60vw" }}
-			justify="center"
 			radius="md"
 			withBorder
 		>
@@ -110,6 +109,6 @@ export const TabbedCardContent = ({ children }) => {
 			>
 				{children}
 			</Flex>
-		</Center>
+		</Card>
 	)
 }

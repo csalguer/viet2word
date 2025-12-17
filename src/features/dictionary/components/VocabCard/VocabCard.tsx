@@ -25,8 +25,9 @@ import {
 import { useHover, useMediaQuery } from "@mantine/hooks"
 import { motion, AnimatePresence, LayoutGroup } from "framer-motion"
 import { nanoid } from "nanoid"
-import { useCallback, useEffect, useState } from "react"
+import { useCallback, useEffect, useState, ReactNode, ReactElement } from "react"
 import palette from "../../../../styles/Palette"
+import { Definition, Meaning } from "../../types"
 
 import {
 	InfoCardProps,
@@ -34,12 +35,13 @@ import {
 	WordProps,
 	DefinitionsListProps,
 	VocabCardProps,
+	BookmarkProps,
 } from "./types"
 import {
 	withFadeOut,
 	withGreyedSelection,
 	withZoom,
-} from "../../../anim&action/hooks/index"
+} from "../../../animation/hooks/index"
 import {
 	IconBookmark,
 	IconStar,
@@ -48,7 +50,6 @@ import {
 	IconPointFilled,
 } from "@tabler/icons-react"
 import Palette from "../../../layout/styles/Palette"
-import { Definition } from "../../types"
 
 // TODO: Remember to internationalize all type accesses for the PartOfSpeech enum type
 // TODO: Type out all possible parts of speech including:
@@ -138,7 +139,7 @@ const withTextElem = (content: Definition): ReactNode => {
 const withDetailTextElem = (content: Definition): ReactNode => {
 	return (
 		<Stack key={nanoid(6)} mb="xs">
-			<Text styles={{ textTransform: "capitalize" }} fw={400} size="lg">
+			<Text style={{ textTransform: "capitalize" }} fw={400} size="lg">
 				<em>{content.definition}</em>
 			</Text>
 			<Text color={Palette.neutrals.slate} size="lg">
@@ -150,9 +151,9 @@ const withDetailTextElem = (content: Definition): ReactNode => {
 
 const withHoverElem = (content): ReactNode => {
 	const [toDisplay, setToDisplay] = useState<string>(content?.definition ?? "")
-	const [ref, hovered] = useHover()
+	const { hovered, ref } = useHover()
 	const handleHover = useCallback(
-		(event: MouseEvent) => {
+		(event: React.MouseEvent<HTMLDivElement>) => {
 			if (event.type == "mouseenter") {
 				setToDisplay(content.example)
 			} else if (event.type == "mouseleave") {
@@ -165,7 +166,6 @@ const withHoverElem = (content): ReactNode => {
 	return (
 		<>
 			<Center>
-				<Transition>
 					<Stack key={nanoid(6)} mb="xs" ref={ref} onMouseOver={handleHover}>
 						<Text
 							fw={700}
@@ -178,7 +178,6 @@ const withHoverElem = (content): ReactNode => {
 							{toDisplay}
 						</Text>
 					</Stack>
-				</Transition>
 			</Center>
 		</>
 	)
@@ -193,11 +192,11 @@ export const DefinitionsList = ({
 		// <Space h="100%" onClick={onClick}>
 
 		definitions ? (
-			<List p="md" justify="space-between">
+			<List p="md">
 				{definitions?.length &&
 					definitions?.map((item, index) => {
 						console.log(item)
-						const { definitions, example } = item
+						const { definitions } = item
 						return definitions?.map((def, index) => {
 							return variant ? withTextElem(def) : withDetailTextElem(def)
 						})
@@ -226,7 +225,7 @@ const VocabHeader = ({ word, phonetic, onClick }) => {
 			>
 				<Flex gap="lg" h="fit-content">
 					{/* <Star /> */}
-					<Bookmark />
+					<Bookmark filled={false} callback={() => {}} />
 				</Flex>
 			</Group>
 			<Flex
@@ -254,9 +253,8 @@ export const VocabCard = ({
 	size,
 	visible = true,
 	expanded = true,
-	onClick = null,
-	handle,
-	ref = null,
+	onClick,
+	ref,
 }: VocabCardProps) => {
 	const [isVisible, toggleVisibility] = useState<boolean>(visible)
 	const [isExpanded, toggleExpanded] = useState<boolean>(expanded)
@@ -327,14 +325,24 @@ const Notification = () => {
 	)
 }
 
-export const VocabContent = ({ meanings, expanded, variant }): ReactElement => {
+interface VocabContentProps {
+	meanings: Meaning[]
+	expanded: boolean
+	variant?: boolean
+}
+
+export const VocabContent = ({
+	meanings,
+	expanded,
+	variant,
+}: VocabContentProps): ReactElement => {
 	return (
 		<>
 			<Stack display={"flex"} justify="space-between" m="md">
 				{expanded ? (
 					<DefinitionsList definitions={meanings} variant />
 				) : (
-					<Skeleton size={"lg"} />
+					<Skeleton height={20} />
 				)}
 			</Stack>
 		</>
@@ -344,7 +352,7 @@ export const VocabContent = ({ meanings, expanded, variant }): ReactElement => {
 export const EmptyCard = () => {
 	return (
 		<>
-			<VocabCard word={null} meanings={null} />
+			<VocabCard word={""} phonetic={""} meanings={[]} />
 		</>
 	)
 }

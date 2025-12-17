@@ -1,30 +1,13 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { withThemeByClassName } from "@storybook/addon-themes"
-import type { Preview } from "@storybook/react"
+import type { Preview } from "@storybook/react-vite"
 import '@mantine/core/styles.css';
 
-import { addons } from '@storybook/preview-api';
-import { DARK_MODE_EVENT_NAME } from 'storybook-dark-mode';
-import { MantineProvider, useMantineColorScheme } from '@mantine/core';
-
-const channel = addons.getChannel();
-
-function ColorSchemeWrapper({ children }: { children: React.ReactNode }) {
-  const { setColorScheme } = useMantineColorScheme();
-  const handleColorScheme = (value: boolean) => setColorScheme(value ? 'dark' : 'light');
-
-  useEffect(() => {
-    channel.on(DARK_MODE_EVENT_NAME, handleColorScheme);
-    return () => channel.off(DARK_MODE_EVENT_NAME, handleColorScheme);
-  }, [channel]);
-
-  return <>{children}</>; 
-}
-
+import { MantineProvider } from '@mantine/core';
+import { Provider as ChakraProvider } from '../src/components/ui/provider';
 
 export const decorators = [
-  (renderStory: any) => <ColorSchemeWrapper>{renderStory()}</ColorSchemeWrapper>,
-  (renderStory: any) => <MantineProvider>{renderStory()}</MantineProvider>,
+  (renderStory: any) => <ChakraProvider><MantineProvider>{renderStory()}</MantineProvider></ChakraProvider>,
 ]
 
 export const preview: Preview = {

@@ -1,5 +1,5 @@
 import React from "react"
 
-import { navigation } from "../Navigation"
+import { Navigation } from "../Navigation"
 
 describe("<navigation />", () => {})

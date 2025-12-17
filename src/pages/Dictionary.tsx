@@ -23,6 +23,7 @@ import {
 	Meaning,
 	Word,
 } from "../features/dictionary/components"
+import { Navigation } from "../features/navigation/Navigation"
 import { motion, AnimatePresence, LayoutGroup } from "framer-motion"
 import { useTranslation } from "react-i18next"
 import type { FunctionComponent } from "../common/types"
