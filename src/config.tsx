@@ -1,5 +1,7 @@
 import theme from "./styles/theme"
+import system from "./theme/theme"
 import { createTheme, MantineProvider } from "@mantine/core"
+import { ChakraProvider } from "@chakra-ui/react"
 import { RouterProvider, type createRouter } from "@tanstack/react-router"
 import { QueryClientProvider, QueryClient } from "@tanstack/react-query"
 import { createContext, ReactNode } from "react"
@@ -24,12 +26,14 @@ export const ConfigProvider = (
 ) => {
 	return (
 		<>
-			<MantineProvider theme={theme}>
-				<QueryClientProvider client={queryClient}>
-					<ColorSchemeScript />
-					{withPalette(children)}
-				</QueryClientProvider>
-			</MantineProvider>
+			<ChakraProvider value={system}>
+				<MantineProvider theme={theme}>
+					<QueryClientProvider client={queryClient}>
+						<ColorSchemeScript />
+						{withPalette(children)}
+					</QueryClientProvider>
+				</MantineProvider>
+			</ChakraProvider>
 		</>
 	)
 }
