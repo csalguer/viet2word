@@ -30,25 +30,21 @@ import {
 	VocabCard,
 	Meaning,
 	Word,
-} from "../features/dictionary/components"
+} from "../components/dictionary"
 import { motion, AnimatePresence, LayoutGroup } from "framer-motion"
 import { useTranslation } from "react-i18next"
-import type { FunctionComponent } from "../common/types"
-import { MOCK_CARD_INFO } from "../features/dictionary/api/mockData.ts"
-import { Navigation } from "../features/navigation/Navigation.tsx"
-import { TabbedCard } from "../features/cardset/components/index.ts"
+import type { FunctionComponent } from "../lib/types"
+import { MOCK_CARD_INFO } from "../lib/mockData"
+import { Navigation } from "../components/navigation/navigation"
+import { TabbedCard } from "../components/card/tabbed-card"
 import { nanoid } from "nanoid"
 import {
 	intro_lesson_VN,
 	intro_lesson_ZH,
-} from "../features/reader/api/mockLesson"
-import { Gradients } from "../features/layout/styles/Gradients.ts"
-import Palette, {
-	VnZhHighlightColor,
-} from "../features/layout/styles/Palette.ts"
+} from "../lib/mockLesson"
 import { useToggle } from "@mantine/hooks"
-import palette, { ToneNames } from "../styles/Palette.tsx"
-import { VocabCardProps } from "../features/dictionary/components/VocabCard/types.ts"
+import palette, { ToneNames, VnZhHighlightColor } from "../styles/palette"
+import { VocabCardProps } from "../components/dictionary/vocab-card/types"
 
 export interface ReadingMaterialProps {
 	title: string
@@ -192,7 +188,7 @@ export const VocabSheet = ({ vocab }: VocabSheetProps): ReactElement => {
 				gap={"md"}
 				p="lg"
 			>
-				<Text color={Palette.gray["800"]} size="1.8rem" fw={700}>
+				<Text color={palette.gray["800"]} size="1.8rem" fw={700}>
 					{/* {t("vocab_sheet.title")} */}
 					Vocabulary
 				</Text>

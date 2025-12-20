@@ -36,4 +36,13 @@ export type ColorPalette = {
 	warning: string
 	error: string
 	gray: string[]
+	colorsEstimate: string[]
+	neutrals: {
+		beige: string
+		warm: string
+		slate: string
+		bluestone: string
+		legalpad: string
+		white: string
+	}
 }

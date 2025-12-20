@@ -3,10 +3,9 @@ import { RouterProvider, type createRouter } from "@tanstack/react-router"
 import { QueryClientProvider, QueryClient } from "@tanstack/react-query"
 import { createContext, ReactNode } from "react"
 import withPalette from "./PaletteContext"
-import "../../public/fonts.css"
+import "./fonts.css"
 
 import { couleurs } from "./colors"
-import { Gradients } from "../features/layout/styles/Gradients"
 
 const typography = {
 	// spacing: "1rem",

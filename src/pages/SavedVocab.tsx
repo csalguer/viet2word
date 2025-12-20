@@ -22,13 +22,13 @@ import {
 	VocabCard,
 	VocabContent,
 	Word,
-} from "../features/dictionary/components"
+} from "../components/dictionary"
 import { motion, AnimatePresence, LayoutGroup } from "framer-motion"
 import { useTranslation } from "react-i18next"
-import type { FunctionComponent } from "../common/types"
-import { MOCK_CARD_INFO } from "../features/dictionary/api/mockData.ts"
-import { Navigation } from "../features/navigation/Navigation.tsx"
-import { TabbedCard } from "../features/cardset/components/index.ts"
+import type { FunctionComponent } from "../lib/types"
+import { MOCK_CARD_INFO } from "../lib/mockData"
+import { Navigation } from "../components/navigation/navigation"
+import { TabbedCard } from "../components/card/tabbed-card"
 import { nanoid } from "nanoid"
 import { Reader } from "./Reader.tsx"
 // import { useQueryClient } from "@tanstack/react-query"

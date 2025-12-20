@@ -1,7 +1,7 @@
 import { createContext, Context, useContext } from "react"
 import { type ColorPalette } from "./types"
 
-import palette from "../styles/Palette"
+import palette from "../styles/palette"
 
 const INITIAL_PALETTE_CONTEXT = palette
 

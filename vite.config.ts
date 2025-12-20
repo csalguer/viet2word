@@ -29,4 +29,15 @@ export default defineConfig({
 		setupFiles: ["./vitest.setup.ts"],
 		css: true,
 	},
+	build: {
+		rollupOptions: {
+			output: {
+				manualChunks: {
+					vendor: ["react", "react-dom", "framer-motion"],
+					mantine: ["@mantine/core", "@mantine/hooks", "@mantine/carousel"],
+					tanstack: ["@tanstack/react-router", "@tanstack/react-query"],
+				},
+			},
+		},
+	},
 })
