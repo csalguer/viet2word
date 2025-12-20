@@ -1,184 +1,90 @@
-/* eslint-disable @typescript-eslint/no-unsafe-assignment */
-/* eslint-disable @typescript-eslint/no-unused-vars */
-import { QueryClient, QueryClientProvider } from "@tanstack/react-query"
-import { RouterProvider, type createRouter } from "@tanstack/react-router"
-import type { ReactElement, ReactNode } from "react"
-import { useState } from "react"
-import "@mantine/core/styles.css"
-import {
-	ColorSchemeScript,
-	Group,
-	MantineProvider,
-	createTheme,
-	Center,
-	Stack,
-	Text,
-	Title,
-	Input,
-	Button,
-	getGradient,
-	useMantineTheme,
-} from "@mantine/core"
-import {
-	InfoCard,
-	PageContainer,
-	SearchBar,
-	CardList,
-	VocabCard,
-	DefinitionsList,
-	Word,
-} from "../components/dictionary"
-import { motion, AnimatePresence, LayoutGroup } from "framer-motion"
-import { useTranslation } from "react-i18next"
-import type { FunctionComponent } from "../lib/types"
-import { MOCK_CARD_INFO } from "../lib/mockData"
-import { Navigation } from "../components/navigation/navigation"
-import { TabbedCard } from "../components/card/tabbed-card"
-import { nanoid } from "nanoid"
-import { Reader } from "./Reader.tsx"
-import palette from "../styles/palette"
-// import { useQueryClient } from "@tanstack/react-query"
-// import { useTranslation } from "react-i18next"
+import React, { useState } from 'react';
+import { Box, Container, Heading, VStack, Text, Button } from '@chakra-ui/react';
+import { FannedCardSet } from '../features/cardset/components/FannedCardSet/FannedCardSet';
+import { TabbedInterface } from '../components/TabbedInterface';
+import { CardList } from '../components/CardList';
+import { DictionaryEntry } from '../components/landing/DictionaryEntry';
+import { PaletteGuide } from '../components/landing/PaletteGuide';
+import { ToggleSwitch } from '../components/landing/ToggleSwitch';
+import { LayoutMode } from '../components/landing/types';
 
-const tab = [
-	<Word key={nanoid(6)} word={"buôi sang"} partOfSpeech={"NOUN"} />,
-	<DefinitionsList
-		key={nanoid(6)}
-		definitions={[
-			{
-				partOfSpeech: "noun",
-				definitions: [
-					{
-						definition: "Morning",
-						example: "Buôi sang tôi ăn đi có bạn ấy.",
-					},
-				],
-			},
-		]}
-	/>,
-	<DefinitionsList
-		key={nanoid(6)}
-		definitions={[
-			{
-				partOfSpeech: "noun",
-				definitions: [
-					{
-						definition: "Morning",
-						example: "Buôi sang tôi ăn đi có bạn ấy.",
-					},
-				],
-			},
-		]}
-	/>,
-	<DefinitionsList
-		key={nanoid(6)}
-		definitions={[
-			{
-				partOfSpeech: "noun",
-				definitions: [
-					{
-						definition: "Morning",
-						example: "Buôi sang tôi ăn đi có bạn ấy.",
-					},
-				],
-			},
-		]}
-	/>,
-	(
-		<Stack key={nanoid(6)} mb="sm">
-			<Text fw={700} size="lg">
-				"This is commonly used to talk about morning routines but less commonly
-				used in day to day phrases in the context of when or the time period an
-				action was taken/completed/done."
-			</Text>
-		</Stack>
-	),
-]
-const CONTENT = () => {
-	return (
-		<>
-			<Group id={"home-content"} mt={"57px"} w={"100%"}>
-				<Center h={"100%"}>
-					<TabbedCard
-						tabs={["Word", "Def", "Example", "Notes"]}
-						children={tab}
-					/>
-				</Center>
-			</Group>
-		</>
-	)
-}
+// Mock Data
+const cardItems = [
+  { title: 'Card 1', description: 'Description for card 1' },
+  { title: 'Card 2', description: 'Description for card 2' },
+  { title: 'Card 3', description: 'Description for card 3' },
+];
 
-export function Home(): ReactElement {
-	const theme = useMantineTheme()
+const tabItems = [
+  { label: 'Tab 1', content: <Box p={4}>Content for Tab 1</Box> },
+  { label: 'Tab 2', content: <Box p={4}>Content for Tab 2</Box> },
+];
 
-	return (
-		<>
-			<PageContainer>
-				<Group>
-					<Group>
-						<Title>Vietnamese Language Tools</Title>
-						<Text>
-							Anim occaecat non anim nisi est sit officia ipsum commodo
-							consequat ex fugiat reprehenderit eu cupidatat tempor deserunt.
-						</Text>
-						<Button>Try Now</Button>
-						<Input placeholder="Search here" w="400px" h="150px"></Input>
-					</Group>
-					<CONTENT />
-					<CardList content={MOCK_CARD_INFO.data} />
-					<Group
-						display={"flex"}
-						w="fit-content"
-						h="100%"
-						m={"xl"}
-						bg={getGradient(
-							{
-								from: palette.highlighter[0] ?? "",
-								to: palette.highlighter[2] ?? "",
-								deg: 90,
-							},
-							theme
-						)}
-						styles={{ root: { filter: "blur(3.4px)" } }}
-					>
-						<VocabCard
-							word="魔鬼"
-							meanings={[
-								{
-									partOfSpeech: "noun",
-									definitions: [
-										{
-											definition: "Ghost, spirit",
-											example: "黑魔者让了魔鬼从村农出去。",
-										},
-									],
-								},
-							]}
-							visible
-							expanded
-						></VocabCard>
-						<VocabCard
-							word="azafrán"
-							meanings={[
-								{
-									partOfSpeech: "noun",
-									definitions: [
-										{
-											definition:
-												"Rich and deep yellow spice made from the pistils of the saffron flower",
-											example:
-												"Para un toque auténtico y mejor color, se le debe agregar un poco de azafrán al arroz.",
-										},
-									],
-								},
-							]}
-							visible
-							expanded
-						></VocabCard>
-					</Group>
-				</Group>
-			</PageContainer>
-		</>
-	)
-}
+const wordData = {
+  word: 'Serendipity',
+  pronunciation: '/ˌser.ənˈdɪp.ə.ti/',
+  etymology: 'From Persian fairy tale "The Three Princes of Serendip"',
+  definitions: [
+    {
+      id: '1',
+      partOfSpeech: 'noun',
+      meaning: 'The occurrence and development of events by chance in a happy or beneficial way.',
+      example: 'The discovery of penicillin was a serendipity.',
+      meta: ['literary'],
+      synonyms: ['chance', 'fate', 'luck'],
+      antonyms: ['misfortune']
+    }
+  ]
+};
+
+const fannedCards = [
+  <Box key="1" bg="white" p={4} shadow="md" rounded="md" w="200px" h="300px" border="1px solid" borderColor="gray.200">Card A</Box>,
+  <Box key="2" bg="white" p={4} shadow="md" rounded="md" w="200px" h="300px" border="1px solid" borderColor="gray.200">Card B</Box>,
+  <Box key="3" bg="white" p={4} shadow="md" rounded="md" w="200px" h="300px" border="1px solid" borderColor="gray.200">Card C</Box>,
+];
+
+export const Home = () => {
+  const [mode, setMode] = useState<LayoutMode>('editorial');
+
+  return (
+    <Container maxW="container.xl" py={10}>
+      <VStack gap={10} align="stretch">
+        <Box display="flex" justifyContent="space-between" alignItems="center">
+          <Heading>VLT Landing Page</Heading>
+        </Box>
+
+        <Box>
+          <Heading size="md" mb={4}>Dictionary Entry</Heading>
+          <ToggleSwitch mode={mode} onChange={setMode} />
+          <Box mt={4}>
+            <DictionaryEntry mode={mode} data={wordData} />
+          </Box>
+        </Box>
+
+        <Box>
+          <Heading size="md" mb={4}>Fanned Card Set</Heading>
+          <Box h="400px" position="relative">
+             <FannedCardSet cards={fannedCards} />
+          </Box>
+        </Box>
+
+        <Box>
+          <Heading size="md" mb={4}>Tabbed Interface</Heading>
+          <TabbedInterface items={tabItems} />
+        </Box>
+
+        <Box>
+          <Heading size="md" mb={4}>Card List</Heading>
+          <CardList items={cardItems} />
+        </Box>
+
+        <Box>
+          <Heading size="md" mb={4}>Palette Guide</Heading>
+          <PaletteGuide />
+        </Box>
+      </VStack>
+    </Container>
+  );
+};
+
+export default Home;
