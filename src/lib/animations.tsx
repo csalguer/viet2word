@@ -1,58 +1,32 @@
-import { motion } from "framer-motion"
-import { nanoid } from "nanoid"
+import { motion } from "framer-motion";
+import { ReactNode } from "react";
 
-const spring = {
-	type: "spring",
-	stiffness: 600,
-	damping: 60,
-	duration: 1.2,
-} as const
+export const withZoom = (children: ReactNode, scale: number = 1.1) => (
+  <motion.div
+    whileHover={{ scale }}
+    transition={{ duration: 0.2 }}
+    style={{ width: "100%", height: "100%" }}
+  >
+    {children}
+  </motion.div>
+);
 
-export const withFadeOut = (element) => {
-	return (
-		<motion.div
-			key={nanoid(6)}
-			layout
-			exit={{ opacity: 0.0, scale: 1.2 }}
-			initial={{ opacity: 1, scale: 0.9 }}
-			animate={{ opacity: 1, scale: 1 }}
-			transition={spring}
-			whileHover={{ scale: 1.1 }}
-			whileTap={{ scale: 0.95 }}
-		>
-			{element}
-		</motion.div>
-	)
-}
-export const withGreyedSelection = (element) => {
-	return (
-		<motion.div
-			key={nanoid(6)}
-			layout
-			exit={{ opacity: 1, scale: 1.2, color: "#0f015245" }}
-			initial={{ opacity: 1, scale: 0.9 }}
-			animate={{ opacity: 1, scale: 1 }}
-			whileHover={{ color: "#0f015235", scale: 0.8 }}
-			whileTap={{ scale: 0.95, color: "#0f015235" }}
-		>
-			{element}
-		</motion.div>
-	)
-}
+export const withFadeOut = (children: ReactNode) => (
+  <motion.div
+    initial={{ opacity: 1 }}
+    exit={{ opacity: 0 }}
+    transition={{ duration: 0.2 }}
+    style={{ width: "100%", height: "100%" }}
+  >
+    {children}
+  </motion.div>
+);
 
-export const withZoom = (element, scaleBy = 1) => {
-	return (
-		<motion.div
-			key={nanoid(6)}
-			layout
-			exit={{ opacity: 1, scale: scaleBy * 0.2 }}
-			initial={{ opacity: 1, scale: scaleBy * 0.9 }}
-			animate={{ opacity: 1, scale: scaleBy * 1.1 }}
-			transition={{ ...spring, duration: 2.2, ease: "linear" }}
-			whileHover={{ scale: scaleBy * 0.95 }}
-			whileTap={{ scale: scaleBy * 0.85 }}
-		>
-			{element}
-		</motion.div>
-	)
-}
+export const withGreyedSelection = (children: ReactNode) => (
+  <motion.div
+    whileTap={{ filter: "grayscale(100%)" }}
+    style={{ width: "100%", height: "100%" }}
+  >
+    {children}
+  </motion.div>
+);

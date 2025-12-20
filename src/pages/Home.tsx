@@ -125,6 +125,8 @@ export function Home(): ReactElement {
 						<Button>Try Now</Button>
 						<Input placeholder="Search here" w="400px" h="150px"></Input>
 					</Group>
+					<CONTENT />
+					<CardList content={MOCK_CARD_INFO.data} />
 					<Group
 						display={"flex"}
 						w="fit-content"

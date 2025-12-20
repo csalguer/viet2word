@@ -4,10 +4,7 @@ import { useDisclosure } from "@mantine/hooks"
 import styles from "./navigation.css"
 import { PageContainer } from "../layout/page-container"
 import { SearchBar } from "./search-bar/SearchBar"
-<<<<<<< Updated upstream
-=======
 import { ThemeToggle } from "../terra/ThemeToggle"
->>>>>>> Stashed changes
 export interface NavigationProps {
 	prop?: string
 	children: ReactNode
