@@ -1,5 +1,12 @@
-import { useCallback, useState, useEffect, ReactElement, CSSProperties, Children } from "react"
-import { Card, Tabs, Center, Stack, Flex } from "@mantine/core"
+import {
+	useCallback,
+	useState,
+	useEffect,
+	ReactElement,
+	CSSProperties,
+	Children,
+} from "react"
+import { Card, Tabs, Center, Stack, Flex, Box } from "@chakra-ui/react"
 import styles from "./TabbedCard.css"
 import palette from "../../../styles/palette"
 import { withGreyedSelection } from "../../../lib/animations"
@@ -10,7 +17,7 @@ export interface TabbedCardProps {
 }
 
 const getTabColor = (num: number): string =>
-	palette?.highlighter[num % palette?.highlighter?.length]
+	palette?.highlighter?.[num % palette?.highlighter?.length] || "gray"
 
 const tabStyle = (num: number): CSSProperties => {
 	return {
@@ -33,13 +40,11 @@ export function TabbedCard({ tabs, children }: TabbedCardProps) {
 
 	return (
 		<Center id="tabbed-card">
-			<Tabs
+			<Tabs.Root
 				orientation="vertical"
-				variant="pills"
-				radius="md"
-				h={"auto"}
+				variant="subtle"
 				value={activeTab}
-				onChange={setActiveTab}
+				onValueChange={(e) => setActiveTab(e.value)}
 			>
 				<Tabs.List
 					style={{
@@ -52,20 +57,15 @@ export function TabbedCard({ tabs, children }: TabbedCardProps) {
 				>
 					{tabs?.map((tab, index) => {
 						return (
-							<Tabs.Tab
-								value={tab}
-								key={nanoid(6)}
-								color={getTabColor(index)}
-								style={tabStyle(index)}
-							>
+							<Tabs.Trigger value={tab} key={nanoid(6)} style={tabStyle(index)}>
 								{tab}
-							</Tabs.Tab>
+							</Tabs.Trigger>
 						)
 					})}
 				</Tabs.List>
 				{Children.map(children, (child, index) => {
 					return (
-						<Tabs.Panel
+						<Tabs.Content
 							key={nanoid(6)}
 							value={tabs[index]}
 							h={"100%"}
@@ -76,39 +76,40 @@ export function TabbedCard({ tabs, children }: TabbedCardProps) {
 							<Center h={"100%"}>
 								<TabbedCardContent>{child}</TabbedCardContent>
 							</Center>
-						</Tabs.Panel>
+						</Tabs.Content>
 					)
 				})}
 				{Children.count(children) == 0 && children}
-			</Tabs>
+			</Tabs.Root>
 		</Center>
 	)
 }
 
 export const TabbedCardContent = ({ children }) => {
 	return (
-		<Card
+		<Card.Root
 			shadow="sm"
-			padding="lg"
 			h="fit-content"
 			w={{ sm: "85vw", md: "60vw" }}
-			radius="md"
-			withBorder
+			borderRadius="md"
+			borderWidth="1px"
 		>
-			<Flex
-				id={"tabbed-card"}
-				display={"flex"}
-				justify="space-between"
-				align={"center"}
-				ml="md"
-				mt="xs"
-				mb="xs"
-				bg="white"
-				w={"100%"}
-				h={"100%"}
-			>
-				{children}
-			</Flex>
-		</Card>
+			<Card.Body p="lg">
+				<Flex
+					id={"tabbed-card"}
+					display={"flex"}
+					justify="space-between"
+					align={"center"}
+					ml="md"
+					mt="xs"
+					mb="xs"
+					bg="white"
+					w={"100%"}
+					h={"100%"}
+				>
+					{children}
+				</Flex>
+			</Card.Body>
+		</Card.Root>
 	)
 }

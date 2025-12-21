@@ -1,6 +1,5 @@
 import { useCallback, useEffect, ReactElement } from "react"
 import { useQuery } from "@tanstack/react-query"
-import { Group } from "@mantine/core"
 import { InfoCard } from "../components/dictionary/vocab-card"
 
 export const MOCK_CARD_INFO = {

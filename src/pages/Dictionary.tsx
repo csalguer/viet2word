@@ -1,49 +1,44 @@
 /* eslint-disable @typescript-eslint/no-unsafe-assignment */
 /* eslint-disable @typescript-eslint/no-unused-vars */
-import { QueryClient, QueryClientProvider } from "@tanstack/react-query"
-import { RouterProvider, type createRouter } from "@tanstack/react-router"
 import type { ReactElement } from "react"
 import { useState } from "react"
-import "@mantine/core/styles.css"
-import {
-	ColorSchemeScript,
-	Group,
-	MantineProvider,
-	createTheme,
-	Center,
-	Stack,
-	Text,
-} from "@mantine/core"
-import {
-	InfoCard,
-	PageContainer,
-	SearchBar,
-	CardList,
-	VocabCard,
-	Meaning,
-	Word,
-} from "../components/dictionary"
+import { HStack, Center, Stack } from "@chakra-ui/react"
+import { PageContainer, SearchBar, CardList } from "../components/dictionary"
 import { Navigation } from "../components/navigation/navigation"
-import { motion, AnimatePresence, LayoutGroup } from "framer-motion"
-import { useTranslation } from "react-i18next"
-import type { FunctionComponent } from "../lib/types"
 import { MOCK_CARD_INFO } from "../lib/mockData"
-import { TabbedCard } from "../components/card/tabbed-card"
-import { nanoid } from "nanoid"
 
 export function Dictionary(): ReactElement {
+	const [searchWord, setSearchWord] = useState("")
+
+	const filteredContent = MOCK_CARD_INFO.data.filter((card) =>
+		card.word.toLowerCase().includes(searchWord.toLowerCase())
+	)
+
 	return (
 		<>
 			<Navigation>
-				<Group
+				<HStack
 					style={{
 						background:
 							"radial-gradient(circle at 10% 20%, rgb(226, 240, 254) 0%, rgb(255, 247, 228) 90%)",
-						height: "100%",
+						minHeight: "100vh",
+						alignItems: "flex-start",
 					}}
+					w="100%"
 				>
-					<PageContainer>{}</PageContainer>
-				</Group>
+					<PageContainer>
+						<Stack gap={8} w="100%" pt={8}>
+							<Center>
+								<SearchBar
+									word={searchWord}
+									onWordChange={setSearchWord}
+									onSearch={async () => {}}
+								/>
+							</Center>
+							<CardList content={filteredContent} />
+						</Stack>
+					</PageContainer>
+				</HStack>
 			</Navigation>
 		</>
 	)

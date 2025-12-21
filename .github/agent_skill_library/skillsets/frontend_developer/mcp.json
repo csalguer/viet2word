@@ -1,0 +1,17 @@
+{
+  "name": "Frontend Developer",
+  "description": "An agent specialized in creating and maintaining user interfaces using modern web technologies like React, Vue, or Angular.",
+  "system_prompt_template": "prompts/system/frontend_developer_prompt.md",
+  "instructions": [
+    "instructions/react_best_practices.md",
+    "instructions/frontend_testing_guidelines.md"
+  ],
+  "tools": [
+    "google_web_search",
+    "read_file",
+    "write_file",
+    "run_shell_command",
+    "list_directory",
+    "search_file_content"
+  ]
+}

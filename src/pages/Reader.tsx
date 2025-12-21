@@ -4,24 +4,18 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query"
 import { RouterProvider, type createRouter } from "@tanstack/react-router"
 import type { ReactElement, ReactNode } from "react"
 import { useId, useState, useCallback, useLayoutEffect, useEffect } from "react"
-import "@mantine/core/styles.css"
 import {
-	ColorSchemeScript,
-	Group,
-	MantineProvider,
-	createTheme,
-	Center,
-	Stack,
-	Text,
-	Paper,
-	Pill,
 	Box,
 	Flex,
-	Title,
+	Heading,
+	Text,
+	Stack,
+	Center,
+	HStack,
 	BoxProps,
-	Transition,
-} from "@mantine/core"
-import { useHover } from "@mantine/hooks"
+	Button,
+	Popover,
+} from "@chakra-ui/react"
 import {
 	InfoCard,
 	PageContainer,
@@ -38,23 +32,19 @@ import { MOCK_CARD_INFO } from "../lib/mockData"
 import { Navigation } from "../components/navigation/navigation"
 import { TabbedCard } from "../components/card/tabbed-card"
 import { nanoid } from "nanoid"
-import {
-	intro_lesson_VN,
-	intro_lesson_ZH,
-} from "../lib/mockLesson"
-import { useToggle } from "@mantine/hooks"
+import { intro_lesson_VN, intro_lesson_ZH } from "../lib/mockLesson"
 import palette, { ToneNames, VnZhHighlightColor } from "../styles/palette"
 import { VocabCardProps } from "../components/dictionary/vocab-card/types"
 
 export interface ReadingMaterialProps {
 	title: string
-	content: string
+	content: Array<{ word: string; definition: string }>
 	summary: string
 }
 
 export const Legend = (props: BoxProps) => {
 	return (
-		<Center hiddenFrom={props?.hiddenFrom} opacity={1}>
+		<Center hideFrom={props?.hideFrom} opacity={1}>
 			<Flex
 				direction={"row"}
 				w={"100%"}
@@ -64,12 +54,12 @@ export const Legend = (props: BoxProps) => {
 				{Object.entries(VnZhHighlightColor).map((tone, index) => {
 					const [toneName, toneColor] = tone
 					return (
-						<Group gap="sm" key={nanoid(6)}>
-							<Paper w={"1.6rem"} h={"1.6rem"} radius="sm" bg={toneColor} />
-							<Text size="sm" fw={700} color={toneColor}>
+						<HStack gap="sm" key={nanoid(6)}>
+							<Box w={"1.6rem"} h={"1.6rem"} borderRadius="sm" bg={toneColor} />
+							<Text fontSize="sm" fontWeight={700} color={toneColor}>
 								{toneName}
 							</Text>
-						</Group>
+						</HStack>
 					)
 				})}
 			</Flex>
@@ -82,82 +72,43 @@ export const ReadingMaterial = ({
 	content,
 	summary,
 }: ReadingMaterialProps): ReactElement => {
-	const [sentences, setSentences] = useState<Array<string>>([])
-	const [displayedContent, setDisplayedContent] = useState<ReactNode>(null)
-	const [sentenceFocused, setSentenceFocused] = useState<number | null>(null)
-	const [wordFocused, setWordFocused] = useState<number | null>(null)
-
-	const [value, toggle] = useToggle([false, true])
-
-	const { hovered: wordHovered, ref: wordRef } = useHover()
-	const { hovered: sentenceHovered, ref: sentenceRef } = useHover()
-
-	useEffect(() => {
-		if (!!content) {
-			setSentences(content?.split("."))
-		}
-	}, [content])
-
-	useEffect(() => {
-		const reading: ReactElement[] = []
-		// console.log(sentences)
-		for (const sentence of sentences) {
-			const wordElements = sentence.split(" ").map((word, index) => {
-				return (
-					<motion.div
-						whileHover={{
-							border: "1px solid slateblue"
-						}}
-					>
-						<Text
-							className="word"
-							key={nanoid(6)}
-							w={"fit-content"}
-							h={"100%"}
-							size="xl"
-						>
-							{word}
-						</Text>
-					</motion.div>
-				)
-			})
-
-			const sentenceElem = (
-				<>
-					<Flex
-						className="sentence"
-						wrap="wrap"
-						align="flex-start"
-						direction={"row"}
-						style={{ textWrap: "wrap", flexWrap: "wrap" }}
-						gap={"0.2rem"}
-						justify={"flex-start"}
-					>
-						{wordElements}
-					</Flex>
-				</>
-			)
-			reading.push(sentenceElem)
-		}
-		setDisplayedContent(reading)
-	}, [sentences, wordRef, sentenceRef])
-
 	return (
-		<>
-			<Stack
-				m={{ base: "md", sm: "md", lg: "xl" }}
-				p={{ base: "md", sm: "md", lg: "xl" }}
-				gap={"md"}
-			>
-				<Title order={1} fw={700}>
-					{title}
-				</Title>
-				<Flex style={{ flexWrap: "wrap", overflowWrap: "break-word" }}>
-					{displayedContent}
-				</Flex>
-				<Legend hiddenFrom={"sm"} />
-			</Stack>
-		</>
+		<Stack
+			m={{ base: "md", sm: "md", lg: "xl" }}
+			p={{ base: "md", sm: "md", lg: "xl" }}
+			gap={"md"}
+		>
+			<Heading as="h1" fontWeight={700}>
+				{title}
+			</Heading>
+			<Flex wrap="wrap" gap={2} align="center">
+				{content.map((item, index) => (
+					<Popover.Root key={index}>
+						<Popover.Trigger asChild>
+							<Button
+								variant="ghost"
+								height="auto"
+								minW="auto"
+								p={1}
+								fontSize="xl"
+								fontWeight="normal"
+								_hover={{ bg: "gray.100", textDecoration: "underline" }}
+							>
+								{item.word}
+							</Button>
+						</Popover.Trigger>
+						<Popover.Content>
+							<Popover.Arrow />
+							<Popover.Body>
+								<Text fontWeight="bold">{item.word}</Text>
+								<Text>{item.definition}</Text>
+							</Popover.Body>
+						</Popover.Content>
+					</Popover.Root>
+				))}
+			</Flex>
+			<Legend hideFrom={"sm"} />
+		</Stack>
 	)
 }
 
@@ -188,7 +139,7 @@ export const VocabSheet = ({ vocab }: VocabSheetProps): ReactElement => {
 				gap={"md"}
 				p="lg"
 			>
-				<Text color={palette.gray["800"]} size="1.8rem" fw={700}>
+				<Text color={palette.gray["800"]} fontSize="1.8rem" fontWeight={700}>
 					{/* {t("vocab_sheet.title")} */}
 					Vocabulary
 				</Text>
@@ -200,14 +151,12 @@ export const VocabSheet = ({ vocab }: VocabSheetProps): ReactElement => {
 					gap={"lg"}
 				>
 					{vocab?.map((card, index) => (
-						<>
-							<VocabCard
-								key={nanoid(6)}
-								word={card.word}
-								phonetic={card.phonetic}
-								meanings={card.meanings}
-							/>
-						</>
+						<VocabCard
+							key={`${card.word}-${index}`}
+							word={card.word}
+							phonetic={card.phonetic}
+							meanings={card.meanings}
+						/>
 					))}
 				</Flex>
 			</Flex>
@@ -218,16 +167,17 @@ export const VocabSheet = ({ vocab }: VocabSheetProps): ReactElement => {
 const Section = ({ children }) => {
 	return (
 		<>
-			<Paper
-				miw={"85vw"}
+			<Box
+				minW={"85vw"}
 				opacity={1}
 				m={{ base: 0, sm: 0, lg: "xl" }}
 				p={{ base: 0, sm: 0, lg: "xl" }}
-				radius="lg"
+				borderRadius="lg"
 				bg={"white"}
+				shadow="md"
 			>
 				{children}
-			</Paper>
+			</Box>
 		</>
 	)
 }
@@ -240,10 +190,10 @@ const Summary = ({ summary }) => {
 				p={{ base: "md", sm: "md", lg: "xl" }}
 				gap={"md"}
 			>
-				<Title order={1} fw={700}>
+				<Heading as="h1" fontWeight={700}>
 					Summary
-				</Title>
-				<Text size="xl" fw={400}>
+				</Heading>
+				<Text fontSize="xl" fontWeight={400}>
 					{summary}
 				</Text>
 			</Stack>
@@ -253,11 +203,11 @@ const Summary = ({ summary }) => {
 const GrammarPreview = ({ grammarPoints }) => {
 	return (
 		<>
-			<Title order={3} fw={400}>
+			<Heading as="h3" fontWeight={400}>
 				Grammar Preview
-			</Title>
+			</Heading>
 			{grammarPoints?.map((point, index) => (
-				<Text key={nanoid(6)} size="xl" fw={400}>
+				<Text key={nanoid(6)} fontSize="xl" fontWeight={400}>
 					{point}
 				</Text>
 			))}
@@ -286,7 +236,7 @@ export function Reader(): ReactElement {
 
 	return (
 		<>
-			<Group
+			<HStack
 				id={"reader-content"}
 				m={{ base: 0, sm: 0, lg: "lg" }}
 				p={{ base: 0, sm: 0, lg: "lg" }}
@@ -303,7 +253,7 @@ export function Reader(): ReactElement {
 					))}
 					<VocabSheet vocab={intro_lesson_ZH.vocab} />
 				</Flex>
-			</Group>
+			</HStack>
 		</>
 	)
 }

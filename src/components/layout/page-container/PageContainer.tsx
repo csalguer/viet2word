@@ -14,20 +14,18 @@ import {
 	SimpleGrid,
 	Skeleton,
 	Grid,
-	rem,
 	Box,
-	Group,
-	Switch,
-} from "@mantine/core"
+	HStack,
+} from "@chakra-ui/react"
 import { InfoCard, CardList } from "../../dictionary"
 import { MOCK_CARD_INFO } from "../../../lib/mockData"
 import Palette from "../../../styles/palette"
 import { IconSun, IconMoonStars } from "@tabler/icons-react"
 
-const PRIMARY_COL_HEIGHT = rem(300)
+const PRIMARY_COL_HEIGHT = "300px"
 
 const LeadGrid = (): ReactElement => {
-	const SECONDARY_COL_HEIGHT = `calc(${PRIMARY_COL_HEIGHT} / 2 - var(--mantine-spacing-md) / 2)`
+	const SECONDARY_COL_HEIGHT = `calc(${PRIMARY_COL_HEIGHT} / 2 - var(--chakra-spacing-4) / 2)`
 	return <></>
 }
 
@@ -35,38 +33,10 @@ export interface PageContainerProps {
 	children?: ReactNode
 }
 
-// export interface PageSettings {
-// 	backgroundColor?: string
-//   pageTitle?: string
-//   pageSubtitle?: string
-//   leadGrid?: boolean
-//   primaryGridColumns?: number
-//   secondaryGridColumns?: number
-//   showSkeleton?: boolean
-//   skeletonCount?: number
-//   showCardList?: boolean
-//   cardList?: CardListProps[]
-//   cardListTitle?: string
-//   cardListDescription?: string
-//   cardListIcon?: ReactNode
-//   cardListIconSize?: number
-//   cardListIconColor?: string
-//   cardListIconBackgroundColor?: string
-//   cardListIconHoverBackgroundColor?: string
-//   cardListIconHoverColor?: string
-//   cardListIconHoverBorderRadius?: number
-//   cardListIconHoverBorderWidth?: number
-//   cardListIconHoverBorderColor?: string
-//   cardListIconHoverBoxShadow?: string
-//   cardListIconHoverTransition?: string
-//   cardListIconHoverDuration?: number
-//   cardListIconHoverDelay?: number
-// }
-
 const PageContainer = ({ children }: PageContainerProps): ReactElement => {
 	return (
 		<>
-			<Container fluid id={"container"}>
+			<Container maxW="full" id={"container"}>
 				<Center
 					style={{
 						height: "100%",
@@ -77,7 +47,7 @@ const PageContainer = ({ children }: PageContainerProps): ReactElement => {
 						w={"100%"}
 						gap={"md"}
 						direction={"row"}
-						hiddenFrom="md"
+						display={{ base: "flex", md: "none" }}
 						align={"center"}
 						justify={"center"}
 						wrap={"wrap"}
@@ -90,7 +60,7 @@ const PageContainer = ({ children }: PageContainerProps): ReactElement => {
 						w={"100%"}
 						gap={"md"}
 						direction={"row"}
-						visibleFrom="lg"
+						display={{ base: "none", lg: "flex" }}
 						align={"center"}
 						justify={"center"}
 						wrap={"wrap"}

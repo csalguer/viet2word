@@ -3,7 +3,6 @@ import type { Meta, StoryObj } from "@storybook/react-vite"
 
 import { CardList } from "./CardList"
 import { DATA, MOCK_CARD_INFO } from "../../../lib/mockData"
-import { theme } from "../../../styles/theme"
 
 const meta: Meta<typeof CardList> = {
 	component: CardList,

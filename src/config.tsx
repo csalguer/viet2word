@@ -1,18 +1,14 @@
-import theme from "./styles/theme"
 import system from "./theme/theme"
-import { createTheme, MantineProvider } from "@mantine/core"
 import { ChakraProvider } from "@chakra-ui/react"
-import { RouterProvider, type createRouter } from "@tanstack/react-router"
 import { QueryClientProvider, QueryClient } from "@tanstack/react-query"
-import { createContext, ReactNode } from "react"
-import { ColorSchemeScript } from "@mantine/core"
+import { ReactNode } from "react"
 import { withPalette } from "./styles/PaletteContext"
-import "@mantine/carousel/styles.css" // Include carousel styles
 
-export const withMantineProvider = ({ children }: { children: ReactNode }): ReactNode => {
-	return <MantineProvider theme={theme}>{children}</MantineProvider>
-}
-export const withQueryClientProvider = ({ children }: { children: ReactNode }): ReactNode => {
+export const withQueryClientProvider = ({
+	children,
+}: {
+	children: ReactNode
+}): ReactNode => {
 	return (
 		<QueryClientProvider client={queryClient}>{children}</QueryClientProvider>
 	)
@@ -27,12 +23,9 @@ export const ConfigProvider = (
 	return (
 		<>
 			<ChakraProvider value={system}>
-				<MantineProvider theme={theme}>
-					<QueryClientProvider client={queryClient}>
-						<ColorSchemeScript />
-						{withPalette(children)}
-					</QueryClientProvider>
-				</MantineProvider>
+				<QueryClientProvider client={queryClient}>
+					{withPalette(children)}
+				</QueryClientProvider>
 			</ChakraProvider>
 		</>
 	)

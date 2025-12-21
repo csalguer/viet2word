@@ -2,7 +2,6 @@ import React from "react"
 import type { Meta, StoryObj } from "@storybook/react-vite"
 
 import { SearchBar } from "./SearchBar"
-import { MantineProvider } from "@mantine/core"
 
 const meta: Meta<typeof SearchBar> = {
 	component: SearchBar,

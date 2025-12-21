@@ -1,88 +1,45 @@
-/* eslint-disable @typescript-eslint/no-unsafe-assignment */
-/* eslint-disable @typescript-eslint/no-unused-vars */
-import { QueryClient, QueryClientProvider } from "@tanstack/react-query"
-import { RouterProvider, type createRouter } from "@tanstack/react-router"
-import type { ReactElement, ReactNode } from "react"
-import { useState } from "react"
-import "@mantine/core/styles.css"
-import {
-	ColorSchemeScript,
-	Group,
-	MantineProvider,
-	createTheme,
-	Center,
-	Stack,
-	Text,
-} from "@mantine/core"
-import {
-	InfoCard,
-	PageContainer,
-	SearchBar,
-	CardList,
-	VocabCard,
-	VocabContent,
-	Word,
-} from "../components/dictionary"
-import { motion, AnimatePresence, LayoutGroup } from "framer-motion"
-import { useTranslation } from "react-i18next"
-import type { FunctionComponent } from "../lib/types"
-import { MOCK_CARD_INFO } from "../lib/mockData"
+import type { ReactElement } from "react"
+import { HStack, Center, Stack, Heading, Text } from "@chakra-ui/react"
+import { PageContainer, CardList } from "../components/dictionary"
 import { Navigation } from "../components/navigation/navigation"
-import { TabbedCard } from "../components/card/tabbed-card"
-import { nanoid } from "nanoid"
-import { Reader } from "./Reader.tsx"
-// import { useQueryClient } from "@tanstack/react-query"
-// import { useTranslation } from "react-i18next"
+import { MOCK_CARD_INFO } from "../lib/mockData"
+import { useSavedVocabStore } from "../lib/store"
 
-const tab = [
-	<Word key={nanoid(6)} word={"buôi sang"} partOfSpeech={"NOUN"} />,
-	<Word key={nanoid(6)} word={"ɓuo˧j sa:˧ŋ"} />,
-	<VocabContent
-		key={nanoid(6)}
-		expanded={true}
-		meanings={[
-			{
-				partOfSpeech: "noun",
-				definitions: [
-					{
-						definition: "Morning",
-						example: "Buôi sang tôi ăn đi có bạn ấy.",
-					},
-				],
-			},
-		]}
-	/>,
-	({ children }): ReactNode => (
-		<Stack key={nanoid(6)} mb="sm">
-			<Text fw={700} size="lg">
-				"This is commonly used to talk about morning routines but less commonly
-				used in day to day phrases in the context of when or the time period an
-				action was taken/completed/done."
-			</Text>
-		</Stack>
-	),
-]
-const CONTENT = () => {
-	return (
-		<>
-			<Group id={"home-content"} mt={"57px"} w={"100%"}>
-				{/* <Center h={"100%"}>
-					<TabbedCard
-						tabs={["Word", "Def", "Example", "Notes"]}
-						children={[tab]}
-					/>
-				</Center> */}
-			</Group>
-		</>
+export function SavedVocab(): ReactElement {
+	const { savedWords } = useSavedVocabStore()
+
+	const savedContent = MOCK_CARD_INFO.data.filter((card) =>
+		savedWords.includes(card.word)
 	)
-}
 
-export function Home(): ReactElement {
 	return (
 		<>
-			<Group>
-				<CONTENT />
-			</Group>
+			<Navigation>
+				<HStack
+					style={{
+						background:
+							"radial-gradient(circle at 10% 20%, rgb(226, 240, 254) 0%, rgb(255, 247, 228) 90%)",
+						minHeight: "100vh",
+						alignItems: "flex-start",
+					}}
+					w="100%"
+				>
+					<PageContainer>
+						<Stack gap={8} w="100%" pt={8}>
+							<Center>
+								<Heading size="xl">Saved Vocabulary</Heading>
+							</Center>
+							{savedContent.length > 0 ? (
+								<CardList content={savedContent} />
+							) : (
+								<Center>
+									<Text color="gray.500">No saved words yet.</Text>
+								</Center>
+							)}
+						</Stack>
+					</PageContainer>
+				</HStack>
+			</Navigation>
 		</>
 	)
 }

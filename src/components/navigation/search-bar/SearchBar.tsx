@@ -1,10 +1,9 @@
 "use client"
 import type { ReactElement } from "react"
 
-import { Autocomplete, Group, Burger, rem, Anchor } from "@mantine/core"
-import { useDisclosure } from "@mantine/hooks"
-import { IconSearch } from "@tabler/icons-react"
-// import { MantineLogo } from "@mantinex/mantine-logo"
+import { Input, HStack, IconButton, Link, Box } from "@chakra-ui/react"
+import { useDisclosure } from "@chakra-ui/react"
+import { IconSearch, IconMenu2 } from "@tabler/icons-react"
 import classes from "./SearchBar.module.css"
 import { NightModeButton } from "../../layout/night-mode-switch"
 export interface SearchBarProps {
@@ -27,10 +26,10 @@ export const SearchBar = ({
 	onSearch,
 	onWordChange,
 }: SearchBarProps): ReactElement => {
-	const [opened, { toggle }] = useDisclosure(false)
+	const { open: opened, onToggle: toggle } = useDisclosure()
 
 	const items = links.map((link) => (
-		<Anchor
+		<Link
 			key={link.label}
 			className={classes["link"]}
 			href={link.link}
@@ -40,46 +39,29 @@ export const SearchBar = ({
 			}}
 		>
 			{link.label}
-		</Anchor>
+		</Link>
 	))
 
 	return (
 		<div className={classes["inner"]}>
-			<Group>
-				<Burger hiddenFrom="sm" opened={opened} size="sm" onClick={toggle} />
-				{/* <MantineLogo size={28} /> */}
-			</Group>
-
-			<Group>
-				<Group
-					className={classes["links"]}
-					gap={"lg"}
-					ml={"lg"}
-					mr={"lg"}
-					visibleFrom="sm"
+			<HStack>
+				<IconButton
+					display={{ base: "flex", sm: "none" }}
+					onClick={toggle}
+					size="sm"
+					aria-label="Menu"
 				>
-					{items}
-				</Group>
-				<Autocomplete
-					className={classes["search"]}
-					placeholder="Search"
-					visibleFrom="xs"
-					value={word}
-					onChange={onWordChange}
-					onKeyDown={(e) => {
-						if (e.key === "Enter") {
-							onSearch(e)
-						}
-					}}
-					leftSection={
-						<IconSearch
-							stroke={1.5}
-							style={{ width: rem(16), height: rem(16) }}
-						/>
-					}
-				/>
-				<NightModeButton />
-			</Group>
+					<IconMenu2 />
+				</IconButton>
+				{/* <MantineLogo size={28} /> */}
+				<Box display={{ base: "none", sm: "flex" }}>{items}</Box>
+			</HStack>
+			{/* Autocomplete replacement */}
+			<Input
+				placeholder="Search"
+				value={word}
+				onChange={(e) => onWordChange(e.target.value)}
+			/>
 		</div>
 	)
 }

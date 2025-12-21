@@ -33,7 +33,10 @@
 		],
 		"noImplicitReturns": true,
 		"noPropertyAccessFromIndexSignature": false,
-		"noUncheckedIndexedAccess": false
+		"noUncheckedIndexedAccess": false,
+		"paths": {
+			"@/*": ["./src/*"]
+		}
 	},
 	"include": [
 		"src",

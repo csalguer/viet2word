@@ -2,7 +2,7 @@ import React from "react"
 import type { Meta, StoryObj } from "@storybook/react-vite"
 
 import PageContainer from "./PageContainer"
-import { Center } from "@mantine/core"
+import { Center } from "@chakra-ui/react"
 
 const meta: Meta<typeof PageContainer> = {
 	component: PageContainer,

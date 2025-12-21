@@ -19,6 +19,11 @@ export default defineConfig({
 			],
 		}),
 	],
+	resolve: {
+		alias: {
+			"@": path.resolve(__dirname, "./src"),
+		},
+	},
 	server: {
 		host: true,
 		strictPort: true,
@@ -34,7 +39,6 @@ export default defineConfig({
 			output: {
 				manualChunks: {
 					vendor: ["react", "react-dom", "framer-motion"],
-					mantine: ["@mantine/core", "@mantine/hooks", "@mantine/carousel"],
 					tanstack: ["@tanstack/react-router", "@tanstack/react-query"],
 				},
 			},

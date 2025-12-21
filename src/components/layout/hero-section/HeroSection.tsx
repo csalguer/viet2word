@@ -1,28 +1,22 @@
 import { useRef, useEffect, forwardRef, createRef, ReactElement } from "react"
 import {
-	useMantineTheme,
-	Group,
-	Title,
-	Text,
+	Box,
 	Flex,
+	Heading,
+	Text,
 	Button,
-	Center,
+	Container,
 	Stack,
 	Input,
-	getGradient,
-	lighten,
-	Box,
-	Container,
-} from "@mantine/core"
+	Center,
+	SimpleGrid,
+} from "@chakra-ui/react"
 import { VocabCard } from "../../dictionary"
 import PageContainer from "../page-container/PageContainer"
 import palette from "../../../styles/palette"
 import styles from "./HeroSection.module.css"
 import { motion, transform } from "framer-motion"
 import { nanoid } from "nanoid"
-import { useMediaQuery } from "@mantine/hooks"
-import { Carousel } from "@mantine/carousel"
-import Autoplay from "embla-carousel-autoplay"
 
 const text =
 	" Anim occaecat non anim nisi est sit officoia ipsum commodo consequat ex fugiat reprehenderit eu cupidatat tempor deserunt."
@@ -31,62 +25,70 @@ const CardsStock: ReactElement[] = [
 	<VocabCard
 		// ref={ref}
 		word="azafrán"
-		meanings={[{
-			partOfSpeech: "SUST",
-			definitions: [
-				{
-					definition:
-						"Rich and deep yellow spice made from the pistils of the saffron flower",
-					example:
-						"Para un toque auténtico y mejor color, se le debe agregar un poco de azafrán al arroz.",
-				},
-			],
-		}]}
+		meanings={[
+			{
+				partOfSpeech: "SUST",
+				definitions: [
+					{
+						definition:
+							"Rich and deep yellow spice made from the pistils of the saffron flower",
+						example:
+							"Para un toque auténtico y mejor color, se le debe agregar un poco de azafrán al arroz.",
+					},
+				],
+			},
+		]}
 		visible
 		expanded={true}
 	/>,
 	<VocabCard
 		// ref={ref}
 		word="魔鬼"
-		meanings={[{
-			partOfSpeech: "名词",
-			definitions: [
-				{
-					definition: "Ghost, spirit",
-					example: "黑魔者让了魔鬼从村农出去。",
-				},
-			],
-		}]}
+		meanings={[
+			{
+				partOfSpeech: "名词",
+				definitions: [
+					{
+						definition: "Ghost, spirit",
+						example: "黑魔者让了魔鬼从村农出去。",
+					},
+				],
+			},
+		]}
 		visible
 		expanded
 	/>,
 	<VocabCard
 		// ref={ref}
 		word="شربرت"
-		meanings={[{
-			partOfSpeech: "اسم",
-			definitions: [
-				{
-					definition: "Sherbert",
-					example: "Mango sherbert.",
-				},
-			],
-		}]}
+		meanings={[
+			{
+				partOfSpeech: "اسم",
+				definitions: [
+					{
+						definition: "Sherbert",
+						example: "Mango sherbert.",
+					},
+				],
+			},
+		]}
 		visible
 		expanded
 	/>,
 	<VocabCard
 		// ref={ref}
 		word="ngọ gâi"
-		meanings={[{
-			partOfSpeech: "danh từ",
-			definitions: [
-				{
-					definition: "culantro",
-					example: "......",
-				},
-			],
-		}]}
+		meanings={[
+			{
+				partOfSpeech: "danh từ",
+				definitions: [
+					{
+						definition: "culantro",
+						example: "......",
+					},
+				],
+			},
+		]}
 		visible
 		expanded
 	/>,
@@ -102,19 +104,15 @@ const HeroText = ({
 			<Center>
 				<Stack w="400px" gap="xl">
 					<Text
-						variant="gradient"
-						gradient={{
-							from: "#9a2225",
-							to: "#ca6703",
-							deg: 94,
-						}}
+						bgGradient="linear(to-r, #9a2225, #ca6703)"
+						bgClip="text"
 						w="200px"
-						fw={800}
-						size="5rem"
+						fontWeight={800}
+						fontSize="5rem"
 					>
 						{title}
 					</Text>
-					<Text fw={800} size="3rem">
+					<Text fontWeight={800} fontSize="3rem">
 						Go from livid to love it.
 					</Text>
 					<Text
@@ -125,7 +123,7 @@ const HeroText = ({
 							fontFamily: "Vủ Thành An",
 							lineHeight: "2.0rem",
 						}}
-						size="1.4rem"
+						fontSize="1.4rem"
 					>
 						{content}
 					</Text>
@@ -149,14 +147,15 @@ const HeroAnimatedAura = ({}): ReactElement => {
 			style={{ zIndex: 0 }}
 			// align={"center"}
 		>
-			<AuraCloudDiv
+			{/* Colors are undefined in palette, commenting out to prevent crash */}
+			{/* <AuraCloudDiv
 				colorA={lighten(palette?.colorsEstimate[1], 0.15)}
 				colorB={lighten(palette?.colorsEstimate[2], 0.15)}
 			/>
 			<AuraCloudDiv
 				colorA={lighten(palette?.colorsEstimate[4], 0.15)}
 				colorB={lighten(palette?.colorsEstimate[5], 0.15)}
-			/>
+			/> */}
 		</Flex>
 	)
 }
@@ -179,16 +178,12 @@ const AuraCloudDiv = ({ colorA, colorB }) => {
 }
 
 export const HeroSection = (): ReactElement => {
-	const theme = useMantineTheme()
-	const autoplay = useRef(Autoplay({ delay: 2000 }))
-
-	const mobile = useMediaQuery(`(max-width: ${theme.breakpoints.sm})`)
 	const slides = CardsStock.map((item) => (
-		<Box>
-			<Carousel.Slide key={nanoid(6)}>{item}</Carousel.Slide>
+		<Box key={nanoid(6)} minW="300px" p={2}>
+			{item}
 		</Box>
 	))
-	console.log(slides)
+
 	return (
 		<>
 			<Center
@@ -199,7 +194,7 @@ export const HeroSection = (): ReactElement => {
 			>
 				<Center>
 					<Center>
-						<Container size="md">
+						<Container maxW="md">
 							<Center>
 								<Flex
 									// justify={"space-between"}
@@ -212,17 +207,16 @@ export const HeroSection = (): ReactElement => {
 								>
 									<HeroText />
 								</Flex>
-								<Carousel
+								<Box
 									w={"fit-content"}
 									h={"215px"}
-									withControls
-									withIndicators
-									className={styles.carousel}
+									overflowX="auto"
+									display="flex"
 								>
 									<Flex dir="row" w={"400px"} h="215px">
 										{slides}
 									</Flex>
-								</Carousel>
+								</Box>
 							</Center>
 						</Container>
 					</Center>

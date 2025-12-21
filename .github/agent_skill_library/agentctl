@@ -1,0 +1,91 @@
+#!/bin/bash
+
+# agentctl - A single script to list and activate agents, now with an interactive menu.
+
+# --- Configuration ---
+# The script determines its own location to find agent files.
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" &>/dev/null && pwd)"
+
+# --- Helper Functions ---
+
+# Function to list available agents for the help text
+list_agents_for_help() {
+    echo "Available agents:"
+    for f in "$SCRIPT_DIR"/*.agent.md; do
+        if [ -f "$f" ]; then
+            agent_name=$(basename "$f" .agent.md)
+            echo "  - $agent_name"
+        fi
+    done
+}
+
+# Function to activate a specific agent
+activate_agent() {
+    local agent_name="$1"
+    local agent_file="$SCRIPT_DIR/$agent_name.agent.md"
+
+    if [ ! -f "$agent_file" ]; then
+        echo "Error: Agent '$agent_name' not found." >&2
+        return 1
+    fi
+
+    local system_prompt
+    system_prompt=$(awk '/^#+ .*System Prompt/{flag=1; next} /^(---|\#\# )/{flag=0} flag' "$agent_file")
+
+    echo ""
+    echo "🚀 Activating agent: $agent_name 🚀"
+    echo "-----------------------------------------------------------"
+    echo "$system_prompt"
+    echo "-----------------------------------------------------------"
+}
+
+# Function to display an interactive menu for agent selection
+interactive_menu() {
+    echo "Please select an agent to activate:"
+    
+    local agents=()
+    while IFS= read -r line; do
+        agents+=("$line")
+    done < <(for f in "$SCRIPT_DIR"/*.agent.md; do [ -f "$f" ] && basename "$f" .agent.md; done | sort)
+
+    if [ ${#agents[@]} -eq 0 ]; then
+        echo "No agents found in '$SCRIPT_DIR'." >&2
+        exit 1
+    fi
+
+    # Use the 'select' command to create a robust interactive menu
+    PS3="Enter a number (or press Enter to redisplay): "
+    select agent_name in "${agents[@]}" "Quit"; do
+        case $agent_name in
+            "Quit")
+                echo "Exiting."
+                break
+                ;;
+            "")
+                echo "Invalid selection. Please try again." >&2
+                ;;
+            *)
+                activate_agent "$agent_name"
+                break
+                ;;
+        esac
+    done
+}
+
+# --- Main Logic ---
+
+# Non-interactive mode: Check for flags or arguments
+if [ $# -gt 0 ]; then
+    # Handle the list flag
+    if [ "$1" == "-l" ]; then
+        list_agents_for_help
+        exit 0
+    fi
+    
+    # Handle direct activation by name
+    activate_agent "$1"
+    exit $?
+fi
+
+# Interactive mode: No arguments were provided
+interactive_menu

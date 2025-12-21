@@ -1,4 +1,3 @@
-import { MantineSize } from "@mantine/core"
 import { Definition, DictionaryItem, Meaning } from "../../../lib/types"
 import { RefObject } from "react"
 
@@ -28,7 +27,7 @@ export interface DefinitionsListProps {
 export interface VocabCardProps extends DictionaryItem {
 	visible?: boolean
 	expanded?: boolean
-	size?: MantineSize
+	size?: string
 	vertical?: boolean
 	onClick?: () => void
 	ref?: RefObject<HTMLDivElement>
@@ -38,7 +37,7 @@ export type InfoCardProps = VocabCardProps
 
 export interface BookmarkProps {
 	filled: boolean
-	callback: () => void
+	callback: (e?: any) => void
 }
 
 // TODO:

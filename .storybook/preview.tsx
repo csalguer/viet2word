@@ -1,13 +1,11 @@
-import React from 'react';
+import React from "react"
 import { withThemeByClassName } from "@storybook/addon-themes"
 import type { Preview } from "@storybook/react-vite"
-import '@mantine/core/styles.css';
 
-import { MantineProvider } from '@mantine/core';
-import { Provider as ChakraProvider } from '../src/components/ui/provider';
+import { Provider as ChakraProvider } from "../src/components/ui/provider"
 
 export const decorators = [
-  (renderStory: any) => <ChakraProvider><MantineProvider>{renderStory()}</MantineProvider></ChakraProvider>,
+	(renderStory: any) => <ChakraProvider>{renderStory()}</ChakraProvider>,
 ]
 
 export const preview: Preview = {
@@ -22,4 +20,3 @@ export const preview: Preview = {
 	},
 	decorators: decorators,
 }
-

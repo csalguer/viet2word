@@ -1,31 +1,30 @@
 /* eslint-disable @typescript-eslint/no-unsafe-assignment */
 import {
-	Card,
 	Text,
 	Center,
-	Group,
+	HStack,
 	Container,
 	Box,
 	Badge,
 	SimpleGrid,
 	Stack,
-	Space,
 	Skeleton,
-	Spoiler,
 	Flex,
-	Modal,
-	Dialog,
-	em,
 	List,
-	Pill,
-	AspectRatio,
+	Card,
 	Blockquote,
-	Transition,
-} from "@mantine/core"
-import { useHover, useMediaQuery } from "@mantine/hooks"
-import { motion, AnimatePresence, LayoutGroup } from "framer-motion"
+	IconButton,
+	Heading,
+} from "@chakra-ui/react"
+import { motion, AnimatePresence } from "framer-motion"
 import { nanoid } from "nanoid"
-import { useCallback, useEffect, useState, ReactNode, ReactElement } from "react"
+import {
+	useCallback,
+	useEffect,
+	useState,
+	ReactNode,
+	ReactElement,
+} from "react"
 import palette from "../../../styles/palette"
 import { Definition, Meaning } from "../types"
 
@@ -37,11 +36,7 @@ import {
 	VocabCardProps,
 	BookmarkProps,
 } from "./types"
-import {
-	withFadeOut,
-	withGreyedSelection,
-	withZoom,
-} from "../../../lib/animations"
+import { withFadeOut, withZoom } from "../../../lib/animations"
 import {
 	IconBookmark,
 	IconStar,
@@ -73,24 +68,27 @@ export const Word = ({ word, phonetic }: WordProps) => {
 				// direction={isRTL ? "row" : "row-reverse"}
 				justify="space-between"
 				w={"100%"}
-				dir="column"
-				p={"md"}
+				p={"4"}
 			>
 				{!!word ? (
-					<Text size="2.8rem" fw={700}>
+					<Heading fontSize="2.8rem" fontWeight={700} as="h2">
 						{word}
-					</Text>
+					</Heading>
 				) : (
-					<Skeleton h="48px" w="100%" animate />
+					<Skeleton height="48px" width="100%" />
 				)}
 				{!!phonetic ? (
-					<Text size="1.4rem" color={palette.neutrals.bluestone} fw={400}>
+					<Text
+						fontSize="1.4rem"
+						color={palette.neutrals.bluestone}
+						fontWeight={400}
+					>
 						{phonetic}
 					</Text>
 				) : !!word ? (
 					<Text></Text>
 				) : (
-					<Skeleton h="32px" w="80%" animate />
+					<Skeleton height="32px" width="80%" />
 				)}
 			</Stack>
 		</>
@@ -100,9 +98,9 @@ export const Word = ({ word, phonetic }: WordProps) => {
 export const DefinitionsListLoading = () => {
 	return (
 		<Stack ml="xl" gap="sm">
-			<Skeleton w="100%" h="24px" animate />
-			<Skeleton w="100%" h="24px" animate />
-			<Skeleton w="100%" h="24px" animate />
+			<Skeleton w="100%" h="24px" />
+			<Skeleton w="100%" h="24px" />
+			<Skeleton w="100%" h="24px" />
 		</Stack>
 	)
 }
@@ -110,26 +108,24 @@ export const DefinitionsListLoading = () => {
 const withBlockQuote = (content: Definition): ReactNode => {
 	return (
 		<>
-			<Blockquote
-				color={palette.neutrals.slate}
-				cite={
-					<Text color={palette.neutrals.slate} size="mg">
+			<Blockquote.Root color={palette.neutrals.slate}>
+				<Blockquote.Content>{content.definition}</Blockquote.Content>
+				<Blockquote.Caption>
+					<Text color={palette.neutrals.slate} fontSize="md">
 						{content.example}
 					</Text>
-				}
-			>
-				{content.definition}
-			</Blockquote>
+				</Blockquote.Caption>
+			</Blockquote.Root>
 		</>
 	)
 }
 const withTextElem = (content: Definition): ReactNode => {
 	return (
-		<Stack key={nanoid(6)} mb="xs">
-			<Text fw={700} size="xl">
+		<Stack key={nanoid(6)} mb="2">
+			<Text fontWeight={700} fontSize="xl">
 				{content.definition}
 			</Text>
-			<Text color={palette.neutrals.slate} size="lg">
+			<Text color={palette.neutrals.slate} fontSize="lg">
 				{content.example}
 			</Text>
 		</Stack>
@@ -137,26 +133,33 @@ const withTextElem = (content: Definition): ReactNode => {
 }
 const withDetailTextElem = (content: Definition): ReactNode => {
 	return (
-		<Stack key={nanoid(6)} mb="xs">
-			<Text style={{ textTransform: "capitalize" }} fw={400} size="lg">
+		<Stack key={nanoid(6)} mb="2">
+			<Text
+				style={{ textTransform: "capitalize" }}
+				fontWeight={400}
+				fontSize="lg"
+			>
 				<em>{content.definition}</em>
 			</Text>
-			<Text color={palette.neutrals.slate} size="lg">
+			<Text color={palette.neutrals.slate} fontSize="lg">
 				{content.example}
 			</Text>
 		</Stack>
 	)
 }
 
-const withHoverElem = (content): ReactNode => {
+const withHoverElem = (content: Definition): ReactNode => {
 	const [toDisplay, setToDisplay] = useState<string>(content?.definition ?? "")
-	const { hovered, ref } = useHover()
+	const [hovered, setHovered] = useState(false)
+
 	const handleHover = useCallback(
 		(event: React.MouseEvent<HTMLDivElement>) => {
 			if (event.type == "mouseenter") {
-				setToDisplay(content.example)
+				setToDisplay(content.example || "")
+				setHovered(true)
 			} else if (event.type == "mouseleave") {
 				setToDisplay(content.definition)
+				setHovered(false)
 			}
 		},
 		[content]
@@ -165,18 +168,23 @@ const withHoverElem = (content): ReactNode => {
 	return (
 		<>
 			<Center>
-					<Stack key={nanoid(6)} mb="xs" ref={ref} onMouseOver={handleHover}>
-						<Text
-							fw={700}
-							color={
-								hovered ? palette.neutrals.bluestone : palette.neutrals.slate
-							}
-							bg={hovered ? palette.neutrals.bluestone : palette.neutrals.slate}
-							size="xl"
-						>
-							{toDisplay}
-						</Text>
-					</Stack>
+				<Stack
+					key={nanoid(6)}
+					mb="2"
+					onMouseEnter={handleHover}
+					onMouseLeave={handleHover}
+				>
+					<Text
+						fontWeight={700}
+						color={
+							hovered ? palette.neutrals.bluestone : palette.neutrals.slate
+						}
+						bg={hovered ? palette.neutrals.bluestone : palette.neutrals.slate}
+						fontSize="xl"
+					>
+						{toDisplay}
+					</Text>
+				</Stack>
 			</Center>
 		</>
 	)
@@ -191,16 +199,20 @@ export const DefinitionsList = ({
 		// <Space h="100%" onClick={onClick}>
 
 		definitions ? (
-			<List p="md">
+			<List.Root p="4">
 				{definitions?.length &&
 					definitions?.map((item, index) => {
-						console.log(item)
+						// console.log(item)
 						const { definitions } = item
 						return definitions?.map((def, index) => {
-							return variant ? withTextElem(def) : withDetailTextElem(def)
+							return (
+								<List.Item key={index}>
+									{variant ? withTextElem(def) : withDetailTextElem(def)}
+								</List.Item>
+							)
 						})
 					})}
-			</List>
+			</List.Root>
 		) : (
 			<DefinitionsListLoading />
 		)
@@ -209,31 +221,42 @@ export const DefinitionsList = ({
 	)
 }
 
-const VocabHeader = ({ word, phonetic, onClick }) => {
+import { useSavedVocabStore } from "../../../lib/store"
+
+const VocabHeader = ({ word, phonetic, onClick }: any) => {
+	const { isSaved, toggleSaved } = useSavedVocabStore()
+	const saved = isSaved(word)
+
 	return (
 		<>
-			<Group
+			<HStack
 				justify="flex-end"
 				pos={"absolute"}
 				display={"inline-flex"}
 				right="4px"
 				top="4px"
 				w="100%"
-				p="sm"
+				p="2"
 				// m="sm"
 			>
 				<Flex gap="lg" h="fit-content">
 					{/* <Star /> */}
-					<Bookmark filled={false} callback={() => {}} />
+					<Bookmark
+						filled={saved}
+						callback={(e: any) => {
+							e.stopPropagation()
+							toggleSaved(word)
+						}}
+					/>
 				</Flex>
-			</Group>
+			</HStack>
 			<Flex
 				justify={"space-between"}
 				align={"flex-end"}
 				dir="row"
 				w="100%"
-				m="sm"
-				pt="xl"
+				m="2"
+				pt="4"
 			>
 				<Word word={word} phonetic={phonetic} />
 			</Flex>
@@ -264,25 +287,25 @@ export const VocabCard = ({
 
 	return (
 		<Flex ref={ref}>
-			<Card
+			<Card.Root
 				shadow="sm"
 				// p="lg"
 				// m={"xl"}
 				h="fit-content"
 				w={{ md: "100%", lg: "50%" }}
-				mih={{ md: "100%", lg: "50%" }}
-				miw={"400px"}
-				radius="md"
-				withBorder
+				minH={{ md: "100%", lg: "50%" }}
+				minW={"400px"}
+				borderRadius="md"
+				borderWidth="1px"
 			>
-				<Card.Section w={"100%"}>
+				<Box w={"100%"}>
 					{<VocabHeader word={word} phonetic={phonetic} onClick={() => {}} />}
-				</Card.Section>
-				<Card.Section w={"100%"}>
+				</Box>
+				<Box w={"100%"}>
 					<VocabContent expanded={isExpanded} meanings={meanings} />
-				</Card.Section>
+				</Box>
 				{/* <Card.Section w={"100%"}>{}</Card.Section> */}
-			</Card>
+			</Card.Root>
 		</Flex>
 	)
 }
@@ -294,17 +317,22 @@ interface IconButtonProps {
 
 const Bookmark = ({ filled, callback }: BookmarkProps) => {
 	return (
-		<>
+		<IconButton
+			variant="ghost"
+			size="sm"
+			onClick={callback}
+			aria-label={filled ? "Remove from saved" : "Save word"}
+		>
 			{filled ? (
-				<IconBookmarkFilled color="darkred"></IconBookmarkFilled>
+				<IconBookmarkFilled color="darkred" />
 			) : (
-				<IconBookmark color="lightgray"></IconBookmark>
+				<IconBookmark color="lightgray" />
 			)}
-		</>
+		</IconButton>
 	)
 }
 
-const Star = ({ filled, callback }) => {
+const Star = ({ filled, callback }: any) => {
 	return (
 		<>
 			{filled ? (
@@ -319,7 +347,7 @@ const Star = ({ filled, callback }) => {
 const Notification = () => {
 	return (
 		<>
-			<Pill color={"red"}></Pill>
+			<Badge colorPalette={"red"}></Badge>
 		</>
 	)
 }
@@ -337,7 +365,7 @@ export const VocabContent = ({
 }: VocabContentProps): ReactElement => {
 	return (
 		<>
-			<Stack display={"flex"} justify="space-between" m="md">
+			<Stack display={"flex"} justify="space-between" m="4">
 				{expanded ? (
 					<DefinitionsList definitions={meanings} variant />
 				) : (

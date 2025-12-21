@@ -1,53 +1,44 @@
 import { useState, useEffect } from "react"
 
-import { useColorScheme } from "@mantine/hooks"
-import {
-	Switch,
-	ActionIcon,
-	rem,
-	useMantineColorScheme,
-	Button,
-} from "@mantine/core"
+import { useColorMode } from "@/components/ui/color-mode"
+import { Switch, Button, IconButton } from "@chakra-ui/react"
 import { IconSun, IconMoon } from "@tabler/icons-react"
-import { colorsPractical } from "../../../styles/palette"
 
 export interface NightModeSwitchProps {
 	darkMode: boolean
 }
 
 const SUN = () => (
-	<IconSun
-		style={{ width: rem(16), height: rem(16) }}
-		stroke={2.5}
-		color={colorsPractical[1]}
-	/>
+	<IconSun style={{ width: "16px", height: "16px" }} stroke={2.5} />
 )
 
 const MOON = () => (
-	<IconMoon
-		style={{ width: rem(16), height: rem(16) }}
-		stroke={2.5}
-		color={colorsPractical[5]}
-	/>
+	<IconMoon style={{ width: "16px", height: "16px" }} stroke={2.5} />
 )
 export function NightModeSwitch({ darkMode }: NightModeSwitchProps) {
-	const colorScheme = useColorScheme()
+	const { colorMode, toggleColorMode } = useColorMode()
 	return (
-		<Switch
-			size="xl"
-			color={"gray"}
-			onLabel={<SUN />}
-			offLabel={<MOON />}
-		></Switch>
+		<Switch.Root
+			size="lg"
+			colorPalette="gray"
+			checked={colorMode === "dark"}
+			onCheckedChange={(e) => toggleColorMode()}
+		>
+			<Switch.HiddenInput />
+			<Switch.Control>
+				<Switch.Thumb />
+			</Switch.Control>
+			<Switch.Label>{colorMode === "light" ? <SUN /> : <MOON />}</Switch.Label>
+		</Switch.Root>
 	)
 }
 
 export const NightModeButton = () => {
-	const { colorScheme, toggleColorScheme } = useMantineColorScheme()
+	const { colorMode, toggleColorMode } = useColorMode()
 
 	return (
-		<Button size="lg" color={"gray"}>
-			{colorScheme == "light" ? <SUN /> : <MOON />}
+		<Button size="lg" colorPalette="gray" onClick={toggleColorMode}>
+			{colorMode == "light" ? <SUN /> : <MOON />}
 		</Button>
 	)
 }

@@ -2,7 +2,7 @@ import React from "react"
 import type { Meta, StoryObj } from "@storybook/react-vite"
 
 import { Navigation } from "./navigation"
-import { Center, MantineProvider } from "@mantine/core"
+import { Center } from "@chakra-ui/react"
 
 const meta: Meta<typeof Navigation> = {
 	component: Navigation,

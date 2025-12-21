@@ -1,8 +1,7 @@
 import React from "react"
 
 import styles from "./UserSettings.css"
-import { MantineGradient, useMantineTheme } from "@mantine/core"
-import { Color } from "@chakra-ui/react"
+import { Box } from "@chakra-ui/react"
 
 enum GradientStyle {
 	linear,
@@ -10,7 +9,7 @@ enum GradientStyle {
 }
 
 interface Gradient {
-	color: Color[]
+	color: string[]
 	style: GradientStyle
 }
 
@@ -25,6 +24,5 @@ export interface UserSettingsProps {
 
 export function UserSettings({ settings }: UserSettingsProps) {
 	const { darkMode, background } = settings
-	const theme = useMantineTheme()
 	return <>{darkMode}</>
 }
