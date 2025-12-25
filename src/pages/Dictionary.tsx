@@ -2,16 +2,20 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import type { ReactElement } from "react"
 import { useState } from "react"
-import { HStack, Center, Stack } from "@chakra-ui/react"
+import { HStack, Center, Stack, Text, Button } from "@chakra-ui/react"
 import { PageContainer, SearchBar, CardList } from "../components/dictionary"
 import { Navigation } from "../components/navigation/navigation"
-import { MOCK_CARD_INFO } from "../lib/mockData"
+import { useDictionaryEntries } from "../lib/api"
 
 export function Dictionary(): ReactElement {
 	const [searchWord, setSearchWord] = useState("")
+	const [page, setPage] = useState(1)
+	const limit = 12
 
-	const filteredContent = MOCK_CARD_INFO.data.filter((card) =>
-		card.word.toLowerCase().includes(searchWord.toLowerCase())
+	const { data, isLoading, isError } = useDictionaryEntries(
+		page,
+		limit,
+		searchWord
 	)
 
 	return (
@@ -31,11 +35,45 @@ export function Dictionary(): ReactElement {
 							<Center>
 								<SearchBar
 									word={searchWord}
-									onWordChange={setSearchWord}
+									onWordChange={(w) => {
+										setSearchWord(w)
+										setPage(1)
+									}}
 									onSearch={async () => {}}
 								/>
 							</Center>
-							<CardList content={filteredContent} />
+							{isLoading ? (
+								<Center>
+									<Text>Loading...</Text>
+								</Center>
+							) : isError ? (
+								<Center>
+									<Text color="red.500">Error loading data</Text>
+								</Center>
+							) : (
+								<>
+									<CardList content={data?.data || []} />
+									<HStack justify="center" mt={4} pb={8}>
+										<Button
+											onClick={() => setPage((p) => Math.max(1, p - 1))}
+											disabled={page === 1}
+										>
+											Prev
+										</Button>
+										<Text>
+											Page {page} of {data?.totalPages || 1}
+										</Text>
+										<Button
+											onClick={() =>
+												setPage((p) => Math.min(data?.totalPages || 1, p + 1))
+											}
+											disabled={page === (data?.totalPages || 1)}
+										>
+											Next
+										</Button>
+									</HStack>
+								</>
+							)}
 						</Stack>
 					</PageContainer>
 				</HStack>

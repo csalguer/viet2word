@@ -4,6 +4,7 @@ import { useColorMode } from "@/components/ui/color-mode"
 import styles from "./navigation.css"
 import { PageContainer } from "../layout/page-container"
 import { SearchBar } from "./search-bar/SearchBar"
+import { NavBar } from "./NavBar"
 import { NightModeSwitch } from "../layout/night-mode-switch/NightModeSwitch"
 
 export interface NavigationProps {
@@ -46,12 +47,15 @@ export function Navigation({ children }: NavigationProps) {
 				}}
 			>
 				<Box as="header" w={"100vw"} bg="transparent" border="none">
-					<HStack justify="space-between" px="md" py="xs">
-						<SearchBar
-							word={word}
-							onSearch={handleSearch}
-							onWordChange={setWord}
-						/>
+					<HStack justify="space-between" px={4} py={2}>
+						<HStack gap={4}>
+							<NavBar />
+							<SearchBar
+								word={word}
+								onSearch={handleSearch}
+								onWordChange={setWord}
+							/>
+						</HStack>
 						<NightModeSwitch darkMode={colorMode === "dark"} />
 					</HStack>
 				</Box>

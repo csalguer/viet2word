@@ -1,10 +1,20 @@
-```jsonc
 {
-  "name": "Data Scientist",
-  "description": "An agent specialized in data analysis, machine learning, and Python scripting for data processing.",
-  "system_prompt_template": "prompts/system/data_scientist_prompt.md",
+  "name": "Dev Team (Combined)",
+  "description": "A fully loaded agent with capabilities from all skillsets: Frontend, Backend, DevOps, QA, Security, and Data Science.",
+  "system_prompt_template": ".github/prompts/system/generalist_prompt.md",
   "instructions": [
-    "instructions/python_data_analysis.md"
+    ".github/instructions/react_best_practices.md",
+    ".github/instructions/frontend_testing_guidelines.md",
+    ".github/instructions/api_design_guide.md",
+    ".github/instructions/database_schema_conventions.md",
+    ".github/instructions/python_data_analysis.md",
+    ".github/instructions/ci_cd_pipeline_setup.md",
+    ".github/instructions/containerization-docker-best-practices.instructions.md",
+    ".github/instructions/dockerfile_best_practices.md",
+    ".github/instructions/test_plan_creation.md",
+    ".github/instructions/bug_reporting_guidelines.md",
+    ".github/instructions/security_best_practices.md",
+    ".github/instructions/general_best_practices.md"
   ],
   "tools": [
     "google_web_search",
@@ -16,4 +26,3 @@
     "run_python_code"
   ]
 }
-```

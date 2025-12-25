@@ -1,68 +1,75 @@
-"use client"
 import type { ReactElement } from "react"
+import { Input, Box, VStack, Text } from "@chakra-ui/react"
+import { useDictionaryEntries } from "@/lib/api"
 
-import { Input, HStack, IconButton, Link, Box } from "@chakra-ui/react"
-import { useDisclosure } from "@chakra-ui/react"
-import { IconSearch, IconMenu2 } from "@tabler/icons-react"
-import classes from "./SearchBar.module.css"
-import { NightModeButton } from "../../layout/night-mode-switch"
 export interface SearchBarProps {
-	prop?: string
 	word: string
 	onSearch: (event: any) => Promise<void>
 	onWordChange: (value: string) => void
 }
 
-const links = [
-	{ link: "/home", label: "HOME" },
-	{ link: "/reader", label: "READER" },
-	{ link: "/dictionary", label: "DICTIONARY" },
-	// { link: "/pricing", label: "PRICING" },
-	// { link: "/chat", label: "CHAT" },
-]
-
 export const SearchBar = ({
 	word,
-	onSearch,
 	onWordChange,
+	onSearch,
 }: SearchBarProps): ReactElement => {
-	const { open: opened, onToggle: toggle } = useDisclosure()
-
-	const items = links.map((link) => (
-		<Link
-			key={link.label}
-			className={classes["link"]}
-			href={link.link}
-			onClick={(event) => {
-				console.log(link)
-				// event.preventDefault()
-			}}
-		>
-			{link.label}
-		</Link>
-	))
+	const { data } = useDictionaryEntries(1, 5, word)
 
 	return (
-		<div className={classes["inner"]}>
-			<HStack>
-				<IconButton
-					display={{ base: "flex", sm: "none" }}
-					onClick={toggle}
-					size="sm"
-					aria-label="Menu"
-				>
-					<IconMenu2 />
-				</IconButton>
-				{/* <MantineLogo size={28} /> */}
-				<Box display={{ base: "none", sm: "flex" }}>{items}</Box>
-			</HStack>
-			{/* Autocomplete replacement */}
+		<Box position="relative" width="300px">
 			<Input
 				placeholder="Search"
 				value={word}
-				onChange={(e) => onWordChange(e.target.value)}
+				onChange={(e) => {
+					onWordChange(e.target.value)
+				}}
 			/>
-		</div>
+			{word && data?.data && data.data.length > 0 && (
+				<Box
+					position="absolute"
+					top="100%"
+					left={0}
+					right={0}
+					zIndex={10}
+					border="1px solid"
+					borderColor="gray.200"
+					bg="white"
+					_dark={{ bg: "gray.700", borderColor: "gray.600" }}
+					maxH="200px"
+					overflowY="auto"
+					shadow="md"
+					borderRadius="md"
+					mt={1}
+				>
+					<VStack align="stretch" gap={0}>
+						{data.data.map((entry) => (
+							<Box
+								key={entry.word}
+								p={2}
+								borderBottom="1px solid"
+								borderColor="gray.100"
+								_dark={{ borderColor: "gray.600" }}
+								_hover={{
+									bg: "gray.50",
+									_dark: { bg: "gray.600" },
+									cursor: "pointer",
+								}}
+								onClick={() => {
+									onWordChange(entry.word)
+								}}
+							>
+								<Text fontWeight="bold">{entry.word}</Text>
+								{entry.meanings?.[0]?.definitions?.[0]?.definition && (
+									<Text fontSize="sm" color="gray.500" lineClamp={1}>
+										{entry.meanings[0].definitions[0].definition}
+									</Text>
+								)}
+							</Box>
+						))}
+					</VStack>
+				</Box>
+			)}
+		</Box>
 	)
 }
 
