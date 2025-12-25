@@ -1,6 +1,6 @@
 "use client"
 
-import { useState, type ReactNode } from "react"
+import { useState, useCallback, type ReactNode } from "react"
 import {
 	motion,
 	AnimatePresence,
@@ -50,33 +50,16 @@ export function Component({
 		return null
 	}
 
-	const handleDragEnd = (
-		event: MouseEvent | TouchEvent | PointerEvent,
-		info: PanInfo
-	) => {
-		const { offset, velocity } = info
-		const swipe = Math.abs(offset.x) * velocity.x
-
-		if (offset.x < -SWIPE_THRESHOLD || swipe < -1000) {
-			// Swiped left - go to next card
-			setActiveIndex((prev) => (prev + 1) % cards.length)
-		} else if (offset.x > SWIPE_THRESHOLD || swipe > 1000) {
-			// Swiped right - go to previous card
-			setActiveIndex((prev) => (prev - 1 + cards.length) % cards.length)
-		}
-		setIsDragging(false)
-	}
-
-	const getStackOrder = () => {
+	const getStackOrder = useCallback(() => {
 		const reordered: (CardData & { stackPosition: number })[] = []
 		for (let i = 0; i < cards.length; i++) {
 			const index = (activeIndex + i) % cards.length
 			reordered.push({ ...cards[index], stackPosition: i })
 		}
 		return reordered.reverse() // Reverse so top card renders last (on top)
-	}
+	}, [activeIndex, cards])
 
-	const getLayoutStyles = (stackPosition: number) => {
+	const getLayoutStyles = useCallback((stackPosition: number) => {
 		switch (layout) {
 			case "stack":
 				return {
@@ -100,7 +83,24 @@ export function Component({
 					rotate: 0,
 				}
 		}
-	}
+	}, [])
+
+	const handleDragEnd = useCallback(
+		(event: MouseEvent | TouchEvent | PointerEvent, info: PanInfo) => {
+			const { offset, velocity } = info
+			const swipe = Math.abs(offset.x) * velocity.x
+
+			if (offset.x < -SWIPE_THRESHOLD || swipe < -1000) {
+				// Swiped left - go to next card
+				setActiveIndex((prev) => (prev + 1) % cards.length)
+			} else if (offset.x > SWIPE_THRESHOLD || swipe > 1000) {
+				// Swiped right - go to previous card
+				setActiveIndex((prev) => (prev - 1 + cards.length) % cards.length)
+			}
+			setIsDragging(false)
+		},
+		[cards.length]
+	)
 
 	const containerStyles = {
 		stack: "relative h-64 w-64",

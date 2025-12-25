@@ -1,5 +1,4 @@
 import React from "react"
-import type { ReactElement } from "react"
 import type { Meta, StoryObj } from "@storybook/react-vite"
 import {
 	createRouter,
@@ -8,10 +7,7 @@ import {
 	createRoute,
 	createMemoryHistory,
 } from "@tanstack/react-router"
-import { Navigation } from "./navigation"
-import { Center, Flex } from "@chakra-ui/react"
-import { withFadeOut } from "@/lib/animations"
-import { Box } from "lucide-react"
+import { NavBar } from "./NavBar"
 
 const StorybookRouterWrapper: React.FC<{ children: React.ReactNode }> = ({
 	children,
@@ -63,16 +59,14 @@ const StorybookRouterWrapper: React.FC<{ children: React.ReactNode }> = ({
 	return <RouterProvider router={router} />
 }
 
-const meta: Meta<typeof Navigation> = {
-	component: Navigation,
+const meta: Meta<typeof NavBar> = {
+	component: NavBar,
 	tags: ["autodocs"],
 	decorators: [
 		(Story) => {
 			return (
 				<StorybookRouterWrapper>
-					<Center bg={"teal"} w="100%" h="100vh">
-						{Story()}
-					</Center>
+					<Story />
 				</StorybookRouterWrapper>
 			)
 		},
@@ -81,8 +75,6 @@ const meta: Meta<typeof Navigation> = {
 
 export default meta
 
-type Story = StoryObj<typeof Navigation>
+type Story = StoryObj<typeof NavBar>
 
-export const Primary: Story = {
-	args: { children: (<Flex>Content</Flex>) as ReactElement },
-}
+export const Primary: Story = {}

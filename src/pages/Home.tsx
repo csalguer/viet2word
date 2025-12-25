@@ -1,11 +1,13 @@
 import React, { useState } from "react"
 import { Box, Container, Heading, VStack, Text, Button } from "@chakra-ui/react"
+import { FannedCardSet } from "../components/card/fanned-card-set/FannedCardSet"
 import { TabbedInterface } from "../components/TabbedInterface"
 import { CardList } from "../components/CardList"
 import { DictionaryEntry } from "../components/landing/DictionaryEntry"
 import { PaletteGuide } from "../components/landing/PaletteGuide"
 import { ToggleSwitch } from "../components/landing/ToggleSwitch"
 import { LayoutMode } from "../components/landing/types"
+import DemoOne from "../components/MorphingCardStackDemo"
 
 // Mock Data
 const cardItems = [
@@ -101,6 +103,15 @@ export const Home = () => {
 
 				<Box>
 					<Heading size="md" mb={4}>
+						Fanned Card Set
+					</Heading>
+					<Box h="400px" position="relative">
+						<FannedCardSet cards={fannedCards} />
+					</Box>
+				</Box>
+
+				<Box>
+					<Heading size="md" mb={4}>
 						Tabbed Interface
 					</Heading>
 					<TabbedInterface items={tabItems} />
@@ -119,9 +130,15 @@ export const Home = () => {
 					</Heading>
 					<PaletteGuide />
 				</Box>
+
+				<Box>
+					<Heading size="md" mb={4}>
+						Morphing Card Stack
+					</Heading>
+					<DemoOne />
+				</Box>
 			</VStack>
 		</Container>
 	)
 }
-
 export default Home
