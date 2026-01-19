@@ -10,6 +10,14 @@ This directory contains instruction files that provide guidelines and best pract
 
 - **[Team Delegation Guide](team_delegation_guide.md)**: Agent roles and handoff protocols (post-2026 restructuring).
 
+## GitHub Actions Workflows
+
+The following automated workflows support the Convocation's operations:
+
+- **CI Workflow** (`.github/workflows/ci.yml`): Type checking, linting, testing, and builds.
+- **Team Coordination** (`.github/workflows/team-coordination.yml`): Auto-assignment and PR checklists.
+- **Release** (`.github/workflows/release.yml`): Versioned releases and Docker builds.
+
 ## Instructions List
 
 - **[API Design Guide](api_design_guide.md)**: Guidelines for designing APIs.

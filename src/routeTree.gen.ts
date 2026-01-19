@@ -13,10 +13,17 @@ import { createFileRoute } from '@tanstack/react-router'
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
 
+const SavedLazyRouteImport = createFileRoute('/saved')()
 const ReaderLazyRouteImport = createFileRoute('/reader')()
 const HomeLazyRouteImport = createFileRoute('/home')()
 const DictionaryLazyRouteImport = createFileRoute('/dictionary')()
+const ChatLazyRouteImport = createFileRoute('/chat')()
 
+const SavedLazyRoute = SavedLazyRouteImport.update({
+  id: '/saved',
+  path: '/saved',
+  getParentRoute: () => rootRouteImport,
+} as any).lazy(() => import('./routes/saved.lazy').then((d) => d.Route))
 const ReaderLazyRoute = ReaderLazyRouteImport.update({
   id: '/reader',
   path: '/reader',
@@ -32,6 +39,11 @@ const DictionaryLazyRoute = DictionaryLazyRouteImport.update({
   path: '/dictionary',
   getParentRoute: () => rootRouteImport,
 } as any).lazy(() => import('./routes/dictionary.lazy').then((d) => d.Route))
+const ChatLazyRoute = ChatLazyRouteImport.update({
+  id: '/chat',
+  path: '/chat',
+  getParentRoute: () => rootRouteImport,
+} as any).lazy(() => import('./routes/chat.lazy').then((d) => d.Route))
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
@@ -40,40 +52,62 @@ const IndexRoute = IndexRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/chat': typeof ChatLazyRoute
   '/dictionary': typeof DictionaryLazyRoute
   '/home': typeof HomeLazyRoute
   '/reader': typeof ReaderLazyRoute
+  '/saved': typeof SavedLazyRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/chat': typeof ChatLazyRoute
   '/dictionary': typeof DictionaryLazyRoute
   '/home': typeof HomeLazyRoute
   '/reader': typeof ReaderLazyRoute
+  '/saved': typeof SavedLazyRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/chat': typeof ChatLazyRoute
   '/dictionary': typeof DictionaryLazyRoute
   '/home': typeof HomeLazyRoute
   '/reader': typeof ReaderLazyRoute
+  '/saved': typeof SavedLazyRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/dictionary' | '/home' | '/reader'
+  fullPaths: '/' | '/chat' | '/dictionary' | '/home' | '/reader' | '/saved'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/dictionary' | '/home' | '/reader'
-  id: '__root__' | '/' | '/dictionary' | '/home' | '/reader'
+  to: '/' | '/chat' | '/dictionary' | '/home' | '/reader' | '/saved'
+  id:
+    | '__root__'
+    | '/'
+    | '/chat'
+    | '/dictionary'
+    | '/home'
+    | '/reader'
+    | '/saved'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  ChatLazyRoute: typeof ChatLazyRoute
   DictionaryLazyRoute: typeof DictionaryLazyRoute
   HomeLazyRoute: typeof HomeLazyRoute
   ReaderLazyRoute: typeof ReaderLazyRoute
+  SavedLazyRoute: typeof SavedLazyRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/saved': {
+      id: '/saved'
+      path: '/saved'
+      fullPath: '/saved'
+      preLoaderRoute: typeof SavedLazyRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/reader': {
       id: '/reader'
       path: '/reader'
@@ -95,6 +129,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof DictionaryLazyRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/chat': {
+      id: '/chat'
+      path: '/chat'
+      fullPath: '/chat'
+      preLoaderRoute: typeof ChatLazyRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/': {
       id: '/'
       path: '/'
@@ -107,9 +148,11 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  ChatLazyRoute: ChatLazyRoute,
   DictionaryLazyRoute: DictionaryLazyRoute,
   HomeLazyRoute: HomeLazyRoute,
   ReaderLazyRoute: ReaderLazyRoute,
+  SavedLazyRoute: SavedLazyRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

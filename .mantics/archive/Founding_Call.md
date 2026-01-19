@@ -21,7 +21,7 @@ CAVEATS: Note that this project uses the fish shell in terminal. Ensure shorter 
 
 TASK: Rework the writtens heretofore mentioned above and let's start our adventure! -->
 
-# AGÊNZIA 🜂
+# The Resonants 🜂
 
 _A Grand Hiring Call from the High-Elven Archwizard of Soft Wares_
 

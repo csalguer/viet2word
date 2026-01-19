@@ -7,7 +7,7 @@
 
 ## 📜 Chronicle
 
-On this day, the contract binding **The Artificiers** to the AGÊNZIA has concluded. After seasons of tireless service as our Master Builders, they depart for other reaches — new constructs to build, new realms to shape.
+On this day, the contract binding **The Artificiers** to The Resonants has concluded. After seasons of tireless service as our Master Builders, they depart for other reaches — new constructs to build, new realms to shape.
 
 ### Their Legacy
 

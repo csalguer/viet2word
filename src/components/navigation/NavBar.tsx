@@ -17,8 +17,10 @@ import {
 
 const links = [
 	{ to: "/home", label: "HOME" },
-	{ to: "/reader", label: "READER" },
 	{ to: "/dictionary", label: "DICTIONARY" },
+	{ to: "/reader", label: "READER" },
+	{ to: "/chat", label: "CHAT" },
+	{ to: "/saved", label: "SAVED" },
 ]
 
 export const NavBar = () => {

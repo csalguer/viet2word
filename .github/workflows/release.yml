@@ -1,0 +1,187 @@
+# Release Workflow
+# Coordinated by Cartographer, validated by Barkeep, executed by Di Scriptor
+
+name: Release
+
+on:
+  push:
+    tags:
+      - "v*.*.*"
+  workflow_dispatch:
+    inputs:
+      version:
+        description: "Version to release (e.g., 1.2.3)"
+        required: true
+        type: string
+      prerelease:
+        description: "Is this a prerelease?"
+        required: false
+        type: boolean
+        default: false
+
+permissions:
+  contents: write
+  packages: write
+
+jobs:
+  # 🔍 Validate Release
+  validate:
+    name: Validate Release
+    runs-on: ubuntu-latest
+    outputs:
+      version: ${{ steps.version.outputs.version }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Get version
+        id: version
+        run: |
+          if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
+            echo "version=${{ inputs.version }}" >> $GITHUB_OUTPUT
+          else
+            echo "version=${GITHUB_REF#refs/tags/v}" >> $GITHUB_OUTPUT
+          fi
+
+      - name: Validate version format
+        run: |
+          VERSION="${{ steps.version.outputs.version }}"
+          if ! echo "$VERSION" | grep -qE '^[0-9]+\.[0-9]+\.[0-9]+(-[a-zA-Z0-9.]+)?$'; then
+            echo "❌ Invalid version format: $VERSION"
+            exit 1
+          fi
+          echo "✅ Version format valid: $VERSION"
+
+  # 🏗️ Build Release
+  build:
+    name: Build Release
+    runs-on: ubuntu-latest
+    needs: validate
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: pnpm/action-setup@v4
+        with:
+          version: 9
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: "pnpm"
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Run type check
+        run: pnpm tsc --noEmit
+
+      - name: Run tests
+        run: pnpm test
+
+      - name: Build for production
+        run: pnpm build
+        env:
+          VITE_APP_VERSION: ${{ needs.validate.outputs.version }}
+
+      - name: Upload release artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: release-build
+          path: dist/
+          retention-days: 30
+
+  # 🐳 Build Docker Image
+  docker:
+    name: Build Docker Image
+    runs-on: ubuntu-latest
+    needs: [validate, build]
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Download build artifacts
+        uses: actions/download-artifact@v4
+        with:
+          name: release-build
+          path: dist/
+
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v3
+
+      - name: Login to GitHub Container Registry
+        uses: docker/login-action@v3
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Build and push
+        uses: docker/build-push-action@v6
+        with:
+          context: .
+          push: true
+          tags: |
+            ghcr.io/${{ github.repository }}:${{ needs.validate.outputs.version }}
+            ghcr.io/${{ github.repository }}:latest
+          cache-from: type=gha
+          cache-to: type=gha,mode=max
+
+  # 📝 Create GitHub Release
+  release:
+    name: Create Release
+    runs-on: ubuntu-latest
+    needs: [validate, build, docker]
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Download build artifacts
+        uses: actions/download-artifact@v4
+        with:
+          name: release-build
+          path: dist/
+
+      - name: Create release archive
+        run: |
+          cd dist
+          tar -czvf ../release-${{ needs.validate.outputs.version }}.tar.gz .
+          cd ..
+          zip -r release-${{ needs.validate.outputs.version }}.zip dist/
+
+      - name: Generate changelog
+        id: changelog
+        run: |
+          # Get previous tag
+          PREV_TAG=$(git describe --tags --abbrev=0 HEAD^ 2>/dev/null || echo "")
+
+          if [ -n "$PREV_TAG" ]; then
+            CHANGES=$(git log --pretty=format:"- %s (%h)" $PREV_TAG..HEAD)
+          else
+            CHANGES=$(git log --pretty=format:"- %s (%h)" -20)
+          fi
+
+          echo "changes<<EOF" >> $GITHUB_OUTPUT
+          echo "$CHANGES" >> $GITHUB_OUTPUT
+          echo "EOF" >> $GITHUB_OUTPUT
+
+      - name: Create GitHub Release
+        uses: softprops/action-gh-release@v2
+        with:
+          name: Release v${{ needs.validate.outputs.version }}
+          tag_name: v${{ needs.validate.outputs.version }}
+          draft: false
+          prerelease: ${{ inputs.prerelease || false }}
+          body: |
+            ## 🚀 Release v${{ needs.validate.outputs.version }}
+
+            ### 📦 Artifacts
+            - Docker image: `ghcr.io/${{ github.repository }}:${{ needs.validate.outputs.version }}`
+            - Download: See attached files
+
+            ### 📝 Changes
+            ${{ steps.changelog.outputs.changes }}
+
+            ---
+            *Release coordinated by the Cartographer, validated by the Barkeep, inscribed by Di Scriptor.*
+          files: |
+            release-${{ needs.validate.outputs.version }}.tar.gz
+            release-${{ needs.validate.outputs.version }}.zip

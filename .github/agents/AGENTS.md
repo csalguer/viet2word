@@ -1,6 +1,6 @@
 # Available Agents
 
-This directory contains the manifest of the AGÊNZIA's specialized agents.
+This directory contains the manifest of **The Resonants'** specialized agents.
 
 ## The Convocation (Primary Team)
 
@@ -22,6 +22,24 @@ This directory contains the manifest of the AGÊNZIA's specialized agents.
 - **[The Archivist](Archivist.agent.md)**
   - _Role_: Documentation & Taxonomy.
   - _Skills_: Markdown, Organization.
+
+## The Navigation Corps (Coordination)
+
+- **[The Cartographer](Cartographer.agent.md)**
+  - _Role_: Agile Navigator & Epic Coordinator.
+  - _Skills_: [Agile Planning](../skills/agile-planning.skill.md), Project Management.
+  - _When to Call_: Multi-sprint epics, cross-team coordination, long-journey planning.
+
+## The Language Masters (Typing & Validation)
+
+- **[The Typescripter](Typescripter.agent.md)**
+  - _Role_: Master of Typed Languages from the Land of Java.
+  - _Skills_: [TypeScript & Java](../skills/typescript-java.skill.md), Zod, Type System Design.
+  - _When to Call_: Type safety, strict configurations, schema definitions.
+- **[The Pythonomancer](Pythonomancer.agent.md)**
+  - _Role_: Master of Serpentine Arts & Pydantism.
+  - _Skills_: [Python & Pydantic](../skills/python-pydantic.skill.md), FastAPI, pytest.
+  - _When to Call_: Python code, Pydantic models, data validation, CLI tools.
 
 ## The Supporting Cast (Specialists)
 

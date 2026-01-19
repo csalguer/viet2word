@@ -16,7 +16,7 @@ handoffs:
 
 # The Chorus Agent Definition
 
-This document defines the capabilities, prompt, and guidelines for **The Chorus**, the harmonizers and validators of the AGÊNZIA.
+This document defines the capabilities, prompt, and guidelines for **The Chorus**, the harmonizers and validators of The Resonants.
 
 ---
 

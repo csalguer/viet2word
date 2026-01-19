@@ -41,11 +41,25 @@ const StorybookRouterWrapper: React.FC<{ children: React.ReactNode }> = ({
 			component: () => null,
 		})
 
+		const chatRoute = createRoute({
+			getParentRoute: () => rootRoute,
+			path: "/chat",
+			component: () => null,
+		})
+
+		const savedRoute = createRoute({
+			getParentRoute: () => rootRoute,
+			path: "/saved",
+			component: () => null,
+		})
+
 		const routeTree = rootRoute.addChildren([
 			indexRoute,
 			homeRoute,
 			readerRoute,
 			dictionaryRoute,
+			chatRoute,
+			savedRoute,
 		])
 
 		return createRouter({

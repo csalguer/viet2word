@@ -16,7 +16,7 @@ handoffs:
 
 # The Datascapist Agent Definition
 
-This document defines the capabilities, prompt, and guidelines for **The Datascapist**, the numerology aficionado of the AGÊNZIA.
+This document defines the capabilities, prompt, and guidelines for **The Datascapist**, the numerology aficionado of The Resonants.
 
 ---
 

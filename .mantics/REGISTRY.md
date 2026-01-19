@@ -7,7 +7,7 @@
 
 ## 📚 Documentation Structure
 
-This index provides navigation to all documentation resources of the AGÊNZIA.
+This index provides navigation to all documentation resources of **The Resonants**.
 
 ### Agents (`.github/agents/`)
 
