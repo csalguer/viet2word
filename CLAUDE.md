@@ -1,15 +1,33 @@
 # CLAUDE Summary
 
-## Contributions
-- Clone the repo, remove the stale `.git`, install dependencies, and run `pnpm run setup` (README) so Husky/Commitizen/Commitlint keep every commit aligned with the Conventional Commits workflow.
-- Use `.github/instructions/INSTRUCTIONS.md` to pick the right guide for API design, bug reporting, CI/CD, frontend testing, etc., and apply the clarity/modularity/testing/security/version-control principles from `.github/instructions/general_best_practices.md` before sending a change for review.
+## Context
+A **Vietnamese-English Dictionary & Reader** application built on a bleeding-edge React stack. It features a local-first development architecture where dictionary data is served via a Vite plugin directly from raw datasets.
 
 ## Architecture
-- The app is a Vite + React + TypeScript starter that layers in TanStack Router/Query/Table, Zustand, React Hook Form, Zod, Nivo, Storybook, and the usual React tooling (README). That stack keeps the UI fast, type-safe, and testable while supporting modern data workflows.
-- Containerization guidance in `.github/instructions/containerization-docker-best-practices.instructions.md` insists on multi-stage builds, tiny base images, disciplined `.dockerignore` files, running as a non-root user, externalizing config via environment variables, explicit CMD/ENTRYPOINTs, health checks, resource limits, and continuous scanning/signing so deployment artifacts stay immutable and secure.
+- **Frontend:** React 19 + Vite 7 + TypeScript.
+- **State/Routing:** TanStack Router, TanStack Query, Zustand (persisted for Saved Vocab).
+- **UI:** Tailwind CSS, Framer Motion, Chakra UI, Lucide Icons.
+- **Data Layer (Dev):** `src/plugins/mock-api.ts` implements a mock server within Vite. It loads `.jsonl` files from `data/` (e.g., `kaikki.org-dictionary-Vietnamese.jsonl`) into memory and serves them at `/api/dictionary`.
+- **Data Pipeline:** Python scripts in `data/` (e.g., `main.py`, notebooks) are used to process/clean raw dictionary data.
 
-## Product
-- Vite React Boilerplate is designed as a batteries-included product: pnpm + TypeScript + Tailwind + TanStack + Faker/Dayjs with Vitest + Playwright for testing, optional Docker packaging, and built-in devtools (README). `pnpm run test`, `pnpm run build`, and the Docker instructions in README cover the main flows for validating and shipping the product.
+## Core Features
+- **Dictionary:** Searchable interface for Vietnamese words (IPA, meanings, POS).
+- **Reader:** Text analysis tool (implied by `Reader.tsx`).
+- **Saved Vocab:** Personal word list stored in `localStorage` via Zustand.
+- **Testing:** Vitest (Unit), Playwright (E2E), MSW (Network mocking).
 
-## .github
-- `.github/instructions/INSTRUCTIONS.md` links to guides for APIs, bug reporting, CI/CD, React best practices, and more, `.github/prompts/PROMPTS.md` catalogs the system prompts, and `.github/agents/AGENTS.md` plus the skill library describe how the internal agents reason about this repo, so consult those when you need process or product context.
+## Contributions
+- **Setup:** `pnpm install` -> `pnpm run setup`. Ensure `data/` contains necessary `.jsonl` files for the mock API to work.
+- **Commands:**
+    - `pnpm run dev`: Starts frontend + Mock API (reads `data/*.jsonl`).
+    - `pnpm run test`: Unit + E2E tests.
+    - `pnpm run build`: Production build.
+- **Conventions:**
+    - **Commits:** Conventional Commits (enforced by Husky/Commitizen).
+    - **Styling:** Tailwind first.
+    - **Types:** Strict TypeScript. See `src/lib/types.ts` for domain models (`DictionaryItem`, `Meaning`).
+    - **Components:** Functional components only.
+
+## Documentation
+- **Guides:** `.github/instructions/INSTRUCTIONS.md` (API, CI/CD, Best Practices).
+- **Agents:** `.github/agents/AGENTS.md`.

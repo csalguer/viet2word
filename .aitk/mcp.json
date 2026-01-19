@@ -1,7 +1,7 @@
 {
-  "name": "Dev Team (Combined)",
-  "description": "A fully loaded agent with capabilities from all skillsets: Frontend, Backend, DevOps, QA, Security, and Data Science.",
-  "system_prompt_template": ".github/prompts/system/generalist_prompt.md",
+  "name": "The Convocation",
+  "description": "The unified interface for the AGÊNZIA, utilizing The Artificiers, Themeister, Datascapist, Chorus, and Archivist.",
+  "system_prompt_template": ".github/agents/Artificiers.agent.md",
   "instructions": [
     ".github/instructions/react_best_practices.md",
     ".github/instructions/frontend_testing_guidelines.md",
@@ -14,7 +14,14 @@
     ".github/instructions/test_plan_creation.md",
     ".github/instructions/bug_reporting_guidelines.md",
     ".github/instructions/security_best_practices.md",
-    ".github/instructions/general_best_practices.md"
+    ".github/instructions/general_best_practices.md",
+    ".mantics/spellbook-primer.md",
+    ".mantics/spellbook-01-protocols.md",
+    ".github/agents/DiScriptor.agent.md",
+    ".github/agents/Cursebreaker.agent.md",
+    ".github/agents/StoriedScribe.agent.md",
+    ".github/agents/Sourcerer.agent.md",
+    ".github/agents/Tactician.agent.md"
   ],
   "tools": [
     "google_web_search",

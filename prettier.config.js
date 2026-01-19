@@ -19,4 +19,4 @@ export const config = {
   singleAttributePerLine: false
 }
 
-default export config
+export default config

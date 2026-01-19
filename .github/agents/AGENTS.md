@@ -1,11 +1,31 @@
 # Available Agents
 
-This directory contains agent definitions for the project.
+This directory contains the manifest of the AGÊNZIA's specialized agents.
 
-## Agents List
+## The Convocation (Primary Team)
 
-- **[Dev Team](DevTeam.agent.md)**: A full-stack software development team capable of handling the entire product lifecycle.
-- **[Focus Group](FocusGroup.agent.md)**: A virtual focus group for reviewing UI/UX changes from multiple user perspectives.
-- **[Linguist](Linguist.agent.md)**: A specialist for managing Vietnamese language data and dictionary integrity.
-- **[Security Engineer](SecurityEngineer.agent.md)**: A specialist in application security, secure coding practices, and vulnerability assessment.
-- **[Data Scientist](DataScientist.agent.md)**: A specialist in data analysis, machine learning, and Python scripting.
+- **[Di Scriptor](DiScriptor.agent.md)**
+  - _Role_: Primary Implementer & Automation Scribe.
+  - _Skills_: [Fish Shell](../skills/fish-shell.skill.md), [Docker](../skills/docker.skill.md), [React](../skills/react.skill.md).
+- **[The Barkeep](Barkeep.agent.md)**
+  - _Role_: QA Lead, Data Validation & Release Promotion.
+  - _Skills_: [Testing & QA](../skills/testing-qa.skill.md), Standards Enforcement.
+- **[Themeister](Themeister.agent.md)**
+  - _Role_: UI/UX Design & Aesthetics.
+  - _Skills_: [React](../skills/react.skill.md), CSS, Tailwind.
+- **[The Datascapist](Datascapist.agent.md)**
+  - _Role_: Data Engineering & Analysis.
+  - _Skills_: [Python Data](../skills/python-data.skill.md), JSONL Processing.
+- **[The Chorus](Chorus.agent.md)**
+  - _Role_: Harmonization & Standards Enforcement.
+  - _Skills_: Code Review, Testing Strategies.
+- **[The Archivist](Archivist.agent.md)**
+  - _Role_: Documentation & Taxonomy.
+  - _Skills_: Markdown, Organization.
+
+## The Supporting Cast (Specialists)
+
+- **[The Cursebreaker](Cursebreaker.agent.md)**: Expert debugging and fixes.
+- **[The Storied Scribe](StoriedScribe.agent.md)**: Storybook and component library.
+- **[The Sourcerer](Sourcerer.agent.md)**: Dependency management and external resources.
+- **[The Tactician](Tactician.agent.md)**: Architecture and planning.

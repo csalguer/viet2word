@@ -2,6 +2,14 @@
 
 This directory contains instruction files that provide guidelines and best practices for various aspects of the project.
 
+## Skill Modules
+
+- **[Agent Skills](../skills/SKILLS.md)**: Index of modular capabilities and technology stacks.
+
+## Team & Workflow
+
+- **[Team Delegation Guide](team_delegation_guide.md)**: Agent roles and handoff protocols (post-2026 restructuring).
+
 ## Instructions List
 
 - **[API Design Guide](api_design_guide.md)**: Guidelines for designing APIs.
@@ -14,4 +22,5 @@ This directory contains instruction files that provide guidelines and best pract
 - **[Frontend Testing Guidelines](frontend_testing_guidelines.md)**: Guidelines for testing frontend applications.
 - **[General Best Practices](general_best_practices.md)**: General coding and project best practices.
 - **[React Best Practices](react_best_practices.md)**: Best practices specific to React development.
+- **[Security Best Practices](security_best_practices.md)**: Security guidelines and hardening.
 - **[Test Plan Creation](test_plan_creation.md)**: Instructions for creating test plans.

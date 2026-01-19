@@ -1,13 +1,19 @@
-# Available Prompts
+# Helper Prompts
 
-This directory contains system prompts used to configure agents.
+This directory contains system prompts and persona definitions that frame the agent's behavior.
 
-## System Prompts
+## Agent Prompts
 
-Located in `system/system/`:
+- **[Di Scriptor](di_scriptor_prompt.md)**: Primary Implementer & Automation Scribe.
 
-- **[Backend Developer Prompt](system/system/backend_developer_prompt.md)**: System prompt for the Backend Developer agent.
-- **[DevOps Specialist Prompt](system/system/devops_specialist_prompt.md)**: System prompt for the DevOps Specialist agent.
-- **[Frontend Developer Prompt](system/system/frontend_developer_prompt.md)**: System prompt for the Frontend Developer agent.
-- **[Generalist Prompt](system/system/generalist_prompt.md)**: System prompt for the Generalist agent.
-- **[Quality Assurance Prompt](system/system/quality_assurance_prompt.md)**: System prompt for the Quality Assurance agent.
+## Legacy Prompts
+
+- **[Generalist](generalist_prompt.md)**: The baseline persona.
+- **[Frontend Developer](frontend_developer_prompt.md)**: React/UI focus.
+- **[Backend Developer](backend_developer_prompt.md)**: Python/API focus.
+- **[DevOps Specialist](devops_specialist_prompt.md)**: Infrastructure and Shell focus.
+- **[Quality Assurance](quality_assurance_prompt.md)**: Testing and Standards focus.
+
+## Usage
+
+These prompts are used to seed the context of the specific agents defined in `../agents/`.
