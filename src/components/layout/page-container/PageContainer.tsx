@@ -18,7 +18,7 @@ import {
 	HStack,
 } from "@chakra-ui/react"
 import { InfoCard, CardList } from "../../dictionary"
-import { MOCK_CARD_INFO } from "../../../lib/mockData"
+import { MOCK_CARD_INFO } from "@/test/mockData"
 import Palette from "../../../styles/palette"
 import { IconSun, IconMoonStars } from "@tabler/icons-react"
 

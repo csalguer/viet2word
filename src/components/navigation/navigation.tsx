@@ -1,67 +1,63 @@
-import { useState, useCallback, ReactNode, FormEvent } from "react"
-import { Box, Flex, HStack, useDisclosure } from "@chakra-ui/react"
-import { useColorMode } from "@/components/ui/color-mode"
-import styles from "./navigation.css"
-import { PageContainer } from "../layout/page-container"
-import { SearchBar } from "./search-bar/SearchBar"
+import { ReactNode } from "react"
+import { Box, Flex, HStack, Text } from "@chakra-ui/react"
 import { NavBar } from "./NavBar"
 import { NightModeSwitch } from "../layout/night-mode-switch/NightModeSwitch"
+import { useColorMode } from "@/components/ui/color-mode"
 
 export interface NavigationProps {
-	prop?: string
 	children: ReactNode
 }
 
-type DefinitionType = { definition?: string; example?: string }
-const NULL_DEFINITION = { definition: null, example: null }
-
 export function Navigation({ children }: NavigationProps) {
-	const { open: mobileOpened, onToggle: toggleMobile } = useDisclosure()
-	const { open: desktopOpened, onToggle: toggleDesktop } = useDisclosure()
-	const [word, setWord] = useState("")
-	const [definition, setDefinition] = useState(NULL_DEFINITION)
-	const [error, setError] = useState("")
-	const [loading, setLoading] = useState(false)
-
-	const { colorMode, toggleColorMode } = useColorMode()
-
-	const handleSearch = async (event: FormEvent): Promise<void> => {
-		event.preventDefault()
-		// TODO: Implement API call to fetch word definition
-		// const data = await getWordDefinition(null && "")
-		setDefinition(NULL_DEFINITION)
-		setError("")
-		setLoading(false)
-	}
+	const { colorMode } = useColorMode()
 
 	return (
-		<>
+		<Box w="100%" h="100vh" display="flex" flexDirection="column">
+			{/* Navbar Header */}
 			<Box
-				w={"100%"}
-				h={"100vh"}
-				// padding={{ base: 0, sm: 0, md: "md", lg: "md" }}
-				style={{
-					background:
-						"radial-gradient(circle at 10% 20%, rgb(226, 240, 254) 0%, rgb(255, 247, 228) 90%)",
-					overflow: "scroll",
-				}}
+				as="header"
+				w="100%"
+				bg="surface"
+				borderBottom="1px solid"
+				borderColor="border"
+				position="sticky"
+				top={0}
+				zIndex={100}
+				px={{ base: 4, md: 8 }}
+				py={4}
 			>
-				<Box as="header" w={"100vw"} bg="transparent" border="none">
-					<HStack justify="space-between" px={4} py={2}>
-						<HStack gap={4}>
-							<NavBar />
-							<SearchBar
-								word={word}
-								onSearch={handleSearch}
-								onWordChange={setWord}
-							/>
-						</HStack>
+				<HStack justify="space-between" align="center">
+					{/* Logo Area */}
+					<HStack gap={8}>
+						<Text
+							fontFamily="editorialSerif"
+							fontSize="2xl"
+							fontWeight="black"
+							letterSpacing="tighter"
+							color="accent.fg"
+						>
+							từ điển
+						</Text>
+						<NavBar />
+					</HStack>
+
+					{/* Right Actions */}
+					<HStack gap={4}>
 						<NightModeSwitch darkMode={colorMode === "dark"} />
 					</HStack>
-				</Box>
-				<PageContainer>{children}</PageContainer>
+				</HStack>
 			</Box>
-		</>
+
+			{/* Main Content Area */}
+			<Box
+				as="main"
+				flex="1"
+				bg="canvas"
+				overflowY="auto"
+			>
+				{children}
+			</Box>
+		</Box>
 	)
 }
 

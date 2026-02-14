@@ -36,7 +36,7 @@ import {
 	VocabCardProps,
 	BookmarkProps,
 } from "./types"
-import { withFadeOut, withZoom } from "../../../lib/animations"
+import { withFadeOut, withZoom } from "@/styles/animations"
 import {
 	IconBookmark,
 	IconStar,
@@ -221,7 +221,7 @@ export const DefinitionsList = ({
 	)
 }
 
-import { useSavedVocabStore } from "../../../lib/store"
+import { useSavedVocabStore } from "@/stores/savedVocab"
 
 const VocabHeader = ({ word, phonetic, onClick }: any) => {
 	const { isSaved, toggleSaved } = useSavedVocabStore()

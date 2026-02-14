@@ -1,144 +1,155 @@
-import React, { useState } from "react"
-import { Box, Container, Heading, VStack, Text, Button } from "@chakra-ui/react"
-import { FannedCardSet } from "../components/card/fanned-card-set/FannedCardSet"
-import { TabbedInterface } from "../components/TabbedInterface"
-import { CardList } from "../components/CardList"
-import { DictionaryEntry } from "../components/landing/DictionaryEntry"
-import { PaletteGuide } from "../components/landing/PaletteGuide"
-import { ToggleSwitch } from "../components/landing/ToggleSwitch"
-import { LayoutMode } from "../components/landing/types"
-import DemoOne from "../components/MorphingCardStackDemo"
+import {
+	Box,
+	Container,
+	Heading,
+	Text,
+	VStack,
+	SimpleGrid,
+	HStack,
+} from "@chakra-ui/react"
+import { SearchBar } from "@/components/navigation/search-bar/SearchBar"
+import { useDictionaryEntries } from "@/services/api"
+import { Link } from "@tanstack/react-router"
 
-// Mock Data
-const cardItems = [
-	{ title: "Card 1", description: "Description for card 1" },
-	{ title: "Card 2", description: "Description for card 2" },
-	{ title: "Card 3", description: "Description for card 3" },
-]
+const WordOfTheDay = () => {
+	const { data, isLoading } = useDictionaryEntries(1, 1, "hạnh phúc")
+	const word = data?.data?.[0]
 
-const tabItems = [
-	{ label: "Tab 1", content: <Box p={4}>Content for Tab 1</Box> },
-	{ label: "Tab 2", content: <Box p={4}>Content for Tab 2</Box> },
-]
-
-const wordData = {
-	word: "Serendipity",
-	pronunciation: "/ˌser.ənˈdɪp.ə.ti/",
-	etymology: 'From Persian fairy tale "The Three Princes of Serendip"',
-	definitions: [
-		{
-			id: "1",
-			partOfSpeech: "noun",
-			meaning:
-				"The occurrence and development of events by chance in a happy or beneficial way.",
-			example: "The discovery of penicillin was a serendipity.",
-			meta: ["literary"],
-			synonyms: ["chance", "fate", "luck"],
-			antonyms: ["misfortune"],
-		},
-	],
-}
-
-const fannedCards = [
-	<Box
-		key="1"
-		bg="white"
-		p={4}
-		shadow="md"
-		rounded="md"
-		w="200px"
-		h="300px"
-		border="1px solid"
-		borderColor="gray.200"
-	>
-		Card A
-	</Box>,
-	<Box
-		key="2"
-		bg="white"
-		p={4}
-		shadow="md"
-		rounded="md"
-		w="200px"
-		h="300px"
-		border="1px solid"
-		borderColor="gray.200"
-	>
-		Card B
-	</Box>,
-	<Box
-		key="3"
-		bg="white"
-		p={4}
-		shadow="md"
-		rounded="md"
-		w="200px"
-		h="300px"
-		border="1px solid"
-		borderColor="gray.200"
-	>
-		Card C
-	</Box>,
-]
-
-export const Home = () => {
-	const [mode, setMode] = useState<LayoutMode>("editorial")
+	if (isLoading || !word)
+		return <Box h="200px" bg="subtle" borderRadius="lg" />
 
 	return (
-		<Container maxW="container.xl" py={10}>
-			<VStack gap={10} align="stretch">
-				<Box display="flex" justifyContent="space-between" alignItems="center">
-					<Heading>VLT Landing Page</Heading>
-				</Box>
+		<Box
+			p={8}
+			bg="surface"
+			border="1px solid"
+			borderColor="border"
+			borderRadius="xl"
+			shadow="lg"
+			maxW="md"
+			mx="auto"
+		>
+			<Text
+				fontSize="sm"
+				fontWeight="bold"
+				color="accent.fg"
+				textTransform="uppercase"
+				mb={2}
+			>
+				Word of the Day
+			</Text>
+			<Heading fontFamily="editorialSerif" size="2xl" mb={2} color="fg">
+				{word.word}
+			</Heading>
+			<Text
+				fontSize="xl"
+				color="fg.muted"
+				mb={4}
+				fontStyle="italic"
+				fontFamily="mono"
+			>
+				/ {word.sounds?.[0]?.ipa || "..."} /
+			</Text>
 
-				<Box>
-					<Heading size="md" mb={4}>
-						Dictionary Entry
-					</Heading>
-					<ToggleSwitch mode={mode} onChange={setMode} />
-					<Box mt={4}>
-						<DictionaryEntry mode={mode} data={wordData} />
-					</Box>
-				</Box>
-
-				<Box>
-					<Heading size="md" mb={4}>
-						Fanned Card Set
-					</Heading>
-					<Box h="400px" position="relative">
-						<FannedCardSet cards={fannedCards} />
-					</Box>
-				</Box>
-
-				<Box>
-					<Heading size="md" mb={4}>
-						Tabbed Interface
-					</Heading>
-					<TabbedInterface items={tabItems} />
-				</Box>
-
-				<Box>
-					<Heading size="md" mb={4}>
-						Card List
-					</Heading>
-					<CardList items={cardItems} />
-				</Box>
-
-				<Box>
-					<Heading size="md" mb={4}>
-						Palette Guide
-					</Heading>
-					<PaletteGuide />
-				</Box>
-
-				<Box>
-					<Heading size="md" mb={4}>
-						Morphing Card Stack
-					</Heading>
-					<DemoOne />
-				</Box>
+			<VStack align="start" gap={3}>
+				{word.senses?.[0]?.glosses?.map((gloss, idx) => (
+					<Text key={idx} fontSize="lg" color="fg">
+						{idx + 1}. {gloss}
+					</Text>
+				))}
 			</VStack>
-		</Container>
+
+			<Box
+				mt={6}
+				pt={4}
+				borderTop="1px solid"
+				borderColor="border"
+			>
+				<Link
+					to="/dictionary"
+					search={{ q: word.word }}
+					style={{ fontWeight: "bold" }}
+				>
+					<Text color="accent.fg" _hover={{ textDecoration: "underline" }}>
+						View full details →
+					</Text>
+				</Link>
+			</Box>
+		</Box>
 	)
 }
+
+export const Home = () => {
+	return (
+		<Box
+			bg="canvas"
+			minH="calc(100vh - 64px)"
+			display="flex"
+			flexDirection="column"
+			justifyContent="center"
+		>
+			<Container maxW="container.lg" py={20}>
+				<VStack gap={12} align="center">
+					{/* Hero Section */}
+					<VStack gap={6} maxW="2xl" textAlign="center">
+						<Heading
+							fontFamily="display"
+							size={{ base: "3xl", md: "4xl" }}
+							fontWeight="black"
+							letterSpacing="tight"
+							lineHeight="1.1"
+							color="fg"
+						>
+							The Modern <br />
+							<Text as="span" color="accent.fg">
+								Vietnamese
+							</Text>{" "}
+							Dictionary
+						</Heading>
+						<Text fontSize="xl" color="fg.muted" maxW="lg">
+							A beautiful, fast, and comprehensive bridge between
+							Vietnamese and English.
+						</Text>
+					</VStack>
+
+					{/* Hero Search */}
+					<Box w="full" maxW="2xl" py={8}>
+						<SearchBar
+							variant="hero"
+							placeholder="Search any word (e.g. 'yêu', 'love')..."
+						/>
+					</Box>
+
+					{/* Word of the Day */}
+					<SimpleGrid
+						columns={{ base: 1, md: 1 }}
+						w="full"
+						gap={8}
+						pt={10}
+					>
+						<WordOfTheDay />
+					</SimpleGrid>
+
+					{/* Trending Quick Links */}
+					<HStack gap={6} pt={10} color="fg.muted" fontSize="sm">
+						<Text>Trending:</Text>
+						{["phở", "bánh mì", "cà phê", "áo dài"].map(
+							(term) => (
+								<Link
+									key={term}
+									to="/dictionary"
+									search={{ q: term }}
+									style={{ textDecoration: "underline" }}
+								>
+									{term}
+								</Link>
+							)
+						)}
+					</HStack>
+				</VStack>
+			</Container>
+		</Box>
+	)
+}
+
 export default Home

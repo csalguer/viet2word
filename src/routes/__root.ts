@@ -1,4 +1,13 @@
-import { createRootRoute } from "@tanstack/react-router"
+
+import { createRootRoute, Outlet } from "@tanstack/react-router"
 import { TanStackRouterDevtools } from "@tanstack/router-devtools"
-// TODO: Something with the default value
-export const Route = createRootRoute()
+import { Navigation } from "@/components/navigation"
+
+export const Route = createRootRoute({
+  component: () => (
+    <Navigation>
+      <Outlet />
+      {/* <TanStackRouterDevtools position="bottom-right" /> */}
+    </Navigation>
+  ),
+})

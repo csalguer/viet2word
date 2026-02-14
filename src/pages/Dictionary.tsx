@@ -1,83 +1,89 @@
-/* eslint-disable @typescript-eslint/no-unsafe-assignment */
-/* eslint-disable @typescript-eslint/no-unused-vars */
-import type { ReactElement } from "react"
-import { useState } from "react"
-import { HStack, Center, Stack, Text, Button } from "@chakra-ui/react"
-import { PageContainer, SearchBar, CardList } from "../components/dictionary"
-import { Navigation } from "../components/navigation/navigation"
-import { useDictionaryEntries } from "../lib/api"
+import {
+	Box,
+	Container,
+	VStack,
+	Text,
+	Spinner,
+	Center,
+} from "@chakra-ui/react"
+import { useSearch } from "@tanstack/react-router"
+import { useDictionaryEntries } from "@/services/api"
+import { SearchBar } from "@/components/navigation/search-bar/SearchBar"
+import { WordCard } from "@/components/dictionary/WordCard"
 
-export function Dictionary(): ReactElement {
-	const [searchWord, setSearchWord] = useState("")
-	const [page, setPage] = useState(1)
-	const limit = 12
+export const Dictionary = () => {
+	const search = useSearch({ from: "/dictionary" }) as { q?: string }
+	const query = search.q || ""
 
-	const { data, isLoading, isError } = useDictionaryEntries(
-		page,
-		limit,
-		searchWord
-	)
+	const { data, isLoading, isError } = useDictionaryEntries(1, 20, query)
 
 	return (
-		<>
-			<Navigation>
-				<HStack
-					style={{
-						background:
-							"radial-gradient(circle at 10% 20%, rgb(226, 240, 254) 0%, rgb(255, 247, 228) 90%)",
-						minHeight: "100vh",
-						alignItems: "flex-start",
-					}}
-					w="100%"
-				>
-					<PageContainer>
-						<Stack gap={8} w="100%" pt={8}>
-							<Center>
-								<SearchBar
-									word={searchWord}
-									onWordChange={(w) => {
-										setSearchWord(w)
-										setPage(1)
-									}}
-									onSearch={async () => {}}
-								/>
-							</Center>
-							{isLoading ? (
-								<Center>
-									<Text>Loading...</Text>
-								</Center>
-							) : isError ? (
-								<Center>
-									<Text color="red.500">Error loading data</Text>
-								</Center>
-							) : (
-								<>
-									<CardList content={data?.data || []} />
-									<HStack justify="center" mt={4} pb={8}>
-										<Button
-											onClick={() => setPage((p) => Math.max(1, p - 1))}
-											disabled={page === 1}
-										>
-											Prev
-										</Button>
-										<Text>
-											Page {page} of {data?.totalPages || 1}
-										</Text>
-										<Button
-											onClick={() =>
-												setPage((p) => Math.min(data?.totalPages || 1, p + 1))
-											}
-											disabled={page === (data?.totalPages || 1)}
-										>
-											Next
-										</Button>
-									</HStack>
-								</>
-							)}
-						</Stack>
-					</PageContainer>
-				</HStack>
-			</Navigation>
-		</>
+		<Container maxW="container.md" py={8}>
+			<VStack gap={8} align="stretch">
+				{/* Search Header */}
+				<Box>
+					<SearchBar
+						initialValue={query}
+						placeholder="Search dictionary..."
+					/>
+				</Box>
+
+				{/* Results Header */}
+				{query && (
+					<Text fontSize="sm" color="fg.muted">
+						Showing results for{" "}
+						<Text as="span" fontWeight="bold" color="fg">
+							"{query}"
+						</Text>
+					</Text>
+				)}
+
+				{/* Loading State */}
+				{isLoading && (
+					<Center py={12}>
+						<Spinner
+							size="xl"
+							color="accent.fg"
+							borderWidth="4px"
+						/>
+					</Center>
+				)}
+
+				{/* Error State */}
+				{isError && (
+					<Center py={12}>
+						<VStack gap={2}>
+							<Text fontSize="lg" fontWeight="medium" color="fg">
+								Something went wrong
+							</Text>
+							<Text fontSize="sm" color="fg.muted">
+								Could not fetch definitions. Is the backend
+								running?
+							</Text>
+						</VStack>
+					</Center>
+				)}
+
+				{/* Empty State */}
+				{!isLoading && !isError && data?.data.length === 0 && (
+					<Center py={12} flexDirection="column" gap={4}>
+						<Text fontSize="lg" fontWeight="medium" color="fg.muted">
+							No definitions found.
+						</Text>
+						<Text fontSize="sm" color="fg.muted">
+							Try searching for simple words like "ăn", "ngủ",
+							"yêu".
+						</Text>
+					</Center>
+				)}
+
+				{/* Results List */}
+				<VStack gap={6} align="stretch" pb={20}>
+					{data?.data.map((word) => (
+						<WordCard key={word.id} word={word} />
+					))}
+				</VStack>
+			</VStack>
+		</Container>
 	)
 }

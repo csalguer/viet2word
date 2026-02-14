@@ -11,7 +11,7 @@ import { AnimatePresence } from "framer-motion"
 import { useState, ReactElement } from "react"
 import { VocabCard } from "../vocab-card"
 import { VocabCardProps } from "../vocab-card/types"
-import { withFadeOut, withZoom } from "../../../lib/animations"
+import { withFadeOut, withZoom } from "@/styles/animations"
 
 interface CardListProps {
 	content: VocabCardProps[]

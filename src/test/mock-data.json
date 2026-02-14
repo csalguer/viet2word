@@ -1,0 +1,3519 @@
+[
+  {
+    "word": "qua",
+    "pos": "adv",
+    "lang_code": "vi",
+    "etymology_text": "Sino-Vietnamese word from 過 (“pass”). Doublet of quá.",
+    "head_templates": "[{\"name\": \"head\", \"args\": {\"1\": \"vi\", \"2\": \"adverb\", \"head\": \"\", \"tr\": \"\", \"3\": \"\", \"4\": \"\"}, \"expansion\": \"qua\"}, {\"name\": \"vi-adv\", \"args\": {}, \"expansion\": \"qua\"}]",
+    "etymology_templates": "[{\"name\": \"etymid\", \"args\": {\"1\": \"vi\", \"2\": \"\\u904e\"}, \"expansion\": \"\"}, {\"name\": \"categorize\", \"args\": {\"1\": \"vi\", \"2\": \"Sino-Vietnamese words\"}, \"expansion\": \"\"}, {\"name\": \"vi-etym-sino\", \"args\": {\"1\": \"\\u904e\", \"2\": \"pass\"}, \"expansion\": \"Sino-Vietnamese word from \\u904e (\\u201cpass\\u201d)\"}, {\"name\": \"doublet\", \"args\": {\"1\": \"vi\", \"2\": \"qu\\u00e1\"}, \"expansion\": \"Doublet of qu\\u00e1\"}]",
+    "id": "ac90ff0c-b24d-41e6-8d5a-b6f976ca9235",
+    "created_at": "2026-01-24T14:21:40.640626",
+    "updated_at": "2026-01-24T14:21:40.640642",
+    "senses": [
+      {
+        "glosses": "[\"across (from one side to the other), through\"]",
+        "tags": "null",
+        "display_label": null,
+        "examples": "[{\"text\": \"nh\\u00ecn qua\", \"bold_text_offsets\": [[5, 8]], \"translation\": \"to look past\", \"english\": \"to look past\", \"type\": \"example\"}, {\"text\": \"nh\\u1ea3y qua\", \"bold_text_offsets\": [[5, 8]], \"translation\": \"to hop across\", \"english\": \"to hop across\", \"type\": \"example\"}]",
+        "links": "[[\"across\", \"across\"], [\"through\", \"through\"]]",
+        "id": "cceee1ce-2aa9-4758-a428-245756856db4",
+        "word_id": "ac90ff0c-b24d-41e6-8d5a-b6f976ca9235"
+      },
+      {
+        "glosses": "[\"in passing\"]",
+        "tags": "null",
+        "display_label": null,
+        "examples": "[{\"text\": \"d\\u1eb7n qua m\\u1ea5y l\\u1eddi\", \"bold_text_offsets\": [[4, 7]], \"translation\": \"to give a few words of advice in passing\", \"english\": \"to give a few words of advice in passing\", \"type\": \"example\"}]",
+        "links": "[[\"in passing\", \"in passing\"]]",
+        "id": "02f804e6-ead2-4de3-8c22-4ceb39ec0a63",
+        "word_id": "ac90ff0c-b24d-41e6-8d5a-b6f976ca9235"
+      },
+      {
+        "glosses": "[\"cursorily, superficially\"]",
+        "tags": "null",
+        "display_label": null,
+        "examples": "[{\"text\": \"bi\\u1ebft qua th\\u1ebf th\\u00f4i\", \"bold_text_offsets\": [[5, 8]], \"translation\": \"to know a thing or two about it\", \"english\": \"to know a thing or two about it\", \"type\": \"example\"}, {\"text\": \"\\u0111\\u1ecdc qua v\\u00e0i trang\", \"bold_text_offsets\": [[4, 7]], \"translation\": \"to skim over a few pages\", \"english\": \"to skim over a few pages\", \"type\": \"example\"}]",
+        "links": "[[\"cursorily\", \"cursorily\"], [\"superficially\", \"superficially\"]]",
+        "id": "f1c833ad-26ee-4e9a-8478-1343109b4ca5",
+        "word_id": "ac90ff0c-b24d-41e6-8d5a-b6f976ca9235"
+      },
+      {
+        "glosses": "[\"completely\"]",
+        "tags": "null",
+        "display_label": null,
+        "examples": "[{\"text\": \"Tr\\u1ea3i qua m\\u1ed9t cu\\u1ed9c b\\u1ec3 d\\u00e2u / Nh\\u1eefng \\u0111i\\u1ec1u tr\\u00f4ng th\\u1ea5y m\\u00e0 \\u0111au \\u0111\\u1edbn l\\u00f2ng.\", \"ref\": \"1820, Nguy\\u1ec5n Du, Truy\\u1ec7n Ki\\u1ec1u [The Tale of Kieu]:\", \"english\": \"Through the whirligig of time / There are events which wrench one\\u2019s heart\", \"type\": \"quote\", \"translation\": \"Through the whirligig of time / There are events which wrench one\\u2019s heart\", \"bold_text_offsets\": [[5, 8]]}]",
+        "links": "[[\"completely\", \"completely\"]]",
+        "id": "ee4e0226-60d1-4538-a523-999360d140c8",
+        "word_id": "ac90ff0c-b24d-41e6-8d5a-b6f976ca9235"
+      }
+    ],
+    "sounds": [
+      {
+        "ipa": "[kwaː˧˧]",
+        "audio_url": null,
+        "ogg_url": null,
+        "mp3_url": null,
+        "tags": "[\"H\\u00e0-N\\u1ed9i\"]",
+        "id": "5784880f-5eaf-4afb-a7fa-01ebd4f3ce08",
+        "word_id": "ac90ff0c-b24d-41e6-8d5a-b6f976ca9235"
+      },
+      {
+        "ipa": "[kwaː˧˧]",
+        "audio_url": null,
+        "ogg_url": null,
+        "mp3_url": null,
+        "tags": "[\"Hu\\u1ebf\"]",
+        "id": "55be187b-09f1-4fbb-96e2-39dd5074b1c2",
+        "word_id": "ac90ff0c-b24d-41e6-8d5a-b6f976ca9235"
+      },
+      {
+        "ipa": "[waː˧˧]",
+        "audio_url": null,
+        "ogg_url": null,
+        "mp3_url": null,
+        "tags": "null",
+        "id": "af79c4e3-a601-40ab-8771-17030070b253",
+        "word_id": "ac90ff0c-b24d-41e6-8d5a-b6f976ca9235"
+      },
+      {
+        "ipa": null,
+        "audio_url": "https://upload.wikimedia.org/wikipedia/commons/transcoded/f/f5/LL-Q9199_%28vie%29-Penn_Zero_MSSJ-qua.wav/LL-Q9199_%28vie%29-Penn_Zero_MSSJ-qua.wav.mp3",
+        "ogg_url": "https://upload.wikimedia.org/wikipedia/commons/transcoded/f/f5/LL-Q9199_%28vie%29-Penn_Zero_MSSJ-qua.wav/LL-Q9199_%28vie%29-Penn_Zero_MSSJ-qua.wav.ogg",
+        "mp3_url": "https://upload.wikimedia.org/wikipedia/commons/transcoded/f/f5/LL-Q9199_%28vie%29-Penn_Zero_MSSJ-qua.wav/LL-Q9199_%28vie%29-Penn_Zero_MSSJ-qua.wav.mp3",
+        "tags": "null",
+        "id": "db2766af-37bc-408a-b41d-212d59d64960",
+        "word_id": "ac90ff0c-b24d-41e6-8d5a-b6f976ca9235"
+      },
+      {
+        "ipa": null,
+        "audio_url": "https://upload.wikimedia.org/wikipedia/commons/transcoded/2/26/LL-Q9199_%28vie%29-Jessica_Nguyen_%28Pamputt%29-qua.wav/LL-Q9199_%28vie%29-Jessica_Nguyen_%28Pamputt%29-qua.wav.mp3",
+        "ogg_url": "https://upload.wikimedia.org/wikipedia/commons/transcoded/2/26/LL-Q9199_%28vie%29-Jessica_Nguyen_%28Pamputt%29-qua.wav/LL-Q9199_%28vie%29-Jessica_Nguyen_%28Pamputt%29-qua.wav.ogg",
+        "mp3_url": "https://upload.wikimedia.org/wikipedia/commons/transcoded/2/26/LL-Q9199_%28vie%29-Jessica_Nguyen_%28Pamputt%29-qua.wav/LL-Q9199_%28vie%29-Jessica_Nguyen_%28Pamputt%29-qua.wav.mp3",
+        "tags": "null",
+        "id": "78e7cebf-709a-4960-8466-ca8c65710ec2",
+        "word_id": "ac90ff0c-b24d-41e6-8d5a-b6f976ca9235"
+      }
+    ],
+    "forms": []
+  },
+  {
+    "word": "A",
+    "pos": "character",
+    "lang_code": "vi",
+    "etymology_text": null,
+    "head_templates": "[{\"name\": \"head\", \"args\": {\"1\": \"vi\", \"2\": \"letter\", \"sc\": \"\", \"3\": \"upper case\", \"4\": \"\", \"5\": \"\", \"6\": \"A\", \"7\": \"lower case\", \"8\": \"a\", \"9\": \"\", \"10\": \"\"}, \"expansion\": \"A (upper case, lower case a)\"}, {\"name\": \"vi-letter\", \"args\": {\"upper\": \"A\", \"lower\": \"a\"}, \"expansion\": \"A (upper case, lower case a)\"}]",
+    "etymology_templates": null,
+    "id": "621efaa3-8f9e-4102-b491-e5ebd3f57f06",
+    "created_at": "2026-01-24T14:21:40.522365",
+    "updated_at": "2026-01-24T14:21:40.522399",
+    "senses": [
+      {
+        "glosses": "[\"The first letter of the Vietnamese alphabet, called a and written in the Latin script.\"]",
+        "tags": "[\"letter\", \"uppercase\"]",
+        "display_label": null,
+        "examples": "null",
+        "links": "[[\"letter\", \"letter\"], [\"alphabet\", \"alphabet\"], [\"a\", \"a#Vietnamese\"]]",
+        "id": "6d7f45b1-d846-4a3b-a20a-4c69f6185a85",
+        "word_id": "621efaa3-8f9e-4102-b491-e5ebd3f57f06"
+      }
+    ],
+    "sounds": [
+      {
+        "ipa": "[ʔaː˧˧]",
+        "audio_url": null,
+        "ogg_url": null,
+        "mp3_url": null,
+        "tags": "[\"H\\u00e0-N\\u1ed9i\"]",
+        "id": "fab7b02b-e3dd-4107-a1c5-a998e910a59a",
+        "word_id": "621efaa3-8f9e-4102-b491-e5ebd3f57f06"
+      },
+      {
+        "ipa": "[ʔaː˧˧]",
+        "audio_url": null,
+        "ogg_url": null,
+        "mp3_url": null,
+        "tags": "[\"Hu\\u1ebf\"]",
+        "id": "da633171-010b-4994-b989-7df6796dc422",
+        "word_id": "621efaa3-8f9e-4102-b491-e5ebd3f57f06"
+      },
+      {
+        "ipa": "[ʔaː˧˧]",
+        "audio_url": null,
+        "ogg_url": null,
+        "mp3_url": null,
+        "tags": "null",
+        "id": "30a25f96-b232-4690-90b9-9de6421c07c8",
+        "word_id": "621efaa3-8f9e-4102-b491-e5ebd3f57f06"
+      },
+      {
+        "ipa": null,
+        "audio_url": "https://upload.wikimedia.org/wikipedia/commons/transcoded/7/7b/Vi_ngang_tone.ogg/Vi_ngang_tone.ogg.mp3",
+        "ogg_url": "https://upload.wikimedia.org/wikipedia/commons/7/7b/Vi_ngang_tone.ogg",
+        "mp3_url": "https://upload.wikimedia.org/wikipedia/commons/transcoded/7/7b/Vi_ngang_tone.ogg/Vi_ngang_tone.ogg.mp3",
+        "tags": "null",
+        "id": "faff5172-4ef2-48bc-a66d-93c35a42cddd",
+        "word_id": "621efaa3-8f9e-4102-b491-e5ebd3f57f06"
+      }
+    ],
+    "forms": [
+      {
+        "form": "a",
+        "tags": "[\"lowercase\"]",
+        "id": "61731d4f-1905-402b-a6e7-abe15d2f4266",
+        "word_id": "621efaa3-8f9e-4102-b491-e5ebd3f57f06"
+      }
+    ]
+  },
+  {
+    "word": "sun",
+    "pos": "verb",
+    "lang_code": "vi",
+    "etymology_text": null,
+    "head_templates": "[{\"name\": \"head\", \"args\": {\"1\": \"vi\", \"2\": \"verb\", \"head\": \"\", \"tr\": \"\", \"3\": \"\", \"4\": \"\"}, \"expansion\": \"sun\"}, {\"name\": \"vi-verb\", \"args\": {}, \"expansion\": \"sun\"}]",
+    "etymology_templates": null,
+    "id": "0d465ab4-923b-4114-a912-92a95e8a69e8",
+    "created_at": "2026-01-24T14:21:40.578938",
+    "updated_at": "2026-01-24T14:21:40.578950",
+    "senses": [
+      {
+        "glosses": "[\"To shrink.\"]",
+        "tags": "[\"intransitive\"]",
+        "display_label": null,
+        "examples": "null",
+        "links": "[[\"shrink\", \"shrink\"]]",
+        "id": "6d686751-ed71-4cdc-85ea-98f0f002b63a",
+        "word_id": "0d465ab4-923b-4114-a912-92a95e8a69e8"
+      },
+      {
+        "glosses": "[\"To pull together.\"]",
+        "tags": "[\"transitive\"]",
+        "display_label": null,
+        "examples": "[{\"text\": \"sun vai\", \"english\": \"to pull one\\u2019s shoulders together\", \"translation\": \"to pull one\\u2019s shoulders together\"}]",
+        "links": "[[\"pull together\", \"pull together\"]]",
+        "id": "b456cbf4-ac9c-4353-b6f3-708bbb69b75a",
+        "word_id": "0d465ab4-923b-4114-a912-92a95e8a69e8"
+      }
+    ],
+    "sounds": [
+      {
+        "ipa": "[sun˧˧]",
+        "audio_url": null,
+        "ogg_url": null,
+        "mp3_url": null,
+        "tags": "[\"H\\u00e0-N\\u1ed9i\"]",
+        "id": "722e24ae-3499-49ba-9cbb-cab2143e8183",
+        "word_id": "0d465ab4-923b-4114-a912-92a95e8a69e8"
+      },
+      {
+        "ipa": "[ʂun˧˧]",
+        "audio_url": null,
+        "ogg_url": null,
+        "mp3_url": null,
+        "tags": "[\"Hu\\u1ebf\"]",
+        "id": "2496c259-ecbc-4e2c-a1e9-98e7644cb851",
+        "word_id": "0d465ab4-923b-4114-a912-92a95e8a69e8"
+      },
+      {
+        "ipa": "[sun˧˧]",
+        "audio_url": null,
+        "ogg_url": null,
+        "mp3_url": null,
+        "tags": "[\"Hu\\u1ebf\"]",
+        "id": "5f95853d-0040-4aa7-ae5a-7f3fd501f9e5",
+        "word_id": "0d465ab4-923b-4114-a912-92a95e8a69e8"
+      },
+      {
+        "ipa": "[ʂʊwŋ͡m˧˧]",
+        "audio_url": null,
+        "ogg_url": null,
+        "mp3_url": null,
+        "tags": "null",
+        "id": "47122925-4740-4dab-beae-745b2d3a8baf",
+        "word_id": "0d465ab4-923b-4114-a912-92a95e8a69e8"
+      },
+      {
+        "ipa": "[sʊwŋ͡m˧˧]",
+        "audio_url": null,
+        "ogg_url": null,
+        "mp3_url": null,
+        "tags": "null",
+        "id": "7335094c-88cb-4207-9b01-bcfa4c1ca3ff",
+        "word_id": "0d465ab4-923b-4114-a912-92a95e8a69e8"
+      }
+    ],
+    "forms": []
+  },
+  {
+    "word": "o",
+    "pos": "noun",
+    "lang_code": "vi",
+    "etymology_text": "Borrowed from Portuguese ó.",
+    "head_templates": "[{\"name\": \"head\", \"args\": {\"1\": \"vi\", \"2\": \"noun\", \"head\": \"\", \"tr\": \"\", \"3\": \"\", \"4\": \"\"}, \"expansion\": \"o\"}, {\"name\": \"vi-noun\", \"args\": {}, \"expansion\": \"o\"}]",
+    "etymology_templates": "[{\"name\": \"bor\", \"args\": {\"1\": \"vi\", \"2\": \"pt\", \"3\": \"\\u00f3\"}, \"expansion\": \"Portuguese \\u00f3\"}]",
+    "id": "7ce0fe77-4198-420b-bc7d-ae13c844e906",
+    "created_at": "2026-01-24T14:21:40.574430",
+    "updated_at": "2026-01-24T14:21:40.574453",
+    "senses": [
+      {
+        "glosses": "[\"The name of the Latin-script letter O/o.\"]",
+        "tags": "null",
+        "display_label": null,
+        "examples": "null",
+        "links": "[[\"O\", \"O#Vietnamese\"], [\"o\", \"o#Vietnamese\"]]",
+        "id": "620bd0f7-0a76-4f35-9ce6-b60b751b0ac5",
+        "word_id": "7ce0fe77-4198-420b-bc7d-ae13c844e906"
+      }
+    ],
+    "sounds": [
+      {
+        "ipa": "[ʔɔ˧˧]",
+        "audio_url": null,
+        "ogg_url": null,
+        "mp3_url": null,
+        "tags": "[\"H\\u00e0-N\\u1ed9i\"]",
+        "id": "0d26bbbc-55d3-49b3-b452-80e99a656eab",
+        "word_id": "7ce0fe77-4198-420b-bc7d-ae13c844e906"
+      },
+      {
+        "ipa": "[ʔɔ˧˧]",
+        "audio_url": null,
+        "ogg_url": null,
+        "mp3_url": null,
+        "tags": "[\"Hu\\u1ebf\"]",
+        "id": "537b96f2-431c-4224-bb31-4d7e8e6dc1fe",
+        "word_id": "7ce0fe77-4198-420b-bc7d-ae13c844e906"
+      },
+      {
+        "ipa": "[ʔɔ˧˧]",
+        "audio_url": null,
+        "ogg_url": null,
+        "mp3_url": null,
+        "tags": "null",
+        "id": "6e8215a2-79dc-491d-9040-93b0c7659517",
+        "word_id": "7ce0fe77-4198-420b-bc7d-ae13c844e906"
+      },
+      {
+        "ipa": null,
+        "audio_url": "https://upload.wikimedia.org/wikipedia/commons/transcoded/e/e9/LL-Q9199_%28vie%29-Penn_Zero_MSSJ-o.wav/LL-Q9199_%28vie%29-Penn_Zero_MSSJ-o.wav.mp3",
+        "ogg_url": "https://upload.wikimedia.org/wikipedia/commons/transcoded/e/e9/LL-Q9199_%28vie%29-Penn_Zero_MSSJ-o.wav/LL-Q9199_%28vie%29-Penn_Zero_MSSJ-o.wav.ogg",
+        "mp3_url": "https://upload.wikimedia.org/wikipedia/commons/transcoded/e/e9/LL-Q9199_%28vie%29-Penn_Zero_MSSJ-o.wav/LL-Q9199_%28vie%29-Penn_Zero_MSSJ-o.wav.mp3",
+        "tags": "null",
+        "id": "c9cafd49-b180-4efd-8f03-d92fa0338261",
+        "word_id": "7ce0fe77-4198-420b-bc7d-ae13c844e906"
+      }
+    ],
+    "forms": []
+  },
+  {
+    "word": "may",
+    "pos": "verb",
+    "lang_code": "vi",
+    "etymology_text": "Cognate with Muong Bi băl.",
+    "head_templates": "[{\"name\": \"head\", \"args\": {\"1\": \"vi\", \"2\": \"verb\", \"head\": \"\", \"tr\": \"\\ud858\\udc7c, \\u57cb, \\u679a\", \"3\": \"\", \"4\": \"\"}, \"expansion\": \"may \\u2022 (\\ud858\\udc7c, \\u57cb, \\u679a)\"}, {\"name\": \"vi-verb\", \"args\": {\"1\": \"\\ud858\\udc7c, \\u57cb, \\u679a\"}, \"expansion\": \"may \\u2022 (\\ud858\\udc7c, \\u57cb, \\u679a)\"}]",
+    "etymology_templates": "[{\"name\": \"cog\", \"args\": {\"1\": \"mtq\", \"2\": \"-\"}, \"expansion\": \"Muong\"}]",
+    "id": "e495b5b2-d2a1-4581-a80a-4af8323cabba",
+    "created_at": "2026-01-24T14:21:40.527246",
+    "updated_at": "2026-01-24T14:21:40.527261",
+    "senses": [
+      {
+        "glosses": "[\"to sew\"]",
+        "tags": "null",
+        "display_label": null,
+        "examples": "null",
+        "links": "[[\"sew\", \"sew\"]]",
+        "id": "273b08ef-a471-4099-a789-eed1082592c5",
+        "word_id": "e495b5b2-d2a1-4581-a80a-4af8323cabba"
+      }
+    ],
+    "sounds": [
+      {
+        "ipa": "[maj˧˧]",
+        "audio_url": null,
+        "ogg_url": null,
+        "mp3_url": null,
+        "tags": "[\"H\\u00e0-N\\u1ed9i\"]",
+        "id": "786eb174-4984-4bfa-b8c1-08aa1d8e96ac",
+        "word_id": "e495b5b2-d2a1-4581-a80a-4af8323cabba"
+      },
+      {
+        "ipa": "[maj˧˧]",
+        "audio_url": null,
+        "ogg_url": null,
+        "mp3_url": null,
+        "tags": "[\"Hu\\u1ebf\"]",
+        "id": "c8920733-7b25-4a0f-8f01-a4b85cf8fe11",
+        "word_id": "e495b5b2-d2a1-4581-a80a-4af8323cabba"
+      },
+      {
+        "ipa": "[ma(ː)j˧˧]",
+        "audio_url": null,
+        "ogg_url": null,
+        "mp3_url": null,
+        "tags": "null",
+        "id": "6b421f55-8c86-4f00-9db0-067187275660",
+        "word_id": "e495b5b2-d2a1-4581-a80a-4af8323cabba"
+      }
+    ],
+    "forms": [
+      {
+        "form": "𦁼",
+        "tags": "[\"CJK\"]",
+        "id": "24a8a1a2-fbbb-4467-a254-785bbbdc6772",
+        "word_id": "e495b5b2-d2a1-4581-a80a-4af8323cabba"
+      },
+      {
+        "form": "埋",
+        "tags": "[\"CJK\"]",
+        "id": "460921a6-fca5-469c-8dfc-76c672b2b529",
+        "word_id": "e495b5b2-d2a1-4581-a80a-4af8323cabba"
+      },
+      {
+        "form": "枚",
+        "tags": "[\"CJK\"]",
+        "id": "592f616f-2def-4d54-99a4-1b8cc0cfaead",
+        "word_id": "e495b5b2-d2a1-4581-a80a-4af8323cabba"
+      }
+    ]
+  },
+  {
+    "word": "A",
+    "pos": "intj",
+    "lang_code": "vi",
+    "etymology_text": null,
+    "head_templates": "[{\"name\": \"head\", \"args\": {\"1\": \"vi\", \"2\": \"interjections\", \"head\": \"A!\"}, \"expansion\": \"A!\"}]",
+    "etymology_templates": null,
+    "id": "46d8010a-93df-4547-abf5-eb5b798403f5",
+    "created_at": "2026-01-24T14:21:40.525790",
+    "updated_at": "2026-01-24T14:21:40.525815",
+    "senses": [
+      {
+        "glosses": "[\"hah!\"]",
+        "tags": "null",
+        "display_label": null,
+        "examples": "null",
+        "links": "[[\"hah\", \"hah\"]]",
+        "id": "193ca217-bee8-4632-9c40-342ac23eea5c",
+        "word_id": "46d8010a-93df-4547-abf5-eb5b798403f5"
+      }
+    ],
+    "sounds": [
+      {
+        "ipa": "[ʔaː˧˧]",
+        "audio_url": null,
+        "ogg_url": null,
+        "mp3_url": null,
+        "tags": "[\"H\\u00e0-N\\u1ed9i\"]",
+        "id": "a17a793e-d880-4b2d-a99d-4a44384a5a61",
+        "word_id": "46d8010a-93df-4547-abf5-eb5b798403f5"
+      },
+      {
+        "ipa": "[ʔaː˧˧]",
+        "audio_url": null,
+        "ogg_url": null,
+        "mp3_url": null,
+        "tags": "[\"Hu\\u1ebf\"]",
+        "id": "97f2f7c2-94d1-4971-b25e-aec6efe5d882",
+        "word_id": "46d8010a-93df-4547-abf5-eb5b798403f5"
+      },
+      {
+        "ipa": "[ʔaː˧˧]",
+        "audio_url": null,
+        "ogg_url": null,
+        "mp3_url": null,
+        "tags": "null",
+        "id": "4f7d28c0-3b24-4eb2-a4be-37f9cadde25a",
+        "word_id": "46d8010a-93df-4547-abf5-eb5b798403f5"
+      },
+      {
+        "ipa": null,
+        "audio_url": "https://upload.wikimedia.org/wikipedia/commons/transcoded/7/7b/Vi_ngang_tone.ogg/Vi_ngang_tone.ogg.mp3",
+        "ogg_url": "https://upload.wikimedia.org/wikipedia/commons/7/7b/Vi_ngang_tone.ogg",
+        "mp3_url": "https://upload.wikimedia.org/wikipedia/commons/transcoded/7/7b/Vi_ngang_tone.ogg/Vi_ngang_tone.ogg.mp3",
+        "tags": "null",
+        "id": "a39bdc8e-1a1b-474f-8059-5b5a38d84fab",
+        "word_id": "46d8010a-93df-4547-abf5-eb5b798403f5"
+      }
+    ],
+    "forms": [
+      {
+        "form": "A!",
+        "tags": "[\"canonical\"]",
+        "id": "b10b268c-4993-44a3-8232-58603d1e69d2",
+        "word_id": "46d8010a-93df-4547-abf5-eb5b798403f5"
+      }
+    ]
+  },
+  {
+    "word": "to",
+    "pos": "adj",
+    "lang_code": "vi",
+    "etymology_text": "Compare Thai โต (dtoo), Lao ໂຕ (tō), Lü ᦷᦎ (ṫo).",
+    "head_templates": "[{\"name\": \"head\", \"args\": {\"1\": \"vi\", \"2\": \"adjective\", \"head\": \"\", \"tr\": \"\\u8607, \\ud845\\udea2, \\ud86f\\udc05, \\ud845\\udea1\", \"3\": \"\", \"4\": \"\", \"5\": \"\", \"6\": \"\", \"7\": \"\", \"8\": \"\"}, \"expansion\": \"to \\u2022 (\\u8607, \\ud845\\udea2, \\ud86f\\udc05, \\ud845\\udea1)\"}, {\"name\": \"vi-adj\", \"args\": {\"1\": \"\\u8607, \\ud845\\udea2, \\ud86f\\udc05, \\ud845\\udea1\"}, \"expansion\": \"to \\u2022 (\\u8607, \\ud845\\udea2, \\ud86f\\udc05, \\ud845\\udea1)\"}]",
+    "etymology_templates": "[{\"name\": \"cog\", \"args\": {\"1\": \"th\", \"2\": \"\\u0e42\\u0e15\"}, \"expansion\": \"Thai \\u0e42\\u0e15 (dtoo)\"}, {\"name\": \"cog\", \"args\": {\"1\": \"lo\", \"2\": \"\\u0ec2\\u0e95\"}, \"expansion\": \"Lao \\u0ec2\\u0e95 (t\\u014d)\"}, {\"name\": \"cog\", \"args\": {\"1\": \"khb\", \"2\": \"\\u19b7\\u198e\"}, \"expansion\": \"L\\u00fc \\u19b7\\u198e (\\u1e6bo)\"}]",
+    "id": "a947b74a-19c9-410e-9b55-59374c2c922d",
+    "created_at": "2026-01-24T14:21:40.630567",
+    "updated_at": "2026-01-24T14:21:40.630578",
+    "senses": [
+      {
+        "glosses": "[\"big, large\"]",
+        "tags": "null",
+        "display_label": null,
+        "examples": "null",
+        "links": "[[\"big\", \"big\"], [\"large\", \"large\"]]",
+        "id": "f6478974-d18d-4c2b-bf68-a370c35ee765",
+        "word_id": "a947b74a-19c9-410e-9b55-59374c2c922d"
+      },
+      {
+        "glosses": "[\"great, considerable\"]",
+        "tags": "null",
+        "display_label": null,
+        "examples": "null",
+        "links": "[[\"great\", \"great\"], [\"considerable\", \"considerable\"]]",
+        "id": "7dbea558-a85f-4188-a624-5544dfd56305",
+        "word_id": "a947b74a-19c9-410e-9b55-59374c2c922d"
+      },
+      {
+        "glosses": "[\"loud\"]",
+        "tags": "null",
+        "display_label": null,
+        "examples": "null",
+        "links": "[[\"loud\", \"loud\"]]",
+        "id": "12579732-bcd8-4a26-8369-ea1c9014f243",
+        "word_id": "a947b74a-19c9-410e-9b55-59374c2c922d"
+      }
+    ],
+    "sounds": [
+      {
+        "ipa": "[tɔ˧˧]",
+        "audio_url": null,
+        "ogg_url": null,
+        "mp3_url": null,
+        "tags": "[\"H\\u00e0-N\\u1ed9i\"]",
+        "id": "b268943e-d84d-4b5f-b593-56d2730de592",
+        "word_id": "a947b74a-19c9-410e-9b55-59374c2c922d"
+      },
+      {
+        "ipa": "[tɔ˧˧]",
+        "audio_url": null,
+        "ogg_url": null,
+        "mp3_url": null,
+        "tags": "[\"Hu\\u1ebf\"]",
+        "id": "488a1df0-635a-4bd2-93d3-f56497a98491",
+        "word_id": "a947b74a-19c9-410e-9b55-59374c2c922d"
+      },
+      {
+        "ipa": "[tɔ˧˧]",
+        "audio_url": null,
+        "ogg_url": null,
+        "mp3_url": null,
+        "tags": "null",
+        "id": "d2fbab10-b286-479f-bce1-7f0f42e4806e",
+        "word_id": "a947b74a-19c9-410e-9b55-59374c2c922d"
+      }
+    ],
+    "forms": [
+      {
+        "form": "蘇",
+        "tags": "[\"CJK\"]",
+        "id": "cc19c0ab-9c32-4821-9350-094cd62eb736",
+        "word_id": "a947b74a-19c9-410e-9b55-59374c2c922d"
+      },
+      {
+        "form": "𡚢",
+        "tags": "[\"CJK\"]",
+        "id": "19e72c91-4790-433d-b54d-c08777196814",
+        "word_id": "a947b74a-19c9-410e-9b55-59374c2c922d"
+      },
+      {
+        "form": "𫰅",
+        "tags": "[\"CJK\"]",
+        "id": "c3477df4-4c9f-4f02-81b0-f009f3ec77d5",
+        "word_id": "a947b74a-19c9-410e-9b55-59374c2c922d"
+      },
+      {
+        "form": "𡚡",
+        "tags": "[\"CJK\"]",
+        "id": "d706713b-c199-4293-baf1-207b4fcb6aab",
+        "word_id": "a947b74a-19c9-410e-9b55-59374c2c922d"
+      }
+    ]
+  },
+  {
+    "word": "tao",
+    "pos": "romanization",
+    "lang_code": "vi",
+    "etymology_text": null,
+    "head_templates": "[{\"name\": \"head\", \"args\": {\"1\": \"vi\", \"2\": \"romanization\"}, \"expansion\": \"tao\"}]",
+    "etymology_templates": null,
+    "id": "6bc2b335-c9bc-4a59-8178-df9683bcb6a1",
+    "created_at": "2026-01-24T14:21:40.596459",
+    "updated_at": "2026-01-24T14:21:40.596472",
+    "senses": [
+      {
+        "glosses": "[\"Sino-Vietnamese reading of \\u906d\"]",
+        "tags": "[\"romanization\"]",
+        "display_label": null,
+        "examples": "null",
+        "links": "[[\"Sino-Vietnamese\", \"Sino-Vietnamese\"], [\"\\u906d\", \"\\u906d#Vietnamese\"]]",
+        "id": "5b01cf34-04b3-4462-a68c-b83f398a0eaa",
+        "word_id": "6bc2b335-c9bc-4a59-8178-df9683bcb6a1"
+      }
+    ],
+    "sounds": [
+      {
+        "ipa": "[taːw˧˧]",
+        "audio_url": null,
+        "ogg_url": null,
+        "mp3_url": null,
+        "tags": "[\"H\\u00e0-N\\u1ed9i\"]",
+        "id": "4193d895-aa35-46bf-9a99-4dbf1170161f",
+        "word_id": "6bc2b335-c9bc-4a59-8178-df9683bcb6a1"
+      },
+      {
+        "ipa": "[taːw˧˧]",
+        "audio_url": null,
+        "ogg_url": null,
+        "mp3_url": null,
+        "tags": "[\"Hu\\u1ebf\"]",
+        "id": "e53e41e6-7b01-4dd2-9938-5f661cee1d97",
+        "word_id": "6bc2b335-c9bc-4a59-8178-df9683bcb6a1"
+      },
+      {
+        "ipa": "[taːw˧˧]",
+        "audio_url": null,
+        "ogg_url": null,
+        "mp3_url": null,
+        "tags": "null",
+        "id": "b0972c89-07ee-4bad-8b34-e99588e7693e",
+        "word_id": "6bc2b335-c9bc-4a59-8178-df9683bcb6a1"
+      }
+    ],
+    "forms": [
+      {
+        "form": "tau",
+        "tags": "[\"alternative\"]",
+        "id": "34604d1d-e7e5-4c52-9f2e-4d08221dfc52",
+        "word_id": "6bc2b335-c9bc-4a59-8178-df9683bcb6a1"
+      },
+      {
+        "form": "ta",
+        "tags": "[\"alternative\"]",
+        "id": "a29b1eb9-96b0-430a-8612-c57f6d006200",
+        "word_id": "6bc2b335-c9bc-4a59-8178-df9683bcb6a1"
+      },
+      {
+        "form": "t",
+        "tags": "[\"alternative\"]",
+        "id": "3362fcc7-f438-4bc0-851c-b78f003fe1a6",
+        "word_id": "6bc2b335-c9bc-4a59-8178-df9683bcb6a1"
+      }
+    ]
+  },
+  {
+    "word": "eo",
+    "pos": "intj",
+    "lang_code": "vi",
+    "etymology_text": "Onomatopoeic.",
+    "head_templates": "[{\"name\": \"head\", \"args\": {\"1\": \"vi\", \"2\": \"interjection\", \"head\": \"eo!\", \"tr\": \"\"}, \"expansion\": \"eo!\"}, {\"name\": \"vi-int\", \"args\": {\"head\": \"eo!\"}, \"expansion\": \"eo!\"}]",
+    "etymology_templates": "[{\"name\": \"onom\", \"args\": {\"1\": \"vi\"}, \"expansion\": \"Onomatopoeic\"}]",
+    "id": "a493282c-2391-4703-86a2-df52f23a92bb",
+    "created_at": "2026-01-24T14:21:40.618607",
+    "updated_at": "2026-01-24T14:21:40.618621",
+    "senses": [
+      {
+        "glosses": "[\"ew\"]",
+        "tags": "null",
+        "display_label": null,
+        "examples": "null",
+        "links": "[[\"ew\", \"ew\"]]",
+        "id": "7219a93c-a223-488c-b293-5c90aa39edbb",
+        "word_id": "a493282c-2391-4703-86a2-df52f23a92bb"
+      }
+    ],
+    "sounds": [
+      {
+        "ipa": "[ʔɛw˧˧]",
+        "audio_url": null,
+        "ogg_url": null,
+        "mp3_url": null,
+        "tags": "[\"H\\u00e0-N\\u1ed9i\"]",
+        "id": "f26b819c-274b-44a6-a6b0-551a3149f791",
+        "word_id": "a493282c-2391-4703-86a2-df52f23a92bb"
+      },
+      {
+        "ipa": "[ʔɛw˧˧]",
+        "audio_url": null,
+        "ogg_url": null,
+        "mp3_url": null,
+        "tags": "[\"Hu\\u1ebf\"]",
+        "id": "f5c5f8f5-219c-4af2-af98-00370ace77db",
+        "word_id": "a493282c-2391-4703-86a2-df52f23a92bb"
+      },
+      {
+        "ipa": "[ʔɛw˧˧]",
+        "audio_url": null,
+        "ogg_url": null,
+        "mp3_url": null,
+        "tags": "null",
+        "id": "f08e26ab-5ff6-45ab-ac52-47403ba48bf6",
+        "word_id": "a493282c-2391-4703-86a2-df52f23a92bb"
+      }
+    ],
+    "forms": [
+      {
+        "form": "eo!",
+        "tags": "[\"canonical\"]",
+        "id": "ee1c662a-e402-4c71-9fa5-4f4c7fd3ad3d",
+        "word_id": "a493282c-2391-4703-86a2-df52f23a92bb"
+      }
+    ]
+  },
+  {
+    "word": "be",
+    "pos": "verb",
+    "lang_code": "vi",
+    "etymology_text": null,
+    "head_templates": "[{\"name\": \"head\", \"args\": {\"1\": \"vi\", \"2\": \"verb\", \"head\": \"\", \"tr\": \"\", \"3\": \"\", \"4\": \"\"}, \"expansion\": \"be\"}, {\"name\": \"vi-verb\", \"args\": {}, \"expansion\": \"be\"}]",
+    "etymology_templates": null,
+    "id": "11d42305-1540-445e-9543-52334e37fd15",
+    "created_at": "2026-01-24T14:21:40.585773",
+    "updated_at": "2026-01-24T14:21:40.585792",
+    "senses": [
+      {
+        "glosses": "[\"To build a mud embankment with one's hands.\"]",
+        "tags": "null",
+        "display_label": null,
+        "examples": "null",
+        "links": "[[\"embankment\", \"embankment\"]]",
+        "id": "fd38d984-b73f-47bb-bbbc-e0c75d70acea",
+        "word_id": "11d42305-1540-445e-9543-52334e37fd15"
+      },
+      {
+        "glosses": "[\"To prop up the lip of a sack while topping off the sack, to ensure a more generous quantity.\"]",
+        "tags": "null",
+        "display_label": null,
+        "examples": "[{\"text\": \"l\\u1ea5y tay be mi\\u1ec7ng \\u0111\\u1ea5u khi \\u0111ong \\u0111\\u1ed7\", \"english\": \"to surround the top of a measure with one's hands while measuring beans\", \"translation\": \"to surround the top of a measure with one's hands while measuring beans\"}, {\"text\": \"\\u0110ong b\\u00ecnh th\\u01b0\\u1eddng, kh\\u00f4ng \\u0111\\u01b0\\u1ee3c be \\u0111\\u00e2u \\u0111\\u1ea5y.\", \"english\": \"Measure it out normally; don't prop up the lip of the sack.\", \"translation\": \"Measure it out normally; don't prop up the lip of the sack.\"}]",
+        "links": "[[\"prop\", \"prop\"], [\"sack\", \"sack\"], [\"topping off\", \"top off\"]]",
+        "id": "9a4ff3b4-e69f-467c-9290-6dbd63622bfa",
+        "word_id": "11d42305-1540-445e-9543-52334e37fd15"
+      }
+    ],
+    "sounds": [
+      {
+        "ipa": "[ʔɓɛ˧˧]",
+        "audio_url": null,
+        "ogg_url": null,
+        "mp3_url": null,
+        "tags": "[\"H\\u00e0-N\\u1ed9i\"]",
+        "id": "fcb0380b-1ab1-43fc-9838-f58092e81546",
+        "word_id": "11d42305-1540-445e-9543-52334e37fd15"
+      },
+      {
+        "ipa": "[ʔɓɛ˧˧]",
+        "audio_url": null,
+        "ogg_url": null,
+        "mp3_url": null,
+        "tags": "[\"Hu\\u1ebf\"]",
+        "id": "45e3d770-49ba-420f-8839-1880044a8aaa",
+        "word_id": "11d42305-1540-445e-9543-52334e37fd15"
+      },
+      {
+        "ipa": "[ʔɓɛ˧˧]",
+        "audio_url": null,
+        "ogg_url": null,
+        "mp3_url": null,
+        "tags": "null",
+        "id": "e62c8b00-ca76-430e-9b51-4c19a1b6f82d",
+        "word_id": "11d42305-1540-445e-9543-52334e37fd15"
+      }
+    ],
+    "forms": []
+  },
+  {
+    "word": "day",
+    "pos": "verb",
+    "lang_code": "vi",
+    "etymology_text": null,
+    "head_templates": "[{\"name\": \"head\", \"args\": {\"1\": \"vi\", \"2\": \"verb\", \"head\": \"\", \"tr\": \"\", \"3\": \"\", \"4\": \"\"}, \"expansion\": \"day\"}, {\"name\": \"vi-verb\", \"args\": {}, \"expansion\": \"day\"}]",
+    "etymology_templates": null,
+    "id": "38db0307-fa3f-4108-a3e9-c06deefab4cd",
+    "created_at": "2026-01-24T14:21:40.533304",
+    "updated_at": "2026-01-24T14:21:40.533323",
+    "senses": [
+      {
+        "glosses": "[\"to rub\"]",
+        "tags": "null",
+        "display_label": null,
+        "examples": "[{\"text\": \"T\\u00f4i \\u0111\\u1eb7t b\\u00fat xu\\u1ed1ng, kh\\u1ebd li\\u1ebfm m\\u00f4i, l\\u1ea1i \\u0111\\u01b0a tay day m\\u1eaft, c\\u1ea3m th\\u1ea5y m\\u00ecnh nh\\u01b0 v\\u1eeba t\\u1ec9nh m\\u1ed9ng.\", \"ref\": \"2016, chapter 2, in Nguy\\u1ec5n \\u0110\\u1ee9c V\\u1ecbnh, transl., \\u0110\\u1eebng n\\u00f3i chuy\\u1ec7n v\\u1edbi c\\u00f4 \\u1ea5y, part I, NXB Ph\\u1ee5 N\\u1eef, translation of \\u522b\\u548c\\u5979\\u8bf4\\u8bdd by Y\\u00f9 J\\u01d0n (Ng\\u1ed9 C\\u1ea9n):\", \"english\": \"I put down my pen, gently licked my lips, and lifted my hand to again rub my eyes, feeling as if I had just woken up from a dream.\", \"type\": \"quote\", \"bold_text_offsets\": [[45, 48]], \"translation\": \"I put down my pen, gently licked my lips, and lifted my hand to again rub my eyes, feeling as if I had just woken up from a dream.\", \"bold_translation_offsets\": [[70, 73]]}]",
+        "links": "[[\"rub\", \"rub\"]]",
+        "id": "4d0a52e7-e43f-48b7-a28b-79b0784b6b8b",
+        "word_id": "38db0307-fa3f-4108-a3e9-c06deefab4cd"
+      }
+    ],
+    "sounds": [
+      {
+        "ipa": "[zaj˧˧]",
+        "audio_url": null,
+        "ogg_url": null,
+        "mp3_url": null,
+        "tags": "[\"H\\u00e0-N\\u1ed9i\"]",
+        "id": "abbd63c7-971c-4919-9e43-10723c4e2d0a",
+        "word_id": "38db0307-fa3f-4108-a3e9-c06deefab4cd"
+      },
+      {
+        "ipa": "[jaj˧˧]",
+        "audio_url": null,
+        "ogg_url": null,
+        "mp3_url": null,
+        "tags": "[\"Hu\\u1ebf\"]",
+        "id": "e0298a3a-faff-48de-824e-9bbca3fdd858",
+        "word_id": "38db0307-fa3f-4108-a3e9-c06deefab4cd"
+      },
+      {
+        "ipa": "[ja(ː)j˧˧]",
+        "audio_url": null,
+        "ogg_url": null,
+        "mp3_url": null,
+        "tags": "null",
+        "id": "4aeecb2f-2f1e-45b6-88b2-6be007d51e36",
+        "word_id": "38db0307-fa3f-4108-a3e9-c06deefab4cd"
+      }
+    ],
+    "forms": []
+  },
+  {
+    "word": "y",
+    "pos": "adv",
+    "lang_code": "vi",
+    "etymology_text": "Sino-Vietnamese word from 依.",
+    "head_templates": "[{\"name\": \"head\", \"args\": {\"1\": \"vi\", \"2\": \"adverb\", \"head\": \"\", \"tr\": \"\", \"3\": \"\", \"4\": \"\"}, \"expansion\": \"y\"}, {\"name\": \"vi-adv\", \"args\": {}, \"expansion\": \"y\"}]",
+    "etymology_templates": "[{\"name\": \"etymid\", \"args\": {\"1\": \"vi\", \"2\": \"\\u4f9d\"}, \"expansion\": \"\"}, {\"name\": \"categorize\", \"args\": {\"1\": \"vi\", \"2\": \"Sino-Vietnamese words\"}, \"expansion\": \"\"}, {\"name\": \"vi-etym-sino\", \"args\": {\"1\": \"\\u4f9d\"}, \"expansion\": \"Sino-Vietnamese word from \\u4f9d\"}]",
+    "id": "0556f6ce-df12-4e1d-8ad5-77d588b2ee31",
+    "created_at": "2026-01-24T14:21:40.550745",
+    "updated_at": "2026-01-24T14:21:40.550763",
+    "senses": [
+      {
+        "glosses": "[\"exactly; precisely (like)\"]",
+        "tags": "[\"informal\"]",
+        "display_label": null,
+        "examples": "[{\"text\": \"y nh\\u01b0\", \"bold_text_offsets\": [[0, 1]], \"translation\": \"exactly like/as\", \"english\": \"exactly like/as\", \"type\": \"example\"}, {\"text\": \"y nh\\u01b0 th\\u1eadt\", \"bold_text_offsets\": [[0, 1]], \"translation\": \"so realistic\", \"english\": \"so realistic\", \"literal_meaning\": \"exactly like real life\", \"type\": \"example\"}, {\"text\": \"y chang\", \"bold_text_offsets\": [[0, 1]], \"translation\": \"very much like\", \"english\": \"very much like\", \"type\": \"example\"}]",
+        "links": "[[\"exactly\", \"exactly\"], [\"precisely\", \"precisely\"]]",
+        "id": "967fe5b5-62a4-4e1a-a6e9-7a5f99eaa74b",
+        "word_id": "0556f6ce-df12-4e1d-8ad5-77d588b2ee31"
+      }
+    ],
+    "sounds": [
+      {
+        "ipa": "[ʔi˧˧]",
+        "audio_url": null,
+        "ogg_url": null,
+        "mp3_url": null,
+        "tags": "[\"H\\u00e0-N\\u1ed9i\"]",
+        "id": "eb645b1e-500b-4644-a013-7750a91a7f74",
+        "word_id": "0556f6ce-df12-4e1d-8ad5-77d588b2ee31"
+      },
+      {
+        "ipa": "[ʔɪj˧˧]",
+        "audio_url": null,
+        "ogg_url": null,
+        "mp3_url": null,
+        "tags": "[\"Hu\\u1ebf\"]",
+        "id": "4f46d9d7-6bc5-44fe-80c2-77338ee99ba3",
+        "word_id": "0556f6ce-df12-4e1d-8ad5-77d588b2ee31"
+      },
+      {
+        "ipa": "[ʔɪj˧˧]",
+        "audio_url": null,
+        "ogg_url": null,
+        "mp3_url": null,
+        "tags": "null",
+        "id": "b16929b4-d186-4751-9308-a5bb23ad5da2",
+        "word_id": "0556f6ce-df12-4e1d-8ad5-77d588b2ee31"
+      },
+      {
+        "ipa": null,
+        "audio_url": "https://upload.wikimedia.org/wikipedia/commons/transcoded/c/c6/LL-Q9199_%28vie%29-Penn_Zero_MSSJ-y.wav/LL-Q9199_%28vie%29-Penn_Zero_MSSJ-y.wav.mp3",
+        "ogg_url": "https://upload.wikimedia.org/wikipedia/commons/transcoded/c/c6/LL-Q9199_%28vie%29-Penn_Zero_MSSJ-y.wav/LL-Q9199_%28vie%29-Penn_Zero_MSSJ-y.wav.ogg",
+        "mp3_url": "https://upload.wikimedia.org/wikipedia/commons/transcoded/c/c6/LL-Q9199_%28vie%29-Penn_Zero_MSSJ-y.wav/LL-Q9199_%28vie%29-Penn_Zero_MSSJ-y.wav.mp3",
+        "tags": "null",
+        "id": "304f0b62-0535-4b72-bb88-ab7593e0d7b9",
+        "word_id": "0556f6ce-df12-4e1d-8ad5-77d588b2ee31"
+      }
+    ],
+    "forms": []
+  },
+  {
+    "word": "西",
+    "pos": "character",
+    "lang_code": "vi",
+    "etymology_text": null,
+    "head_templates": null,
+    "etymology_templates": null,
+    "id": "30cb551b-378b-48fa-bbaf-b21a8fd54985",
+    "created_at": "2026-01-24T14:21:40.541330",
+    "updated_at": "2026-01-24T14:21:40.541341",
+    "senses": [
+      {
+        "glosses": "[\"ch\\u1eef H\\u00e1n form of t\\u00e2y\", \"west\"]",
+        "tags": "null",
+        "display_label": null,
+        "examples": "null",
+        "links": "[[\"ch\\u1eef H\\u00e1n\", \"ch\\u1eef H\\u00e1n#Vietnamese\"], [\"t\\u00e2y\", \"t\\u00e2y#Vietnamese:_\\u897f\"], [\"west\", \"west\"]]",
+        "id": "b96204b8-5c1d-4d57-86f9-1e7fd1f81b28",
+        "word_id": "30cb551b-378b-48fa-bbaf-b21a8fd54985"
+      },
+      {
+        "glosses": "[\"ch\\u1eef H\\u00e1n form of t\\u00e2y\", \"West (the Western world)\"]",
+        "tags": "null",
+        "display_label": null,
+        "examples": "null",
+        "links": "[[\"ch\\u1eef H\\u00e1n\", \"ch\\u1eef H\\u00e1n#Vietnamese\"], [\"t\\u00e2y\", \"t\\u00e2y#Vietnamese:_\\u897f\"], [\"West\", \"West\"]]",
+        "id": "04f3e9c2-48dc-4ef9-9c6f-d274b75eec4e",
+        "word_id": "30cb551b-378b-48fa-bbaf-b21a8fd54985"
+      }
+    ],
+    "sounds": [],
+    "forms": []
+  },
+  {
+    "word": "can",
+    "pos": "noun",
+    "lang_code": "vi",
+    "etymology_text": "Sino-Vietnamese word from 肝.",
+    "head_templates": "[{\"name\": \"head\", \"args\": {\"1\": \"vi\", \"2\": \"noun\", \"head\": \"\", \"tr\": \"\", \"3\": \"\", \"4\": \"\"}, \"expansion\": \"can\"}, {\"name\": \"vi-noun\", \"args\": {}, \"expansion\": \"can\"}]",
+    "etymology_templates": "[{\"name\": \"etymid\", \"args\": {\"1\": \"vi\", \"2\": \"\\u809d\"}, \"expansion\": \"\"}, {\"name\": \"categorize\", \"args\": {\"1\": \"vi\", \"2\": \"Sino-Vietnamese words\"}, \"expansion\": \"\"}, {\"name\": \"vi-etym-sino\", \"args\": {\"1\": \"\\u809d\"}, \"expansion\": \"Sino-Vietnamese word from \\u809d\"}]",
+    "id": "1dcfdb24-e674-42e2-ada7-13d4d3c2dbe7",
+    "created_at": "2026-01-24T14:21:40.561884",
+    "updated_at": "2026-01-24T14:21:40.561895",
+    "senses": [
+      {
+        "glosses": "[\"liver\"]",
+        "tags": "null",
+        "display_label": null,
+        "examples": "null",
+        "links": "[[\"alternative medicine\", \"alternative medicine\"], [\"liver\", \"liver#English\"]]",
+        "id": "53a3c129-5bc2-4e35-8c5c-c1b3d950c342",
+        "word_id": "1dcfdb24-e674-42e2-ada7-13d4d3c2dbe7"
+      }
+    ],
+    "sounds": [
+      {
+        "ipa": "[kaːn˧˧]",
+        "audio_url": null,
+        "ogg_url": null,
+        "mp3_url": null,
+        "tags": "[\"H\\u00e0-N\\u1ed9i\"]",
+        "id": "d5a9b922-608f-4d89-b7e6-361fb67eaba9",
+        "word_id": "1dcfdb24-e674-42e2-ada7-13d4d3c2dbe7"
+      },
+      {
+        "ipa": "[kaːŋ˧˧]",
+        "audio_url": null,
+        "ogg_url": null,
+        "mp3_url": null,
+        "tags": "[\"Hu\\u1ebf\"]",
+        "id": "5f6c5238-d265-4b51-b0ab-2f4f1cae3bb2",
+        "word_id": "1dcfdb24-e674-42e2-ada7-13d4d3c2dbe7"
+      },
+      {
+        "ipa": "[kaːŋ˧˧]",
+        "audio_url": null,
+        "ogg_url": null,
+        "mp3_url": null,
+        "tags": "null",
+        "id": "0963ec13-6c4e-4c28-90bf-6083569a27c2",
+        "word_id": "1dcfdb24-e674-42e2-ada7-13d4d3c2dbe7"
+      },
+      {
+        "ipa": null,
+        "audio_url": "https://upload.wikimedia.org/wikipedia/commons/transcoded/3/33/LL-Q9199_%28vie%29-Penn_Zero_MSSJ-can.wav/LL-Q9199_%28vie%29-Penn_Zero_MSSJ-can.wav.mp3",
+        "ogg_url": "https://upload.wikimedia.org/wikipedia/commons/transcoded/3/33/LL-Q9199_%28vie%29-Penn_Zero_MSSJ-can.wav/LL-Q9199_%28vie%29-Penn_Zero_MSSJ-can.wav.ogg",
+        "mp3_url": "https://upload.wikimedia.org/wikipedia/commons/transcoded/3/33/LL-Q9199_%28vie%29-Penn_Zero_MSSJ-can.wav/LL-Q9199_%28vie%29-Penn_Zero_MSSJ-can.wav.mp3",
+        "tags": "null",
+        "id": "39701195-8dc9-472b-9018-7a44cd180cb9",
+        "word_id": "1dcfdb24-e674-42e2-ada7-13d4d3c2dbe7"
+      }
+    ],
+    "forms": []
+  },
+  {
+    "word": "馬",
+    "pos": "adj",
+    "lang_code": "vi",
+    "etymology_text": null,
+    "head_templates": "[{\"name\": \"head\", \"args\": {\"1\": \"vi\", \"2\": \"adjective\", \"head\": \"\", \"tr\": \"m\\u1ee9a\", \"3\": \"\", \"4\": \"\", \"5\": \"\", \"6\": \"\", \"7\": \"\", \"8\": \"\"}, \"expansion\": \"\\u99ac \\u2022 (m\\u1ee9a)\"}, {\"name\": \"vi-adj\", \"args\": {\"1\": \"m\\u1ee9a\", \"rs\": \"\\u99ac00\"}, \"expansion\": \"\\u99ac \\u2022 (m\\u1ee9a)\"}]",
+    "etymology_templates": null,
+    "id": "6d19738c-8bb0-4678-b6b7-7bf40b5817ba",
+    "created_at": "2026-01-24T14:21:40.536626",
+    "updated_at": "2026-01-24T14:21:40.536641",
+    "senses": [
+      {
+        "glosses": "[\"ch\\u1eef N\\u00f4m form of m\\u1ee9a (\\u201cexcessive\\u201d)\"]",
+        "tags": "null",
+        "display_label": null,
+        "examples": "null",
+        "links": "[[\"ch\\u1eef N\\u00f4m\", \"ch\\u1eef N\\u00f4m#Vietnamese\"], [\"m\\u1ee9a\", \"m\\u1ee9a#Vietnamese\"], [\"excessive\", \"excessive\"]]",
+        "id": "4cb29ccd-0b98-4e8d-9fe0-9acc1ff22249",
+        "word_id": "6d19738c-8bb0-4678-b6b7-7bf40b5817ba"
+      }
+    ],
+    "sounds": [],
+    "forms": [
+      {
+        "form": "mứa",
+        "tags": "[\"romanization\"]",
+        "id": "31573295-832f-48bc-85b7-d804152365aa",
+        "word_id": "6d19738c-8bb0-4678-b6b7-7bf40b5817ba"
+      }
+    ]
+  },
+  {
+    "word": "qua",
+    "pos": "romanization",
+    "lang_code": "vi",
+    "etymology_text": null,
+    "head_templates": "[{\"name\": \"head\", \"args\": {\"1\": \"vi\", \"2\": \"romanization\"}, \"expansion\": \"qua\"}]",
+    "etymology_templates": null,
+    "id": "f2eaaf9d-7969-4e63-87ab-ee1c172c4a91",
+    "created_at": "2026-01-24T14:21:40.644672",
+    "updated_at": "2026-01-24T14:21:40.644695",
+    "senses": [
+      {
+        "glosses": "[\"Sino-Vietnamese reading of \\u6208\"]",
+        "tags": "[\"romanization\"]",
+        "display_label": null,
+        "examples": "null",
+        "links": "[[\"Sino-Vietnamese\", \"Sino-Vietnamese\"], [\"\\u6208\", \"\\u6208#Vietnamese\"]]",
+        "id": "f1f0eccc-b28d-494e-b737-b5d2af14f68e",
+        "word_id": "f2eaaf9d-7969-4e63-87ab-ee1c172c4a91"
+      },
+      {
+        "glosses": "[\"Sino-Vietnamese reading of \\u518e\"]",
+        "tags": "[\"romanization\"]",
+        "display_label": null,
+        "examples": "null",
+        "links": "[[\"Sino-Vietnamese\", \"Sino-Vietnamese\"], [\"\\u518e\", \"\\u518e#Vietnamese\"]]",
+        "id": "7e6e3fba-ca0b-4da9-96c3-f19668e72ca0",
+        "word_id": "f2eaaf9d-7969-4e63-87ab-ee1c172c4a91"
+      },
+      {
+        "glosses": "[\"Sino-Vietnamese reading of \\u7611\"]",
+        "tags": "[\"romanization\"]",
+        "display_label": null,
+        "examples": "null",
+        "links": "[[\"Sino-Vietnamese\", \"Sino-Vietnamese\"], [\"\\u7611\", \"\\u7611#Vietnamese\"]]",
+        "id": "a5cea5af-aa6c-4da7-9967-688055ae0fc6",
+        "word_id": "f2eaaf9d-7969-4e63-87ab-ee1c172c4a91"
+      },
+      {
+        "glosses": "[\"Sino-Vietnamese reading of \\u8717\"]",
+        "tags": "[\"romanization\"]",
+        "display_label": null,
+        "examples": "null",
+        "links": "[[\"Sino-Vietnamese\", \"Sino-Vietnamese\"], [\"\\u8717\", \"\\u8717#Vietnamese\"]]",
+        "id": "b82ea8f9-7b48-4320-957f-f91fd53a4b55",
+        "word_id": "f2eaaf9d-7969-4e63-87ab-ee1c172c4a91"
+      },
+      {
+        "glosses": "[\"Sino-Vietnamese reading of \\u8596\"]",
+        "tags": "[\"romanization\"]",
+        "display_label": null,
+        "examples": "null",
+        "links": "[[\"Sino-Vietnamese\", \"Sino-Vietnamese\"], [\"\\u8596\", \"\\u8596#Vietnamese\"]]",
+        "id": "7fd86445-ce4f-4cf3-9bb5-41d42a08bc2a",
+        "word_id": "f2eaaf9d-7969-4e63-87ab-ee1c172c4a91"
+      },
+      {
+        "glosses": "[\"Sino-Vietnamese reading of \\u6a9b\"]",
+        "tags": "[\"romanization\"]",
+        "display_label": null,
+        "examples": "null",
+        "links": "[[\"Sino-Vietnamese\", \"Sino-Vietnamese\"], [\"\\u6a9b\", \"\\u6a9b#Vietnamese\"]]",
+        "id": "1791e8bc-cdc2-456e-bc44-1d106651b0ad",
+        "word_id": "f2eaaf9d-7969-4e63-87ab-ee1c172c4a91"
+      },
+      {
+        "glosses": "[\"Sino-Vietnamese reading of \\u9a27\"]",
+        "tags": "[\"romanization\"]",
+        "display_label": null,
+        "examples": "null",
+        "links": "[[\"Sino-Vietnamese\", \"Sino-Vietnamese\"], [\"\\u9a27\", \"\\u9a27#Vietnamese\"]]",
+        "id": "a3d1b689-6771-4050-9b47-e3808cce63b0",
+        "word_id": "f2eaaf9d-7969-4e63-87ab-ee1c172c4a91"
+      },
+      {
+        "glosses": "[\"Sino-Vietnamese reading of \\u6e26\"]",
+        "tags": "[\"romanization\"]",
+        "display_label": null,
+        "examples": "null",
+        "links": "[[\"Sino-Vietnamese\", \"Sino-Vietnamese\"], [\"\\u6e26\", \"\\u6e26#Vietnamese\"]]",
+        "id": "a097a702-701a-4e60-8a4d-02f141eb16d2",
+        "word_id": "f2eaaf9d-7969-4e63-87ab-ee1c172c4a91"
+      },
+      {
+        "glosses": "[\"Sino-Vietnamese reading of \\u581d\"]",
+        "tags": "[\"romanization\"]",
+        "display_label": null,
+        "examples": "null",
+        "links": "[[\"Sino-Vietnamese\", \"Sino-Vietnamese\"], [\"\\u581d\", \"\\u581d#Vietnamese\"]]",
+        "id": "f3ab0692-d713-4c6d-b080-a75927a26294",
+        "word_id": "f2eaaf9d-7969-4e63-87ab-ee1c172c4a91"
+      },
+      {
+        "glosses": "[\"Sino-Vietnamese reading of \\u7638\"]",
+        "tags": "[\"romanization\"]",
+        "display_label": null,
+        "examples": "null",
+        "links": "[[\"Sino-Vietnamese\", \"Sino-Vietnamese\"], [\"\\u7638\", \"\\u7638#Vietnamese\"]]",
+        "id": "606272be-0574-42e6-afe9-281d504f6f1e",
+        "word_id": "f2eaaf9d-7969-4e63-87ab-ee1c172c4a91"
+      },
+      {
+        "glosses": "[\"Sino-Vietnamese reading of \\u7c3b\"]",
+        "tags": "[\"romanization\"]",
+        "display_label": null,
+        "examples": "null",
+        "links": "[[\"Sino-Vietnamese\", \"Sino-Vietnamese\"], [\"\\u7c3b\", \"\\u7c3b#Vietnamese\"]]",
+        "id": "6e20a6d5-cd29-4730-b9d5-c362211b2b05",
+        "word_id": "f2eaaf9d-7969-4e63-87ab-ee1c172c4a91"
+      },
+      {
+        "glosses": "[\"Sino-Vietnamese reading of \\u54bc\"]",
+        "tags": "[\"romanization\"]",
+        "display_label": null,
+        "examples": "null",
+        "links": "[[\"Sino-Vietnamese\", \"Sino-Vietnamese\"], [\"\\u54bc\", \"\\u54bc#Vietnamese\"]]",
+        "id": "68deb7f6-9b8c-4abf-a798-201ad67e855e",
+        "word_id": "f2eaaf9d-7969-4e63-87ab-ee1c172c4a91"
+      },
+      {
+        "glosses": "[\"Sino-Vietnamese reading of \\u64be\"]",
+        "tags": "[\"romanization\"]",
+        "display_label": null,
+        "examples": "null",
+        "links": "[[\"Sino-Vietnamese\", \"Sino-Vietnamese\"], [\"\\u64be\", \"\\u64be#Vietnamese\"]]",
+        "id": "52544d71-da60-4e67-a5cb-e5bf3952d4dc",
+        "word_id": "f2eaaf9d-7969-4e63-87ab-ee1c172c4a91"
+      },
+      {
+        "glosses": "[\"Sino-Vietnamese reading of \\u6fc4\"]",
+        "tags": "[\"romanization\"]",
+        "display_label": null,
+        "examples": "null",
+        "links": "[[\"Sino-Vietnamese\", \"Sino-Vietnamese\"], [\"\\u6fc4\", \"\\u6fc4#Vietnamese\"]]",
+        "id": "251beb86-30a1-453a-af7c-8043914585cb",
+        "word_id": "f2eaaf9d-7969-4e63-87ab-ee1c172c4a91"
+      },
+      {
+        "glosses": "[\"Sino-Vietnamese reading of \\u80cd\"]",
+        "tags": "[\"romanization\"]",
+        "display_label": null,
+        "examples": "null",
+        "links": "[[\"Sino-Vietnamese\", \"Sino-Vietnamese\"], [\"\\u80cd\", \"\\u80cd#Vietnamese\"]]",
+        "id": "cd6a5663-7aab-4686-97a5-fdd4ed82b547",
+        "word_id": "f2eaaf9d-7969-4e63-87ab-ee1c172c4a91"
+      },
+      {
+        "glosses": "[\"Sino-Vietnamese reading of \\u904e\"]",
+        "tags": "[\"romanization\"]",
+        "display_label": null,
+        "examples": "null",
+        "links": "[[\"Sino-Vietnamese\", \"Sino-Vietnamese\"], [\"\\u904e\", \"\\u904e#Vietnamese\"]]",
+        "id": "5c986d07-221d-4eb0-b1ec-f6a6372299a9",
+        "word_id": "f2eaaf9d-7969-4e63-87ab-ee1c172c4a91"
+      },
+      {
+        "glosses": "[\"Sino-Vietnamese reading of \\u39d3\"]",
+        "tags": "[\"romanization\"]",
+        "display_label": null,
+        "examples": "null",
+        "links": "[[\"Sino-Vietnamese\", \"Sino-Vietnamese\"], [\"\\u39d3\", \"\\u39d3#Vietnamese\"]]",
+        "id": "3a559c50-fd1f-4ac2-93dc-475af9e65a05",
+        "word_id": "f2eaaf9d-7969-4e63-87ab-ee1c172c4a91"
+      },
+      {
+        "glosses": "[\"Sino-Vietnamese reading of \\u74dc\"]",
+        "tags": "[\"romanization\"]",
+        "display_label": null,
+        "examples": "null",
+        "links": "[[\"Sino-Vietnamese\", \"Sino-Vietnamese\"], [\"\\u74dc\", \"\\u74dc#Vietnamese\"]]",
+        "id": "ba5c5a50-d59b-41b4-87bc-95fc07ca8d0e",
+        "word_id": "f2eaaf9d-7969-4e63-87ab-ee1c172c4a91"
+      },
+      {
+        "glosses": "[\"Sino-Vietnamese reading of \\u53e7\"]",
+        "tags": "[\"romanization\"]",
+        "display_label": null,
+        "examples": "null",
+        "links": "[[\"Sino-Vietnamese\", \"Sino-Vietnamese\"], [\"\\u53e7\", \"\\u53e7#Vietnamese\"]]",
+        "id": "4e0266f5-4027-4215-a21f-e1b6d64a3d8c",
+        "word_id": "f2eaaf9d-7969-4e63-87ab-ee1c172c4a91"
+      },
+      {
+        "glosses": "[\"Sino-Vietnamese reading of \\u526e\"]",
+        "tags": "[\"romanization\"]",
+        "display_label": null,
+        "examples": "null",
+        "links": "[[\"Sino-Vietnamese\", \"Sino-Vietnamese\"], [\"\\u526e\", \"\\u526e#Vietnamese\"]]",
+        "id": "f0a93924-7384-45e4-9735-66929a4a98a8",
+        "word_id": "f2eaaf9d-7969-4e63-87ab-ee1c172c4a91"
+      },
+      {
+        "glosses": "[\"Sino-Vietnamese reading of \\u8778\"]",
+        "tags": "[\"romanization\"]",
+        "display_label": null,
+        "examples": "null",
+        "links": "[[\"Sino-Vietnamese\", \"Sino-Vietnamese\"], [\"\\u8778\", \"\\u8778#Vietnamese\"]]",
+        "id": "47b1962a-0499-48e1-843a-f85fe03811c7",
+        "word_id": "f2eaaf9d-7969-4e63-87ab-ee1c172c4a91"
+      },
+      {
+        "glosses": "[\"Sino-Vietnamese reading of \\u7dfa\"]",
+        "tags": "[\"romanization\"]",
+        "display_label": null,
+        "examples": "null",
+        "links": "[[\"Sino-Vietnamese\", \"Sino-Vietnamese\"], [\"\\u7dfa\", \"\\u7dfa#Vietnamese\"]]",
+        "id": "67462b99-f605-4e1e-987e-11992b0d44ec",
+        "word_id": "f2eaaf9d-7969-4e63-87ab-ee1c172c4a91"
+      },
+      {
+        "glosses": "[\"Sino-Vietnamese reading of \\u9afd\"]",
+        "tags": "[\"romanization\"]",
+        "display_label": null,
+        "examples": "null",
+        "links": "[[\"Sino-Vietnamese\", \"Sino-Vietnamese\"], [\"\\u9afd\", \"\\u9afd#Vietnamese\"]]",
+        "id": "ff427b85-db67-46f0-b07d-7453e2895fad",
+        "word_id": "f2eaaf9d-7969-4e63-87ab-ee1c172c4a91"
+      },
+      {
+        "glosses": "[\"Sino-Vietnamese reading of \\u627e\"]",
+        "tags": "[\"romanization\"]",
+        "display_label": null,
+        "examples": "null",
+        "links": "[[\"Sino-Vietnamese\", \"Sino-Vietnamese\"], [\"\\u627e\", \"\\u627e#Vietnamese\"]]",
+        "id": "1bcec4ed-0c1c-4ce2-b150-e18e67be5942",
+        "word_id": "f2eaaf9d-7969-4e63-87ab-ee1c172c4a91"
+      }
+    ],
+    "sounds": [
+      {
+        "ipa": "[kwaː˧˧]",
+        "audio_url": null,
+        "ogg_url": null,
+        "mp3_url": null,
+        "tags": "[\"H\\u00e0-N\\u1ed9i\"]",
+        "id": "84840292-9ff6-4f97-b7c4-82a68b83f5ca",
+        "word_id": "f2eaaf9d-7969-4e63-87ab-ee1c172c4a91"
+      },
+      {
+        "ipa": "[kwaː˧˧]",
+        "audio_url": null,
+        "ogg_url": null,
+        "mp3_url": null,
+        "tags": "[\"Hu\\u1ebf\"]",
+        "id": "5085f844-cc99-4f26-a025-6289f8b6177d",
+        "word_id": "f2eaaf9d-7969-4e63-87ab-ee1c172c4a91"
+      },
+      {
+        "ipa": "[waː˧˧]",
+        "audio_url": null,
+        "ogg_url": null,
+        "mp3_url": null,
+        "tags": "null",
+        "id": "9ab64803-6513-4248-af32-422093603984",
+        "word_id": "f2eaaf9d-7969-4e63-87ab-ee1c172c4a91"
+      },
+      {
+        "ipa": null,
+        "audio_url": "https://upload.wikimedia.org/wikipedia/commons/transcoded/f/f5/LL-Q9199_%28vie%29-Penn_Zero_MSSJ-qua.wav/LL-Q9199_%28vie%29-Penn_Zero_MSSJ-qua.wav.mp3",
+        "ogg_url": "https://upload.wikimedia.org/wikipedia/commons/transcoded/f/f5/LL-Q9199_%28vie%29-Penn_Zero_MSSJ-qua.wav/LL-Q9199_%28vie%29-Penn_Zero_MSSJ-qua.wav.ogg",
+        "mp3_url": "https://upload.wikimedia.org/wikipedia/commons/transcoded/f/f5/LL-Q9199_%28vie%29-Penn_Zero_MSSJ-qua.wav/LL-Q9199_%28vie%29-Penn_Zero_MSSJ-qua.wav.mp3",
+        "tags": "null",
+        "id": "42a86814-0181-4eff-9e97-0d7e57e8c177",
+        "word_id": "f2eaaf9d-7969-4e63-87ab-ee1c172c4a91"
+      },
+      {
+        "ipa": null,
+        "audio_url": "https://upload.wikimedia.org/wikipedia/commons/transcoded/2/26/LL-Q9199_%28vie%29-Jessica_Nguyen_%28Pamputt%29-qua.wav/LL-Q9199_%28vie%29-Jessica_Nguyen_%28Pamputt%29-qua.wav.mp3",
+        "ogg_url": "https://upload.wikimedia.org/wikipedia/commons/transcoded/2/26/LL-Q9199_%28vie%29-Jessica_Nguyen_%28Pamputt%29-qua.wav/LL-Q9199_%28vie%29-Jessica_Nguyen_%28Pamputt%29-qua.wav.ogg",
+        "mp3_url": "https://upload.wikimedia.org/wikipedia/commons/transcoded/2/26/LL-Q9199_%28vie%29-Jessica_Nguyen_%28Pamputt%29-qua.wav/LL-Q9199_%28vie%29-Jessica_Nguyen_%28Pamputt%29-qua.wav.mp3",
+        "tags": "null",
+        "id": "109f91a6-ab37-43f7-a231-dc7812432d78",
+        "word_id": "f2eaaf9d-7969-4e63-87ab-ee1c172c4a91"
+      }
+    ],
+    "forms": []
+  },
+  {
+    "word": "eo",
+    "pos": "noun",
+    "lang_code": "vi",
+    "etymology_text": "Ultimately from Chinese 腰 (MC 'jiew) (SV: yêu), most likely through a Tai language. Compare Proto-Tai *ˀjeːwᴬ (“waist”) (whence Thai เอว (eeo)).",
+    "head_templates": "[{\"name\": \"head\", \"args\": {\"1\": \"vi\", \"2\": \"noun\", \"head\": \"\", \"tr\": \"\\ud870\\udc77\", \"3\": \"\", \"4\": \"\"}, \"expansion\": \"eo \\u2022 (\\ud870\\udc77)\"}, {\"name\": \"vi-noun\", \"args\": {\"cls\": \"c\\u00e1i\", \"1\": \"\\ud870\\udc77\"}, \"expansion\": \"(classifier c\\u00e1i) eo \\u2022 (\\ud870\\udc77)\"}]",
+    "etymology_templates": "[{\"name\": \"der\", \"args\": {\"1\": \"vi\", \"2\": \"zh\", \"3\": \"-\"}, \"expansion\": \"Chinese\"}, {\"name\": \"ltc-l\", \"args\": {\"1\": \"\\u8170\"}, \"expansion\": \"\\u8170 (MC 'jiew)\"}, {\"name\": \"bor\", \"args\": {\"1\": \"vi\", \"2\": \"tai\"}, \"expansion\": \"Tai\"}, {\"name\": \"cog\", \"args\": {\"1\": \"tai-pro\", \"2\": \"*\\u02c0je\\u02d0w\\u1d2c\", \"3\": \"\", \"4\": \"waist\"}, \"expansion\": \"Proto-Tai *\\u02c0je\\u02d0w\\u1d2c (\\u201cwaist\\u201d)\"}, {\"name\": \"cog\", \"args\": {\"1\": \"th\", \"2\": \"\\u0e40\\u0e2d\\u0e27\"}, \"expansion\": \"Thai \\u0e40\\u0e2d\\u0e27 (eeo)\"}]",
+    "id": "f655ad38-d883-48e7-a113-658178ee5107",
+    "created_at": "2026-01-24T14:21:40.617432",
+    "updated_at": "2026-01-24T14:21:40.617446",
+    "senses": [
+      {
+        "glosses": "[\"waist\"]",
+        "tags": "null",
+        "display_label": null,
+        "examples": "null",
+        "links": "[[\"waist\", \"waist\"]]",
+        "id": "872fb2b4-b8fd-41da-80d1-a834524d3d92",
+        "word_id": "f655ad38-d883-48e7-a113-658178ee5107"
+      }
+    ],
+    "sounds": [
+      {
+        "ipa": "[ʔɛw˧˧]",
+        "audio_url": null,
+        "ogg_url": null,
+        "mp3_url": null,
+        "tags": "[\"H\\u00e0-N\\u1ed9i\"]",
+        "id": "1e12566e-0d14-4c1e-a744-2e0633d5b3a9",
+        "word_id": "f655ad38-d883-48e7-a113-658178ee5107"
+      },
+      {
+        "ipa": "[ʔɛw˧˧]",
+        "audio_url": null,
+        "ogg_url": null,
+        "mp3_url": null,
+        "tags": "[\"Hu\\u1ebf\"]",
+        "id": "45c6c50f-b5c1-49b5-9fe9-1e535dbc072e",
+        "word_id": "f655ad38-d883-48e7-a113-658178ee5107"
+      },
+      {
+        "ipa": "[ʔɛw˧˧]",
+        "audio_url": null,
+        "ogg_url": null,
+        "mp3_url": null,
+        "tags": "null",
+        "id": "0db5401f-7b14-4b48-a770-f9428da50e6a",
+        "word_id": "f655ad38-d883-48e7-a113-658178ee5107"
+      }
+    ],
+    "forms": [
+      {
+        "form": "cái",
+        "tags": "[\"classifier\"]",
+        "id": "8f2b7185-c99e-47d0-8945-646872a97189",
+        "word_id": "f655ad38-d883-48e7-a113-658178ee5107"
+      },
+      {
+        "form": "𬁷",
+        "tags": "[\"CJK\"]",
+        "id": "722ac2bd-77dd-4454-bdbb-76a1ea626ec1",
+        "word_id": "f655ad38-d883-48e7-a113-658178ee5107"
+      }
+    ]
+  },
+  {
+    "word": "mi",
+    "pos": "verb",
+    "lang_code": "vi",
+    "etymology_text": null,
+    "head_templates": "[{\"name\": \"head\", \"args\": {\"1\": \"vi\", \"2\": \"verb\", \"head\": \"\", \"tr\": \"\", \"3\": \"\", \"4\": \"\"}, \"expansion\": \"mi\"}, {\"name\": \"vi-verb\", \"args\": {}, \"expansion\": \"mi\"}]",
+    "etymology_templates": null,
+    "id": "a21e6745-ac30-4294-a106-c47f7e54a0b9",
+    "created_at": "2026-01-24T14:21:40.609475",
+    "updated_at": "2026-01-24T14:21:40.609493",
+    "senses": [
+      {
+        "glosses": "[\"to kiss\"]",
+        "tags": "[\"slang\"]",
+        "display_label": null,
+        "examples": "null",
+        "links": "[[\"kiss\", \"kiss\"]]",
+        "id": "d0c929a5-b1e2-42a3-a696-7c5e7ca646e4",
+        "word_id": "a21e6745-ac30-4294-a106-c47f7e54a0b9"
+      }
+    ],
+    "sounds": [
+      {
+        "ipa": "[mi˧˧]",
+        "audio_url": null,
+        "ogg_url": null,
+        "mp3_url": null,
+        "tags": "[\"H\\u00e0-N\\u1ed9i\"]",
+        "id": "cab692c2-9e1d-48f7-bf36-f2c4db2cb318",
+        "word_id": "a21e6745-ac30-4294-a106-c47f7e54a0b9"
+      },
+      {
+        "ipa": "[mɪj˧˧]",
+        "audio_url": null,
+        "ogg_url": null,
+        "mp3_url": null,
+        "tags": "[\"Hu\\u1ebf\"]",
+        "id": "0ab97ee8-bb10-48e3-be58-f6b286865bb8",
+        "word_id": "a21e6745-ac30-4294-a106-c47f7e54a0b9"
+      },
+      {
+        "ipa": "[mɪj˧˧]",
+        "audio_url": null,
+        "ogg_url": null,
+        "mp3_url": null,
+        "tags": "null",
+        "id": "2f22eaf9-2c6f-4a89-acf0-f2b56c6a5669",
+        "word_id": "a21e6745-ac30-4294-a106-c47f7e54a0b9"
+      },
+      {
+        "ipa": "[mi˧˥]",
+        "audio_url": null,
+        "ogg_url": null,
+        "mp3_url": null,
+        "tags": "[\"Vinh\"]",
+        "id": "752c716e-f660-4983-920b-0b40f6717445",
+        "word_id": "a21e6745-ac30-4294-a106-c47f7e54a0b9"
+      }
+    ],
+    "forms": []
+  },
+  {
+    "word": "robot",
+    "pos": "noun",
+    "lang_code": "vi",
+    "etymology_text": "Borrowed from English robot, borrowed from Czech robot, from robota (“drudgery, servitude”), from Old Czech robota, from Proto-Slavic *orbota, from *orbiti + *-ota.",
+    "head_templates": "[{\"name\": \"head\", \"args\": {\"1\": \"vi\", \"2\": \"noun\", \"head\": \"\", \"tr\": \"\", \"3\": \"\", \"4\": \"\"}, \"expansion\": \"robot\"}, {\"name\": \"vi-noun\", \"args\": {}, \"expansion\": \"robot\"}]",
+    "etymology_templates": "[{\"name\": \"etymon\", \"args\": {\"1\": \"vi\", \"id\": \"Q11012\", \"2\": \":bor\", \"3\": \"en:robot<id:Q11012>\", \"text\": \"++\"}, \"expansion\": \"Borrowed from English robot, borrowed from Czech robot, from robota (\\u201cdrudgery, servitude\\u201d), from Old Czech robota, from Proto-Slavic *orbota, from *orbiti + *-ota.\"}]",
+    "id": "9d387b16-36fd-46bc-ae04-4997118f9df5",
+    "created_at": "2026-01-24T14:21:40.547775",
+    "updated_at": "2026-01-24T14:21:40.547794",
+    "senses": [
+      {
+        "glosses": "[\"robot\"]",
+        "tags": "null",
+        "display_label": null,
+        "examples": "null",
+        "links": "[[\"robot\", \"robot#English\"]]",
+        "id": "f7db3d2a-5eac-4ce5-bc4a-45987157f52b",
+        "word_id": "9d387b16-36fd-46bc-ae04-4997118f9df5"
+      }
+    ],
+    "sounds": [
+      {
+        "ipa": "[zo˧˧ ʔɓot̚˧˦]",
+        "audio_url": null,
+        "ogg_url": null,
+        "mp3_url": null,
+        "tags": "[\"H\\u00e0-N\\u1ed9i\"]",
+        "id": "9e9af59a-6f4e-4911-96df-f4a9bc1097eb",
+        "word_id": "9d387b16-36fd-46bc-ae04-4997118f9df5"
+      },
+      {
+        "ipa": "[ʐow˧˧ ʔɓok̚˦˧˥]",
+        "audio_url": null,
+        "ogg_url": null,
+        "mp3_url": null,
+        "tags": "[\"Hu\\u1ebf\"]",
+        "id": "5e5473a0-5508-49de-b883-edd6b6850e47",
+        "word_id": "9d387b16-36fd-46bc-ae04-4997118f9df5"
+      },
+      {
+        "ipa": "[ɹow˧˧ ʔɓok̚˦˥]",
+        "audio_url": null,
+        "ogg_url": null,
+        "mp3_url": null,
+        "tags": "null",
+        "id": "e6829a5b-c72e-4e3d-88eb-a445ac16d941",
+        "word_id": "9d387b16-36fd-46bc-ae04-4997118f9df5"
+      }
+    ],
+    "forms": []
+  },
+  {
+    "word": "son",
+    "pos": "adj",
+    "lang_code": "vi",
+    "etymology_text": "This word had initial *k-r- in Old Vietnamese.",
+    "head_templates": "[{\"name\": \"head\", \"args\": {\"1\": \"vi\", \"2\": \"adjective\", \"head\": \"\", \"tr\": \"\\u4f96, \\u502b, \\u5d19, \\udb84\\udfdf, \\udb80\\udd6c, \\ud84d\\uddfe, \\ud84d\\ude08, \\ud86b\\udcd4, \\ud85f\\ude6a, \\ud86b\\udffd, \\udb86\\udc1f\", \"3\": \"\", \"4\": \"\", \"5\": \"\", \"6\": \"\", \"7\": \"\", \"8\": \"\"}, \"expansion\": \"son \\u2022 (\\u4f96, \\u502b, \\u5d19, \\udb84\\udfdf, \\udb80\\udd6c, \\ud84d\\uddfe, \\ud84d\\ude08, \\ud86b\\udcd4, \\ud85f\\ude6a, \\ud86b\\udffd, \\udb86\\udc1f)\"}, {\"name\": \"vi-adj\", \"args\": {\"1\": \"\\u4f96, \\u502b, \\u5d19, \\udb84\\udfdf, \\udb80\\udd6c, \\ud84d\\uddfe, \\ud84d\\ude08, \\ud86b\\udcd4, \\ud85f\\ude6a, \\ud86b\\udffd, \\udb86\\udc1f\"}, \"expansion\": \"son \\u2022 (\\u4f96, \\u502b, \\u5d19, \\udb84\\udfdf, \\udb80\\udd6c, \\ud84d\\uddfe, \\ud84d\\ude08, \\ud86b\\udcd4, \\ud85f\\ude6a, \\ud86b\\udffd, \\udb86\\udc1f)\"}]",
+    "etymology_templates": "[{\"name\": \"IPAfont\", \"args\": {\"1\": \"*k-r-\"}, \"expansion\": \"*k-r-\"}]",
+    "id": "6d0e86fd-4d92-4e1e-a6e3-95e39aeb3bf0",
+    "created_at": "2026-01-24T14:21:40.649697",
+    "updated_at": "2026-01-24T14:21:40.649710",
+    "senses": [
+      {
+        "glosses": "[\"vermilion\"]",
+        "tags": "null",
+        "display_label": null,
+        "examples": "[{\"text\": \"r\\u1ec7p son\", \"translation\": \"a cochineal\", \"english\": \"a cochineal\", \"type\": \"example\"}]",
+        "links": "[[\"vermilion\", \"vermilion\"]]",
+        "id": "777378b6-c8b8-4ecb-ab46-4729210a6469",
+        "word_id": "6d0e86fd-4d92-4e1e-a6e3-95e39aeb3bf0"
+      },
+      {
+        "glosses": "[\"unshakable; firm\"]",
+        "tags": "[\"literary\"]",
+        "display_label": null,
+        "examples": "null",
+        "links": "[[\"unshakable\", \"unshakable\"], [\"firm\", \"firm\"]]",
+        "id": "8313ad34-88fd-4d7f-acb8-9869389ad3ea",
+        "word_id": "6d0e86fd-4d92-4e1e-a6e3-95e39aeb3bf0"
+      }
+    ],
+    "sounds": [
+      {
+        "ipa": "[sɔn˧˧]",
+        "audio_url": null,
+        "ogg_url": null,
+        "mp3_url": null,
+        "tags": "[\"H\\u00e0-N\\u1ed9i\"]",
+        "id": "687f46c3-baba-4a8f-9179-f3accb6a65d7",
+        "word_id": "6d0e86fd-4d92-4e1e-a6e3-95e39aeb3bf0"
+      },
+      {
+        "ipa": "[ʂɔŋ˧˧]",
+        "audio_url": null,
+        "ogg_url": null,
+        "mp3_url": null,
+        "tags": "[\"Hu\\u1ebf\"]",
+        "id": "a6ba5b43-ec71-4611-b348-2e6e40d1c92a",
+        "word_id": "6d0e86fd-4d92-4e1e-a6e3-95e39aeb3bf0"
+      },
+      {
+        "ipa": "[sɔŋ˧˧]",
+        "audio_url": null,
+        "ogg_url": null,
+        "mp3_url": null,
+        "tags": "[\"Hu\\u1ebf\"]",
+        "id": "3ac2ef8f-9cbd-49e5-a7a8-06a33db1b55e",
+        "word_id": "6d0e86fd-4d92-4e1e-a6e3-95e39aeb3bf0"
+      },
+      {
+        "ipa": "[ʂɔŋ˧˧]",
+        "audio_url": null,
+        "ogg_url": null,
+        "mp3_url": null,
+        "tags": "null",
+        "id": "cf9ce6d9-fbe9-4992-b0e3-63ad5e38f4e8",
+        "word_id": "6d0e86fd-4d92-4e1e-a6e3-95e39aeb3bf0"
+      },
+      {
+        "ipa": "[sɔŋ˧˧]",
+        "audio_url": null,
+        "ogg_url": null,
+        "mp3_url": null,
+        "tags": "null",
+        "id": "96dd46a3-b7cf-484f-93ed-5b0203b8f813",
+        "word_id": "6d0e86fd-4d92-4e1e-a6e3-95e39aeb3bf0"
+      }
+    ],
+    "forms": [
+      {
+        "form": "侖",
+        "tags": "[\"CJK\"]",
+        "id": "e9808b45-82b8-4951-acad-8caf80f57275",
+        "word_id": "6d0e86fd-4d92-4e1e-a6e3-95e39aeb3bf0"
+      },
+      {
+        "form": "倫",
+        "tags": "[\"CJK\"]",
+        "id": "ec3ce84c-a375-4d02-a2fc-1b1770cb0e31",
+        "word_id": "6d0e86fd-4d92-4e1e-a6e3-95e39aeb3bf0"
+      },
+      {
+        "form": "崙",
+        "tags": "[\"CJK\"]",
+        "id": "6713ec07-9251-4b28-ae5c-b1bf61ab7427",
+        "word_id": "6d0e86fd-4d92-4e1e-a6e3-95e39aeb3bf0"
+      },
+      {
+        "form": "𣗾",
+        "tags": "[\"CJK\"]",
+        "id": "66f5a3a3-2e0b-4c85-a813-a57dc4e16fa7",
+        "word_id": "6d0e86fd-4d92-4e1e-a6e3-95e39aeb3bf0"
+      },
+      {
+        "form": "𣘈",
+        "tags": "[\"CJK\"]",
+        "id": "194e3ff6-4775-44e8-8351-2f9bd160e059",
+        "word_id": "6d0e86fd-4d92-4e1e-a6e3-95e39aeb3bf0"
+      },
+      {
+        "form": "𪳔",
+        "tags": "[\"CJK\"]",
+        "id": "5575d186-aa91-4241-9fbb-71f679afd411",
+        "word_id": "6d0e86fd-4d92-4e1e-a6e3-95e39aeb3bf0"
+      },
+      {
+        "form": "𧹪",
+        "tags": "[\"CJK\"]",
+        "id": "861f30bc-e887-4f2c-ad6e-62d3f4414d91",
+        "word_id": "6d0e86fd-4d92-4e1e-a6e3-95e39aeb3bf0"
+      },
+      {
+        "form": "𪿽",
+        "tags": "[\"CJK\"]",
+        "id": "e3e1e88a-7306-4562-9274-5ea768e9725a",
+        "word_id": "6d0e86fd-4d92-4e1e-a6e3-95e39aeb3bf0"
+      }
+    ]
+  },
+  {
+    "word": "y",
+    "pos": "character",
+    "lang_code": "vi",
+    "etymology_text": null,
+    "head_templates": "[{\"name\": \"head\", \"args\": {\"1\": \"vi\", \"2\": \"letter\", \"sc\": \"\", \"3\": \"lower case\", \"4\": \"\", \"5\": \"upper case\", \"6\": \"Y\", \"7\": \"\", \"8\": \"y\", \"9\": \"\", \"10\": \"\"}, \"expansion\": \"y (lower case, upper case Y)\"}, {\"name\": \"vi-letter\", \"args\": {\"upper\": \"Y\", \"lower\": \"y\"}, \"expansion\": \"y (lower case, upper case Y)\"}]",
+    "etymology_templates": null,
+    "id": "9c738f15-d313-46ff-8a24-b61d39a808e8",
+    "created_at": "2026-01-24T14:21:40.553702",
+    "updated_at": "2026-01-24T14:21:40.553718",
+    "senses": [
+      {
+        "glosses": "[\"The 28th and last letter of the Vietnamese alphabet, preceded by x, and representing /i/ or /j/.\"]",
+        "tags": "[\"letter\", \"lowercase\"]",
+        "display_label": null,
+        "examples": "[{\"text\": \"level tone: y\"}, {\"text\": \"high rising: \\u00fd\"}, {\"text\": \"low: \\u1ef3\"}, {\"text\": \"dipping-rising: \\u1ef7\"}, {\"text\": \"high rising glottalized: \\u1ef9\"}, {\"text\": \"low glottalized: \\u1ef5\"}]",
+        "links": "[[\"Vietnamese\", \"Vietnamese\"], [\"x\", \"x#Vietnamese\"]]",
+        "id": "f4de189e-15c0-4907-9ebd-265240e2f27b",
+        "word_id": "9c738f15-d313-46ff-8a24-b61d39a808e8"
+      }
+    ],
+    "sounds": [
+      {
+        "ipa": "[ʔi˧˧]",
+        "audio_url": null,
+        "ogg_url": null,
+        "mp3_url": null,
+        "tags": "[\"H\\u00e0-N\\u1ed9i\"]",
+        "id": "14fbba1a-2005-4b15-ad7a-2bddd3912144",
+        "word_id": "9c738f15-d313-46ff-8a24-b61d39a808e8"
+      },
+      {
+        "ipa": "[ʔɪj˧˧]",
+        "audio_url": null,
+        "ogg_url": null,
+        "mp3_url": null,
+        "tags": "[\"Hu\\u1ebf\"]",
+        "id": "dab2dd30-3923-4a88-85a3-5e39c23584a6",
+        "word_id": "9c738f15-d313-46ff-8a24-b61d39a808e8"
+      },
+      {
+        "ipa": "[ʔɪj˧˧]",
+        "audio_url": null,
+        "ogg_url": null,
+        "mp3_url": null,
+        "tags": "null",
+        "id": "2d09d27d-4282-4f4b-91c7-74813266ff29",
+        "word_id": "9c738f15-d313-46ff-8a24-b61d39a808e8"
+      },
+      {
+        "ipa": null,
+        "audio_url": "https://upload.wikimedia.org/wikipedia/commons/transcoded/c/c6/LL-Q9199_%28vie%29-Penn_Zero_MSSJ-y.wav/LL-Q9199_%28vie%29-Penn_Zero_MSSJ-y.wav.mp3",
+        "ogg_url": "https://upload.wikimedia.org/wikipedia/commons/transcoded/c/c6/LL-Q9199_%28vie%29-Penn_Zero_MSSJ-y.wav/LL-Q9199_%28vie%29-Penn_Zero_MSSJ-y.wav.ogg",
+        "mp3_url": "https://upload.wikimedia.org/wikipedia/commons/transcoded/c/c6/LL-Q9199_%28vie%29-Penn_Zero_MSSJ-y.wav/LL-Q9199_%28vie%29-Penn_Zero_MSSJ-y.wav.mp3",
+        "tags": "null",
+        "id": "388317ea-301c-4106-ba93-c5f62d0e36dd",
+        "word_id": "9c738f15-d313-46ff-8a24-b61d39a808e8"
+      }
+    ],
+    "forms": [
+      {
+        "form": "Y",
+        "tags": "[\"uppercase\"]",
+        "id": "86b30e20-d2e0-476a-aec7-291730461fd6",
+        "word_id": "9c738f15-d313-46ff-8a24-b61d39a808e8"
+      }
+    ]
+  },
+  {
+    "word": "man",
+    "pos": "romanization",
+    "lang_code": "vi",
+    "etymology_text": "Compare Mán, which is might be a cognate.",
+    "head_templates": "[{\"name\": \"head\", \"args\": {\"1\": \"vi\", \"2\": \"romanization\"}, \"expansion\": \"man\"}]",
+    "etymology_templates": null,
+    "id": "717a4405-a7cb-4042-af23-6d4f6f8cd364",
+    "created_at": "2026-01-24T14:21:40.582118",
+    "updated_at": "2026-01-24T14:21:40.582131",
+    "senses": [
+      {
+        "glosses": "[\"Sino-Vietnamese reading of \\u883b\"]",
+        "tags": "[\"romanization\"]",
+        "display_label": null,
+        "examples": "null",
+        "links": "[[\"Sino-Vietnamese\", \"Sino-Vietnamese\"], [\"\\u883b\", \"\\u883b#Vietnamese\"]]",
+        "id": "892375cd-398d-448a-ac53-5731a7bb5fe7",
+        "word_id": "717a4405-a7cb-4042-af23-6d4f6f8cd364"
+      }
+    ],
+    "sounds": [
+      {
+        "ipa": "[maːn˧˧]",
+        "audio_url": null,
+        "ogg_url": null,
+        "mp3_url": null,
+        "tags": "[\"H\\u00e0-N\\u1ed9i\"]",
+        "id": "bc1dd222-8831-47fe-a51d-a406cb54ee87",
+        "word_id": "717a4405-a7cb-4042-af23-6d4f6f8cd364"
+      },
+      {
+        "ipa": "[maːŋ˧˧]",
+        "audio_url": null,
+        "ogg_url": null,
+        "mp3_url": null,
+        "tags": "[\"Hu\\u1ebf\"]",
+        "id": "dda07ff0-cbe2-4e94-8edc-fbf7928bd701",
+        "word_id": "717a4405-a7cb-4042-af23-6d4f6f8cd364"
+      },
+      {
+        "ipa": "[maːŋ˧˧]",
+        "audio_url": null,
+        "ogg_url": null,
+        "mp3_url": null,
+        "tags": "null",
+        "id": "cc01b51d-a8d8-437e-a455-0c5c3a6abb56",
+        "word_id": "717a4405-a7cb-4042-af23-6d4f6f8cd364"
+      },
+      {
+        "ipa": null,
+        "audio_url": null,
+        "ogg_url": null,
+        "mp3_url": null,
+        "tags": "null",
+        "id": "35e409d4-49f3-46b3-b5ce-0aa1f1f03054",
+        "word_id": "717a4405-a7cb-4042-af23-6d4f6f8cd364"
+      }
+    ],
+    "forms": []
+  },
+  {
+    "word": "can",
+    "pos": "verb",
+    "lang_code": "vi",
+    "etymology_text": "From French calque.",
+    "head_templates": "[{\"name\": \"head\", \"args\": {\"1\": \"vi\", \"2\": \"verb\", \"head\": \"\", \"tr\": \"\", \"3\": \"\", \"4\": \"\"}, \"expansion\": \"can\"}, {\"name\": \"vi-verb\", \"args\": {}, \"expansion\": \"can\"}]",
+    "etymology_templates": "[{\"name\": \"bor\", \"args\": {\"1\": \"vi\", \"2\": \"fr\", \"3\": \"calque\"}, \"expansion\": \"French calque\"}]",
+    "id": "80c0af0d-ef07-4409-8d83-ad3b73679bc3",
+    "created_at": "2026-01-24T14:21:40.568368",
+    "updated_at": "2026-01-24T14:21:40.568379",
+    "senses": [
+      {
+        "glosses": "[\"to trace (through translucent paper), to do tracing\"]",
+        "tags": "null",
+        "display_label": null,
+        "examples": "null",
+        "links": "[[\"trace\", \"trace\"], [\"translucent\", \"translucent\"], [\"paper\", \"paper\"], [\"tracing\", \"tracing\"]]",
+        "id": "89fdd496-dff7-4b34-be38-1fec4a7e4c59",
+        "word_id": "80c0af0d-ef07-4409-8d83-ad3b73679bc3"
+      }
+    ],
+    "sounds": [
+      {
+        "ipa": "[kaːn˧˧]",
+        "audio_url": null,
+        "ogg_url": null,
+        "mp3_url": null,
+        "tags": "[\"H\\u00e0-N\\u1ed9i\"]",
+        "id": "93428d6e-f851-4147-b19f-cdb82900af42",
+        "word_id": "80c0af0d-ef07-4409-8d83-ad3b73679bc3"
+      },
+      {
+        "ipa": "[kaːŋ˧˧]",
+        "audio_url": null,
+        "ogg_url": null,
+        "mp3_url": null,
+        "tags": "[\"Hu\\u1ebf\"]",
+        "id": "eb02f8b7-d7ec-4f5b-ba0a-0eee913c8d65",
+        "word_id": "80c0af0d-ef07-4409-8d83-ad3b73679bc3"
+      },
+      {
+        "ipa": "[kaːŋ˧˧]",
+        "audio_url": null,
+        "ogg_url": null,
+        "mp3_url": null,
+        "tags": "null",
+        "id": "4a19942e-6524-436c-a35e-6c54eb22ac45",
+        "word_id": "80c0af0d-ef07-4409-8d83-ad3b73679bc3"
+      },
+      {
+        "ipa": null,
+        "audio_url": "https://upload.wikimedia.org/wikipedia/commons/transcoded/3/33/LL-Q9199_%28vie%29-Penn_Zero_MSSJ-can.wav/LL-Q9199_%28vie%29-Penn_Zero_MSSJ-can.wav.mp3",
+        "ogg_url": "https://upload.wikimedia.org/wikipedia/commons/transcoded/3/33/LL-Q9199_%28vie%29-Penn_Zero_MSSJ-can.wav/LL-Q9199_%28vie%29-Penn_Zero_MSSJ-can.wav.ogg",
+        "mp3_url": "https://upload.wikimedia.org/wikipedia/commons/transcoded/3/33/LL-Q9199_%28vie%29-Penn_Zero_MSSJ-can.wav/LL-Q9199_%28vie%29-Penn_Zero_MSSJ-can.wav.mp3",
+        "tags": "null",
+        "id": "223f8c40-872d-45b3-92f3-82e902a19766",
+        "word_id": "80c0af0d-ef07-4409-8d83-ad3b73679bc3"
+      }
+    ],
+    "forms": []
+  },
+  {
+    "word": "o",
+    "pos": "noun",
+    "lang_code": "vi",
+    "etymology_text": "From Proto-Vietic *ʔɔː.",
+    "head_templates": "[{\"name\": \"head\", \"args\": {\"1\": \"vi\", \"2\": \"noun\", \"head\": \"\", \"tr\": \"\\u59d1, \\ud86a\\uddad\", \"3\": \"\", \"4\": \"\"}, \"expansion\": \"o \\u2022 (\\u59d1, \\ud86a\\uddad)\"}, {\"name\": \"vi-noun\", \"args\": {\"1\": \"\\u59d1, \\ud86a\\uddad\"}, \"expansion\": \"o \\u2022 (\\u59d1, \\ud86a\\uddad)\"}]",
+    "etymology_templates": "[{\"name\": \"inh\", \"args\": {\"1\": \"vi\", \"2\": \"mkh-vie-pro\", \"3\": \"*\\u0294\\u0254\\u02d0\"}, \"expansion\": \"Proto-Vietic *\\u0294\\u0254\\u02d0\"}]",
+    "id": "7e59796e-d1b3-497e-880c-b7b452a8bd00",
+    "created_at": "2026-01-24T14:21:40.569350",
+    "updated_at": "2026-01-24T14:21:40.569367",
+    "senses": [
+      {
+        "glosses": "[\"paternal aunt, father's sister\"]",
+        "tags": "[\"Central\", \"North\", \"Vietnam\"]",
+        "display_label": null,
+        "examples": "null",
+        "links": "[[\"paternal aunt\", \"paternal aunt\"], [\"father\", \"father\"], [\"sister\", \"sister\"]]",
+        "id": "486b13e0-764d-41bc-9e4d-a60c63b59e2f",
+        "word_id": "7e59796e-d1b3-497e-880c-b7b452a8bd00"
+      },
+      {
+        "glosses": "[\"female teacher\"]",
+        "tags": "[\"Central\", \"North\", \"Vietnam\"]",
+        "display_label": null,
+        "examples": "null",
+        "links": "[[\"female\", \"female\"], [\"teacher\", \"teacher\"]]",
+        "id": "1f354eb5-e844-4f9e-bf2f-a0d3b615b207",
+        "word_id": "7e59796e-d1b3-497e-880c-b7b452a8bd00"
+      }
+    ],
+    "sounds": [
+      {
+        "ipa": "[ʔɔ˧˧]",
+        "audio_url": null,
+        "ogg_url": null,
+        "mp3_url": null,
+        "tags": "[\"H\\u00e0-N\\u1ed9i\"]",
+        "id": "9a5a2606-50fa-40ed-8d0c-260908a88869",
+        "word_id": "7e59796e-d1b3-497e-880c-b7b452a8bd00"
+      },
+      {
+        "ipa": "[ʔɔ˧˧]",
+        "audio_url": null,
+        "ogg_url": null,
+        "mp3_url": null,
+        "tags": "[\"Hu\\u1ebf\"]",
+        "id": "6e5d09ab-a4cc-4fd3-95c8-4584944ada99",
+        "word_id": "7e59796e-d1b3-497e-880c-b7b452a8bd00"
+      },
+      {
+        "ipa": "[ʔɔ˧˧]",
+        "audio_url": null,
+        "ogg_url": null,
+        "mp3_url": null,
+        "tags": "null",
+        "id": "cf52c2ef-843a-44f1-beb3-43307560af90",
+        "word_id": "7e59796e-d1b3-497e-880c-b7b452a8bd00"
+      },
+      {
+        "ipa": null,
+        "audio_url": "https://upload.wikimedia.org/wikipedia/commons/transcoded/e/e9/LL-Q9199_%28vie%29-Penn_Zero_MSSJ-o.wav/LL-Q9199_%28vie%29-Penn_Zero_MSSJ-o.wav.mp3",
+        "ogg_url": "https://upload.wikimedia.org/wikipedia/commons/transcoded/e/e9/LL-Q9199_%28vie%29-Penn_Zero_MSSJ-o.wav/LL-Q9199_%28vie%29-Penn_Zero_MSSJ-o.wav.ogg",
+        "mp3_url": "https://upload.wikimedia.org/wikipedia/commons/transcoded/e/e9/LL-Q9199_%28vie%29-Penn_Zero_MSSJ-o.wav/LL-Q9199_%28vie%29-Penn_Zero_MSSJ-o.wav.mp3",
+        "tags": "null",
+        "id": "b8d9741e-b74e-4c85-9470-a1d1281f835b",
+        "word_id": "7e59796e-d1b3-497e-880c-b7b452a8bd00"
+      }
+    ],
+    "forms": [
+      {
+        "form": "姑",
+        "tags": "[\"CJK\"]",
+        "id": "6bdce7df-c96a-44d7-95fb-33db4a1586cf",
+        "word_id": "7e59796e-d1b3-497e-880c-b7b452a8bd00"
+      },
+      {
+        "form": "𪦭",
+        "tags": "[\"CJK\"]",
+        "id": "f4ff2bab-2faa-4513-8b91-94fbcf362770",
+        "word_id": "7e59796e-d1b3-497e-880c-b7b452a8bd00"
+      }
+    ]
+  },
+  {
+    "word": "NASA",
+    "pos": "name",
+    "lang_code": "vi",
+    "etymology_text": "Orthographic borrowing from English NASA",
+    "head_templates": "[{\"name\": \"head\", \"args\": {\"1\": \"vi\", \"2\": \"proper noun\", \"head\": \"\", \"tr\": \"\"}, \"expansion\": \"NASA\"}]",
+    "etymology_templates": "[{\"name\": \"obor\", \"args\": {\"1\": \"vi\", \"2\": \"en\", \"3\": \"NASA\"}, \"expansion\": \"Orthographic borrowing from English NASA\"}]",
+    "id": "1b7a4333-540f-4baa-b80e-037d5992b701",
+    "created_at": "2026-01-24T14:21:40.589458",
+    "updated_at": "2026-01-24T14:21:40.589477",
+    "senses": [
+      {
+        "glosses": "[\"NASA (acronym of National Aeronautics and Space Administration)\"]",
+        "tags": "null",
+        "display_label": null,
+        "examples": "null",
+        "links": "[[\"NASA\", \"NASA#English\"], [\"National Aeronautics and Space Administration\", \"National Aeronautics and Space Administration#English\"]]",
+        "id": "91d989a4-56ca-4865-97bb-2cbea98897e4",
+        "word_id": "1b7a4333-540f-4baa-b80e-037d5992b701"
+      }
+    ],
+    "sounds": [
+      {
+        "ipa": "[naː˧˧ zaː˧˧]",
+        "audio_url": null,
+        "ogg_url": null,
+        "mp3_url": null,
+        "tags": "[\"H\\u00e0-N\\u1ed9i\"]",
+        "id": "7eb0381c-3711-407b-88e5-59055b6ff26d",
+        "word_id": "1b7a4333-540f-4baa-b80e-037d5992b701"
+      },
+      {
+        "ipa": "[naː˧˧ saː˧˧]",
+        "audio_url": null,
+        "ogg_url": null,
+        "mp3_url": null,
+        "tags": "[\"H\\u00e0-N\\u1ed9i\"]",
+        "id": "8564b70c-9eb8-42d6-8c9d-8c679349fa72",
+        "word_id": "1b7a4333-540f-4baa-b80e-037d5992b701"
+      },
+      {
+        "ipa": "[naː˧˧ zaː˧˧]",
+        "audio_url": null,
+        "ogg_url": null,
+        "mp3_url": null,
+        "tags": "[\"Hu\\u1ebf\"]",
+        "id": "27f3d056-2f42-4be2-9f2d-7b64f38ec3bf",
+        "word_id": "1b7a4333-540f-4baa-b80e-037d5992b701"
+      },
+      {
+        "ipa": "[naː˧˧ jaː˧˧]",
+        "audio_url": null,
+        "ogg_url": null,
+        "mp3_url": null,
+        "tags": "[\"Hu\\u1ebf\"]",
+        "id": "f05b0f12-fae4-4baf-8eed-1036a384f9a2",
+        "word_id": "1b7a4333-540f-4baa-b80e-037d5992b701"
+      },
+      {
+        "ipa": "[naː˧˧ saː˧˧]",
+        "audio_url": null,
+        "ogg_url": null,
+        "mp3_url": null,
+        "tags": "[\"Hu\\u1ebf\"]",
+        "id": "bff8935d-309e-43cf-9cc2-3a5b5c672d4e",
+        "word_id": "1b7a4333-540f-4baa-b80e-037d5992b701"
+      },
+      {
+        "ipa": "[naː˧˧ zaː˧˧]",
+        "audio_url": null,
+        "ogg_url": null,
+        "mp3_url": null,
+        "tags": "null",
+        "id": "bbf4ba1c-3097-4b44-aae4-1465345c3079",
+        "word_id": "1b7a4333-540f-4baa-b80e-037d5992b701"
+      },
+      {
+        "ipa": "[naː˧˧ jaː˧˧]",
+        "audio_url": null,
+        "ogg_url": null,
+        "mp3_url": null,
+        "tags": "null",
+        "id": "6143c10a-cd91-440d-81db-6fca4342793d",
+        "word_id": "1b7a4333-540f-4baa-b80e-037d5992b701"
+      },
+      {
+        "ipa": "[naː˧˧ saː˧˧]",
+        "audio_url": null,
+        "ogg_url": null,
+        "mp3_url": null,
+        "tags": "null",
+        "id": "74a96327-01ad-4633-8e39-67841de6fbf0",
+        "word_id": "1b7a4333-540f-4baa-b80e-037d5992b701"
+      }
+    ],
+    "forms": []
+  },
+  {
+    "word": "y",
+    "pos": "pron",
+    "lang_code": "vi",
+    "etymology_text": "Sino-Vietnamese word from 伊.",
+    "head_templates": "[{\"name\": \"head\", \"args\": {\"1\": \"vi\", \"2\": \"pronoun\", \"head\": \"\", \"tr\": \"\"}, \"expansion\": \"y\"}, {\"name\": \"vi-pronoun\", \"args\": {}, \"expansion\": \"y\"}]",
+    "etymology_templates": "[{\"name\": \"etymid\", \"args\": {\"1\": \"vi\", \"2\": \"\\u4f0a\"}, \"expansion\": \"\"}, {\"name\": \"categorize\", \"args\": {\"1\": \"vi\", \"2\": \"Sino-Vietnamese words\"}, \"expansion\": \"\"}, {\"name\": \"vi-etym-sino\", \"args\": {\"1\": \"\\u4f0a\"}, \"expansion\": \"Sino-Vietnamese word from \\u4f0a\"}]",
+    "id": "b5343f39-a90f-4547-b2fd-eabb8f70ce9f",
+    "created_at": "2026-01-24T14:21:40.549094",
+    "updated_at": "2026-01-24T14:21:40.549113",
+    "senses": [
+      {
+        "glosses": "[\"he; him; she; her\"]",
+        "tags": "[\"archaic\", \"literary\"]",
+        "display_label": null,
+        "examples": "[{\"text\": \"H\\u1ed3i \\u0111\\u00f3 \\u1edf kinh \\u0111\\u00f4 c\\u00f3 m\\u1ed9t ng\\u01b0\\u1eddi em ho\\u00e0ng h\\u1eadu h\\u1ecd V\\u01b0\\u01a1ng. Y c\\u0169ng l\\u00e0 tay c\\u1ef1 ph\\u00fa n\\u1ed5i ti\\u1ebfng ti\\u1ec1n r\\u1eebng bi\\u1ec3n b\\u1ea1c v\\u00e0 x\\u00e0i ph\\u00ed v\\u00e0o b\\u1eadc nh\\u1ea5t.\", \"ref\": \"1958, \\u0110\\u1ed5ng Chi Nguy\\u1ec5n, \\u201cTh\\u1ea1ch S\\u00f9ng c\\u00f2n thi\\u1ebfu m\\u1ebb kho hay l\\u00e0 S\\u1ef1 t\\u00edch con m\\u1ed1i\\u201d, in Kho t\\u00e0ng truy\\u1ec7n c\\u1ed1 t\\u00edch Vi\\u1ec7t Nam, NXB V\\u0103n s\\u1eed \\u0111\\u1ecba:\", \"english\": \"At the time, there was in the capital a brother of the queen of the W\\u00e1ng family. He was also a famous for being immensely rich and was an extravagant spender of first degree.\", \"type\": \"quote\", \"bold_text_offsets\": [[53, 54]], \"translation\": \"At the time, there was in the capital a brother of the queen of the W\\u00e1ng family. He was also a famous for being immensely rich and was an extravagant spender of first degree.\", \"bold_translation_offsets\": [[81, 83]]}]",
+        "links": "[[\"he\", \"he\"], [\"him\", \"him\"], [\"she\", \"she\"], [\"her\", \"her\"]]",
+        "id": "38e61be1-c057-48ab-95b0-ebffc14e4d03",
+        "word_id": "b5343f39-a90f-4547-b2fd-eabb8f70ce9f"
+      },
+      {
+        "glosses": "[\"he, him\"]",
+        "tags": "[\"derogatory\"]",
+        "display_label": null,
+        "examples": "null",
+        "links": "[[\"derogatory\", \"derogatory\"], [\"he\", \"he\"], [\"him\", \"him\"]]",
+        "id": "fbc3c77a-b117-42ca-91b4-25dd601ea093",
+        "word_id": "b5343f39-a90f-4547-b2fd-eabb8f70ce9f"
+      }
+    ],
+    "sounds": [
+      {
+        "ipa": "[ʔi˧˧]",
+        "audio_url": null,
+        "ogg_url": null,
+        "mp3_url": null,
+        "tags": "[\"H\\u00e0-N\\u1ed9i\"]",
+        "id": "7b310988-8d5a-4bb7-b26d-f1017e6f02a6",
+        "word_id": "b5343f39-a90f-4547-b2fd-eabb8f70ce9f"
+      },
+      {
+        "ipa": "[ʔɪj˧˧]",
+        "audio_url": null,
+        "ogg_url": null,
+        "mp3_url": null,
+        "tags": "[\"Hu\\u1ebf\"]",
+        "id": "f5233372-990d-4669-a079-81efe7c9ca12",
+        "word_id": "b5343f39-a90f-4547-b2fd-eabb8f70ce9f"
+      },
+      {
+        "ipa": "[ʔɪj˧˧]",
+        "audio_url": null,
+        "ogg_url": null,
+        "mp3_url": null,
+        "tags": "null",
+        "id": "889e2fd7-ef52-425e-a87f-f395e9e19174",
+        "word_id": "b5343f39-a90f-4547-b2fd-eabb8f70ce9f"
+      },
+      {
+        "ipa": null,
+        "audio_url": "https://upload.wikimedia.org/wikipedia/commons/transcoded/c/c6/LL-Q9199_%28vie%29-Penn_Zero_MSSJ-y.wav/LL-Q9199_%28vie%29-Penn_Zero_MSSJ-y.wav.mp3",
+        "ogg_url": "https://upload.wikimedia.org/wikipedia/commons/transcoded/c/c6/LL-Q9199_%28vie%29-Penn_Zero_MSSJ-y.wav/LL-Q9199_%28vie%29-Penn_Zero_MSSJ-y.wav.ogg",
+        "mp3_url": "https://upload.wikimedia.org/wikipedia/commons/transcoded/c/c6/LL-Q9199_%28vie%29-Penn_Zero_MSSJ-y.wav/LL-Q9199_%28vie%29-Penn_Zero_MSSJ-y.wav.mp3",
+        "tags": "null",
+        "id": "8bdf74f8-eb06-4687-bca8-df299f34b705",
+        "word_id": "b5343f39-a90f-4547-b2fd-eabb8f70ce9f"
+      }
+    ],
+    "forms": []
+  },
+  {
+    "word": "馬",
+    "pos": "character",
+    "lang_code": "vi",
+    "etymology_text": null,
+    "head_templates": null,
+    "etymology_templates": null,
+    "id": "556c2f74-8b5b-42c9-89e5-f8f2d2f9c4d8",
+    "created_at": "2026-01-24T14:21:40.535196",
+    "updated_at": "2026-01-24T14:21:40.535214",
+    "senses": [
+      {
+        "glosses": "null",
+        "tags": "[\"no-gloss\"]",
+        "display_label": null,
+        "examples": "null",
+        "links": "null",
+        "id": "687f2a2d-237e-42f7-937c-baa4dc2b2469",
+        "word_id": "556c2f74-8b5b-42c9-89e5-f8f2d2f9c4d8"
+      }
+    ],
+    "sounds": [],
+    "forms": []
+  },
+  {
+    "word": "say",
+    "pos": "adj",
+    "lang_code": "vi",
+    "etymology_text": "From Proto-Vietic *p-riː (“drunk”). Cognate with Muong khay, Arem pərɪː.",
+    "head_templates": "[{\"name\": \"head\", \"args\": {\"1\": \"vi\", \"2\": \"adjective\", \"head\": \"\", \"tr\": \"\\u919d, \\ud86d\\udc79\", \"3\": \"\", \"4\": \"\", \"5\": \"\", \"6\": \"\", \"7\": \"\", \"8\": \"\"}, \"expansion\": \"say \\u2022 (\\u919d, \\ud86d\\udc79)\"}, {\"name\": \"vi-adj\", \"args\": {\"1\": \"\\u919d, \\ud86d\\udc79\"}, \"expansion\": \"say \\u2022 (\\u919d, \\ud86d\\udc79)\"}]",
+    "etymology_templates": "[{\"name\": \"inh\", \"args\": {\"1\": \"vi\", \"2\": \"mkh-vie-pro\", \"3\": \"*p-ri\\u02d0\", \"4\": \"\", \"5\": \"drunk\"}, \"expansion\": \"Proto-Vietic *p-ri\\u02d0 (\\u201cdrunk\\u201d)\"}, {\"name\": \"cog\", \"args\": {\"1\": \"mtq\", \"2\": \"khay\"}, \"expansion\": \"Muong khay\"}, {\"name\": \"cog\", \"args\": {\"1\": \"aem\", \"2\": \"-\"}, \"expansion\": \"Arem\"}]",
+    "id": "a48fad29-b877-4055-8fa7-7bc534fc418c",
+    "created_at": "2026-01-24T14:21:40.598520",
+    "updated_at": "2026-01-24T14:21:40.598538",
+    "senses": [
+      {
+        "glosses": "[\"drunk; intoxicated; inebriated\"]",
+        "tags": "null",
+        "display_label": null,
+        "examples": "null",
+        "links": "[[\"drunk\", \"drunk\"], [\"intoxicated\", \"intoxicated\"], [\"inebriated\", \"inebriated\"]]",
+        "id": "70d2d86c-4c10-4148-9991-0add49cf443a",
+        "word_id": "a48fad29-b877-4055-8fa7-7bc534fc418c"
+      },
+      {
+        "glosses": "[\"suffering motion sickness\"]",
+        "tags": "null",
+        "display_label": null,
+        "examples": "[{\"text\": \"say t\\u00e0u/xe/s\\u00f3ng\", \"bold_text_offsets\": [[0, 3]], \"translation\": \"trainsick/carsick/seasick\", \"english\": \"trainsick/carsick/seasick\", \"type\": \"example\"}]",
+        "links": "[[\"motion sickness\", \"motion sickness\"]]",
+        "id": "929928ff-48dd-43b1-b3f1-3bf91d21a36d",
+        "word_id": "a48fad29-b877-4055-8fa7-7bc534fc418c"
+      },
+      {
+        "glosses": "[\"engrossed, especially in love\"]",
+        "tags": "[\"literary\"]",
+        "display_label": null,
+        "examples": "[{\"text\": \"say t\\u00ecnh\", \"bold_text_offsets\": [[0, 3]], \"translation\": \"madly in love; enamored\", \"english\": \"madly in love; enamored\", \"type\": \"example\"}]",
+        "links": "[[\"engrossed\", \"engrossed\"]]",
+        "id": "abfc8bd6-e34d-40b3-998a-fcfaf4ef1ddc",
+        "word_id": "a48fad29-b877-4055-8fa7-7bc534fc418c"
+      }
+    ],
+    "sounds": [
+      {
+        "ipa": "[saj˧˧]",
+        "audio_url": null,
+        "ogg_url": null,
+        "mp3_url": null,
+        "tags": "[\"H\\u00e0-N\\u1ed9i\"]",
+        "id": "8969a9b8-b6f5-4dec-aa93-209e1000991d",
+        "word_id": "a48fad29-b877-4055-8fa7-7bc534fc418c"
+      },
+      {
+        "ipa": "[ʂaj˧˧]",
+        "audio_url": null,
+        "ogg_url": null,
+        "mp3_url": null,
+        "tags": "[\"Hu\\u1ebf\"]",
+        "id": "fd80a6ae-2063-4d9d-ac7d-341ac59ad089",
+        "word_id": "a48fad29-b877-4055-8fa7-7bc534fc418c"
+      },
+      {
+        "ipa": "[saj˧˧]",
+        "audio_url": null,
+        "ogg_url": null,
+        "mp3_url": null,
+        "tags": "[\"Hu\\u1ebf\"]",
+        "id": "2cbecdb7-e8d0-4c03-96ab-52852ba11128",
+        "word_id": "a48fad29-b877-4055-8fa7-7bc534fc418c"
+      },
+      {
+        "ipa": "[ʂa(ː)j˧˧]",
+        "audio_url": null,
+        "ogg_url": null,
+        "mp3_url": null,
+        "tags": "null",
+        "id": "5b88b173-302a-4c80-a02a-a62e2ac911bc",
+        "word_id": "a48fad29-b877-4055-8fa7-7bc534fc418c"
+      },
+      {
+        "ipa": "[sa(ː)j˧˧]",
+        "audio_url": null,
+        "ogg_url": null,
+        "mp3_url": null,
+        "tags": "null",
+        "id": "edfbe7e1-f132-4e7c-b7bf-4980d0e0c65d",
+        "word_id": "a48fad29-b877-4055-8fa7-7bc534fc418c"
+      }
+    ],
+    "forms": [
+      {
+        "form": "醝",
+        "tags": "[\"CJK\"]",
+        "id": "d5740794-b580-4c19-9394-e5cc0be7f69c",
+        "word_id": "a48fad29-b877-4055-8fa7-7bc534fc418c"
+      },
+      {
+        "form": "𫑹",
+        "tags": "[\"CJK\"]",
+        "id": "6321c3dd-8127-4d99-a098-5fbcb4327049",
+        "word_id": "a48fad29-b877-4055-8fa7-7bc534fc418c"
+      }
+    ]
+  },
+  {
+    "word": "can",
+    "pos": "noun",
+    "lang_code": "vi",
+    "etymology_text": "Sino-Vietnamese word from 干.",
+    "head_templates": "[{\"name\": \"head\", \"args\": {\"1\": \"vi\", \"2\": \"noun\", \"head\": \"\", \"tr\": \"\", \"3\": \"\", \"4\": \"\"}, \"expansion\": \"can\"}, {\"name\": \"vi-noun\", \"args\": {}, \"expansion\": \"can\"}]",
+    "etymology_templates": "[{\"name\": \"etymid\", \"args\": {\"1\": \"vi\", \"2\": \"\\u5e72\"}, \"expansion\": \"\"}, {\"name\": \"categorize\", \"args\": {\"1\": \"vi\", \"2\": \"Sino-Vietnamese words\"}, \"expansion\": \"\"}, {\"name\": \"vi-etym-sino\", \"args\": {\"1\": \"\\u5e72\"}, \"expansion\": \"Sino-Vietnamese word from \\u5e72\"}]",
+    "id": "06bfe457-9bc4-4f51-864f-551c2df7d59e",
+    "created_at": "2026-01-24T14:21:40.562652",
+    "updated_at": "2026-01-24T14:21:40.562662",
+    "senses": [
+      {
+        "glosses": "[\"ellipsis of Thi\\u00ean Can (\\u201ccelestial stem\\u201d)\"]",
+        "tags": "[\"abbreviation\", \"alt-of\", \"ellipsis\"]",
+        "display_label": null,
+        "examples": "null",
+        "links": "[[\"Thi\\u00ean Can\", \"Thi\\u00ean Can#Vietnamese\"], [\"celestial stem\", \"celestial stem\"]]",
+        "id": "32fd9e39-946b-46de-ab42-3092c0fd4bd8",
+        "word_id": "06bfe457-9bc4-4f51-864f-551c2df7d59e"
+      }
+    ],
+    "sounds": [
+      {
+        "ipa": "[kaːn˧˧]",
+        "audio_url": null,
+        "ogg_url": null,
+        "mp3_url": null,
+        "tags": "[\"H\\u00e0-N\\u1ed9i\"]",
+        "id": "14b715a5-e217-4ba8-b925-a8daa1e5eb1d",
+        "word_id": "06bfe457-9bc4-4f51-864f-551c2df7d59e"
+      },
+      {
+        "ipa": "[kaːŋ˧˧]",
+        "audio_url": null,
+        "ogg_url": null,
+        "mp3_url": null,
+        "tags": "[\"Hu\\u1ebf\"]",
+        "id": "16031a98-e3cf-4186-88e4-15d409af7ac4",
+        "word_id": "06bfe457-9bc4-4f51-864f-551c2df7d59e"
+      },
+      {
+        "ipa": "[kaːŋ˧˧]",
+        "audio_url": null,
+        "ogg_url": null,
+        "mp3_url": null,
+        "tags": "null",
+        "id": "756cdda5-d661-4f38-821c-f8a6cbda7cf4",
+        "word_id": "06bfe457-9bc4-4f51-864f-551c2df7d59e"
+      },
+      {
+        "ipa": null,
+        "audio_url": "https://upload.wikimedia.org/wikipedia/commons/transcoded/3/33/LL-Q9199_%28vie%29-Penn_Zero_MSSJ-can.wav/LL-Q9199_%28vie%29-Penn_Zero_MSSJ-can.wav.mp3",
+        "ogg_url": "https://upload.wikimedia.org/wikipedia/commons/transcoded/3/33/LL-Q9199_%28vie%29-Penn_Zero_MSSJ-can.wav/LL-Q9199_%28vie%29-Penn_Zero_MSSJ-can.wav.ogg",
+        "mp3_url": "https://upload.wikimedia.org/wikipedia/commons/transcoded/3/33/LL-Q9199_%28vie%29-Penn_Zero_MSSJ-can.wav/LL-Q9199_%28vie%29-Penn_Zero_MSSJ-can.wav.mp3",
+        "tags": "null",
+        "id": "fb9fea6e-9397-4546-9fdc-09fab3f6aa05",
+        "word_id": "06bfe457-9bc4-4f51-864f-551c2df7d59e"
+      }
+    ],
+    "forms": []
+  },
+  {
+    "word": "the",
+    "pos": "adj",
+    "lang_code": "vi",
+    "etymology_text": null,
+    "head_templates": "[{\"name\": \"head\", \"args\": {\"1\": \"vi\", \"2\": \"adjective\", \"head\": \"\", \"tr\": \"\\u65bd\", \"3\": \"\", \"4\": \"\", \"5\": \"\", \"6\": \"\", \"7\": \"\", \"8\": \"\"}, \"expansion\": \"the \\u2022 (\\u65bd)\"}, {\"name\": \"vi-adj\", \"args\": {\"1\": \"\\u65bd\"}, \"expansion\": \"the \\u2022 (\\u65bd)\"}]",
+    "etymology_templates": null,
+    "id": "94c904f6-8710-435b-84db-eb9abc3b9389",
+    "created_at": "2026-01-24T14:21:40.556337",
+    "updated_at": "2026-01-24T14:21:40.556350",
+    "senses": [
+      {
+        "glosses": "[\"having a strong and fragrant smell or flavor, usually overlaps with what described as \\\"minty\\\" or \\\"citrusy\\\" in English\"]",
+        "tags": "null",
+        "display_label": null,
+        "examples": "null",
+        "links": "[[\"strong\", \"strong\"], [\"fragrant\", \"fragrant\"], [\"minty\", \"minty\"], [\"citrusy\", \"citrusy\"]]",
+        "id": "1be6e7e4-8749-4b38-a62b-5262456cce14",
+        "word_id": "94c904f6-8710-435b-84db-eb9abc3b9389"
+      }
+    ],
+    "sounds": [
+      {
+        "ipa": "[tʰɛ˧˧]",
+        "audio_url": null,
+        "ogg_url": null,
+        "mp3_url": null,
+        "tags": "[\"H\\u00e0-N\\u1ed9i\"]",
+        "id": "843cbb24-85eb-42c1-9a23-fcc3df1c5233",
+        "word_id": "94c904f6-8710-435b-84db-eb9abc3b9389"
+      },
+      {
+        "ipa": "[tʰɛ˧˧]",
+        "audio_url": null,
+        "ogg_url": null,
+        "mp3_url": null,
+        "tags": "[\"Hu\\u1ebf\"]",
+        "id": "88eb2998-3a17-4f2b-8f7d-ddb2c33063e1",
+        "word_id": "94c904f6-8710-435b-84db-eb9abc3b9389"
+      },
+      {
+        "ipa": "[tʰɛ˧˧]",
+        "audio_url": null,
+        "ogg_url": null,
+        "mp3_url": null,
+        "tags": "null",
+        "id": "693bf8f0-870d-4c76-aa26-10dd3a2e304a",
+        "word_id": "94c904f6-8710-435b-84db-eb9abc3b9389"
+      },
+      {
+        "ipa": null,
+        "audio_url": "https://upload.wikimedia.org/wikipedia/commons/transcoded/b/b1/LL-Q9199_%28vie%29-Penn_Zero_MSSJ-the.wav/LL-Q9199_%28vie%29-Penn_Zero_MSSJ-the.wav.mp3",
+        "ogg_url": "https://upload.wikimedia.org/wikipedia/commons/transcoded/b/b1/LL-Q9199_%28vie%29-Penn_Zero_MSSJ-the.wav/LL-Q9199_%28vie%29-Penn_Zero_MSSJ-the.wav.ogg",
+        "mp3_url": "https://upload.wikimedia.org/wikipedia/commons/transcoded/b/b1/LL-Q9199_%28vie%29-Penn_Zero_MSSJ-the.wav/LL-Q9199_%28vie%29-Penn_Zero_MSSJ-the.wav.mp3",
+        "tags": "null",
+        "id": "680e44b1-4963-40df-92f1-8f9d955f990a",
+        "word_id": "94c904f6-8710-435b-84db-eb9abc3b9389"
+      }
+    ],
+    "forms": [
+      {
+        "form": "施",
+        "tags": "[\"CJK\"]",
+        "id": "497eabb8-22c9-456b-9d2d-afa70f03c692",
+        "word_id": "94c904f6-8710-435b-84db-eb9abc3b9389"
+      }
+    ]
+  },
+  {
+    "word": "may",
+    "pos": "adj",
+    "lang_code": "vi",
+    "etymology_text": "Cognate with Muong Bi măl.",
+    "head_templates": "[{\"name\": \"head\", \"args\": {\"1\": \"vi\", \"2\": \"adjective\", \"head\": \"\", \"tr\": \"\\ud848\\udda7, \\u57cb, \\ud885\\udf3f, \\ud885\\udf41, \\u679a, \\ud843\\udda3\", \"3\": \"\", \"4\": \"\", \"5\": \"\", \"6\": \"\", \"7\": \"\", \"8\": \"\"}, \"expansion\": \"may \\u2022 (\\ud848\\udda7, \\u57cb, \\ud885\\udf3f, \\ud885\\udf41, \\u679a, \\ud843\\udda3)\"}, {\"name\": \"vi-adj\", \"args\": {\"1\": \"\\ud848\\udda7, \\u57cb, \\ud885\\udf3f, \\ud885\\udf41, \\u679a, \\ud843\\udda3\"}, \"expansion\": \"may \\u2022 (\\ud848\\udda7, \\u57cb, \\ud885\\udf3f, \\ud885\\udf41, \\u679a, \\ud843\\udda3)\"}]",
+    "etymology_templates": "[{\"name\": \"cog\", \"args\": {\"1\": \"mtq\", \"2\": \"-\"}, \"expansion\": \"Muong\"}]",
+    "id": "c373c05d-b40d-47ac-87d2-64dac46fc935",
+    "created_at": "2026-01-24T14:21:40.529585",
+    "updated_at": "2026-01-24T14:21:40.529605",
+    "senses": [
+      {
+        "glosses": "[\"lucky\"]",
+        "tags": "null",
+        "display_label": null,
+        "examples": "null",
+        "links": "[[\"lucky\", \"lucky\"]]",
+        "id": "f70c16a8-ad05-4dc0-8beb-47c07a3e0395",
+        "word_id": "c373c05d-b40d-47ac-87d2-64dac46fc935"
+      }
+    ],
+    "sounds": [
+      {
+        "ipa": "[maj˧˧]",
+        "audio_url": null,
+        "ogg_url": null,
+        "mp3_url": null,
+        "tags": "[\"H\\u00e0-N\\u1ed9i\"]",
+        "id": "969b938f-162d-4413-9b3b-787b2e5f70fd",
+        "word_id": "c373c05d-b40d-47ac-87d2-64dac46fc935"
+      },
+      {
+        "ipa": "[maj˧˧]",
+        "audio_url": null,
+        "ogg_url": null,
+        "mp3_url": null,
+        "tags": "[\"Hu\\u1ebf\"]",
+        "id": "7d645573-8236-4d9f-9d0f-f67851f4165c",
+        "word_id": "c373c05d-b40d-47ac-87d2-64dac46fc935"
+      },
+      {
+        "ipa": "[ma(ː)j˧˧]",
+        "audio_url": null,
+        "ogg_url": null,
+        "mp3_url": null,
+        "tags": "null",
+        "id": "be9dc0fb-3e06-4998-ba1c-a56f923ab0e2",
+        "word_id": "c373c05d-b40d-47ac-87d2-64dac46fc935"
+      }
+    ],
+    "forms": [
+      {
+        "form": "𢆧",
+        "tags": "[\"CJK\"]",
+        "id": "dffa946a-ae8f-46c2-b639-cbf3388fbd83",
+        "word_id": "c373c05d-b40d-47ac-87d2-64dac46fc935"
+      },
+      {
+        "form": "埋",
+        "tags": "[\"CJK\"]",
+        "id": "e85e2415-9d0d-4075-82b7-3db744406966",
+        "word_id": "c373c05d-b40d-47ac-87d2-64dac46fc935"
+      },
+      {
+        "form": "𱜿",
+        "tags": "[\"CJK\"]",
+        "id": "cb03f96e-107e-4daf-99e7-c19a7d1922cd",
+        "word_id": "c373c05d-b40d-47ac-87d2-64dac46fc935"
+      },
+      {
+        "form": "𱝁",
+        "tags": "[\"CJK\"]",
+        "id": "9b425efc-c901-4081-87f8-3112896fa465",
+        "word_id": "c373c05d-b40d-47ac-87d2-64dac46fc935"
+      },
+      {
+        "form": "枚",
+        "tags": "[\"CJK\"]",
+        "id": "56a56e22-f2f1-4800-964a-6c81df6e05c3",
+        "word_id": "c373c05d-b40d-47ac-87d2-64dac46fc935"
+      },
+      {
+        "form": "𠶣",
+        "tags": "[\"CJK\"]",
+        "id": "63a4545e-0427-4cf2-85ed-c456d79d373f",
+        "word_id": "c373c05d-b40d-47ac-87d2-64dac46fc935"
+      }
+    ]
+  },
+  {
+    "word": "車",
+    "pos": "character",
+    "lang_code": "vi",
+    "etymology_text": null,
+    "head_templates": null,
+    "etymology_templates": null,
+    "id": "da647d0d-4b96-4b35-9d62-0c02009489b2",
+    "created_at": "2026-01-24T14:21:40.541861",
+    "updated_at": "2026-01-24T14:21:40.541880",
+    "senses": [
+      {
+        "glosses": "[\"a car\"]",
+        "tags": "null",
+        "display_label": null,
+        "examples": "null",
+        "links": "null",
+        "id": "006af4b4-1de0-4ab2-9277-cf1a3d950c05",
+        "word_id": "da647d0d-4b96-4b35-9d62-0c02009489b2"
+      },
+      {
+        "glosses": "[\"any piece labeled with \\u8eca; the chariot/rook.\"]",
+        "tags": "null",
+        "display_label": null,
+        "examples": "null",
+        "links": "[[\"chariot\", \"chariot\"], [\"rook\", \"rook\"]]",
+        "id": "8cafea87-07c6-4d4a-8d1d-c312c4cd5ff2",
+        "word_id": "da647d0d-4b96-4b35-9d62-0c02009489b2"
+      }
+    ],
+    "sounds": [],
+    "forms": [
+      {
+        "form": "xa",
+        "tags": "[\"H\\u00e1n-N\\u00f4m\"]",
+        "id": "5eea1581-5533-43e9-91a2-6782b24a9c49",
+        "word_id": "da647d0d-4b96-4b35-9d62-0c02009489b2"
+      },
+      {
+        "form": "xe",
+        "tags": "[\"H\\u00e1n-N\\u00f4m\"]",
+        "id": "e22db847-92cf-4541-8740-7554a10129c6",
+        "word_id": "da647d0d-4b96-4b35-9d62-0c02009489b2"
+      },
+      {
+        "form": "xế",
+        "tags": "[\"H\\u00e1n-N\\u00f4m\"]",
+        "id": "f1d75f37-ede2-46e1-b9b2-f2ca59684bf4",
+        "word_id": "da647d0d-4b96-4b35-9d62-0c02009489b2"
+      }
+    ]
+  },
+  {
+    "word": "月",
+    "pos": "character",
+    "lang_code": "vi",
+    "etymology_text": null,
+    "head_templates": null,
+    "etymology_templates": null,
+    "id": "374f7206-0a7d-4629-bbd1-ddffe2cfb5c2",
+    "created_at": "2026-01-24T14:21:40.649068",
+    "updated_at": "2026-01-24T14:21:40.649082",
+    "senses": [
+      {
+        "glosses": "[\"ch\\u1eef H\\u00e1n form of nguy\\u1ec7t, ngo\\u1ea1t (\\u201cmoon; month\\u201d)\"]",
+        "tags": "null",
+        "display_label": null,
+        "examples": "null",
+        "links": "[[\"ch\\u1eef H\\u00e1n\", \"ch\\u1eef H\\u00e1n#Vietnamese\"], [\"nguy\\u1ec7t\", \"nguy\\u1ec7t#Vietnamese:_\\u6708\"], [\"ngo\\u1ea1t\", \"ngo\\u1ea1t#Vietnamese:_\\u6708\"], [\"moon\", \"moon\"], [\"month\", \"month\"]]",
+        "id": "cf903cda-bf5d-4ffe-a7b6-e91271af7349",
+        "word_id": "374f7206-0a7d-4629-bbd1-ddffe2cfb5c2"
+      },
+      {
+        "glosses": "[\"ch\\u1eef H\\u00e1n form of nh\\u1ee5c (\\u201calternative form of \\u8089 (\\u201cmeat radical\\u201d)\\u201d)\"]",
+        "tags": "null",
+        "display_label": null,
+        "examples": "null",
+        "links": "[[\"ch\\u1eef H\\u00e1n\", \"ch\\u1eef H\\u00e1n#Vietnamese\"], [\"nh\\u1ee5c\", \"nh\\u1ee5c#Vietnamese:_\\u6708\"], [\"\\u8089\", \"\\u8089#Vietnamese\"], [\"meat\", \"meat\"], [\"radical\", \"radical\"]]",
+        "id": "2e01719d-f68f-45fc-bf22-3315ce073cc8",
+        "word_id": "374f7206-0a7d-4629-bbd1-ddffe2cfb5c2"
+      }
+    ],
+    "sounds": [],
+    "forms": []
+  },
+  {
+    "word": "vi",
+    "pos": "romanization",
+    "lang_code": "vi",
+    "etymology_text": null,
+    "head_templates": "[{\"name\": \"head\", \"args\": {\"1\": \"vi\", \"2\": \"romanization\"}, \"expansion\": \"vi\"}]",
+    "etymology_templates": null,
+    "id": "585c3a45-c167-44c3-91f3-1deed484ad5c",
+    "created_at": "2026-01-24T14:21:40.613670",
+    "updated_at": "2026-01-24T14:21:40.613689",
+    "senses": [
+      {
+        "glosses": "[\"Sino-Vietnamese reading of \\u7232\"]",
+        "tags": "[\"romanization\"]",
+        "display_label": null,
+        "examples": "null",
+        "links": "[[\"Sino-Vietnamese\", \"Sino-Vietnamese\"], [\"\\u7232\", \"\\u7232#Vietnamese\"]]",
+        "id": "8eb4406a-f8e9-4447-890e-dfd15ddd4464",
+        "word_id": "585c3a45-c167-44c3-91f3-1deed484ad5c"
+      }
+    ],
+    "sounds": [
+      {
+        "ipa": "[vi˧˧]",
+        "audio_url": null,
+        "ogg_url": null,
+        "mp3_url": null,
+        "tags": "[\"H\\u00e0-N\\u1ed9i\"]",
+        "id": "1bc0806a-6ba8-4b3b-9ed0-38436d2f698c",
+        "word_id": "585c3a45-c167-44c3-91f3-1deed484ad5c"
+      },
+      {
+        "ipa": "[vɪj˧˧]",
+        "audio_url": null,
+        "ogg_url": null,
+        "mp3_url": null,
+        "tags": "[\"Hu\\u1ebf\"]",
+        "id": "71dc7462-5072-47f5-b7ba-0f2c7268797f",
+        "word_id": "585c3a45-c167-44c3-91f3-1deed484ad5c"
+      },
+      {
+        "ipa": "[vɪj˧˧]",
+        "audio_url": null,
+        "ogg_url": null,
+        "mp3_url": null,
+        "tags": "null",
+        "id": "e342933c-a500-40d9-878a-3d3ee115bc8e",
+        "word_id": "585c3a45-c167-44c3-91f3-1deed484ad5c"
+      },
+      {
+        "ipa": "[jɪj˧˧]",
+        "audio_url": null,
+        "ogg_url": null,
+        "mp3_url": null,
+        "tags": "null",
+        "id": "0897447b-19a6-4b6f-a02f-d6817924038a",
+        "word_id": "585c3a45-c167-44c3-91f3-1deed484ad5c"
+      },
+      {
+        "ipa": null,
+        "audio_url": "https://upload.wikimedia.org/wikipedia/commons/transcoded/e/ed/LL-Q9199_%28vie%29-Penn_Zero_MSSJ-vi.wav/LL-Q9199_%28vie%29-Penn_Zero_MSSJ-vi.wav.mp3",
+        "ogg_url": "https://upload.wikimedia.org/wikipedia/commons/transcoded/e/ed/LL-Q9199_%28vie%29-Penn_Zero_MSSJ-vi.wav/LL-Q9199_%28vie%29-Penn_Zero_MSSJ-vi.wav.ogg",
+        "mp3_url": "https://upload.wikimedia.org/wikipedia/commons/transcoded/e/ed/LL-Q9199_%28vie%29-Penn_Zero_MSSJ-vi.wav/LL-Q9199_%28vie%29-Penn_Zero_MSSJ-vi.wav.mp3",
+        "tags": "null",
+        "id": "edd17f18-99b5-465f-b4c3-9b35e935f556",
+        "word_id": "585c3a45-c167-44c3-91f3-1deed484ad5c"
+      }
+    ],
+    "forms": []
+  },
+  {
+    "word": "koala",
+    "pos": "noun",
+    "lang_code": "vi",
+    "etymology_text": null,
+    "head_templates": "[{\"name\": \"head\", \"args\": {\"1\": \"vi\", \"2\": \"noun\"}, \"expansion\": \"koala\"}]",
+    "etymology_templates": null,
+    "id": "d4688ab0-8231-48e7-93ed-c4de21c5e7b2",
+    "created_at": "2026-01-24T14:21:40.629826",
+    "updated_at": "2026-01-24T14:21:40.629837",
+    "senses": [
+      {
+        "glosses": "[\"koala\"]",
+        "tags": "null",
+        "display_label": null,
+        "examples": "null",
+        "links": "[[\"koala\", \"#English\"]]",
+        "id": "07bb283c-e4c7-4dde-bc09-8af76621f4e8",
+        "word_id": "d4688ab0-8231-48e7-93ed-c4de21c5e7b2"
+      }
+    ],
+    "sounds": [
+      {
+        "ipa": "[ko˧˧ ʔaː˧˧ laː˧˧]",
+        "audio_url": null,
+        "ogg_url": null,
+        "mp3_url": null,
+        "tags": "[\"H\\u00e0-N\\u1ed9i\"]",
+        "id": "44f2cdb6-cdca-4f43-bdee-d84a799c7ff4",
+        "word_id": "d4688ab0-8231-48e7-93ed-c4de21c5e7b2"
+      },
+      {
+        "ipa": "[kow˧˧ ʔaː˧˧ laː˧˧]",
+        "audio_url": null,
+        "ogg_url": null,
+        "mp3_url": null,
+        "tags": "[\"Hu\\u1ebf\"]",
+        "id": "2c46bfcc-b5e4-48ba-ae9d-e3ca6b191158",
+        "word_id": "d4688ab0-8231-48e7-93ed-c4de21c5e7b2"
+      },
+      {
+        "ipa": "[kow˧˧ ʔaː˧˧ laː˧˧]",
+        "audio_url": null,
+        "ogg_url": null,
+        "mp3_url": null,
+        "tags": "null",
+        "id": "f56541df-4d3a-498f-ac55-85f4df6df8d3",
+        "word_id": "d4688ab0-8231-48e7-93ed-c4de21c5e7b2"
+      }
+    ],
+    "forms": []
+  },
+  {
+    "word": "may",
+    "pos": "noun",
+    "lang_code": "vi",
+    "etymology_text": null,
+    "head_templates": "[{\"name\": \"head\", \"args\": {\"1\": \"vi\", \"2\": \"noun\", \"head\": \"\", \"tr\": \"\\u57cb, \\u679a\", \"3\": \"\", \"4\": \"\"}, \"expansion\": \"may \\u2022 (\\u57cb, \\u679a)\"}, {\"name\": \"vi-noun\", \"args\": {\"1\": \"\\u57cb, \\u679a\"}, \"expansion\": \"may \\u2022 (\\u57cb, \\u679a)\"}]",
+    "etymology_templates": null,
+    "id": "bcbff8c9-69aa-4508-99f5-b064f34ae2db",
+    "created_at": "2026-01-24T14:21:40.531578",
+    "updated_at": "2026-01-24T14:21:40.531600",
+    "senses": [
+      {
+        "glosses": "[\"a cold breeze\"]",
+        "tags": "[\"rare\"]",
+        "display_label": null,
+        "examples": "null",
+        "links": "[[\"breeze\", \"breeze\"]]",
+        "id": "e36fb242-e259-4763-b21d-f624630ec727",
+        "word_id": "bcbff8c9-69aa-4508-99f5-b064f34ae2db"
+      }
+    ],
+    "sounds": [
+      {
+        "ipa": "[maj˧˧]",
+        "audio_url": null,
+        "ogg_url": null,
+        "mp3_url": null,
+        "tags": "[\"H\\u00e0-N\\u1ed9i\"]",
+        "id": "71e6de71-74a0-4e76-bbcb-31894e5cd6c7",
+        "word_id": "bcbff8c9-69aa-4508-99f5-b064f34ae2db"
+      },
+      {
+        "ipa": "[maj˧˧]",
+        "audio_url": null,
+        "ogg_url": null,
+        "mp3_url": null,
+        "tags": "[\"Hu\\u1ebf\"]",
+        "id": "46cdd6a0-c810-4c78-a9a9-34fc5f71d5ed",
+        "word_id": "bcbff8c9-69aa-4508-99f5-b064f34ae2db"
+      },
+      {
+        "ipa": "[ma(ː)j˧˧]",
+        "audio_url": null,
+        "ogg_url": null,
+        "mp3_url": null,
+        "tags": "null",
+        "id": "3fabe52d-27b0-4f19-94e3-af84fe4d8371",
+        "word_id": "bcbff8c9-69aa-4508-99f5-b064f34ae2db"
+      }
+    ],
+    "forms": [
+      {
+        "form": "埋",
+        "tags": "[\"CJK\"]",
+        "id": "6ce24fe4-f11d-48d2-9e0e-29114fdd19e3",
+        "word_id": "bcbff8c9-69aa-4508-99f5-b064f34ae2db"
+      },
+      {
+        "form": "枚",
+        "tags": "[\"CJK\"]",
+        "id": "d9cfe0bf-d743-483b-9dac-f03cddaf7c5a",
+        "word_id": "bcbff8c9-69aa-4508-99f5-b064f34ae2db"
+      }
+    ]
+  },
+  {
+    "word": "be",
+    "pos": "intj",
+    "lang_code": "vi",
+    "etymology_text": "Onomatopoeic",
+    "head_templates": "[{\"name\": \"head\", \"args\": {\"1\": \"vi\", \"2\": \"interjection\", \"head\": \"\", \"tr\": \"\\ud843\\udefb, \\ud843\\udfa6\"}, \"expansion\": \"be \\u2022 (\\ud843\\udefb, \\ud843\\udfa6)\"}, {\"name\": \"vi-int\", \"args\": {\"1\": \"\\ud843\\udefb, \\ud843\\udfa6\"}, \"expansion\": \"be \\u2022 (\\ud843\\udefb, \\ud843\\udfa6)\"}]",
+    "etymology_templates": null,
+    "id": "631d809e-b6bd-4793-b151-612b30ce5d2f",
+    "created_at": "2026-01-24T14:21:40.588025",
+    "updated_at": "2026-01-24T14:21:40.588042",
+    "senses": [
+      {
+        "glosses": "[\"bleat; baa\"]",
+        "tags": "[\"onomatopoeic\"]",
+        "display_label": null,
+        "examples": "null",
+        "links": "[[\"bleat\", \"bleat\"], [\"baa\", \"baa\"]]",
+        "id": "5b59a73b-6519-4776-ba16-bdd3d89af833",
+        "word_id": "631d809e-b6bd-4793-b151-612b30ce5d2f"
+      }
+    ],
+    "sounds": [
+      {
+        "ipa": "[ʔɓɛ˧˧]",
+        "audio_url": null,
+        "ogg_url": null,
+        "mp3_url": null,
+        "tags": "[\"H\\u00e0-N\\u1ed9i\"]",
+        "id": "3b5c4c00-4709-4e9a-868b-762535f822bc",
+        "word_id": "631d809e-b6bd-4793-b151-612b30ce5d2f"
+      },
+      {
+        "ipa": "[ʔɓɛ˧˧]",
+        "audio_url": null,
+        "ogg_url": null,
+        "mp3_url": null,
+        "tags": "[\"Hu\\u1ebf\"]",
+        "id": "a9fa5e78-b07c-4091-ba05-063558493b29",
+        "word_id": "631d809e-b6bd-4793-b151-612b30ce5d2f"
+      },
+      {
+        "ipa": "[ʔɓɛ˧˧]",
+        "audio_url": null,
+        "ogg_url": null,
+        "mp3_url": null,
+        "tags": "null",
+        "id": "a4bd57c7-df9b-4c87-8919-7bc1208a90d4",
+        "word_id": "631d809e-b6bd-4793-b151-612b30ce5d2f"
+      }
+    ],
+    "forms": [
+      {
+        "form": "𠻻",
+        "tags": "[\"CJK\"]",
+        "id": "a095a758-aaae-4828-a833-df2879c806d3",
+        "word_id": "631d809e-b6bd-4793-b151-612b30ce5d2f"
+      },
+      {
+        "form": "𠾦",
+        "tags": "[\"CJK\"]",
+        "id": "cf99dc8f-0854-4678-84c8-34a4ea81a503",
+        "word_id": "631d809e-b6bd-4793-b151-612b30ce5d2f"
+      }
+    ]
+  },
+  {
+    "word": "vi",
+    "pos": "noun",
+    "lang_code": "vi",
+    "etymology_text": null,
+    "head_templates": "[{\"name\": \"head\", \"args\": {\"1\": \"vi\", \"2\": \"noun\", \"head\": \"\", \"tr\": \"\", \"3\": \"\", \"4\": \"\"}, \"expansion\": \"vi\"}, {\"name\": \"vi-noun\", \"args\": {\"cls\": \"c\\u00e1i\"}, \"expansion\": \"(classifier c\\u00e1i) vi\"}]",
+    "etymology_templates": null,
+    "id": "8d7cd257-f825-4c7c-8e1d-00df453f756d",
+    "created_at": "2026-01-24T14:21:40.610979",
+    "updated_at": "2026-01-24T14:21:40.610993",
+    "senses": [
+      {
+        "glosses": "[\"alternative form of v\\u00e2y (\\u201cfin\\u201d)\"]",
+        "tags": "[\"alt-of\", \"alternative\", \"especially\"]",
+        "display_label": null,
+        "examples": "[{\"text\": \"b\\u00e0o ng\\u01b0 vi c\\u00e1\", \"bold_text_offsets\": [[8, 10]], \"translation\": \"abalones and shark fins\", \"english\": \"abalones and shark fins\", \"type\": \"example\"}]",
+        "links": "[[\"anatomy\", \"anatomy\"], [\"v\\u00e2y\", \"v\\u00e2y#Vietnamese\"]]",
+        "id": "9e257d72-2f6b-4f49-b577-7844528f1065",
+        "word_id": "8d7cd257-f825-4c7c-8e1d-00df453f756d"
+      }
+    ],
+    "sounds": [
+      {
+        "ipa": "[vi˧˧]",
+        "audio_url": null,
+        "ogg_url": null,
+        "mp3_url": null,
+        "tags": "[\"H\\u00e0-N\\u1ed9i\"]",
+        "id": "b71e244a-41d8-47c7-8a3d-4852e0ab3e0c",
+        "word_id": "8d7cd257-f825-4c7c-8e1d-00df453f756d"
+      },
+      {
+        "ipa": "[vɪj˧˧]",
+        "audio_url": null,
+        "ogg_url": null,
+        "mp3_url": null,
+        "tags": "[\"Hu\\u1ebf\"]",
+        "id": "06ebf6df-ae68-41e4-bcb1-90f923f9955d",
+        "word_id": "8d7cd257-f825-4c7c-8e1d-00df453f756d"
+      },
+      {
+        "ipa": "[vɪj˧˧]",
+        "audio_url": null,
+        "ogg_url": null,
+        "mp3_url": null,
+        "tags": "null",
+        "id": "d7a071a7-1f06-4afb-a2cb-9c0fc313a7b9",
+        "word_id": "8d7cd257-f825-4c7c-8e1d-00df453f756d"
+      },
+      {
+        "ipa": "[jɪj˧˧]",
+        "audio_url": null,
+        "ogg_url": null,
+        "mp3_url": null,
+        "tags": "null",
+        "id": "dbfe9e96-c5b1-4f7d-ba85-a97215fd7510",
+        "word_id": "8d7cd257-f825-4c7c-8e1d-00df453f756d"
+      },
+      {
+        "ipa": null,
+        "audio_url": "https://upload.wikimedia.org/wikipedia/commons/transcoded/e/ed/LL-Q9199_%28vie%29-Penn_Zero_MSSJ-vi.wav/LL-Q9199_%28vie%29-Penn_Zero_MSSJ-vi.wav.mp3",
+        "ogg_url": "https://upload.wikimedia.org/wikipedia/commons/transcoded/e/ed/LL-Q9199_%28vie%29-Penn_Zero_MSSJ-vi.wav/LL-Q9199_%28vie%29-Penn_Zero_MSSJ-vi.wav.ogg",
+        "mp3_url": "https://upload.wikimedia.org/wikipedia/commons/transcoded/e/ed/LL-Q9199_%28vie%29-Penn_Zero_MSSJ-vi.wav/LL-Q9199_%28vie%29-Penn_Zero_MSSJ-vi.wav.mp3",
+        "tags": "null",
+        "id": "68da4e15-4c72-4f9b-9240-4117feb47e70",
+        "word_id": "8d7cd257-f825-4c7c-8e1d-00df453f756d"
+      }
+    ],
+    "forms": [
+      {
+        "form": "cái",
+        "tags": "[\"classifier\"]",
+        "id": "4d9876a4-87d1-4c47-bb9a-38cc5ab4760f",
+        "word_id": "8d7cd257-f825-4c7c-8e1d-00df453f756d"
+      }
+    ]
+  },
+  {
+    "word": "犬",
+    "pos": "character",
+    "lang_code": "vi",
+    "etymology_text": null,
+    "head_templates": null,
+    "etymology_templates": null,
+    "id": "9858cedd-7c33-495f-beae-f82c607fc404",
+    "created_at": "2026-01-24T14:21:40.534559",
+    "updated_at": "2026-01-24T14:21:40.534578",
+    "senses": [
+      {
+        "glosses": "[\"ch\\u1eef N\\u00f4m form of ch\\u00f3 (\\u201cdog\\u201d)\"]",
+        "tags": "null",
+        "display_label": null,
+        "examples": "null",
+        "links": "[[\"ch\\u1eef N\\u00f4m\", \"ch\\u1eef N\\u00f4m#Vietnamese\"], [\"ch\\u00f3\", \"ch\\u00f3#Vietnamese\"], [\"dog\", \"dog\"]]",
+        "id": "dbeb7f94-6d8d-4894-8656-240a1388c6bc",
+        "word_id": "9858cedd-7c33-495f-beae-f82c607fc404"
+      }
+    ],
+    "sounds": [],
+    "forms": []
+  },
+  {
+    "word": "qua",
+    "pos": "pron",
+    "lang_code": "vi",
+    "etymology_text": "Non-Sino-Vietnamese reading of Chinese 我 (SV: ngã); borrowed from a Sinitic variety with denasalization.",
+    "head_templates": "[{\"name\": \"head\", \"args\": {\"1\": \"vi\", \"2\": \"pronoun\", \"head\": \"\", \"tr\": \"\"}, \"expansion\": \"qua\"}, {\"name\": \"vi-pronoun\", \"args\": {}, \"expansion\": \"qua\"}]",
+    "etymology_templates": "[{\"name\": \"etymid\", \"args\": {\"1\": \"vi\", \"2\": \"\\u6211\"}, \"expansion\": \"\"}, {\"name\": \"yesno\", \"args\": {\"1\": \"\", \"2\": \"a\", \"3\": \"A\"}, \"expansion\": \"A\"}, {\"name\": \"yesno\", \"args\": {\"1\": \"\", \"2\": \"n\", \"3\": \"N\"}, \"expansion\": \"N\"}, {\"name\": \"der\", \"args\": {\"1\": \"vi\", \"2\": \"zh\", \"3\": \"\\u6211//\", \"t\": \"\", \"tr\": \"-\", \"pos\": \"SV: <i class=\\\"Latn mention\\\" lang=\\\"vi\\\">ng\\u00e3</i>\"}, \"expansion\": \"Chinese \\u6211 (SV: ng\\u00e3)\"}, {\"name\": \"vi-etym-sino\", \"args\": {\"1\": \"\\u6211\", \"hv\": \"n\", \"2\": \"\", \"3\": \"ng\\u00e3\"}, \"expansion\": \"Non-Sino-Vietnamese reading of Chinese \\u6211 (SV: ng\\u00e3)\"}]",
+    "id": "3a3c04ae-daa8-4054-924b-4e9908c49c6e",
+    "created_at": "2026-01-24T14:21:40.642663",
+    "updated_at": "2026-01-24T14:21:40.642687",
+    "senses": [
+      {
+        "glosses": "[\"I; me\"]",
+        "tags": "[\"Southern\", \"Vietnam\", \"archaic\"]",
+        "display_label": null,
+        "examples": "[{\"text\": \"H\\u00f4m qua qua b\\u1ea3o qua qua m\\u00e0 qua kh\\u00f4ng qua. H\\u00f4m nay qua kh\\u00f4ng b\\u1ea3o qua qua m\\u00e0 qua l\\u1ea1i qua.\", \"bold_text_offsets\": [[4, 7], [8, 11], [16, 19], [20, 23], [27, 30], [37, 40], [50, 53], [64, 67], [68, 71], [75, 78], [83, 86]], \"translation\": \"Yesterday ah said ah'd cuhm over but ah ain't cuhm. Today ah ain't say ah'd cuhm over but ah came.\", \"english\": \"Yesterday ah said ah'd cuhm over but ah ain't cuhm. Today ah ain't say ah'd cuhm over but ah came.\", \"type\": \"example\"}, {\"text\": \"Qua \\u0111\\u00e3 n\\u00f3i v\\u1edbi b\\u1eadu, nh\\u01b0ng b\\u1eadu ch\\u1eb3ng nghe.\", \"bold_text_offsets\": [[0, 3]], \"translation\": \"Ah told ya but ya wouldn\\u2019t listen.\", \"english\": \"Ah told ya but ya wouldn\\u2019t listen.\", \"bold_translation_offsets\": [[0, 2]], \"type\": \"example\"}]",
+        "links": "[[\"I\", \"I\"], [\"me\", \"me\"]]",
+        "id": "72a216f2-2032-470f-8b48-2ea3660821d0",
+        "word_id": "3a3c04ae-daa8-4054-924b-4e9908c49c6e"
+      }
+    ],
+    "sounds": [
+      {
+        "ipa": "[kwaː˧˧]",
+        "audio_url": null,
+        "ogg_url": null,
+        "mp3_url": null,
+        "tags": "[\"H\\u00e0-N\\u1ed9i\"]",
+        "id": "5b0608d6-3f8e-4e78-a073-608b8fb86dc8",
+        "word_id": "3a3c04ae-daa8-4054-924b-4e9908c49c6e"
+      },
+      {
+        "ipa": "[kwaː˧˧]",
+        "audio_url": null,
+        "ogg_url": null,
+        "mp3_url": null,
+        "tags": "[\"Hu\\u1ebf\"]",
+        "id": "d3807742-9d72-44b1-af10-01be686b78a2",
+        "word_id": "3a3c04ae-daa8-4054-924b-4e9908c49c6e"
+      },
+      {
+        "ipa": "[waː˧˧]",
+        "audio_url": null,
+        "ogg_url": null,
+        "mp3_url": null,
+        "tags": "null",
+        "id": "0cba7259-f2f6-44be-9b30-b2e546c0ffe2",
+        "word_id": "3a3c04ae-daa8-4054-924b-4e9908c49c6e"
+      },
+      {
+        "ipa": null,
+        "audio_url": "https://upload.wikimedia.org/wikipedia/commons/transcoded/f/f5/LL-Q9199_%28vie%29-Penn_Zero_MSSJ-qua.wav/LL-Q9199_%28vie%29-Penn_Zero_MSSJ-qua.wav.mp3",
+        "ogg_url": "https://upload.wikimedia.org/wikipedia/commons/transcoded/f/f5/LL-Q9199_%28vie%29-Penn_Zero_MSSJ-qua.wav/LL-Q9199_%28vie%29-Penn_Zero_MSSJ-qua.wav.ogg",
+        "mp3_url": "https://upload.wikimedia.org/wikipedia/commons/transcoded/f/f5/LL-Q9199_%28vie%29-Penn_Zero_MSSJ-qua.wav/LL-Q9199_%28vie%29-Penn_Zero_MSSJ-qua.wav.mp3",
+        "tags": "null",
+        "id": "1e906695-c347-41f5-b8be-81aa0a98f4ef",
+        "word_id": "3a3c04ae-daa8-4054-924b-4e9908c49c6e"
+      },
+      {
+        "ipa": null,
+        "audio_url": "https://upload.wikimedia.org/wikipedia/commons/transcoded/2/26/LL-Q9199_%28vie%29-Jessica_Nguyen_%28Pamputt%29-qua.wav/LL-Q9199_%28vie%29-Jessica_Nguyen_%28Pamputt%29-qua.wav.mp3",
+        "ogg_url": "https://upload.wikimedia.org/wikipedia/commons/transcoded/2/26/LL-Q9199_%28vie%29-Jessica_Nguyen_%28Pamputt%29-qua.wav/LL-Q9199_%28vie%29-Jessica_Nguyen_%28Pamputt%29-qua.wav.ogg",
+        "mp3_url": "https://upload.wikimedia.org/wikipedia/commons/transcoded/2/26/LL-Q9199_%28vie%29-Jessica_Nguyen_%28Pamputt%29-qua.wav/LL-Q9199_%28vie%29-Jessica_Nguyen_%28Pamputt%29-qua.wav.mp3",
+        "tags": "null",
+        "id": "e17746a3-64c7-41c8-b3c6-8aa7d049b00b",
+        "word_id": "3a3c04ae-daa8-4054-924b-4e9908c49c6e"
+      }
+    ],
+    "forms": []
+  },
+  {
+    "word": "an",
+    "pos": "adj",
+    "lang_code": "vi",
+    "etymology_text": "Sino-Vietnamese word from 安 (“tranquil”). The character can also be read as yên, a form of probable Northern origin.",
+    "head_templates": "[{\"name\": \"head\", \"args\": {\"1\": \"vi\", \"2\": \"adjective\", \"head\": \"\", \"tr\": \"\", \"3\": \"\", \"4\": \"\", \"5\": \"\", \"6\": \"\", \"7\": \"\", \"8\": \"\"}, \"expansion\": \"an\"}, {\"name\": \"vi-adj\", \"args\": {}, \"expansion\": \"an\"}]",
+    "etymology_templates": "[{\"name\": \"etymid\", \"args\": {\"1\": \"vi\", \"2\": \"\\u5b89\"}, \"expansion\": \"\"}, {\"name\": \"categorize\", \"args\": {\"1\": \"vi\", \"2\": \"Sino-Vietnamese words\"}, \"expansion\": \"\"}, {\"name\": \"vi-etym-sino\", \"args\": {\"1\": \"\\u5b89\", \"2\": \"tranquil\"}, \"expansion\": \"Sino-Vietnamese word from \\u5b89 (\\u201ctranquil\\u201d)\"}]",
+    "id": "2c5cf540-b5a1-472f-94d6-32ad951d3eda",
+    "created_at": "2026-01-24T14:21:40.628334",
+    "updated_at": "2026-01-24T14:21:40.628346",
+    "senses": [
+      {
+        "glosses": "[\"calm; peaceful; comfortable; at ease; safe\"]",
+        "tags": "[\"in-compounds\"]",
+        "display_label": null,
+        "examples": "null",
+        "links": "[[\"calm\", \"calm\"], [\"peaceful\", \"peaceful\"], [\"comfortable\", \"comfortable\"], [\"at ease\", \"at ease\"], [\"safe\", \"safe\"]]",
+        "id": "44af66a7-6fcf-4a28-8a0c-56d687746a60",
+        "word_id": "2c5cf540-b5a1-472f-94d6-32ad951d3eda"
+      }
+    ],
+    "sounds": [
+      {
+        "ipa": "[ʔaːn˧˧]",
+        "audio_url": null,
+        "ogg_url": null,
+        "mp3_url": null,
+        "tags": "[\"H\\u00e0-N\\u1ed9i\"]",
+        "id": "a7cde35c-99b4-419b-bd18-b26f03160422",
+        "word_id": "2c5cf540-b5a1-472f-94d6-32ad951d3eda"
+      },
+      {
+        "ipa": "[ʔaːŋ˧˧]",
+        "audio_url": null,
+        "ogg_url": null,
+        "mp3_url": null,
+        "tags": "[\"Hu\\u1ebf\"]",
+        "id": "72acaa92-6ad0-47bd-a8be-c915f11c6420",
+        "word_id": "2c5cf540-b5a1-472f-94d6-32ad951d3eda"
+      },
+      {
+        "ipa": "[ʔaːŋ˧˧]",
+        "audio_url": null,
+        "ogg_url": null,
+        "mp3_url": null,
+        "tags": "null",
+        "id": "2fd25e65-82b5-4364-9b13-2ebe9d65f74c",
+        "word_id": "2c5cf540-b5a1-472f-94d6-32ad951d3eda"
+      }
+    ],
+    "forms": []
+  },
+  {
+    "word": "hot",
+    "pos": "adj",
+    "lang_code": "vi",
+    "etymology_text": "From English hot.",
+    "head_templates": "[{\"name\": \"head\", \"args\": {\"1\": \"vi\", \"2\": \"adjective\", \"head\": \"\", \"tr\": \"\", \"3\": \"\", \"4\": \"\", \"5\": \"\", \"6\": \"\", \"7\": \"\", \"8\": \"\"}, \"expansion\": \"hot\"}, {\"name\": \"vi-adj\", \"args\": {}, \"expansion\": \"hot\"}]",
+    "etymology_templates": "[{\"name\": \"bor\", \"args\": {\"1\": \"vi\", \"2\": \"en\", \"3\": \"hot\"}, \"expansion\": \"English hot\"}]",
+    "id": "b3fe9a34-cde0-4f35-b270-625ff2c3c77a",
+    "created_at": "2026-01-24T14:21:40.657778",
+    "updated_at": "2026-01-24T14:21:40.657791",
+    "senses": [
+      {
+        "glosses": "[\"hot (popular; of great current interest)\"]",
+        "tags": "null",
+        "display_label": null,
+        "examples": "[{\"text\": \"Nghe b\\u1ea3o trend n\\u00e0y \\u0111ang hot.\", \"bold_text_offsets\": [[24, 27]], \"translation\": \"I heard people say that this trend is hot right now.\", \"english\": \"I heard people say that this trend is hot right now.\", \"bold_translation_offsets\": [[38, 41]], \"type\": \"example\"}]",
+        "links": "[[\"hot\", \"hot#English\"]]",
+        "id": "e7ff2f54-6235-47dc-9aa1-ee9c647af2be",
+        "word_id": "b3fe9a34-cde0-4f35-b270-625ff2c3c77a"
+      }
+    ],
+    "sounds": [
+      {
+        "ipa": "[hɔt̚˧˦]",
+        "audio_url": null,
+        "ogg_url": null,
+        "mp3_url": null,
+        "tags": "[\"H\\u00e0-N\\u1ed9i\"]",
+        "id": "9312b43d-0bdf-40f5-bc6e-dcaec4f8e601",
+        "word_id": "b3fe9a34-cde0-4f35-b270-625ff2c3c77a"
+      },
+      {
+        "ipa": "[hɔk̚˦˧˥]",
+        "audio_url": null,
+        "ogg_url": null,
+        "mp3_url": null,
+        "tags": "[\"Hu\\u1ebf\"]",
+        "id": "4f52a8b0-8420-48b1-b20b-36eb0fbf8d42",
+        "word_id": "b3fe9a34-cde0-4f35-b270-625ff2c3c77a"
+      },
+      {
+        "ipa": "[hɔk̚˦˥]",
+        "audio_url": null,
+        "ogg_url": null,
+        "mp3_url": null,
+        "tags": "null",
+        "id": "e26a194b-c385-4b88-acfc-63bd9b1fbcfa",
+        "word_id": "b3fe9a34-cde0-4f35-b270-625ff2c3c77a"
+      }
+    ],
+    "forms": []
+  },
+  {
+    "word": "ao",
+    "pos": "noun",
+    "lang_code": "vi",
+    "etymology_text": "Non-Sino-Vietnamese reading of Chinese 澳 (“bay, inlet”, SV: áo). Compare Thai อ่าว (àao), Khmer អាវ (ʼaaw).",
+    "head_templates": "[{\"name\": \"head\", \"args\": {\"1\": \"vi\", \"2\": \"noun\", \"head\": \"\", \"tr\": \"\\u362d, \\u5773, \\u6cd1, \\ud86b\\udd72, \\ud870\\uddda\", \"3\": \"\", \"4\": \"\"}, \"expansion\": \"ao \\u2022 (\\u362d, \\u5773, \\u6cd1, \\ud86b\\udd72, \\ud870\\uddda)\"}, {\"name\": \"vi-noun\", \"args\": {\"1\": \"\\u362d, \\u5773, \\u6cd1, \\ud86b\\udd72, \\ud870\\uddda\", \"cls\": \"c\\u00e1i\"}, \"expansion\": \"(classifier c\\u00e1i) ao \\u2022 (\\u362d, \\u5773, \\u6cd1, \\ud86b\\udd72, \\ud870\\uddda)\"}]",
+    "etymology_templates": "[{\"name\": \"etymid\", \"args\": {\"1\": \"vi\", \"2\": \"\\u6fb3\"}, \"expansion\": \"\"}, {\"name\": \"yesno\", \"args\": {\"1\": \"\", \"2\": \"a\", \"3\": \"A\"}, \"expansion\": \"A\"}, {\"name\": \"yesno\", \"args\": {\"1\": \"\", \"2\": \"n\", \"3\": \"N\"}, \"expansion\": \"N\"}, {\"name\": \"der\", \"args\": {\"1\": \"vi\", \"2\": \"zh\", \"3\": \"\\u6fb3//\", \"t\": \"bay, inlet\", \"tr\": \"-\", \"pos\": \"SV: <i class=\\\"Latn mention\\\" lang=\\\"vi\\\">\\u00e1o</i>\"}, \"expansion\": \"Chinese \\u6fb3 (\\u201cbay, inlet\\u201d, SV: \\u00e1o)\"}, {\"name\": \"vi-etym-sino\", \"args\": {\"1\": \"\\u6fb3\", \"2\": \"bay, inlet\", \"hv\": \"n\", \"3\": \"\\u00e1o\"}, \"expansion\": \"Non-Sino-Vietnamese reading of Chinese \\u6fb3 (\\u201cbay, inlet\\u201d, SV: \\u00e1o)\"}, {\"name\": \"cog\", \"args\": {\"1\": \"th\", \"2\": \"\\u0e2d\\u0e48\\u0e32\\u0e27\"}, \"expansion\": \"Thai \\u0e2d\\u0e48\\u0e32\\u0e27 (\\u00e0ao)\"}, {\"name\": \"cog\", \"args\": {\"1\": \"km\", \"2\": \"\\u17a2\\u17b6\\u179c\"}, \"expansion\": \"Khmer \\u17a2\\u17b6\\u179c (\\u02bcaaw)\"}]",
+    "id": "d42cb04f-559f-4e39-86e6-d8850f928ff2",
+    "created_at": "2026-01-24T14:21:40.622741",
+    "updated_at": "2026-01-24T14:21:40.622756",
+    "senses": [
+      {
+        "glosses": "[\"pond\"]",
+        "tags": "null",
+        "display_label": null,
+        "examples": "[{\"text\": \"Nguy\\u1ec5n Khuy\\u1ebfn, \\\"Thu \\u0111i\\u1ebfu (Autumn Fishing)\\\"\\nAo thu l\\u1ea1nh l\\u1ebdo; nu\\u1edbc trong veo;\\nM\\u1ed9t chi\\u1ebfc thuy\\u1ec1n c\\u00e2u b\\u00e9 t\\u1ebbo teo;\\nThe cold autumn pond; the clear water;\\nA tiny, itsy-bitsy, fishing boat;\"}, {\"text\": \"1686 Matsuo Bash\\u014d, Haru no Hi, \\\"No. 41\\\"; 2007 Vietnamese translation by Nh\\u1eadt Chi\\u00eau; English translation by Reginald Horace Blyth\\nAo c\\u0169, con \\u1ebfch nh\\u1ea3y v\\u00e0o, vang ti\\u1ebfng n\\u01b0\\u1edbc xao.\", \"english\": \"The old pond; A frog jumps in \\u2014 The sound of the water.\", \"translation\": \"The old pond; A frog jumps in \\u2014 The sound of the water.\", \"type\": \"quotation\"}]",
+        "links": "[[\"pond\", \"pond\"]]",
+        "id": "3617968d-4bd9-4af2-83e0-a345c884217b",
+        "word_id": "d42cb04f-559f-4e39-86e6-d8850f928ff2"
+      }
+    ],
+    "sounds": [
+      {
+        "ipa": "[ʔaːw˧˧]",
+        "audio_url": null,
+        "ogg_url": null,
+        "mp3_url": null,
+        "tags": "[\"H\\u00e0-N\\u1ed9i\"]",
+        "id": "469b3daf-dfab-4765-ba62-8191c016ea35",
+        "word_id": "d42cb04f-559f-4e39-86e6-d8850f928ff2"
+      },
+      {
+        "ipa": "[ʔaːw˧˧]",
+        "audio_url": null,
+        "ogg_url": null,
+        "mp3_url": null,
+        "tags": "[\"Hu\\u1ebf\"]",
+        "id": "0c511df4-13c1-4199-8d6d-c0f8a5646ad2",
+        "word_id": "d42cb04f-559f-4e39-86e6-d8850f928ff2"
+      },
+      {
+        "ipa": "[ʔaːw˧˧]",
+        "audio_url": null,
+        "ogg_url": null,
+        "mp3_url": null,
+        "tags": "null",
+        "id": "3696389b-e8d3-4dcf-8e17-d521c2d3b124",
+        "word_id": "d42cb04f-559f-4e39-86e6-d8850f928ff2"
+      }
+    ],
+    "forms": [
+      {
+        "form": "cái",
+        "tags": "[\"classifier\"]",
+        "id": "b1af2a8c-56ef-4c3b-932a-40a8917be28e",
+        "word_id": "d42cb04f-559f-4e39-86e6-d8850f928ff2"
+      },
+      {
+        "form": "㘭",
+        "tags": "[\"CJK\"]",
+        "id": "4b3b81d0-474b-444b-a23b-70bc98b57c39",
+        "word_id": "d42cb04f-559f-4e39-86e6-d8850f928ff2"
+      },
+      {
+        "form": "坳",
+        "tags": "[\"CJK\"]",
+        "id": "99058b53-0de6-4c01-a2a1-aa9bb25c999e",
+        "word_id": "d42cb04f-559f-4e39-86e6-d8850f928ff2"
+      },
+      {
+        "form": "泑",
+        "tags": "[\"CJK\"]",
+        "id": "cfcc8efe-aca9-4757-ba43-d2b0e943cf8c",
+        "word_id": "d42cb04f-559f-4e39-86e6-d8850f928ff2"
+      },
+      {
+        "form": "𪵲",
+        "tags": "[\"CJK\"]",
+        "id": "468a918b-b93d-43e8-80a7-e2919f9bec48",
+        "word_id": "d42cb04f-559f-4e39-86e6-d8850f928ff2"
+      },
+      {
+        "form": "𬇚",
+        "tags": "[\"CJK\"]",
+        "id": "28a8de59-5a85-4a1e-90f2-5366830d8aaf",
+        "word_id": "d42cb04f-559f-4e39-86e6-d8850f928ff2"
+      }
+    ]
+  },
+  {
+    "word": "bit",
+    "pos": "noun",
+    "lang_code": "vi",
+    "etymology_text": null,
+    "head_templates": "[{\"name\": \"head\", \"args\": {\"1\": \"vi\", \"2\": \"noun\", \"head\": \"\", \"tr\": \"\", \"3\": \"\", \"4\": \"\"}, \"expansion\": \"bit\"}, {\"name\": \"vi-noun\", \"args\": {}, \"expansion\": \"bit\"}]",
+    "etymology_templates": null,
+    "id": "2c40b99a-fdfe-4d0a-9432-a3a6274a9fc8",
+    "created_at": "2026-01-24T14:21:40.577905",
+    "updated_at": "2026-01-24T14:21:40.577925",
+    "senses": [
+      {
+        "glosses": "[\"bit\"]",
+        "tags": "null",
+        "display_label": null,
+        "examples": "null",
+        "links": "[[\"computing\", \"computing#Noun\"], [\"bit\", \"#English\"]]",
+        "id": "df638349-c8c3-4512-936c-15a8c86ad541",
+        "word_id": "2c40b99a-fdfe-4d0a-9432-a3a6274a9fc8"
+      }
+    ],
+    "sounds": [
+      {
+        "ipa": "[ʔɓit̚˧˧]",
+        "audio_url": null,
+        "ogg_url": null,
+        "mp3_url": null,
+        "tags": "[\"H\\u00e0-N\\u1ed9i\"]",
+        "id": "e3317f7f-30be-4e06-a57a-5c2d53721fe8",
+        "word_id": "2c40b99a-fdfe-4d0a-9432-a3a6274a9fc8"
+      },
+      {
+        "ipa": "[ʔɓit̚˧˧]",
+        "audio_url": null,
+        "ogg_url": null,
+        "mp3_url": null,
+        "tags": "[\"Hu\\u1ebf\"]",
+        "id": "15a7b469-a4b1-4c8e-af77-56f4854d337b",
+        "word_id": "2c40b99a-fdfe-4d0a-9432-a3a6274a9fc8"
+      },
+      {
+        "ipa": "[ʔɓɨt̚˧˧]",
+        "audio_url": null,
+        "ogg_url": null,
+        "mp3_url": null,
+        "tags": "null",
+        "id": "ee14ff7b-30a8-4387-bb63-f4c467d002e0",
+        "word_id": "2c40b99a-fdfe-4d0a-9432-a3a6274a9fc8"
+      },
+      {
+        "ipa": null,
+        "audio_url": "https://upload.wikimedia.org/wikipedia/commons/transcoded/d/d6/LL-Q9199_%28vie%29-Jessica_Nguyen_%28Pamputt%29-bit.wav/LL-Q9199_%28vie%29-Jessica_Nguyen_%28Pamputt%29-bit.wav.mp3",
+        "ogg_url": "https://upload.wikimedia.org/wikipedia/commons/transcoded/d/d6/LL-Q9199_%28vie%29-Jessica_Nguyen_%28Pamputt%29-bit.wav/LL-Q9199_%28vie%29-Jessica_Nguyen_%28Pamputt%29-bit.wav.ogg",
+        "mp3_url": "https://upload.wikimedia.org/wikipedia/commons/transcoded/d/d6/LL-Q9199_%28vie%29-Jessica_Nguyen_%28Pamputt%29-bit.wav/LL-Q9199_%28vie%29-Jessica_Nguyen_%28Pamputt%29-bit.wav.mp3",
+        "tags": "null",
+        "id": "074ae059-e585-4de2-a185-4512be9e6bde",
+        "word_id": "2c40b99a-fdfe-4d0a-9432-a3a6274a9fc8"
+      }
+    ],
+    "forms": []
+  },
+  {
+    "word": "man",
+    "pos": "num",
+    "lang_code": "vi",
+    "etymology_text": "Non-Sino-Vietnamese reading of Chinese 萬 (“ten thousand”, SV: vạn). Doublet of muôn and vạn.",
+    "head_templates": "[{\"name\": \"head\", \"args\": {\"1\": \"vi\", \"2\": \"numeral\", \"head\": \"\", \"3\": \"\", \"4\": \"\"}, \"expansion\": \"man\"}, {\"name\": \"vi-pos\", \"args\": {\"1\": \"numeral\"}, \"expansion\": \"man\"}]",
+    "etymology_templates": "[{\"name\": \"etymid\", \"args\": {\"1\": \"vi\", \"2\": \"\\u842c\"}, \"expansion\": \"\"}, {\"name\": \"yesno\", \"args\": {\"1\": \"\", \"2\": \"b\", \"3\": \"B\"}, \"expansion\": \"B\"}, {\"name\": \"yesno\", \"args\": {\"1\": \"\", \"2\": \"n\", \"3\": \"N\"}, \"expansion\": \"N\"}, {\"name\": \"der\", \"args\": {\"1\": \"vi\", \"2\": \"zh\", \"3\": \"\\u842c//\", \"t\": \"ten thousand\", \"tr\": \"-\", \"pos\": \"SV: <i class=\\\"Latn mention\\\" lang=\\\"vi\\\">v\\u1ea1n</i>\"}, \"expansion\": \"Chinese \\u842c (\\u201cten thousand\\u201d, SV: v\\u1ea1n)\"}, {\"name\": \"vi-etym-sino\", \"args\": {\"1\": \"\\u842c\", \"2\": \"ten thousand\", \"3\": \"v\\u1ea1n\", \"preMC\": \"y\"}, \"expansion\": \"Non-Sino-Vietnamese reading of Chinese \\u842c (\\u201cten thousand\\u201d, SV: v\\u1ea1n)\"}, {\"name\": \"doublet\", \"args\": {\"1\": \"vi\", \"2\": \"mu\\u00f4n\", \"3\": \"v\\u1ea1n\"}, \"expansion\": \"Doublet of mu\\u00f4n and v\\u1ea1n\"}]",
+    "id": "89efefe5-ad0a-48a8-8ea8-e2557e9414ec",
+    "created_at": "2026-01-24T14:21:40.580207",
+    "updated_at": "2026-01-24T14:21:40.580218",
+    "senses": [
+      {
+        "glosses": "[\"ten thousand; myriad\"]",
+        "tags": "[\"obsolete\"]",
+        "display_label": null,
+        "examples": "[{\"text\": \"m\\u1ed9t man\", \"bold_text_offsets\": [[4, 7]], \"translation\": \"ten thousand\", \"english\": \"ten thousand\", \"type\": \"example\"}]",
+        "links": "[[\"ten thousand\", \"ten thousand\"], [\"myriad\", \"myriad\"]]",
+        "id": "0a685166-690c-4e66-a087-247c5c2cf3fc",
+        "word_id": "89efefe5-ad0a-48a8-8ea8-e2557e9414ec"
+      }
+    ],
+    "sounds": [
+      {
+        "ipa": "[maːn˧˧]",
+        "audio_url": null,
+        "ogg_url": null,
+        "mp3_url": null,
+        "tags": "[\"H\\u00e0-N\\u1ed9i\"]",
+        "id": "de29b67d-c0d8-4426-9c06-6b8b17d68412",
+        "word_id": "89efefe5-ad0a-48a8-8ea8-e2557e9414ec"
+      },
+      {
+        "ipa": "[maːŋ˧˧]",
+        "audio_url": null,
+        "ogg_url": null,
+        "mp3_url": null,
+        "tags": "[\"Hu\\u1ebf\"]",
+        "id": "41714346-31fb-4d78-99c9-5f212b994768",
+        "word_id": "89efefe5-ad0a-48a8-8ea8-e2557e9414ec"
+      },
+      {
+        "ipa": "[maːŋ˧˧]",
+        "audio_url": null,
+        "ogg_url": null,
+        "mp3_url": null,
+        "tags": "null",
+        "id": "0aabcef3-1f40-49b8-b271-166438796ae0",
+        "word_id": "89efefe5-ad0a-48a8-8ea8-e2557e9414ec"
+      },
+      {
+        "ipa": null,
+        "audio_url": null,
+        "ogg_url": null,
+        "mp3_url": null,
+        "tags": "null",
+        "id": "2c37d6e7-93f5-4100-a8cd-bc1afca10020",
+        "word_id": "89efefe5-ad0a-48a8-8ea8-e2557e9414ec"
+      }
+    ],
+    "forms": []
+  },
+  {
+    "word": "i",
+    "pos": "noun",
+    "lang_code": "vi",
+    "etymology_text": "Borrowed from French i or Portuguese i.",
+    "head_templates": "[{\"name\": \"head\", \"args\": {\"1\": \"vi\", \"2\": \"noun\", \"head\": \"\", \"tr\": \"\", \"3\": \"\", \"4\": \"\"}, \"expansion\": \"i\"}, {\"name\": \"vi-noun\", \"args\": {}, \"expansion\": \"i\"}]",
+    "etymology_templates": "[{\"name\": \"bor\", \"args\": {\"1\": \"vi\", \"2\": \"fr\", \"3\": \"i\"}, \"expansion\": \"French i\"}, {\"name\": \"der\", \"args\": {\"1\": \"vi\", \"2\": \"pt\", \"3\": \"i\"}, \"expansion\": \"Portuguese i\"}]",
+    "id": "c418edd1-645e-457f-a0a0-2d16ed1ae9c9",
+    "created_at": "2026-01-24T14:21:40.576268",
+    "updated_at": "2026-01-24T14:21:40.576313",
+    "senses": [
+      {
+        "glosses": "[\"The name of the Latin-script letter I/i.\"]",
+        "tags": "null",
+        "display_label": null,
+        "examples": "null",
+        "links": "[[\"I\", \"I#Vietnamese\"], [\"i\", \"i#Vietnamese\"]]",
+        "id": "97117acb-3acd-46a9-9a5e-a644386fb2eb",
+        "word_id": "c418edd1-645e-457f-a0a0-2d16ed1ae9c9"
+      }
+    ],
+    "sounds": [
+      {
+        "ipa": "[ʔi˧˧]",
+        "audio_url": null,
+        "ogg_url": null,
+        "mp3_url": null,
+        "tags": "[\"H\\u00e0-N\\u1ed9i\"]",
+        "id": "b3a37ff7-f05a-4329-8d61-8cd81cf02a0d",
+        "word_id": "c418edd1-645e-457f-a0a0-2d16ed1ae9c9"
+      },
+      {
+        "ipa": "[ʔɪj˧˧]",
+        "audio_url": null,
+        "ogg_url": null,
+        "mp3_url": null,
+        "tags": "[\"Hu\\u1ebf\"]",
+        "id": "580e45e6-2ee2-4521-936a-96cda31cb310",
+        "word_id": "c418edd1-645e-457f-a0a0-2d16ed1ae9c9"
+      },
+      {
+        "ipa": "[ʔɪj˧˧]",
+        "audio_url": null,
+        "ogg_url": null,
+        "mp3_url": null,
+        "tags": "null",
+        "id": "a5387578-7788-476a-aa84-8c3ee1389fc2",
+        "word_id": "c418edd1-645e-457f-a0a0-2d16ed1ae9c9"
+      }
+    ],
+    "forms": []
+  },
+  {
+    "word": "van",
+    "pos": "verb",
+    "lang_code": "vi",
+    "etymology_text": null,
+    "head_templates": "[{\"name\": \"head\", \"args\": {\"1\": \"vi\", \"2\": \"verb\", \"head\": \"\", \"tr\": \"\\ud843\\ude5a, \\u559b\", \"3\": \"\", \"4\": \"\"}, \"expansion\": \"van \\u2022 (\\ud843\\ude5a, \\u559b)\"}, {\"name\": \"vi-verb\", \"args\": {\"1\": \"\\ud843\\ude5a, \\u559b\"}, \"expansion\": \"van \\u2022 (\\ud843\\ude5a, \\u559b)\"}]",
+    "etymology_templates": null,
+    "id": "ac8f65a0-15ae-4259-b19c-a08cae5dcf81",
+    "created_at": "2026-01-24T14:21:40.557244",
+    "updated_at": "2026-01-24T14:21:40.557255",
+    "senses": [
+      {
+        "glosses": "[\"to beg, to implore\"]",
+        "tags": "null",
+        "display_label": null,
+        "examples": "null",
+        "links": "[[\"beg\", \"beg\"], [\"implore\", \"implore\"]]",
+        "id": "0c530a64-9dbb-4b1c-bd71-fd50793ad209",
+        "word_id": "ac8f65a0-15ae-4259-b19c-a08cae5dcf81"
+      }
+    ],
+    "sounds": [
+      {
+        "ipa": "[vaːn˧˧]",
+        "audio_url": null,
+        "ogg_url": null,
+        "mp3_url": null,
+        "tags": "[\"H\\u00e0-N\\u1ed9i\"]",
+        "id": "81d52114-dcc4-4908-bd61-25f4c8911080",
+        "word_id": "ac8f65a0-15ae-4259-b19c-a08cae5dcf81"
+      },
+      {
+        "ipa": "[vaːŋ˧˧]",
+        "audio_url": null,
+        "ogg_url": null,
+        "mp3_url": null,
+        "tags": "[\"Hu\\u1ebf\"]",
+        "id": "2f41d7d5-a70a-4975-998d-bfd783e7847c",
+        "word_id": "ac8f65a0-15ae-4259-b19c-a08cae5dcf81"
+      },
+      {
+        "ipa": "[vaːŋ˧˧]",
+        "audio_url": null,
+        "ogg_url": null,
+        "mp3_url": null,
+        "tags": "null",
+        "id": "a695cf51-62c6-45ce-8059-bbed06f5e85a",
+        "word_id": "ac8f65a0-15ae-4259-b19c-a08cae5dcf81"
+      },
+      {
+        "ipa": "[jaːŋ˧˧]",
+        "audio_url": null,
+        "ogg_url": null,
+        "mp3_url": null,
+        "tags": "null",
+        "id": "84ef8c70-4f6b-43e2-b027-d1e92ed24301",
+        "word_id": "ac8f65a0-15ae-4259-b19c-a08cae5dcf81"
+      }
+    ],
+    "forms": [
+      {
+        "form": "𠹚",
+        "tags": "[\"CJK\"]",
+        "id": "be478558-d364-4769-b691-05f419ce5135",
+        "word_id": "ac8f65a0-15ae-4259-b19c-a08cae5dcf81"
+      },
+      {
+        "form": "喛",
+        "tags": "[\"CJK\"]",
+        "id": "76184b01-8901-43df-bc80-8c73b3918ae2",
+        "word_id": "ac8f65a0-15ae-4259-b19c-a08cae5dcf81"
+      }
+    ]
+  },
+  {
+    "word": "qua",
+    "pos": "verb",
+    "lang_code": "vi",
+    "etymology_text": "Sino-Vietnamese word from 過 (“pass”). Doublet of quá.",
+    "head_templates": "[{\"name\": \"head\", \"args\": {\"1\": \"vi\", \"2\": \"verb\", \"head\": \"\", \"tr\": \"\\u6208\", \"3\": \"\", \"4\": \"\"}, \"expansion\": \"qua \\u2022 (\\u6208)\"}, {\"name\": \"vi-verb\", \"args\": {\"1\": \"\\u6208\"}, \"expansion\": \"qua \\u2022 (\\u6208)\"}]",
+    "etymology_templates": "[{\"name\": \"etymid\", \"args\": {\"1\": \"vi\", \"2\": \"\\u904e\"}, \"expansion\": \"\"}, {\"name\": \"categorize\", \"args\": {\"1\": \"vi\", \"2\": \"Sino-Vietnamese words\"}, \"expansion\": \"\"}, {\"name\": \"vi-etym-sino\", \"args\": {\"1\": \"\\u904e\", \"2\": \"pass\"}, \"expansion\": \"Sino-Vietnamese word from \\u904e (\\u201cpass\\u201d)\"}, {\"name\": \"doublet\", \"args\": {\"1\": \"vi\", \"2\": \"qu\\u00e1\"}, \"expansion\": \"Doublet of qu\\u00e1\"}]",
+    "id": "24655932-47e9-4f8c-8274-79414d31b632",
+    "created_at": "2026-01-24T14:21:40.636704",
+    "updated_at": "2026-01-24T14:21:40.636724",
+    "senses": [
+      {
+        "glosses": "[\"to have transpire, to take place, to come to pass\"]",
+        "tags": "[\"intransitive\"]",
+        "display_label": null,
+        "examples": "[{\"text\": \"tai qua n\\u1ea1n kh\\u1ecfi\", \"bold_text_offsets\": [[4, 7]], \"translation\": \"literally, \\\"disaster to pass [and] ordeal to be relieved\\\"\", \"english\": \"literally, \\\"disaster to pass [and] ordeal to be relieved\\\"\", \"type\": \"example\"}, {\"text\": \"nh\\u1eafc l\\u1ea1i vi\\u1ec7c \\u0111\\u00e3 qua\", \"bold_text_offsets\": [[17, 20]], \"translation\": \"to recall events that have transpired\", \"english\": \"to recall events that have transpired\", \"type\": \"example\"}]",
+        "links": "[[\"transpire\", \"transpire\"], [\"take place\", \"take place\"], [\"come to pass\", \"come to pass\"]]",
+        "id": "832a6965-9b16-4ef9-96ce-680fe1ed0e8f",
+        "word_id": "24655932-47e9-4f8c-8274-79414d31b632"
+      },
+      {
+        "glosses": "[\"to go over to; to spend time at\"]",
+        "tags": "[\"intransitive\"]",
+        "display_label": null,
+        "examples": "[{\"text\": \"\\u00d4ng \\u1ea5y qua Ph\\u00e1p d\\u1ef1 m\\u1ed9t h\\u1ed9i ngh\\u1ecb.\", \"bold_text_offsets\": [[7, 10]], \"translation\": \"He went over to France for a conference.\", \"english\": \"He went over to France for a conference.\", \"type\": \"example\"}]",
+        "links": "[[\"go\", \"go\"], [\"over\", \"over\"], [\"spend time\", \"spend time\"]]",
+        "id": "26b3a607-bbaa-4aee-a2eb-9be2ba8245ad",
+        "word_id": "24655932-47e9-4f8c-8274-79414d31b632"
+      },
+      {
+        "glosses": "[\"to survive\"]",
+        "tags": "[\"transitive\"]",
+        "display_label": null,
+        "examples": "[{\"text\": \"B\\u00e0 c\\u1ee5 kh\\u00f3 qua \\u0111\\u01b0\\u1ee3c \\u0111\\u00eam nay.\", \"bold_text_offsets\": [[10, 13]], \"translation\": \"The old woman is unlikely to survive the night.\", \"english\": \"The old woman is unlikely to survive the night.\", \"type\": \"example\"}]",
+        "links": "[[\"survive\", \"survive\"]]",
+        "id": "e4d5af55-e1e8-41ac-b9f1-7ab3cad5bf0e",
+        "word_id": "24655932-47e9-4f8c-8274-79414d31b632"
+      },
+      {
+        "glosses": "[\"to escape, to elude\"]",
+        "tags": "[\"transitive\"]",
+        "display_label": null,
+        "examples": "[{\"text\": \"M\\u1ecdi vi\\u1ec7c trong c\\u01a1 quan kh\\u00f4ng qua \\u0111\\u01b0\\u1ee3c s\\u1ef1 theo d\\u00f5i c\\u1ee7a \\u00f4ng ta.\", \"bold_text_offsets\": [[18, 21], [29, 32]], \"translation\": \"Nothing in the agency can escape his watchful eye.\", \"english\": \"Nothing in the agency can escape his watchful eye.\", \"type\": \"example\"}]",
+        "links": "[[\"escape\", \"escape\"], [\"elude\", \"elude\"]]",
+        "id": "99d694f9-4b78-4cf2-a567-d01f96b30622",
+        "word_id": "24655932-47e9-4f8c-8274-79414d31b632"
+      },
+      {
+        "glosses": "[\"to cross (to move relatively); to traverse\"]",
+        "tags": "[\"transitive\"]",
+        "display_label": null,
+        "examples": "[{\"text\": \"Qua c\\u1ea7u d\\u1eebng b\\u01b0\\u1edbc tr\\u00f4ng c\\u1ea7u, c\\u1ea7u bao nhi\\u00eau nh\\u1ecbp em s\\u1ea7u b\\u1ea5y nhi\\u00eau.\", \"bold_text_offsets\": [[0, 3]], \"translation\": \"literally, \\\"[As I] cross the bridge, [I] stop to look at it; my sorrows multiply with the number of its arches.\\\"\", \"english\": \"literally, \\\"[As I] cross the bridge, [I] stop to look at it; my sorrows multiply with the number of its arches.\\\"\", \"type\": \"example\"}]",
+        "links": "[[\"cross\", \"cross\"], [\"traverse\", \"traverse\"]]",
+        "id": "fe9ace31-d1c6-4b33-aa14-84fc6ea4ae5b",
+        "word_id": "24655932-47e9-4f8c-8274-79414d31b632"
+      },
+      {
+        "glosses": "[\"to go to the front of\"]",
+        "tags": "[\"transitive\"]",
+        "display_label": null,
+        "examples": "[{\"text\": \"Qua \\u0111\\u00ecnh ng\\u1ea3 n\\u00f3n tr\\u00f4ng \\u0111\\u00ecnh, \\u0111\\u00ecnh bao nhi\\u00eau ng\\u00f3i th\\u01b0\\u01a1ng m\\u00ecnh b\\u1ea5y nhi\\u00eau.\", \"bold_text_offsets\": [[0, 3]], \"translation\": \"literally, \\\"[As I] enter the [courtyard] of the \\u0111\\u00ecnh (Vietnamese communal houses), [I] tip my n\\u00f3n (leaf hat) to take in the scenery; my self-pity multiplies with the number of tiles on its roof.\\\"\", \"english\": \"literally, \\\"[As I] enter the [courtyard] of the \\u0111\\u00ecnh (Vietnamese communal houses), [I] tip my n\\u00f3n (leaf hat) to take in the scenery; my self-pity multiplies with the number of tiles on its roof.\\\"\", \"type\": \"example\"}]",
+        "links": "[[\"front\", \"front\"]]",
+        "id": "69364e8f-a7b3-4a2a-ab34-894ec324aaf0",
+        "word_id": "24655932-47e9-4f8c-8274-79414d31b632"
+      },
+      {
+        "glosses": "[\"to trump, to outweigh, to prevail over\"]",
+        "tags": "[\"transitive\"]",
+        "display_label": null,
+        "examples": "[{\"text\": \"kh\\u00f4n ch\\u1eb3ng qua l\\u1ebd, kh\\u1ecfe ch\\u1eb3ng qua l\\u1eddi\", \"translation\": \"literally, \\\"Shrewdness can't trump rightousness; brute strength can't trump wise words.\\\" / It is advisable to respond with temperance, rather than with cunningness or force.\", \"english\": \"literally, \\\"Shrewdness can't trump rightousness; brute strength can't trump wise words.\\\" / It is advisable to respond with temperance, rather than with cunningness or force.\", \"type\": \"example\"}]",
+        "links": "[[\"trump\", \"trump\"], [\"outweigh\", \"outweigh\"], [\"prevail\", \"prevail\"]]",
+        "id": "08e53cd1-1384-4fbe-b979-f976b8458fd0",
+        "word_id": "24655932-47e9-4f8c-8274-79414d31b632"
+      },
+      {
+        "glosses": "[\"to drift past; to elapse\"]",
+        "tags": "[\"intransitive\"]",
+        "display_label": null,
+        "examples": "[{\"text\": \"Ng\\u00e0y qua ng\\u00e0y\", \"bold_text_offsets\": [[5, 8]], \"translation\": \"day after day\", \"english\": \"day after day\", \"type\": \"example\"}]",
+        "links": "[[\"drift\", \"drift\"], [\"elapse\", \"elapse\"]]",
+        "id": "4263143e-4cb8-46d9-864d-42318b07260a",
+        "word_id": "24655932-47e9-4f8c-8274-79414d31b632"
+      }
+    ],
+    "sounds": [
+      {
+        "ipa": "[kwaː˧˧]",
+        "audio_url": null,
+        "ogg_url": null,
+        "mp3_url": null,
+        "tags": "[\"H\\u00e0-N\\u1ed9i\"]",
+        "id": "7e2ce72f-ec4e-4cec-8398-d49076b3fb66",
+        "word_id": "24655932-47e9-4f8c-8274-79414d31b632"
+      },
+      {
+        "ipa": "[kwaː˧˧]",
+        "audio_url": null,
+        "ogg_url": null,
+        "mp3_url": null,
+        "tags": "[\"Hu\\u1ebf\"]",
+        "id": "160bb601-bd48-4a9f-b03c-6186a2419960",
+        "word_id": "24655932-47e9-4f8c-8274-79414d31b632"
+      },
+      {
+        "ipa": "[waː˧˧]",
+        "audio_url": null,
+        "ogg_url": null,
+        "mp3_url": null,
+        "tags": "null",
+        "id": "064d601e-76b6-45d6-b718-96657b103e5b",
+        "word_id": "24655932-47e9-4f8c-8274-79414d31b632"
+      },
+      {
+        "ipa": null,
+        "audio_url": "https://upload.wikimedia.org/wikipedia/commons/transcoded/f/f5/LL-Q9199_%28vie%29-Penn_Zero_MSSJ-qua.wav/LL-Q9199_%28vie%29-Penn_Zero_MSSJ-qua.wav.mp3",
+        "ogg_url": "https://upload.wikimedia.org/wikipedia/commons/transcoded/f/f5/LL-Q9199_%28vie%29-Penn_Zero_MSSJ-qua.wav/LL-Q9199_%28vie%29-Penn_Zero_MSSJ-qua.wav.ogg",
+        "mp3_url": "https://upload.wikimedia.org/wikipedia/commons/transcoded/f/f5/LL-Q9199_%28vie%29-Penn_Zero_MSSJ-qua.wav/LL-Q9199_%28vie%29-Penn_Zero_MSSJ-qua.wav.mp3",
+        "tags": "null",
+        "id": "c84d56c1-154c-4cb7-9d70-3b06bf6d7770",
+        "word_id": "24655932-47e9-4f8c-8274-79414d31b632"
+      },
+      {
+        "ipa": null,
+        "audio_url": "https://upload.wikimedia.org/wikipedia/commons/transcoded/2/26/LL-Q9199_%28vie%29-Jessica_Nguyen_%28Pamputt%29-qua.wav/LL-Q9199_%28vie%29-Jessica_Nguyen_%28Pamputt%29-qua.wav.mp3",
+        "ogg_url": "https://upload.wikimedia.org/wikipedia/commons/transcoded/2/26/LL-Q9199_%28vie%29-Jessica_Nguyen_%28Pamputt%29-qua.wav/LL-Q9199_%28vie%29-Jessica_Nguyen_%28Pamputt%29-qua.wav.ogg",
+        "mp3_url": "https://upload.wikimedia.org/wikipedia/commons/transcoded/2/26/LL-Q9199_%28vie%29-Jessica_Nguyen_%28Pamputt%29-qua.wav/LL-Q9199_%28vie%29-Jessica_Nguyen_%28Pamputt%29-qua.wav.mp3",
+        "tags": "null",
+        "id": "8cb0a00b-702e-44ff-b01b-63a74c797751",
+        "word_id": "24655932-47e9-4f8c-8274-79414d31b632"
+      }
+    ],
+    "forms": [
+      {
+        "form": "戈",
+        "tags": "[\"CJK\"]",
+        "id": "d3fbb45a-0598-414e-9b77-e15bdb340409",
+        "word_id": "24655932-47e9-4f8c-8274-79414d31b632"
+      }
+    ]
+  },
+  {
+    "word": "can",
+    "pos": "verb",
+    "lang_code": "vi",
+    "etymology_text": "Sino-Vietnamese word from 干.",
+    "head_templates": "[{\"name\": \"head\", \"args\": {\"1\": \"vi\", \"2\": \"verb\", \"head\": \"\", \"tr\": \"\", \"3\": \"\", \"4\": \"\"}, \"expansion\": \"can\"}, {\"name\": \"vi-verb\", \"args\": {}, \"expansion\": \"can\"}]",
+    "etymology_templates": "[{\"name\": \"etymid\", \"args\": {\"1\": \"vi\", \"2\": \"\\u5e72\"}, \"expansion\": \"\"}, {\"name\": \"categorize\", \"args\": {\"1\": \"vi\", \"2\": \"Sino-Vietnamese words\"}, \"expansion\": \"\"}, {\"name\": \"vi-etym-sino\", \"args\": {\"1\": \"\\u5e72\"}, \"expansion\": \"Sino-Vietnamese word from \\u5e72\"}]",
+    "id": "dc0f7999-d181-49e9-a02b-a4b956019c1b",
+    "created_at": "2026-01-24T14:21:40.563466",
+    "updated_at": "2026-01-24T14:21:40.563478",
+    "senses": [
+      {
+        "glosses": "[\"to concern; to apply to\"]",
+        "tags": "null",
+        "display_label": null,
+        "examples": "null",
+        "links": "[[\"concern\", \"concern\"], [\"apply\", \"apply\"]]",
+        "id": "60f09e38-c778-4eff-a02b-fbf9335f4173",
+        "word_id": "dc0f7999-d181-49e9-a02b-a4b956019c1b"
+      },
+      {
+        "glosses": "[\"to be involved (in); to be implicated (in)\"]",
+        "tags": "null",
+        "display_label": null,
+        "examples": "null",
+        "links": "[[\"involved\", \"involved\"], [\"implicated\", \"implicated\"]]",
+        "id": "b2d1e388-ea19-47ff-b8b0-4607483b99d7",
+        "word_id": "dc0f7999-d181-49e9-a02b-a4b956019c1b"
+      }
+    ],
+    "sounds": [
+      {
+        "ipa": "[kaːn˧˧]",
+        "audio_url": null,
+        "ogg_url": null,
+        "mp3_url": null,
+        "tags": "[\"H\\u00e0-N\\u1ed9i\"]",
+        "id": "91f1b53e-02bd-4c7d-9cab-950b476a75e0",
+        "word_id": "dc0f7999-d181-49e9-a02b-a4b956019c1b"
+      },
+      {
+        "ipa": "[kaːŋ˧˧]",
+        "audio_url": null,
+        "ogg_url": null,
+        "mp3_url": null,
+        "tags": "[\"Hu\\u1ebf\"]",
+        "id": "de3f5ad9-1599-4656-bb9e-4f6d200e70b2",
+        "word_id": "dc0f7999-d181-49e9-a02b-a4b956019c1b"
+      },
+      {
+        "ipa": "[kaːŋ˧˧]",
+        "audio_url": null,
+        "ogg_url": null,
+        "mp3_url": null,
+        "tags": "null",
+        "id": "9dd49c57-56c5-482e-b7a8-92808282b981",
+        "word_id": "dc0f7999-d181-49e9-a02b-a4b956019c1b"
+      },
+      {
+        "ipa": null,
+        "audio_url": "https://upload.wikimedia.org/wikipedia/commons/transcoded/3/33/LL-Q9199_%28vie%29-Penn_Zero_MSSJ-can.wav/LL-Q9199_%28vie%29-Penn_Zero_MSSJ-can.wav.mp3",
+        "ogg_url": "https://upload.wikimedia.org/wikipedia/commons/transcoded/3/33/LL-Q9199_%28vie%29-Penn_Zero_MSSJ-can.wav/LL-Q9199_%28vie%29-Penn_Zero_MSSJ-can.wav.ogg",
+        "mp3_url": "https://upload.wikimedia.org/wikipedia/commons/transcoded/3/33/LL-Q9199_%28vie%29-Penn_Zero_MSSJ-can.wav/LL-Q9199_%28vie%29-Penn_Zero_MSSJ-can.wav.mp3",
+        "tags": "null",
+        "id": "be80d756-2b2f-4d94-af49-d5dae842138b",
+        "word_id": "dc0f7999-d181-49e9-a02b-a4b956019c1b"
+      }
+    ],
+    "forms": []
+  },
+  {
+    "word": "国",
+    "pos": "character",
+    "lang_code": "vi",
+    "etymology_text": null,
+    "head_templates": null,
+    "etymology_templates": null,
+    "id": "624c5c34-1192-444e-98f6-e60a0f689be7",
+    "created_at": "2026-01-24T14:21:40.540525",
+    "updated_at": "2026-01-24T14:21:40.540538",
+    "senses": [
+      {
+        "glosses": "[\"alternative form of \\u570b (\\u201cch\\u1eef H\\u00e1n form of qu\\u1ed1c (\\u201c(only in compounds) nation; state; country\\u201d)\\u201d)\"]",
+        "tags": "[\"alt-of\", \"alternative\"]",
+        "display_label": null,
+        "examples": "null",
+        "links": "[[\"\\u570b\", \"\\u570b#Vietnamese\"], [\"ch\\u1eef H\\u00e1n\", \"ch\\u1eef H\\u00e1n#Vietnamese\"], [\"qu\\u1ed1c\", \"qu\\u1ed1c#Vietnamese:_\\u56fd\"], [\"nation\", \"nation\"], [\"state\", \"state\"], [\"country\", \"country\"]]",
+        "id": "26da5b6c-ac4d-4c96-9b5e-cb9c577afd55",
+        "word_id": "624c5c34-1192-444e-98f6-e60a0f689be7"
+      }
+    ],
+    "sounds": [],
+    "forms": []
+  }
+]

@@ -9,7 +9,7 @@ import {
 import { Card, Tabs, Center, Stack, Flex, Box } from "@chakra-ui/react"
 import styles from "./TabbedCard.css"
 import palette from "../../../styles/palette"
-import { withGreyedSelection } from "../../../lib/animations"
+import { withGreyedSelection } from "@/styles/animations"
 import { nanoid } from "nanoid"
 export interface TabbedCardProps {
 	tabs: string[]

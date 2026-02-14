@@ -4,14 +4,12 @@ import path from "node:path"
 import { normalizePath } from "vite"
 import { viteStaticCopy } from "vite-plugin-static-copy"
 import { defineConfig } from "vitest/config"
-import { mockApiPlugin } from "./src/plugins/mock-api"
 
 // https://vitejs.dev/config/
 export default defineConfig({
 	plugins: [
 		react(),
 		TanStackRouterVite(),
-		mockApiPlugin(),
 		viteStaticCopy({
 			targets: [
 				{
@@ -29,6 +27,13 @@ export default defineConfig({
 	server: {
 		host: true,
 		strictPort: true,
+		proxy: {
+			"/api/v1": {
+				target: "http://127.0.0.1:8000",
+				changeOrigin: true,
+				secure: false,
+			},
+		},
 	},
 	test: {
 		globals: true,

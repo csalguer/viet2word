@@ -4,32 +4,51 @@
 A modern web application for searching Vietnamese vocabulary and reading text with integrated dictionary lookups.
 
 ## System Overview
-The project uses a **Serverless/Local-first** approach during development:
-1.  **Data Source:** Raw dictionary data lives in `data/*.jsonl` (Kaikki, etc.).
-2.  **Backend (Mock):** No separate backend process. `src/plugins/mock-api.ts` is a Vite plugin that reads these files into memory and handles `GET /api/dictionary` requests.
-3.  **Frontend:** React 19 application utilizing TanStack Query to fetch from this mock endpoint.
+The project uses a **Client-Server** architecture:
+
+1.  **Backend (Python):** A FastAPI service (`backend/`) that serves dictionary data from a SQLite/PostgreSQL database.
+    -   **API Root:** `http://127.0.0.1:8000/api/v1`
+    -   **Docs:** `http://127.0.0.1:8000/docs`
+2.  **Frontend (React):** A React 19 application (`frontend/`) that consumes the backend API via a Vite proxy.
+    -   **Dev Server:** `http://localhost:5173` (Proxies `/api/v1` -> Backend)
 
 ## Key Tech Stack
-- **Framework:** React 19, Vite 7.
-- **Routing:** TanStack Router (`src/routes`, `src/routeTree.gen.ts`).
+- **Backend:** Python 3.12+, FastAPI, SQLite/PostgreSQL, SQLAlchemy/Alembic.
+- **Frontend:** React 19, Vite 7, TanStack Query, TanStack Router.
 - **State:** Zustand (`src/lib/store.ts`) for client state (Saved Vocab).
-- **Styling:** Tailwind CSS + Chakra UI.
-- **Testing:** Vitest, Playwright.
+- **Styling:** Tailwind CSS + Chakra UI (Custom Theme).
+- **Testing:** Storybook (Components & Interactions), Vitest (Unit), Playwright (E2E).
 
 ## Developer Guide
 ### Getting Started
-1.  **Install:** `pnpm install`
-2.  **Setup:** `pnpm run setup` (Husky hooks, Playwright browsers)
-3.  **Run:** `pnpm run dev`
-    *   *Note:* The terminal will log "Loading mock data..." and "Loaded X entries" when the dev server starts. This confirms the mock API is active.
+
+1.  **Backend Setup:**
+    ```bash
+    cd backend
+    ./manage.sh init   # Initialize DB
+    ./manage.sh start  # Start API Server
+    ```
+
+2.  **Frontend Setup:**
+    ```bash
+    cd frontend
+    pnpm install
+    pnpm run dev       # Start Frontend Dev Server
+    ```
+
+3.  **Testing:**
+    ```bash
+    cd frontend
+    pnpm run storybook # Start Component/Interaction Tests
+    ```
 
 ### Key Directories
-- `src/features/`: Domain-specific logic (e.g., Reader).
-- `src/lib/`: Core utilities, API clients (`api.ts`), and global stores (`store.ts`).
-- `src/plugins/`: Vite plugins, specifically `mock-api.ts`.
-- `data/`: Python scripts and JSONL datasets.
+- `backend/`: FastAPI application and database logic.
+- `frontend/src/features/`: Domain-specific frontend logic.
+- `frontend/src/lib/`: Core utilities and API clients (`api.ts`).
+- `data/`: Raw dictionary datasets (JSONL).
 
 ### Common Tasks
-- **Adding Data:** Drop new `.jsonl` files into `data/` and update `src/plugins/mock-api.ts` to load them.
-- **UI Changes:** Components are in `src/components/`. Pages are in `src/routes/` (lazy loaded) and `src/pages/`.
-- **Testing:** run `pnpm run test` before pushing.
+- **Adding Data:** Use `backend/manage.sh ingest <file.jsonl>` to add new dictionary entries.
+- **UI Changes:** Components are developed and tested in **Storybook** first (`src/components/**/*.stories.tsx`).
+- **Testing:** Always verify changes in Storybook before committing.

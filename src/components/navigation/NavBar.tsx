@@ -1,25 +1,24 @@
-import { Link } from "@tanstack/react-router"
 import {
 	HStack,
 	Box,
 	IconButton,
 	useDisclosure,
 	VStack,
+	Text,
 } from "@chakra-ui/react"
+import { Link } from "@tanstack/react-router"
 import { IconMenu2 } from "@tabler/icons-react"
 import {
-	DrawerRoot,
 	DrawerBackdrop,
-	DrawerContent,
-	DrawerCloseTrigger,
 	DrawerBody,
+	DrawerCloseTrigger,
+	DrawerContent,
+	DrawerRoot,
 } from "@/components/ui/drawer"
 
 const links = [
-	{ to: "/home", label: "HOME" },
+	{ to: "/", label: "HOME" },
 	{ to: "/dictionary", label: "DICTIONARY" },
-	{ to: "/reader", label: "READER" },
-	{ to: "/chat", label: "CHAT" },
 	{ to: "/saved", label: "SAVED" },
 ]
 
@@ -29,54 +28,72 @@ export const NavBar = () => {
 	return (
 		<>
 			{/* Desktop Navigation */}
-			<HStack as="nav" gap={4} display={{ base: "none", sm: "flex" }}>
+			<HStack as="nav" gap={8} display={{ base: "none", md: "flex" }}>
 				{links.map((link) => (
 					<Link
-						key={link.label}
+						key={link.to}
 						to={link.to}
-						style={{
-							textDecoration: "none",
-							fontWeight: 500,
-							padding: "8px 12px",
-						}}
+						style={{ textDecoration: "none" }}
 						activeProps={{
-							style: { fontWeight: "bold", textDecoration: "underline" },
+							style: {
+								fontWeight: "bold",
+								borderBottom: "2px solid currentColor",
+							},
 						}}
 					>
-						{link.label}
+						<Text
+							fontWeight="medium"
+							letterSpacing="wide"
+							fontSize="sm"
+							color="fg"
+							_hover={{ color: "accent.fg" }}
+							transition="color 0.15s ease"
+						>
+							{link.label}
+						</Text>
 					</Link>
 				))}
 			</HStack>
 
 			{/* Mobile Navigation */}
-			<Box display={{ base: "block", sm: "none" }}>
-				<IconButton aria-label="Open menu" variant="ghost" onClick={onOpen}>
-					<IconMenu2 />
-				</IconButton>
+			<Box display={{ base: "block", md: "none" }}>
 				<DrawerRoot
 					open={open}
 					onOpenChange={(e) => (e.open ? onOpen() : onClose())}
 					placement="start"
 				>
 					<DrawerBackdrop />
-					<DrawerContent>
+					<IconButton
+						aria-label="Open menu"
+						variant="ghost"
+						color="fg"
+						onClick={onOpen}
+					>
+						<IconMenu2 />
+					</IconButton>
+					<DrawerContent bg="surface">
 						<DrawerCloseTrigger />
 						<DrawerBody pt={10}>
-							<VStack align="start" gap={4}>
+							<VStack align="start" gap={6}>
 								{links.map((link) => (
 									<Link
-										key={link.label}
+										key={link.to}
 										to={link.to}
 										onClick={onClose}
-										style={{
-											fontSize: "1.2rem",
-											fontWeight: 500,
-										}}
 										activeProps={{
-											style: { fontWeight: "bold" },
+											style: {
+												fontWeight: "bold",
+											},
 										}}
 									>
-										{link.label}
+										<Text
+											fontSize="xl"
+											fontWeight="medium"
+											color="fg"
+											_hover={{ color: "accent.fg" }}
+										>
+											{link.label}
+										</Text>
 									</Link>
 								))}
 							</VStack>

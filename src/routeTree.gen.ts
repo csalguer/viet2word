@@ -11,39 +11,27 @@
 import { createFileRoute } from '@tanstack/react-router'
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as DictionaryRouteImport } from './routes/dictionary'
 import { Route as IndexRouteImport } from './routes/index'
 
 const SavedLazyRouteImport = createFileRoute('/saved')()
-const ReaderLazyRouteImport = createFileRoute('/reader')()
 const HomeLazyRouteImport = createFileRoute('/home')()
-const DictionaryLazyRouteImport = createFileRoute('/dictionary')()
-const ChatLazyRouteImport = createFileRoute('/chat')()
 
 const SavedLazyRoute = SavedLazyRouteImport.update({
   id: '/saved',
   path: '/saved',
   getParentRoute: () => rootRouteImport,
 } as any).lazy(() => import('./routes/saved.lazy').then((d) => d.Route))
-const ReaderLazyRoute = ReaderLazyRouteImport.update({
-  id: '/reader',
-  path: '/reader',
-  getParentRoute: () => rootRouteImport,
-} as any).lazy(() => import('./routes/reader.lazy').then((d) => d.Route))
 const HomeLazyRoute = HomeLazyRouteImport.update({
   id: '/home',
   path: '/home',
   getParentRoute: () => rootRouteImport,
 } as any).lazy(() => import('./routes/home.lazy').then((d) => d.Route))
-const DictionaryLazyRoute = DictionaryLazyRouteImport.update({
+const DictionaryRoute = DictionaryRouteImport.update({
   id: '/dictionary',
   path: '/dictionary',
   getParentRoute: () => rootRouteImport,
 } as any).lazy(() => import('./routes/dictionary.lazy').then((d) => d.Route))
-const ChatLazyRoute = ChatLazyRouteImport.update({
-  id: '/chat',
-  path: '/chat',
-  getParentRoute: () => rootRouteImport,
-} as any).lazy(() => import('./routes/chat.lazy').then((d) => d.Route))
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
@@ -52,50 +40,35 @@ const IndexRoute = IndexRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
-  '/chat': typeof ChatLazyRoute
-  '/dictionary': typeof DictionaryLazyRoute
+  '/dictionary': typeof DictionaryRoute
   '/home': typeof HomeLazyRoute
-  '/reader': typeof ReaderLazyRoute
   '/saved': typeof SavedLazyRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
-  '/chat': typeof ChatLazyRoute
-  '/dictionary': typeof DictionaryLazyRoute
+  '/dictionary': typeof DictionaryRoute
   '/home': typeof HomeLazyRoute
-  '/reader': typeof ReaderLazyRoute
   '/saved': typeof SavedLazyRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
-  '/chat': typeof ChatLazyRoute
-  '/dictionary': typeof DictionaryLazyRoute
+  '/dictionary': typeof DictionaryRoute
   '/home': typeof HomeLazyRoute
-  '/reader': typeof ReaderLazyRoute
   '/saved': typeof SavedLazyRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/chat' | '/dictionary' | '/home' | '/reader' | '/saved'
+  fullPaths: '/' | '/dictionary' | '/home' | '/saved'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/chat' | '/dictionary' | '/home' | '/reader' | '/saved'
-  id:
-    | '__root__'
-    | '/'
-    | '/chat'
-    | '/dictionary'
-    | '/home'
-    | '/reader'
-    | '/saved'
+  to: '/' | '/dictionary' | '/home' | '/saved'
+  id: '__root__' | '/' | '/dictionary' | '/home' | '/saved'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
-  ChatLazyRoute: typeof ChatLazyRoute
-  DictionaryLazyRoute: typeof DictionaryLazyRoute
+  DictionaryRoute: typeof DictionaryRoute
   HomeLazyRoute: typeof HomeLazyRoute
-  ReaderLazyRoute: typeof ReaderLazyRoute
   SavedLazyRoute: typeof SavedLazyRoute
 }
 
@@ -106,13 +79,6 @@ declare module '@tanstack/react-router' {
       path: '/saved'
       fullPath: '/saved'
       preLoaderRoute: typeof SavedLazyRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/reader': {
-      id: '/reader'
-      path: '/reader'
-      fullPath: '/reader'
-      preLoaderRoute: typeof ReaderLazyRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/home': {
@@ -126,14 +92,7 @@ declare module '@tanstack/react-router' {
       id: '/dictionary'
       path: '/dictionary'
       fullPath: '/dictionary'
-      preLoaderRoute: typeof DictionaryLazyRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/chat': {
-      id: '/chat'
-      path: '/chat'
-      fullPath: '/chat'
-      preLoaderRoute: typeof ChatLazyRouteImport
+      preLoaderRoute: typeof DictionaryRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/': {
@@ -148,10 +107,8 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
-  ChatLazyRoute: ChatLazyRoute,
-  DictionaryLazyRoute: DictionaryLazyRoute,
+  DictionaryRoute: DictionaryRoute,
   HomeLazyRoute: HomeLazyRoute,
-  ReaderLazyRoute: ReaderLazyRoute,
   SavedLazyRoute: SavedLazyRoute,
 }
 export const routeTree = rootRouteImport
