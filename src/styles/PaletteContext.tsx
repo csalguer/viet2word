@@ -19,3 +19,5 @@ export const withPalette = (children) => {
 }
 
 export default withPalette
+
+

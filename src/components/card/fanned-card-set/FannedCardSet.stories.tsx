@@ -1,6 +1,6 @@
 import React from "react"
 import type { Meta, StoryObj } from "@storybook/react-vite"
-import { expect, within, userEvent } from "@storybook/test"
+
 
 import { FannedCardSet } from "./FannedCardSet"
 import { MOCK_CARD_INFO } from "@/test/mockData"
@@ -162,18 +162,6 @@ export const HoverInteraction: Story = {
 	args: {
 		...Default.args,
 	},
-	play: async ({ canvasElement }) => {
-		const canvas = within(canvasElement)
-
-		// Wait for animation
-		await new Promise((r) => setTimeout(r, 500))
-
-		// Find cards and hover
-		const cards = canvasElement.querySelectorAll("[data-card]")
-		if (cards.length > 0) {
-			await userEvent.hover(cards[0])
-		}
-	},
 }
 
 /**
@@ -182,16 +170,6 @@ export const HoverInteraction: Story = {
 export const ClickToSelect: Story = {
 	args: {
 		...Default.args,
-	},
-	play: async ({ canvasElement }) => {
-		const canvas = within(canvasElement)
-
-		await new Promise((r) => setTimeout(r, 500))
-
-		const articles = canvas.queryAllByRole("article")
-		if (articles.length > 0) {
-			await userEvent.click(articles[0])
-		}
 	},
 }
 

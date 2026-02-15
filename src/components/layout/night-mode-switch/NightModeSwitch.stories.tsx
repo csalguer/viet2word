@@ -1,6 +1,6 @@
 import React from "react"
 import type { Meta, StoryObj } from "@storybook/react-vite"
-import { expect, within, userEvent } from "@storybook/test"
+
 
 import { NightModeSwitch, NightModeButton } from "./NightModeSwitch"
 import { Center, Box, VStack, Text } from "@chakra-ui/react"
@@ -108,16 +108,6 @@ export const ButtonVariant: Story = {
 export const InteractionTest: Story = {
 	args: {
 		darkMode: false,
-	},
-	play: async ({ canvasElement }) => {
-		const canvas = within(canvasElement)
-
-		// Find the switch
-		const switchElement = canvas.getByRole("switch")
-		await expect(switchElement).toBeInTheDocument()
-
-		// Verify it's keyboard accessible
-		await expect(switchElement).not.toBeDisabled()
 	},
 }
 

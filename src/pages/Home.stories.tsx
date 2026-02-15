@@ -4,9 +4,9 @@ import { Box } from "@chakra-ui/react"
 import { http, HttpResponse } from "msw"
 
 import { Home } from "./Home"
-import type { WordPublic, PaginatedResponse } from "@/types"
+import type { Word, PaginatedResponse } from "@/types"
 
-const mockWordOfDay: PaginatedResponse<WordPublic> = {
+const mockWordOfDay: PaginatedResponse<Word> = {
 	data: [
 		{
 			id: "wotd-1",

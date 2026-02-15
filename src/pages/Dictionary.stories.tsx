@@ -4,9 +4,9 @@ import { Box } from "@chakra-ui/react"
 import { http, HttpResponse } from "msw"
 
 import { Dictionary } from "./Dictionary"
-import type { WordPublic, PaginatedResponse } from "@/types"
+import type { Word, PaginatedResponse } from "@/types"
 
-const mockResults: PaginatedResponse<WordPublic> = {
+const mockResults: PaginatedResponse<Word> = {
 	data: [
 		{
 			id: "word-1",
@@ -56,7 +56,7 @@ const mockResults: PaginatedResponse<WordPublic> = {
 	total_pages: 1,
 }
 
-const emptyResults: PaginatedResponse<WordPublic> = {
+const emptyResults: PaginatedResponse<Word> = {
 	data: [],
 	count: 0,
 	page: 1,

@@ -7,7 +7,6 @@ import { ThemeModeProvider } from "../src/styles/ThemeModeContext"
 import system from "../src/theme/theme"
 import { withPalette } from "../src/styles/PaletteContext"
 import { useDarkMode } from "@vueless/storybook-dark-mode"
-import "../src/styles/tailwind.css"
 import "../src/config/i18n"
 
 const queryClient = new QueryClient({

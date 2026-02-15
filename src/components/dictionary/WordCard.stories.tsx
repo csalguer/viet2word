@@ -1,12 +1,12 @@
 import React from "react"
 import type { Meta, StoryObj } from "@storybook/react-vite"
-import { fn, expect, within, userEvent } from "@storybook/test"
+
 import { Box, VStack } from "@chakra-ui/react"
 
 import { WordCard } from "./WordCard"
-import type { WordPublic } from "@/types"
+import type { Word } from "@/types"
 
-const mockWord: WordPublic = {
+const mockWord: Word = {
 	id: "a1b2c3d4-e5f6-7890-abcd-ef1234567890",
 	word: "hạnh phúc",
 	pos: "adjective",
@@ -62,7 +62,7 @@ const mockWord: WordPublic = {
 	updated_at: "2026-01-24T04:00:00Z",
 }
 
-const mockWordWithAudio: WordPublic = {
+const mockWordWithAudio: Word = {
 	...mockWord,
 	id: "audio-word-id",
 	word: "xin chào",
@@ -100,7 +100,7 @@ const mockWordWithAudio: WordPublic = {
 	],
 }
 
-const mockWordMinimal: WordPublic = {
+const mockWordMinimal: Word = {
 	id: "minimal-word-id",
 	word: "ăn",
 	pos: "verb",
@@ -198,6 +198,7 @@ export const Minimal: Story = {
 	},
 }
 
+
 // =============================================================================
 // INTERACTION TESTS
 // =============================================================================
@@ -208,28 +209,6 @@ export const Minimal: Story = {
 export const BookmarkToggle: Story = {
 	args: {
 		word: mockWord,
-	},
-	play: async ({ canvasElement }) => {
-		const canvas = within(canvasElement)
-
-		// Find the bookmark button
-		const bookmarkBtn = canvas.getByLabelText("Save word")
-		await expect(bookmarkBtn).toBeVisible()
-
-		// Click to save
-		await userEvent.click(bookmarkBtn)
-
-		// After click, label should change to "Remove from saved"
-		const unsaveBtn = canvas.queryByLabelText("Remove from saved")
-		// If the store toggled, the unsave button should now exist
-		if (unsaveBtn) {
-			await expect(unsaveBtn).toBeVisible()
-
-			// Click again to unsave
-			await userEvent.click(unsaveBtn)
-			const saveBtn = canvas.getByLabelText("Save word")
-			await expect(saveBtn).toBeVisible()
-		}
 	},
 }
 

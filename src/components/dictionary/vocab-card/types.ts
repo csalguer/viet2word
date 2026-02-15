@@ -1,4 +1,4 @@
-import { Definition, DictionaryItem, Meaning } from "@/types"
+import { Definition, DictionaryItem, Meaning } from "../types"
 import { RefObject } from "react"
 
 export interface DictionaryItemProps {

@@ -1,10 +1,10 @@
 import { Box, HStack, VStack, Text, Badge, IconButton } from "@chakra-ui/react"
 import { IconBookmark, IconBookmarkFilled, IconVolume } from "@tabler/icons-react"
-import { WordPublic } from "@/types"
+import { Word } from "@/types"
 import { useSavedVocabStore } from "@/stores/savedVocab"
 
 interface WordCardProps {
-	word: WordPublic
+	word: Word
 }
 
 export const WordCard = ({ word }: WordCardProps) => {

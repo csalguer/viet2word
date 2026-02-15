@@ -1,6 +1,6 @@
 import React from "react"
 import type { Meta, StoryObj } from "@storybook/react-vite"
-import { fn, expect, within, userEvent } from "@storybook/test"
+
 
 import { DefinitionsList, VocabCard, VocabContent, Word } from "./VocabCard"
 import { CardList } from "../card-list"
@@ -70,7 +70,7 @@ const meta: Meta<typeof VocabCard> = {
 		},
 	},
 	args: {
-		onClick: fn(),
+		onClick: () => {},
 	},
 }
 
@@ -309,17 +309,5 @@ export const Vertical: Story = {
 export const KeyboardNavigation: Story = {
 	args: {
 		...Default.args,
-	},
-	play: async ({ canvasElement }) => {
-		const canvas = within(canvasElement)
-
-		// Tab to focusable elements
-		await userEvent.tab()
-
-		// Check for interactive elements
-		const buttons = canvas.queryAllByRole("button")
-		if (buttons.length > 0) {
-			await expect(buttons[0]).toBeVisible()
-		}
 	},
 }

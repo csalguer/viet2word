@@ -4,7 +4,7 @@ import { Input, Box, VStack, Text, Spinner, Group, InputAddon } from "@chakra-ui
 import { useDictionaryEntries } from "@/services/api"
 import { useNavigate } from "@tanstack/react-router"
 import { IconSearch } from "@tabler/icons-react"
-import { useDebounce } from "@/hooks/useDebounce" // Assuming this exists or I'll implement it inline
+
 
 export interface SearchBarProps {
 	initialValue?: string

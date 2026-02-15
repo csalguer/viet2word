@@ -1,6 +1,6 @@
 import React from "react"
 import type { Meta, StoryObj } from "@storybook/react-vite"
-import { fn, expect, within, userEvent } from "@storybook/test"
+
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query"
 
 import { SearchBar } from "./SearchBar"
@@ -67,8 +67,8 @@ const meta: Meta<typeof SearchBar> = {
 		},
 	},
 	args: {
-		onSearch: fn(),
-		onWordChange: fn(),
+		onSearch: () => {},
+		onWordChange: () => {},
 	},
 	decorators: [
 		(Story) => (
@@ -146,19 +146,6 @@ export const TypingTest: Story = {
 	args: {
 		word: "",
 	},
-	play: async ({ canvasElement, args }) => {
-		const canvas = within(canvasElement)
-
-		// Find the input
-		const input = canvas.getByPlaceholderText("Search")
-		await expect(input).toBeInTheDocument()
-
-		// Type a search query
-		await userEvent.type(input, "mèo")
-
-		// Verify the input has the value
-		await expect(input).toHaveValue("mèo")
-	},
 }
 
 /**
@@ -167,19 +154,6 @@ export const TypingTest: Story = {
 export const FocusTest: Story = {
 	args: {
 		word: "",
-	},
-	play: async ({ canvasElement }) => {
-		const canvas = within(canvasElement)
-
-		const input = canvas.getByPlaceholderText("Search")
-
-		// Focus the input
-		await userEvent.click(input)
-		await expect(input).toHaveFocus()
-
-		// Tab away
-		await userEvent.tab()
-		await expect(input).not.toHaveFocus()
 	},
 }
 

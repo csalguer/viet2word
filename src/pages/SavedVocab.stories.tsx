@@ -4,10 +4,10 @@ import { Box } from "@chakra-ui/react"
 import { http, HttpResponse } from "msw"
 
 import { SavedVocab } from "./SavedVocab"
-import type { WordPublic } from "@/types"
+import type { Word } from "@/types"
 import { useSavedVocabStore } from "@/stores/savedVocab"
 
-const mockWords: WordPublic[] = [
+const mockWords: Word[] = [
 	{
 		id: "word-1",
 		word: "yêu",

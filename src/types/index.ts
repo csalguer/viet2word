@@ -10,7 +10,7 @@ export type Heroicon = React.FC<IconProps>
 
 // === Backend-aligned types ===
 
-export interface SensePublic {
+export interface Sense {
 	id: string
 	word_id: string
 	glosses: string[] | null
@@ -24,7 +24,7 @@ export interface SensePublic {
 	derived: Record<string, unknown>[] | null
 }
 
-export interface SoundPublic {
+export interface Sound {
 	id: string
 	word_id: string
 	ipa: string | null
@@ -32,14 +32,14 @@ export interface SoundPublic {
 	tags: string[] | null
 }
 
-export interface FormPublic {
+export interface Form {
 	id: string
 	word_id: string
 	form: string | null
 	tags: string[] | null
 }
 
-export interface WordPublic {
+export interface Word {
 	id: string
 	word: string
 	pos: string
@@ -47,9 +47,9 @@ export interface WordPublic {
 	etymology_text: string | null
 	head_templates: Record<string, unknown>[] | null
 	etymology_templates: Record<string, unknown>[] | null
-	senses: SensePublic[]
-	sounds: SoundPublic[]
-	forms: FormPublic[]
+	senses: Sense[]
+	sounds: Sound[]
+	forms: Form[]
 	created_at: string
 	updated_at: string
 }
@@ -58,9 +58,8 @@ export interface PaginatedResponse<T> {
 	data: T[]
 	count: number
 	page: number
-	limit: number
 	total_pages: number
 }
 
 // Legacy alias for compatibility during migration
-export type DictionaryItem = WordPublic
+export type DictionaryItem = Word

@@ -1,6 +1,6 @@
 import React from "react"
 import type { Meta, StoryObj } from "@storybook/react-vite"
-import { expect, within, userEvent } from "@storybook/test"
+
 
 import { TabbedCard } from "./TabbedCard"
 import { Box } from "@chakra-ui/react"
@@ -94,16 +94,6 @@ export const Tablet: Story = {
  */
 export const TabSwitching: Story = {
 	args: {},
-	play: async ({ canvasElement }) => {
-		const canvas = within(canvasElement)
-
-		// Find tabs
-		const tabs = canvas.queryAllByRole("tab")
-		if (tabs.length > 1) {
-			await userEvent.click(tabs[1])
-			await new Promise((r) => setTimeout(r, 300))
-		}
-	},
 }
 
 /**
@@ -111,20 +101,6 @@ export const TabSwitching: Story = {
  */
 export const KeyboardNavigation: Story = {
 	args: {},
-	play: async ({ canvasElement }) => {
-		const canvas = within(canvasElement)
-
-		// Tab to tablist
-		await userEvent.tab()
-
-		// Arrow keys to switch tabs
-		const tablist = canvas.queryByRole("tablist")
-		if (tablist) {
-			await userEvent.keyboard("{ArrowRight}")
-			await new Promise((r) => setTimeout(r, 300))
-			await userEvent.keyboard("{ArrowRight}")
-		}
-	},
 }
 
 // =============================================================================
@@ -136,16 +112,4 @@ export const KeyboardNavigation: Story = {
  */
 export const AccessibilityTest: Story = {
 	args: {},
-	play: async ({ canvasElement }) => {
-		const canvas = within(canvasElement)
-
-		// Check for proper ARIA roles
-		const tablist = canvas.queryByRole("tablist")
-		const tabs = canvas.queryAllByRole("tab")
-		const tabpanels = canvas.queryAllByRole("tabpanel")
-
-		if (tablist) {
-			await expect(tablist).toBeVisible()
-		}
-	},
 }

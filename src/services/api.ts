@@ -1,6 +1,6 @@
 import { useQuery } from "@tanstack/react-query"
 import axios, { AxiosError } from "axios"
-import { PaginatedResponse, WordPublic } from "./types"
+import { PaginatedResponse, Word } from "@/types"
 
 // Centralize API client config
 const api = axios.create({
@@ -29,7 +29,7 @@ export const fetchDictionaryEntries = async (
 	const skip = (page - 1) * limit
 	const params = { skip, limit, search }
 	
-	const response = await api.get<PaginatedResponse<WordPublic>>("/words", {
+	const response = await api.get<PaginatedResponse<Word>>("/words", {
 		params,
 	})
 	return response.data
@@ -49,7 +49,7 @@ export const useDictionaryEntries = (
 }
 
 export const fetchWord = async (lookup: string) => {
-	const response = await api.get<WordPublic>(`/words/${lookup}`)
+	const response = await api.get<Word>(`/words/${lookup}`)
 	return response.data
 }
 
@@ -66,17 +66,9 @@ export const useWord = (lookup: string) => {
 export const fetchWordsByIds = async (ids: string[]) => {
     if (ids.length === 0) return [];
     
-    // Ideally backend should support batch fetch, e.g. /words?ids=1,2,3
-    // For now, we'll do parallel requests (limit concurrency in real app)
-    // Or if backend supports text search that finds exact matches?
-    
-    // Strategy: We will use Promise.all. A production app needs a batch endpoint.
-    const requests = ids.map(id => 
-        api.get<WordPublic>(`/words/${id}`).then(r => r.data).catch(() => null)
-    );
-    
-    const results = await Promise.all(requests);
-    return results.filter(w => w !== null) as WordPublic[];
+    // Use the optimized batch endpoint
+    const response = await api.post<Word[]>("/words/batch", ids);
+    return response.data;
 }
 
 export const useSavedWords = (ids: string[]) => {

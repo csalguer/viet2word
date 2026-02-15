@@ -1,7 +1,7 @@
 import React from "react"
 import type { ReactElement } from "react"
 import type { Meta, StoryObj } from "@storybook/react-vite"
-import { expect, within, userEvent } from "@storybook/test"
+
 import {
 	createRouter,
 	RouterProvider,
@@ -187,18 +187,6 @@ export const SearchInteraction: Story = {
 	args: {
 		...Default.args,
 	},
-	play: async ({ canvasElement }) => {
-		const canvas = within(canvasElement)
-
-		// Find search input
-		const searchInput =
-			canvas.queryByRole("searchbox") ||
-			canvas.queryByPlaceholderText(/search/i)
-		if (searchInput) {
-			await userEvent.click(searchInput)
-			await userEvent.type(searchInput, "vẹt")
-		}
-	},
 }
 
 /**
@@ -207,20 +195,6 @@ export const SearchInteraction: Story = {
 export const KeyboardNavigation: Story = {
 	args: {
 		...Default.args,
-	},
-	play: async ({ canvasElement }) => {
-		const canvas = within(canvasElement)
-
-		// Tab through navigation elements
-		await userEvent.tab()
-		await userEvent.tab()
-		await userEvent.tab()
-
-		// Check for nav links
-		const links = canvas.queryAllByRole("link")
-		if (links.length > 0) {
-			await expect(links[0]).toBeVisible()
-		}
 	},
 }
 

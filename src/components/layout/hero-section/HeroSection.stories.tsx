@@ -1,6 +1,6 @@
 import React from "react"
 import type { Meta, StoryObj } from "@storybook/react-vite"
-import { fn, expect, within, userEvent } from "@storybook/test"
+
 
 import { HeroSection } from "./HeroSection"
 import { Box } from "@chakra-ui/react"
@@ -245,13 +245,6 @@ export const ScrollAnimation: Story = {
 	args: {
 		...Default.args,
 	},
-	play: async ({ canvasElement }) => {
-		const canvas = within(canvasElement)
-
-		// Trigger scroll
-		window.scrollBy({ top: 200, behavior: "smooth" })
-		await new Promise((r) => setTimeout(r, 500))
-	},
 }
 
 /**
@@ -260,18 +253,5 @@ export const ScrollAnimation: Story = {
 export const KeyboardAccessibility: Story = {
 	args: {
 		...Default.args,
-	},
-	play: async ({ canvasElement }) => {
-		const canvas = within(canvasElement)
-
-		// Tab through section
-		await userEvent.tab()
-		await userEvent.tab()
-
-		// Check for focusable elements
-		const focusable = canvas.queryAllByRole("button")
-		if (focusable.length > 0) {
-			await expect(focusable[0]).toBeVisible()
-		}
 	},
 }

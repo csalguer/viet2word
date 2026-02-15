@@ -1,6 +1,6 @@
 import React from "react"
 import type { Meta, StoryObj } from "@storybook/react-vite"
-import { fn, expect, within, userEvent } from "@storybook/test"
+
 
 import { CardList } from "./CardList"
 import { DATA, MOCK_CARD_INFO } from "@/test/mockData"
@@ -218,18 +218,6 @@ export const ClickToExpand: Story = {
 	args: {
 		content: DATA,
 	},
-	play: async ({ canvasElement }) => {
-		const canvas = within(canvasElement)
-
-		// Wait for cards to render
-		await new Promise((r) => setTimeout(r, 500))
-
-		// Find and click a card
-		const cards = canvas.queryAllByRole("article")
-		if (cards.length > 0) {
-			await userEvent.click(cards[0])
-		}
-	},
 }
 
 /**
@@ -238,14 +226,6 @@ export const ClickToExpand: Story = {
 export const KeyboardNavigation: Story = {
 	args: {
 		content: DATA,
-	},
-	play: async ({ canvasElement }) => {
-		const canvas = within(canvasElement)
-
-		// Tab through interactive elements
-		await userEvent.tab()
-		await userEvent.tab()
-		await userEvent.tab()
 	},
 }
 

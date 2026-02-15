@@ -1144,6 +1144,16 @@
   resolved "https://registry.yarnpkg.com/@floating-ui/utils/-/utils-0.2.10.tgz#a2a1e3812d14525f725d011a73eceb41fef5bc1c"
   integrity sha512-aGTxbpbg8/b5JfU1HXSrbH3wXZuLPJcNEcZQFMxLs3oSzgtVu6nFPkbbGGUvBcUjKV2YyB9Wxxabo+HEH9tcRQ==
 
+"@fontsource/inter@^5.2.8":
+  version "5.2.8"
+  resolved "https://registry.yarnpkg.com/@fontsource/inter/-/inter-5.2.8.tgz#10c95d877d972c7de5bd4592309d42fb6a5e1a5b"
+  integrity sha512-P6r5WnJoKiNVV+zvW2xM13gNdFhAEpQ9dQJHt3naLvfg+LkF2ldgSLiF4T41lf1SQCM9QmkqPTn4TH568IRagg==
+
+"@fontsource/jetbrains-mono@^5.2.8":
+  version "5.2.8"
+  resolved "https://registry.yarnpkg.com/@fontsource/jetbrains-mono/-/jetbrains-mono-5.2.8.tgz#56a1bbb8a36a47fe480d3e90b30b520c89853aa5"
+  integrity sha512-6w8/SG4kqvIMu7xd7wt6x3idn1Qux3p9N62s6G3rfldOUYHpWcc2FKrqf+Vo44jRvqWj2oAtTHrZXEP23oSKwQ==
+
 "@headlessui/react@^2.2.9":
   version "2.2.9"
   resolved "https://registry.yarnpkg.com/@headlessui/react/-/react-2.2.9.tgz#213f78534c86e03a7c986d2c2abe1270622b3e13"
@@ -1975,9 +1985,9 @@
     ts-dedent "^2.0.0"
 
 "@storybook/addon-links@^10.1.4":
-  version "10.1.10"
-  resolved "https://registry.yarnpkg.com/@storybook/addon-links/-/addon-links-10.1.10.tgz#fc405897eff95ad5a70659063bb094cc91901f01"
-  integrity sha512-SVKFDb14mne16QMGkmOEk+T4NLvCuFJJ1ecebQ01cPiG5gM72LhzYkAro717Aizd6owyMqcWs0Rsfwl09qi5zA==
+  version "10.2.8"
+  resolved "https://registry.yarnpkg.com/@storybook/addon-links/-/addon-links-10.2.8.tgz#72eaf02aba550cc5c166feff5e874a3add286741"
+  integrity sha512-5yy8+6z1OLxrQGpLzwIChO53hCMGVMMrRSG98IslMzhExEbK4+prf6gKMA0t4SdWAjkKgzbRz2YNnv9N6rEO5Q==
   dependencies:
     "@storybook/global" "^5.0.0"
 
@@ -3225,6 +3235,14 @@
   dependencies:
     "@vitest/pretty-format" "4.0.15"
     tinyrainbow "^3.0.3"
+
+"@vueless/storybook-dark-mode@^10.0.7":
+  version "10.0.7"
+  resolved "https://registry.yarnpkg.com/@vueless/storybook-dark-mode/-/storybook-dark-mode-10.0.7.tgz#86c849f0db1c72179a06b3191087ac1e2878e2a6"
+  integrity sha512-mI+tqHykUMlhdwu7PlZ6/wvq1aZqn4DWoUbO4GMhJxLnrDSJn4zKaeEtGXp4KTO5Myv/T6k2iteIe7MSTAZVDQ==
+  dependencies:
+    "@storybook/global" "^5.0.0"
+    lodash-es "^4.17.23"
 
 "@webassemblyjs/ast@1.14.1", "@webassemblyjs/ast@^1.14.1":
   version "1.14.1"
@@ -7616,6 +7634,11 @@ locate-path@^7.2.0:
   dependencies:
     p-locate "^6.0.0"
 
+lodash-es@^4.17.23:
+  version "4.17.23"
+  resolved "https://registry.yarnpkg.com/lodash-es/-/lodash-es-4.17.23.tgz#58c4360fd1b5d33afc6c0bbd3d1149349b1138e0"
+  integrity sha512-kVI48u3PZr38HdYz98UmfPnXl2DXrpdctLrFLCd3kOx1xUkOmpFPx7gCWWM5MPkL/fD8zb+Ph0QzjGFs4+hHWg==
+
 lodash.camelcase@^4.3.0:
   version "4.3.0"
   resolved "https://registry.yarnpkg.com/lodash.camelcase/-/lodash.camelcase-4.3.0.tgz#b28aa6288a2b9fc651035c7711f65ab6190331a6"
@@ -10076,11 +10099,6 @@ tagged-tag@^1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/tagged-tag/-/tagged-tag-1.0.0.tgz#a0b5917c2864cba54841495abfa3f6b13edcf4d6"
   integrity sha512-yEFYrVhod+hdNyx7g5Bnkkb0G6si8HJurOoOEgC8B/O0uXLHlaey/65KRv6cuWBNhBgHKAROVpc7QyYqE5gFng==
-
-tailwind-merge@^3.4.0:
-  version "3.4.0"
-  resolved "https://registry.yarnpkg.com/tailwind-merge/-/tailwind-merge-3.4.0.tgz#5a264e131a096879965f1175d11f8c36e6b64eca"
-  integrity sha512-uSaO4gnW+b3Y2aWoWfFpX62vn2sR3skfhbjsEnaBI81WD1wBLlHZe5sWf0AqjksNdYTbGBEd0UasQMT3SNV15g==
 
 tailwindcss@4.1.18, tailwindcss@^4.1.17:
   version "4.1.18"
